@@ -1,6 +1,7 @@
+// src/pages/flow_builder_page.jsx
 import React from 'react';
+import { Box } from '@chakra-ui/react';
 import FlowBuilder from '../components/flow_builder/flow_builder';
-// import './flow_builder_page.scss'; // Optional: create a SCSS file for this page
 
 /**
  * Flow Builder Page
@@ -11,9 +12,9 @@ import FlowBuilder from '../components/flow_builder/flow_builder';
  */
 const FlowBuilderPage = () => {
   return (
-      <div className="flow-builder-page">
-        <FlowBuilder />
-      </div>
+    <Box w="100vw" h="100vh" overflow="hidden">
+      <FlowBuilder />
+    </Box>
   );
 };
 

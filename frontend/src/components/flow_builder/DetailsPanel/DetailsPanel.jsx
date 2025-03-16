@@ -1,29 +1,66 @@
+// src/components/flow_builder/DetailsPanel/DetailsPanel.jsx
 import React, { useState } from 'react';
-import './DetailsPanel.scss';
+import { 
+  Box, 
+  Flex, 
+  VStack, 
+  Heading, 
+  Button, 
+  IconButton, 
+  Text, 
+  Input, 
+  Tabs, 
+  TabList, 
+  TabPanels, 
+  Tab, 
+  TabPanel, 
+  FormControl, 
+  FormLabel, 
+  Switch, 
+  HStack, 
+  Tag, 
+  TagLabel, 
+  TagCloseButton,
+  Code,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { 
+  FiX, 
+  FiDatabase, 
+  FiActivity, 
+  FiSliders, 
+  FiCode, 
+  FiEye, 
+  FiPlus
+} from 'react-icons/fi';
 
-// Import SVG icons
-import closeIcon from '../../../assets/icons/close-icon.svg';
-import dataIcon from '../../../assets/icons/data-icon.svg';
-import taskIcon from '../../../assets/icons/task-icon.svg';
-import parametersIcon from '../../../assets/icons/parameters-icon.svg';
-import previewIcon from '../../../assets/icons/preview-icon.svg';
-
-const DetailsPanel = ({ selectedNode, onClose }) => {
-  const [activeTab, setActiveTab] = useState('properties');
+const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode }) => {
+  const [showCode, setShowCode] = useState(false);
+  const [executeByDefault, setExecuteByDefault] = useState(false);
+  
+  const bgColor = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const formBgColor = useColorModeValue('gray.50', 'gray.700');
   
   if (!selectedNode) {
     return (
-      <div className="details-panel details-panel--empty">
-        <div className="details-panel__header">
-          <h2 className="details-panel__title">Details</h2>
-          <button className="details-panel__close" onClick={onClose}>
-            <img src={closeIcon} alt="Close" />
-          </button>
-        </div>
-        <div className="details-panel__empty-message">
+      <Box 
+        w="384px"
+        h="100%"
+        bg={bgColor}
+        borderLeft="1px solid"
+        borderColor={borderColor}
+        display="flex"
+        flexDirection="column"
+      >
+        <Flex justify="space-between" align="center" p={4} borderBottom="1px solid" borderColor={borderColor}>
+          <Heading as="h2" size="md">Details</Heading>
+          <IconButton icon={<FiX />} variant="ghost" onClick={onClose} aria-label="Close" />
+        </Flex>
+        <Flex flex="1" align="center" justify="center" p={6} textAlign="center" color="gray.500">
           Select a node to view and edit its properties
-        </div>
-      </div>
+        </Flex>
+      </Box>
     );
   }
   
@@ -31,116 +68,190 @@ const DetailsPanel = ({ selectedNode, onClose }) => {
   const getNodeIcon = () => {
     switch (selectedNode.type) {
       case 'data':
-        return <img src={dataIcon} alt="Data" />;
+        return <FiDatabase color="blue.500" />;
       case 'task':
-        return <img src={taskIcon} alt="Task" />;
+        return <FiActivity color="green.500" />;
       case 'parameters':
-        return <img src={parametersIcon} alt="Parameters" />;
+        return <FiSliders color="purple.500" />;
       default:
         return null;
     }
   };
+
+  const handleNameChange = (e) => {
+    if (onUpdateNode) {
+      onUpdateNode(selectedNode.id, { name: e.target.value });
+    }
+  };
+  
+  const handleDeleteNode = () => {
+    if (onDeleteNode) {
+      onDeleteNode(selectedNode.id);
+      onClose();
+    }
+  };
+  
+  const handleApplyChanges = () => {
+    // In a real app, this would save all pending changes
+    // For this example, changes are applied immediately
+  };
+  
+  const getTypeColor = () => {
+    switch (selectedNode.type) {
+      case 'data': return 'blue.500';
+      case 'task': return 'green.500';
+      case 'parameters': return 'purple.500';
+      default: return 'gray.500';
+    }
+  };
   
   return (
-    <div className="details-panel">
-      <div className="details-panel__header">
-        <div className="details-panel__header-content">
-          <div className="details-panel__icon">
+    <Box 
+      w={showCode ? "700px" : "384px"}
+      h="100%"
+      bg={bgColor}
+      borderLeft="1px solid"
+      borderColor={borderColor}
+      display="flex"
+      flexDirection="column"
+      transition="width 0.3s"
+    >
+      <Flex justify="space-between" align="center" p={4} borderBottom="1px solid" borderColor={borderColor}>
+        <Flex align="center" gap={2}>
+          <Flex 
+            p={1} 
+            borderRadius="md" 
+            border="1px solid" 
+            borderColor={getTypeColor()}
+          >
             {getNodeIcon()}
-          </div>
-          <h2 className="details-panel__title">{selectedNode.name}</h2>
-        </div>
-        <button className="details-panel__close" onClick={onClose}>
-          <img src={closeIcon} alt="Close" />
-        </button>
-      </div>
+          </Flex>
+          <Heading as="h2" size="md">{selectedNode.name}</Heading>
+        </Flex>
+        <Flex align="center" gap={3}>
+          <Button 
+            leftIcon={<FiCode />} 
+            size="sm"
+            variant={showCode ? "solid" : "outline"}
+            onClick={() => setShowCode(!showCode)}
+          >
+            Code
+          </Button>
+          <IconButton 
+            icon={<FiX />} 
+            variant="ghost" 
+            onClick={onClose} 
+            aria-label="Close" 
+          />
+        </Flex>
+      </Flex>
       
-      <div className="details-panel__tabs">
-        <button 
-          className={`details-panel__tab ${activeTab === 'properties' ? 'details-panel__tab--active' : ''}`}
-          onClick={() => setActiveTab('properties')}
-        >
-          Properties
-        </button>
-        <button 
-          className={`details-panel__tab ${activeTab === 'code' ? 'details-panel__tab--active' : ''}`}
-          onClick={() => setActiveTab('code')}
-        >
-          Code
-        </button>
-        <button 
-          className={`details-panel__tab ${activeTab === 'preview' ? 'details-panel__tab--active' : ''}`}
-          onClick={() => setActiveTab('preview')}
-        >
-          Preview
-        </button>
-      </div>
-      
-      <div className="details-panel__content">
-        {activeTab === 'properties' && (
-          <div className="details-panel__properties">
-            <div className="details-panel__property">
-              <div className="details-panel__property-label">ID</div>
-              <div className="details-panel__property-value">{selectedNode.id}</div>
-            </div>
-            <div className="details-panel__property">
-              <div className="details-panel__property-label">Type</div>
-              <div className="details-panel__property-value">{selectedNode.type}</div>
-            </div>
-            <div className="details-panel__property">
-              <div className="details-panel__property-label">Position</div>
-              <div className="details-panel__property-value">x: {Math.round(selectedNode.x)}, y: {Math.round(selectedNode.y)}</div>
-            </div>
-            <div className="details-panel__property">
-              <div className="details-panel__property-label">Name</div>
-              <input 
-                type="text" 
-                className="details-panel__property-input" 
-                value={selectedNode.name} 
-                onChange={(e) => {
-                  // Update node name
-                  // onUpdateNode(selectedNode.id, { name: e.target.value });
-                }} 
-              />
-            </div>
-            
-            {selectedNode.type === 'parameters' && (
-              <div className="details-panel__section">
-                <h3 className="details-panel__section-title">Parameters</h3>
-                <div className="details-panel__parameters">
-                  <div className="details-panel__parameter">
-                    <input type="text" className="details-panel__parameter-key" placeholder="Key" />
-                    <input type="text" className="details-panel__parameter-value" placeholder="Value" />
-                    <button className="details-panel__parameter-add">+</button>
-                  </div>
-                </div>
-              </div>
-            )}
-            
-            <div className="details-panel__section">
-              <h3 className="details-panel__section-title">Tags</h3>
-              <div className="details-panel__tags">
-                <input type="text" className="details-panel__tags-input" placeholder="Add tags..." />
-                <div className="details-panel__tags-list">
-                  <div className="details-panel__tag">
-                    Data
-                    <button className="details-panel__tag-remove">×</button>
-                  </div>
-                  <div className="details-panel__tag">
-                    Pipeline
-                    <button className="details-panel__tag-remove">×</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+      <Tabs flex="1" display="flex" flexDirection="column">
+        <TabList mx={4} mt={2}>
+          <Tab>Properties</Tab>
+          <Tab>Code</Tab>
+          <Tab>Preview</Tab>
+        </TabList>
         
-        {activeTab === 'code' && (
-          <div className="details-panel__code">
-            <pre className="details-panel__code-editor">
-              <code>
-                {`import pandas as pd
+        <TabPanels flex="1" overflow="hidden">
+          <TabPanel p={4} overflow="auto" h="100%">
+            <VStack spacing={6} align="stretch">
+              <FormControl>
+                <FormLabel fontSize="sm" fontWeight="medium">Template Type</FormLabel>
+                <Box py={2} px={3} bg={formBgColor} borderRadius="md" fontSize="sm">
+                  {selectedNode.type}
+                </Box>
+              </FormControl>
+              
+              <FormControl>
+                <FormLabel htmlFor="node-name" fontSize="sm" fontWeight="medium">Block Name</FormLabel>
+                <Input 
+                  id="node-name"
+                  value={selectedNode.name} 
+                  onChange={handleNameChange}
+                />
+              </FormControl>
+              
+              <FormControl>
+                <FormLabel htmlFor="node-id" fontSize="sm" fontWeight="medium">ID</FormLabel>
+                <Box py={2} px={3} bg={formBgColor} borderRadius="md" fontSize="sm">
+                  {selectedNode.id}
+                </Box>
+              </FormControl>
+              
+              <Flex justify="space-between" align="center">
+                <FormLabel htmlFor="execute-default" fontSize="sm" fontWeight="medium" mb={0}>
+                  Execute by default
+                </FormLabel>
+                <Switch 
+                  id="execute-default" 
+                  isChecked={executeByDefault}
+                  onChange={(e) => setExecuteByDefault(e.target.checked)}
+                />
+              </Flex>
+              
+              {executeByDefault && (
+                <FormControl>
+                  <FormLabel htmlFor="default-value" fontSize="sm" fontWeight="medium">Default Value</FormLabel>
+                  <Input 
+                    id="default-value"
+                    placeholder="Enter default value"
+                  />
+                </FormControl>
+              )}
+              
+              {selectedNode.type === 'parameters' && (
+                <VStack spacing={3} align="stretch">
+                  <FormLabel fontSize="sm" fontWeight="medium">HyperParameters</FormLabel>
+                  <Flex gap={2} mb={2}>
+                    <Input placeholder="Key" flex="1" />
+                    <Input placeholder="Value" flex="1" />
+                    <IconButton icon={<FiPlus />} variant="outline" aria-label="Add" />
+                  </Flex>
+                </VStack>
+              )}
+              
+              <VStack spacing={3} align="stretch">
+                <FormLabel fontSize="sm" fontWeight="medium">Tags</FormLabel>
+                <Input placeholder="Add tags..." mb={2} />
+                
+                <Flex wrap="wrap" gap={2}>
+                  <Tag size="sm" borderRadius="md" variant="subtle" colorScheme="blue">
+                    <TagLabel>Data</TagLabel>
+                    <TagCloseButton />
+                  </Tag>
+                  <Tag size="sm" borderRadius="md" variant="subtle" colorScheme="green">
+                    <TagLabel>Pipeline</TagLabel>
+                    <TagCloseButton />
+                  </Tag>
+                </Flex>
+              </VStack>
+            </VStack>
+          </TabPanel>
+          
+          <TabPanel p={0} h="100%" position="relative">
+            {showCode && (
+              <Box 
+                position="absolute" 
+                left={0} 
+                top={0} 
+                h="100%" 
+                w="304px" 
+                borderRight="1px solid" 
+                borderColor={borderColor} 
+                overflow="auto" 
+                bg={formBgColor}
+              >
+                <Code
+                  display="block"
+                  whiteSpace="pre"
+                  fontFamily="mono"
+                  p={4}
+                  fontSize="sm"
+                  overflowX="auto"
+                  w="100%"
+                >
+{`import pandas as pd
 
 def ${selectedNode.name.toLowerCase()}(data):
     """
@@ -158,26 +269,47 @@ def ${selectedNode.name.toLowerCase()}(data):
     # Add your processing logic here
     
     return result`}
-              </code>
-            </pre>
-          </div>
-        )}
-        
-        {activeTab === 'preview' && (
-          <div className="details-panel__preview">
-            <div className="details-panel__preview-placeholder">
-              <img src={previewIcon} alt="Preview" />
-              <p>No preview available for this node.</p>
-            </div>
-          </div>
-        )}
-      </div>
+                </Code>
+              </Box>
+            )}
+            
+            <Flex 
+              h="100%" 
+              ml={showCode ? "304px" : 0} 
+              p={4}
+              align="center"
+              justify="center"
+              color="gray.500"
+              textAlign="center"
+            >
+              {showCode ? (
+                <Box>
+                  <Text>View code on the left panel</Text>
+                  <Text fontSize="sm" mt={2}>Toggle code button to hide</Text>
+                </Box>
+              ) : (
+                <Box>
+                  <Box as={FiCode} size="48px" mx="auto" mb={4} opacity={0.3} />
+                  <Text>Toggle code button to view code</Text>
+                </Box>
+              )}
+            </Flex>
+          </TabPanel>
+          
+          <TabPanel p={4} h="100%">
+            <Flex h="100%" direction="column" align="center" justify="center" textAlign="center" color="gray.500">
+              <Box as={FiEye} size="48px" mb={4} opacity={0.3} />
+              <Text>No preview available for this node.</Text>
+            </Flex>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
       
-      <div className="details-panel__footer">
-        <button className="details-panel__button details-panel__button--secondary">Delete</button>
-        <button className="details-panel__button details-panel__button--primary">Apply Changes</button>
-      </div>
-    </div>
+      <Flex justify="flex-end" gap={3} p={4} borderTop="1px solid" borderColor={borderColor}>
+        <Button colorScheme="red" onClick={handleDeleteNode}>Delete</Button>
+        <Button colorScheme="blue" onClick={handleApplyChanges}>Apply Changes</Button>
+      </Flex>
+    </Box>
   );
 };
 

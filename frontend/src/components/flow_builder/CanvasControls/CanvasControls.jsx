@@ -1,36 +1,107 @@
+// src/components/flow_builder/CanvasControls/CanvasControls.jsx
 import React from 'react';
-import './CanvasControls.scss';
+import { 
+  Box, 
+  VStack, 
+  IconButton, 
+  Text, 
+  Divider, 
+  Tooltip,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { 
+  FiZoomIn, 
+  FiZoomOut, 
+  FiMaximize2, 
+  FiRotateCcw,
+  FiCamera 
+} from 'react-icons/fi';
 
-// Import SVG icons
-import zoomInIcon from '../../../assets/icons/zoom-in-icon.svg';
-import zoomOutIcon from '../../../assets/icons/zoom-out-icon.svg';
-import fitViewIcon from '../../../assets/icons/fit-view-icon.svg';
-import orientationIcon from '../../../assets/icons/orientation-icon.svg';
-import screenshotIcon from '../../../assets/icons/screenshot-icon.svg';
-
-const CanvasControls = ({ onZoomIn, onZoomOut, onFitView, onToggleOrientation, onScreenshot }) => {
+const CanvasControls = ({ 
+  onZoomIn, 
+  onZoomOut, 
+  onFitView, 
+  onToggleOrientation, 
+  onScreenshot,
+  zoomLevel 
+}) => {
+  const bgColor = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  
   return (
-    <div className="canvas-controls">
-      <div className="canvas-controls__group">
-        <button className="canvas-controls__button" onClick={onZoomIn} title="Zoom In">
-          <img src={zoomInIcon} alt="Zoom In" />
-        </button>
-        <button className="canvas-controls__button" onClick={onZoomOut} title="Zoom Out">
-          <img src={zoomOutIcon} alt="Zoom Out" />
-        </button>
-        <button className="canvas-controls__button" onClick={onFitView} title="Fit View">
-          <img src={fitViewIcon} alt="Fit View" />
-        </button>
-      </div>
-      <div className="canvas-controls__group">
-        <button className="canvas-controls__button" onClick={onToggleOrientation} title="Toggle Orientation">
-          <img src={orientationIcon} alt="Toggle Orientation" />
-        </button>
-        <button className="canvas-controls__button" onClick={onScreenshot} title="Screenshot">
-          <img src={screenshotIcon} alt="Screenshot" />
-        </button>
-      </div>
-    </div>
+    <Box
+      position="absolute"
+      right="2"
+      bottom="4"
+      bg={bgColor}
+      borderRadius="lg"
+      border="1px solid"
+      borderColor={borderColor}
+      boxShadow="sm"
+      p={2}
+    >
+      <VStack spacing={2} align="center">
+        <Text textAlign="center" mb={1} fontWeight="medium" fontSize="sm">
+          {Math.round(zoomLevel * 100)}%
+        </Text>
+        
+        <VStack spacing={2}>
+          <Tooltip label="Zoom In" placement="left" hasArrow>
+            <IconButton
+              icon={<FiZoomIn />}
+              aria-label="Zoom In"
+              onClick={onZoomIn}
+              variant="ghost"
+              size="sm"
+            />
+          </Tooltip>
+          
+          <Tooltip label="Zoom Out" placement="left" hasArrow>
+            <IconButton
+              icon={<FiZoomOut />}
+              aria-label="Zoom Out"
+              onClick={onZoomOut}
+              variant="ghost"
+              size="sm"
+            />
+          </Tooltip>
+          
+          <Tooltip label="Fit to View" placement="left" hasArrow>
+            <IconButton
+              icon={<FiMaximize2 />}
+              aria-label="Fit to View"
+              onClick={onFitView}
+              variant="ghost"
+              size="sm"
+            />
+          </Tooltip>
+        </VStack>
+        
+        <Divider />
+        
+        <VStack spacing={2}>
+          <Tooltip label="Toggle Orientation" placement="left" hasArrow>
+            <IconButton
+              icon={<FiRotateCcw />}
+              aria-label="Toggle Orientation"
+              onClick={onToggleOrientation}
+              variant="ghost"
+              size="sm"
+            />
+          </Tooltip>
+          
+          <Tooltip label="Screenshot" placement="left" hasArrow>
+            <IconButton
+              icon={<FiCamera />}
+              aria-label="Screenshot"
+              onClick={onScreenshot}
+              variant="ghost"
+              size="sm"
+            />
+          </Tooltip>
+        </VStack>
+      </VStack>
+    </Box>
   );
 };
 
