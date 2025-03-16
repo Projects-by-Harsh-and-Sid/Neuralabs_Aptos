@@ -1,8 +1,13 @@
-// src/components/BlocksPanel/BlocksPanel.js
 import React, { useState } from 'react';
 import './BlocksPanel.scss';
 
-// Make NODE_TYPES available for styling
+// Import SVG files
+import dataIcon from '../../../assets/icons/data-icon.svg';
+import taskIcon from '../../../assets/icons/task-icon.svg';
+import parametersIcon from '../../../assets/icons/parameters-icon.svg';
+import closeIcon from '../../../assets/icons/close-icon.svg';
+
+// Define color variables
 const variables = {
   "$blue-300": "#00bcff",
   "$green-300": "#31e27b",
@@ -13,30 +18,17 @@ const variables = {
 const NODE_TYPES = {
   data: {
     name: 'Data',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 5C21 6.65685 16.9706 8 12 8C7.02944 8 3 6.65685 3 5M21 5C21 3.34315 16.9706 2 12 2C7.02944 2 3 3.34315 3 5M21 5V19C21 20.6569 16.9706 22 12 22C7.02944 22 3 20.6569 3 19V5M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: dataIcon,
     color: variables.$blue-300,
   },
   task: {
     name: 'Task',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 6H20M9 12H20M9 18H20M5 6V6.01M5 12V12.01M5 18V18.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: taskIcon,
     color: variables.$green-300,
   },
   parameters: {
     name: 'Parameters',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2H8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: parametersIcon,
     color: variables.$purple-300,
   },
 };
@@ -67,9 +59,7 @@ const BlocksPanel = ({ onAddNode }) => {
             className="blocks-panel__search-input"
           />
           <button className="blocks-panel__search-clear" onClick={() => setSearchTerm('')}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src={closeIcon} alt="Clear search" />
           </button>
         </div>
       </div>
@@ -102,7 +92,7 @@ const BlocksPanel = ({ onAddNode }) => {
                   onDragStart={(e) => handleDragStart(e, key)}
                 >
                   <div className="blocks-panel__item-icon" style={{ backgroundColor: nodeType.color }}>
-                    {nodeType.icon}
+                    <img src={nodeType.icon} alt={nodeType.name} />
                   </div>
                   <span className="blocks-panel__item-name">{nodeType.name}</span>
                 </div>
@@ -121,7 +111,5 @@ const BlocksPanel = ({ onAddNode }) => {
     </div>
   );
 };
-
-
 
 export default BlocksPanel;

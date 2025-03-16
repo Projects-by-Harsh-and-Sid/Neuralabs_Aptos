@@ -1,5 +1,5 @@
-// src/components/FlowCanvas/FlowCanvas.scss
-@use '../../styles/variables' as variables;
+// src/components/FlowCanvas/FlowCanvas.scss@use '../../../styles/variables' as variables;
+@use '../../../styles/variables' as variables;
 
 .flow-canvas {
   flex: 1;

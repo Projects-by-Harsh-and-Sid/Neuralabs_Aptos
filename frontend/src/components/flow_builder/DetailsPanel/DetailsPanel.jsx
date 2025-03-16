@@ -1,6 +1,12 @@
-// src/components/DetailsPanel/DetailsPanel.js
 import React, { useState } from 'react';
 import './DetailsPanel.scss';
+
+// Import SVG icons
+import closeIcon from '../../../assets/icons/close-icon.svg';
+import dataIcon from '../../../assets/icons/data-icon.svg';
+import taskIcon from '../../../assets/icons/task-icon.svg';
+import parametersIcon from '../../../assets/icons/parameters-icon.svg';
+import previewIcon from '../../../assets/icons/preview-icon.svg';
 
 const DetailsPanel = ({ selectedNode, onClose }) => {
   const [activeTab, setActiveTab] = useState('properties');
@@ -11,9 +17,7 @@ const DetailsPanel = ({ selectedNode, onClose }) => {
         <div className="details-panel__header">
           <h2 className="details-panel__title">Details</h2>
           <button className="details-panel__close" onClick={onClose}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src={closeIcon} alt="Close" />
           </button>
         </div>
         <div className="details-panel__empty-message">
@@ -27,24 +31,11 @@ const DetailsPanel = ({ selectedNode, onClose }) => {
   const getNodeIcon = () => {
     switch (selectedNode.type) {
       case 'data':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 5C21 6.65685 16.9706 8 12 8C7.02944 8 3 6.65685 3 5M21 5C21 3.34315 16.9706 2 12 2C7.02944 2 3 3.34315 3 5M21 5V19C21 20.6569 16.9706 22 12 22C7.02944 22 3 20.6569 3 19V5M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12" stroke="#00bcff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        );
+        return <img src={dataIcon} alt="Data" />;
       case 'task':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 6H20M9 12H20M9 18H20M5 6V6.01M5 12V12.01M5 18V18.01" stroke="#31e27b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        );
+        return <img src={taskIcon} alt="Task" />;
       case 'parameters':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2H8Z" stroke="#a000bc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M14 2V8H20" stroke="#a000bc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        );
+        return <img src={parametersIcon} alt="Parameters" />;
       default:
         return null;
     }
@@ -60,9 +51,7 @@ const DetailsPanel = ({ selectedNode, onClose }) => {
           <h2 className="details-panel__title">{selectedNode.name}</h2>
         </div>
         <button className="details-panel__close" onClick={onClose}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <img src={closeIcon} alt="Close" />
         </button>
       </div>
       
@@ -177,9 +166,7 @@ def ${selectedNode.name.toLowerCase()}(data):
         {activeTab === 'preview' && (
           <div className="details-panel__preview">
             <div className="details-panel__preview-placeholder">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 12H17.5M16 16H17.5M16 8H17.5M8.8 19H15.2C16.8802 19 17.7202 19 18.362 18.673C18.9265 18.3854 19.3854 17.9265 19.673 17.362C20 16.7202 20 15.8802 20 14.2V9.8C20 8.11984 20 7.27976 19.673 6.63803C19.3854 6.07354 18.9265 5.6146 18.362 5.32698C17.7202 5 16.8802 5 15.2 5H8.8C7.11984 5 6.27976 5 5.63803 5.32698C5.07354 5.6146 4.6146 6.07354 4.32698 6.63803C4 7.27976 4 8.11984 4 9.8V14.2C4 15.8802 4 16.7202 4.32698 17.362C4.6146 17.9265 5.07354 18.3854 5.63803 18.673C6.27976 19 7.11984 19 8.8 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img src={previewIcon} alt="Preview" />
               <p>No preview available for this node.</p>
             </div>
           </div>
