@@ -1,0 +1,82 @@
+// src/App.scss
+@use './styles/variables' as variables;
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1px;
+  line-height: 1.4;
+}
+
+.kui-theme--light {
+  --color-default-alt: #{variables.$black-900};
+  --color-text: #{variables.$black-800};
+  --color-text-alt: #{variables.$white-600};
+  --color-text-faded: #{variables.$black-700};
+  --color-bg-1: #{variables.$white-800};
+  --color-bg-2: #{variables.$grey-0};
+  --color-bg-3: #{variables.$white-200};
+  --color-bg-4: #{variables.$white-200};
+  --color-bg-5: #{variables.$white-600};
+  --color-bg-alt: #{variables.$black-700};
+  --color-bg-list: #{variables.$white-100};
+  --color-sidebar-background: #{variables.$white-200};
+  --color-global-toolbar-background: #{variables.$white-100};
+  --color-global-toolbar-active-btn: #{variables.$grey-0};
+  --color-pipeline-toolbar-background: #{variables.$grey-0};
+  --color-sidebar-border: #{variables.$white-800};
+  --color-sidebar-shadow: #{variables.$grey-300};
+  --color-base-20: #{variables.$grey-300};
+  --color-black-10: #{variables.$white-200};
+  --color-border-line: #{variables.$white-500};
+  --color-arrow-primary: #{variables.$black-900};
+  --color-arrow-secondary: #{variables.$black-0};
+  --node-fill-default: #{variables.$white-0};
+  --node-stroke-default: #{variables.$white-600};
+  --node-fill-active: #{variables.$ocean-200};
+  --node-stroke-active: #{variables.$blue-600};
+  --node-fill-selected: #{variables.$ocean-200};
+  --node-stroke-selected: #{variables.$blue-900};
+  --edge-stroke: #{variables.$grey-400};
+  --edge-arrowhead-fill: #{variables.$grey-400};
+}
+
+.kui-theme--dark {
+  --color-default-alt: #{variables.$white-0};
+  --color-text: #{variables.$white-600};
+  --color-text-alt: #{variables.$black-800};
+  --color-text-faded: #{variables.$black-0};
+  --color-bg-1: #{variables.$slate-900};
+  --color-bg-2: #{variables.$slate-600};
+  --color-bg-3: #{variables.$slate-400};
+  --color-bg-4: #{variables.$slate-900};
+  --color-bg-5: #{variables.$slate-0};
+  --color-bg-alt: #{variables.$white-0};
+  --color-bg-list: #{variables.$slate-600};
+  --color-sidebar-background: #{variables.$slate-400};
+  --color-global-toolbar-background: #{variables.$slate-900};
+  --color-global-toolbar-active-btn: #{variables.$slate-400};
+  --color-pipeline-toolbar-background: #{variables.$slate-700};
+  --color-sidebar-border: #{variables.$grey-300};
+  --color-sidebar-shadow: #{variables.$ocean-900};
+  --color-base-20: #{variables.$grey-800};
+  --color-black-10: #{variables.$slate-700};
+  --color-border-line: #{variables.$slate-500};
+  --color-arrow-primary: #{variables.$white-0};
+  --color-arrow-secondary: #{variables.$black-300};
+  --node-fill-default: #{variables.$slate-0};
+  --node-stroke-default: #{variables.$black-400};
+  --node-fill-active: #{variables.$blue-900};
+  --node-stroke-active: #{variables.$blue-600};
+  --node-fill-selected: #{variables.$blue-900};
+  --node-stroke-selected: #{variables.$blue-300};
+  --edge-stroke: #{variables.$black-300};
+  --edge-arrowhead-fill: #{variables.$white-900};
+}
+
+// Import variables from codebase
+// src/styles/_variables.scss
