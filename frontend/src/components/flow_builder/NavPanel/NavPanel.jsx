@@ -33,13 +33,17 @@ const NavPanel = ({ toggleTheme, toggleSidebar }) => {
             <span className="nav-panel__tooltip">Nodes</span>
           </button>
         </li>
-        <li className="nav-panel__item nav-panel__item--bottom">
+        {/* <li className="nav-panel__item nav-panel__item--bottom">
           <button className="nav-panel__button" onClick={toggleTheme}>
             <img src={themeIcon} alt="Toggle Theme" />
             <span className="nav-panel__tooltip">Toggle Theme</span>
           </button>
-        </li>
+        </li> */}
         <li className="nav-panel__item nav-panel__item--bottom">
+        <button className="nav-panel__button" onClick={toggleTheme}>
+            <img src={themeIcon} alt="Toggle Theme" />
+            <span className="nav-panel__tooltip">Toggle Theme</span>
+          </button>
           <button className="nav-panel__button">
             <img src={settingsIcon} alt="Settings" />
             <span className="nav-panel__tooltip">Settings</span>
