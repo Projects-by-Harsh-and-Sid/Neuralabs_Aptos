@@ -24,3 +24,5 @@ services:
 networks:
   neuralabs_aptos_network:
     driver: bridge
+
+  
