@@ -20,29 +20,35 @@ const theme = extendTheme({
       800: '#1f1f1f',
       900: '#141414',
     },
-    // Blue is still needed for selection states
+    // Blue for data nodes
     blue: {
-      300: '#4d4d4d',
-      500: '#2b2b2b',
-      700: '#1a1a1a',
+      300: '#63B3ED',
+      500: '#3182CE',
+      700: '#2C5282',
     },
     // Green for task nodes
     green: {
-      300: '#4d4d4d',
-      500: '#2b2b2b',
-      700: '#1a1a1a',
+      300: '#68D391',
+      500: '#38A169',
+      700: '#276749',
     },
     // Purple for parameter nodes
     purple: {
-      300: '#4d4d4d',
-      500: '#2b2b2b',
-      700: '#1a1a1a',
+      300: '#B794F4',
+      500: '#805AD5',
+      700: '#553C9A',
     },
     // Yellow for logo
     yellow: {
-      300: '#7b7b7b',
-      500: '#555555',
-      700: '#333333',
+      300: '#F6E05E',
+      500: '#D69E2E',
+      700: '#975A16',
+    },
+    // Red for destructive actions
+    red: {
+      300: '#FC8181',
+      500: '#E53E3E',
+      700: '#9B2C2C',
     },
   },
   styles: {

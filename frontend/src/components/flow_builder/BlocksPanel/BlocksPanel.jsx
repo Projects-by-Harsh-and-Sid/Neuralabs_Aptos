@@ -26,22 +26,22 @@ import {
   FiEdit2
 } from 'react-icons/fi';
 
-// Node types and their templates
+// Node types and their templates with vibrant colors that remain consistent across themes
 const NODE_TYPES = {
   data: {
     name: 'Data',
     icon: FiDatabase,
-    color: 'gray.500',
+    color: 'blue.500',
   },
   task: {
     name: 'Task',
     icon: FiActivity,
-    color: 'gray.600',
+    color: 'green.500',
   },
   parameters: {
     name: 'Parameters',
     icon: FiSliders,
-    color: 'gray.700',
+    color: 'purple.500',
   },
 };
 
@@ -186,7 +186,7 @@ const BlocksPanel = ({ onAddNode, onOpenTemplate, customTemplates = [], onEditTe
                   <Flex
                     w="48px"
                     h="48px"
-                    bg="gray.500"
+                    bg="yellow.500"
                     borderRadius="lg"
                     alignItems="center"
                     justifyContent="center"

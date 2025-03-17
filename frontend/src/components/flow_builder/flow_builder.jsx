@@ -1,7 +1,7 @@
 // src/components/flow_builder/flow_builder.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Flex, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import { FiDatabase, FiActivity, FiSliders, FiEye } from 'react-icons/fi';
+import { FiDatabase, FiActivity, FiSliders } from 'react-icons/fi';
 import NavPanel from './NavPanel/NavPanel';
 import BlocksPanel from './BlocksPanel/BlocksPanel';
 import CanvasControls from './CanvasControls/CanvasControls';
@@ -11,22 +11,24 @@ import TemplatePanel from './TemplatePanel/TemplatePanel';
 import VisualizePanel from './VisualizePanel/VisualizePanel';
 import CodePanel from './CodePanel/CodePanel';
 
+import * as d3 from 'd3';
+
 // Define node types with colors and icons
 const NODE_TYPES = {
   data: {
     name: 'Data',
     icon: FiDatabase,
-    color: 'gray.500',
+    color: 'blue.500',
   },
   task: {
     name: 'Task',
     icon: FiActivity,
-    color: 'gray.600',
+    color: 'green.500',
   },
   parameters: {
     name: 'Parameters',
     icon: FiSliders,
-    color: 'gray.700',
+    color: 'purple.500',
   },
 };
 
@@ -44,7 +46,10 @@ const FlowBuilder = () => {
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [customTemplates, setCustomTemplates] = useState([]);
   const [visualizePanelOpen, setVisualizePanelOpen] = useState(false);
-
+  
+  // Refs for d3 zoom behavior
+  const zoomBehaviorRef = useRef(null);
+  
   // Handle adding nodes
   const handleAddNode = (nodeType, position) => {
     const template = [...customTemplates, ...Object.keys(NODE_TYPES)].find(t => 
@@ -101,10 +106,16 @@ const FlowBuilder = () => {
   const handleNodeSelect = (nodeId) => {
     if (nodeId === null) {
       setSelectedNode(null);
+      setDetailsOpen(false);
     } else {
       const node = nodes.find(n => n.id === nodeId);
       setSelectedNode(node);
       setDetailsOpen(true);
+      // Close template panel if it's open
+      if (templateOpen) {
+        setTemplateOpen(false);
+        setEditingTemplate(null);
+      }
       setCodeOpen(false);
     }
   };
@@ -214,10 +225,22 @@ const FlowBuilder = () => {
   // Zoom controls
   const handleZoomIn = () => {
     setScale(prev => Math.min(prev + 0.1, 4));
+    
+    // Apply the zoom using d3 if the ref exists
+    if (zoomBehaviorRef.current) {
+      const svg = d3.select('svg');
+      zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 1.1);
+    }
   };
 
   const handleZoomOut = () => {
     setScale(prev => Math.max(prev - 0.1, 0.1));
+    
+    // Apply the zoom using d3 if the ref exists
+    if (zoomBehaviorRef.current) {
+      const svg = d3.select('svg');
+      zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 0.9);
+    }
   };
 
   const handleFitView = () => {
@@ -225,6 +248,15 @@ const FlowBuilder = () => {
     // zoom level to fit all nodes in view
     setScale(1);
     setTranslate({ x: 0, y: 0 });
+    
+    // Reset the view using d3 if the ref exists
+    if (zoomBehaviorRef.current) {
+      const svg = d3.select('svg');
+      svg.transition().duration(300).call(
+        zoomBehaviorRef.current.transform, 
+        d3.zoomIdentity.translate(0, 0).scale(1)
+      );
+    }
   };
 
   return (
@@ -260,6 +292,7 @@ const FlowBuilder = () => {
           translate={translate}
           setScale={setScale}
           setTranslate={setTranslate}
+          zoomBehaviorRef={zoomBehaviorRef}
         />
         
         <CanvasControls 
@@ -278,6 +311,7 @@ const FlowBuilder = () => {
           template={editingTemplate} 
           isTemplate={!!templateOpen}
           onClose={() => setCodeOpen(false)}
+          sidebarOpen={sidebarOpen}
         />
       )}
       

@@ -106,7 +106,7 @@ const FlowCanvas = ({
       svgElement.removeEventListener('dragover', handleDragOver);
       svgElement.removeEventListener('drop', handleDrop);
     };
-  }, [onAddNode, externalSvgRef, externalZoomRef]);
+  }, [onAddNode, externalSvgRef, externalZoomRef, scale, translate, setScale, setTranslate]);
 
   // Handle node selection
   useEffect(() => {
@@ -211,7 +211,7 @@ const FlowCanvas = ({
     setConnectingPort({ type: portType, index: portIndex });
     
     // Calculate the start position of the connection
-    let startX = nodeData.x;
+    const startX = nodeData.x;
     let startY;
     
     if (portType === 'output') {
@@ -268,7 +268,7 @@ const FlowCanvas = ({
       // Check if the mouse is over a compatible port
       const elementsUnderMouse = document.elementsFromPoint(e.clientX, e.clientY);
       const portElement = elementsUnderMouse.find(el => 
-        el.classList && el.classList.contains('node-port')
+        el.classList && (el.classList.contains('node-port') || el.hasAttribute('data-port-type'))
       );
       
       if (portElement) {
@@ -277,7 +277,7 @@ const FlowCanvas = ({
         const targetPortIndex = parseInt(portElement.getAttribute('data-port-index'), 10);
         
         // Prevent connecting to the same node
-        if (targetNodeId !== connectingNode) {
+        if (targetNodeId && targetNodeId !== connectingNode) {
           // Validate connection compatibility (output -> input)
           if (
             (portType === 'output' && targetPortType === 'input') ||
@@ -326,11 +326,13 @@ const FlowCanvas = ({
     }
   };
 
-  // Get node color
+  // Get node color - Using consistent vibrant colors regardless of theme
   const getNodeColors = (nodeType, isSelected) => {
     const colors = {
       ringColor: '',
-      bgColor: isSelected ? (colorMode === 'dark' ? 'gray.700' : 'gray.50') : nodeColor,
+      bgColor: isSelected 
+              ? (colorMode === 'dark' ? 'gray.700' : 'gray.50') 
+              : (colorMode === 'dark' ? 'gray.800' : 'white'),
       iconColor: ''
     };
     
@@ -421,10 +423,10 @@ const FlowCanvas = ({
               cy="0"
               r="5"
               className="node-port"
+              fill={colorMode === 'dark' ? 'gray.700' : 'white'}
+              stroke={getNodeColors(node.type).ringColor}
+              strokeWidth="2"
               style={{
-                fill: colorMode === 'dark' ? 'gray.700' : 'white',
-                stroke: getNodeColors(node.type).ringColor,
-                strokeWidth: 2,
                 cursor: 'crosshair'
               }}
               data-node-id={node.id}
@@ -443,10 +445,10 @@ const FlowCanvas = ({
               cy="0"
               r="5"
               className="node-port"
+              fill={colorMode === 'dark' ? 'gray.700' : 'white'}
+              stroke={getNodeColors(node.type).ringColor}
+              strokeWidth="2"
               style={{
-                fill: colorMode === 'dark' ? 'gray.700' : 'white',
-                stroke: getNodeColors(node.type).ringColor,
-                strokeWidth: 2,
                 cursor: 'crosshair'
               }}
               data-node-id={node.id}

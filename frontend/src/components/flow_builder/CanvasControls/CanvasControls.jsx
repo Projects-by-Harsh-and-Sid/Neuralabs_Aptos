@@ -41,6 +41,7 @@ const CanvasControls = ({
       borderColor={borderColor}
       boxShadow="sm"
       p={2}
+      zIndex={10}
     >
       <VStack spacing={2} align="center">
         <Text textAlign="center" mb={1} fontWeight="medium" fontSize="sm" color={textColor}>

@@ -33,9 +33,9 @@ def ${node ? node.name.toLowerCase() : 'process'}(data):
     return result`
   );
 
-  const bgColor = useColorModeValue('gray.800', 'gray.900');
-  const borderColor = useColorModeValue('gray.700', 'gray.800');
-  const textColor = useColorModeValue('gray.100', 'white');
+  const bgColor = useColorModeValue('white', 'gray.900');
+  const borderColor = useColorModeValue('gray.200', 'gray.800');
+  const textColor = useColorModeValue('gray.800', 'white');
   const syntaxColor1 = useColorModeValue('blue.300', 'blue.200');
   const syntaxColor2 = useColorModeValue('green.300', 'green.200');
   
@@ -46,10 +46,11 @@ def ${node ? node.name.toLowerCase() : 'process'}(data):
   return (
     <Box
       position="absolute"
-      left="0"
+      right="0"
+      marginRight={384}
       top="0"
       h="100%"
-      w="calc(100% - 384px)"
+      w="calc(100% - 780px)"
       bg={bgColor}
       zIndex={10}
       display="flex"
