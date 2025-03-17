@@ -328,11 +328,13 @@ const FlowCanvas = ({
 
   // Get node color - Using consistent vibrant colors regardless of theme
   const getNodeColors = (nodeType, isSelected) => {
+
+    // FIX THIS to make it more readable and consistent
     const colors = {
       ringColor: '',
       bgColor: isSelected 
               ? (colorMode === 'dark' ? 'gray.700' : 'gray.50') 
-              : (colorMode === 'dark' ? 'gray.800' : 'white'),
+              : (colorMode === 'dark' ? 'gray.800' : ''),
       iconColor: ''
     };
     
