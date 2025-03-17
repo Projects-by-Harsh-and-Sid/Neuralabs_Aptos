@@ -1,30 +1,32 @@
 // src/components/flow_builder/flow_builder.jsx
 import React, { useState, useEffect } from 'react';
 import { Flex, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import { FiDatabase, FiActivity, FiSliders } from 'react-icons/fi';
+import { FiDatabase, FiActivity, FiSliders, FiEye } from 'react-icons/fi';
 import NavPanel from './NavPanel/NavPanel';
 import BlocksPanel from './BlocksPanel/BlocksPanel';
 import CanvasControls from './CanvasControls/CanvasControls';
 import FlowCanvas from './FlowCanvas/FlowCanvas';
 import DetailsPanel from './DetailsPanel/DetailsPanel';
 import TemplatePanel from './TemplatePanel/TemplatePanel';
+import VisualizePanel from './VisualizePanel/VisualizePanel';
+import CodePanel from './CodePanel/CodePanel';
 
 // Define node types with colors and icons
 const NODE_TYPES = {
   data: {
     name: 'Data',
     icon: FiDatabase,
-    color: 'blue.300',
+    color: 'gray.500',
   },
   task: {
     name: 'Task',
     icon: FiActivity,
-    color: 'green.300',
+    color: 'gray.600',
   },
   parameters: {
     name: 'Parameters',
     icon: FiSliders,
-    color: 'purple.300',
+    color: 'gray.700',
   },
 };
 
@@ -36,9 +38,12 @@ const FlowBuilder = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [templateOpen, setTemplateOpen] = useState(false);
+  const [codeOpen, setCodeOpen] = useState(false);
+  const [editingTemplate, setEditingTemplate] = useState(null);
   const [scale, setScale] = useState(1);
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [customTemplates, setCustomTemplates] = useState([]);
+  const [visualizePanelOpen, setVisualizePanelOpen] = useState(false);
 
   // Handle adding nodes
   const handleAddNode = (nodeType, position) => {
@@ -71,7 +76,8 @@ const FlowBuilder = () => {
       y: position.y,
       name: typeof template === 'object' ? template.name : `${nodeType}_${nodes.length + 1}`,
       inputs,
-      outputs
+      outputs,
+      templateId: typeof template === 'object' ? template.id : null
     };
     
     setNodes(prevNodes => [...prevNodes, newNode]);
@@ -99,6 +105,7 @@ const FlowBuilder = () => {
       const node = nodes.find(n => n.id === nodeId);
       setSelectedNode(node);
       setDetailsOpen(true);
+      setCodeOpen(false);
     }
   };
 
@@ -140,15 +147,68 @@ const FlowBuilder = () => {
 
   // Handle template saving
   const handleSaveTemplate = (templateData) => {
-    setCustomTemplates(prev => [...prev, {
-      ...templateData,
-      id: `template-${Date.now()}`
-    }]);
+    if (editingTemplate) {
+      // Update existing template
+      setCustomTemplates(prev => 
+        prev.map(template => 
+          template.id === editingTemplate.id 
+            ? { ...template, ...templateData, id: editingTemplate.id } 
+            : template
+        )
+      );
+      
+      // Update nodes that use this template
+      setNodes(prevNodes => 
+        prevNodes.map(node => 
+          node.templateId === editingTemplate.id 
+            ? { ...node, name: templateData.name } 
+            : node
+        )
+      );
+      
+      setEditingTemplate(null);
+    } else {
+      // Create new template
+      const newTemplate = {
+        ...templateData,
+        id: `template-${Date.now()}`
+      };
+      setCustomTemplates(prev => [...prev, newTemplate]);
+    }
+    
+    setTemplateOpen(false);
+  };
+  
+  // Handle template editing
+  const handleEditTemplate = (templateId) => {
+    const template = customTemplates.find(t => t.id === templateId);
+    if (template) {
+      setEditingTemplate(template);
+      setTemplateOpen(true);
+      setDetailsOpen(false);
+    }
+  };
+
+  // Handle opening the template panel
+  const handleOpenTemplatePanel = () => {
+    setEditingTemplate(null);
+    setDetailsOpen(false);
+    setTemplateOpen(true);
+  };
+
+  // Toggle code panel
+  const toggleCodePanel = () => {
+    setCodeOpen(!codeOpen);
   };
 
   // Toggle sidebar
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+  };
+
+  // Toggle visualize panel
+  const toggleVisualizePanel = () => {
+    setVisualizePanelOpen(!visualizePanelOpen);
   };
 
   // Zoom controls
@@ -171,13 +231,20 @@ const FlowBuilder = () => {
     <Flex h="100%" w="100%" overflow="hidden">
       <NavPanel 
         toggleSidebar={toggleSidebar}
+        toggleVisualizePanel={toggleVisualizePanel}
       />
       
       {sidebarOpen && (
         <BlocksPanel 
           onAddNode={handleAddNode}
-          onOpenTemplate={() => setTemplateOpen(true)}
+          onOpenTemplate={handleOpenTemplatePanel}
+          customTemplates={customTemplates}
+          onEditTemplate={handleEditTemplate}
         />
+      )}
+      
+      {visualizePanelOpen && (
+        <VisualizePanel />
       )}
       
       <Flex position="relative" flex="1" h="100%" overflow="hidden">
@@ -189,6 +256,10 @@ const FlowBuilder = () => {
           onSelectNode={handleNodeSelect}
           selectedNode={selectedNode}
           onUpdateNodePosition={handleUpdateNodePosition}
+          scale={scale}
+          translate={translate}
+          setScale={setScale}
+          setTranslate={setTranslate}
         />
         
         <CanvasControls 
@@ -201,19 +272,36 @@ const FlowBuilder = () => {
         />
       </Flex>
       
+      {codeOpen && (
+        <CodePanel 
+          node={selectedNode} 
+          template={editingTemplate} 
+          isTemplate={!!templateOpen}
+          onClose={() => setCodeOpen(false)}
+        />
+      )}
+      
       {detailsOpen && selectedNode && (
         <DetailsPanel 
           selectedNode={selectedNode}
           onClose={() => setDetailsOpen(false)}
           onUpdateNode={handleUpdateNode}
           onDeleteNode={handleDeleteNode}
+          onToggleCode={toggleCodePanel}
+          codeOpen={codeOpen}
         />
       )}
       
       {templateOpen && (
         <TemplatePanel 
-          onClose={() => setTemplateOpen(false)}
+          template={editingTemplate}
+          onClose={() => {
+            setTemplateOpen(false);
+            setEditingTemplate(null);
+          }}
           onSaveTemplate={handleSaveTemplate}
+          onToggleCode={toggleCodePanel}
+          codeOpen={codeOpen}
         />
       )}
     </Flex>

@@ -16,13 +16,16 @@ import {
   FiLayout, 
   FiSettings, 
   FiSun, 
-  FiMoon 
+  FiMoon,
+  FiEye
 } from 'react-icons/fi';
 
-const NavPanel = ({ toggleSidebar }) => {
+const NavPanel = ({ toggleSidebar, toggleVisualizePanel }) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const bgColor = useColorModeValue('gray.800', 'black');
+  const borderColor = useColorModeValue('gray.700', 'gray.800');
+  const iconColor = useColorModeValue('white', 'gray.300');
+  const hoverBgColor = useColorModeValue('gray.700', 'gray.900');
   
   return (
     <Box 
@@ -36,7 +39,6 @@ const NavPanel = ({ toggleSidebar }) => {
       display="flex"
       flexDirection="column"
       zIndex={2}
-      boxShadow="sm"
     >
       <VStack 
         as="ul" 
@@ -50,8 +52,8 @@ const NavPanel = ({ toggleSidebar }) => {
           <Flex 
             w="40px" 
             h="40px" 
-            bg="yellow.300"
-            color="black"
+            bg="gray.500"
+            color="white"
             alignItems="center" 
             justifyContent="center"
             fontSize="24px" 
@@ -65,7 +67,13 @@ const NavPanel = ({ toggleSidebar }) => {
         <Box as="li" position="relative" w="100%">
           <Tooltip label="Toggle Sidebar" placement="right" hasArrow>
             <Button 
-              variant="navButton"
+              w="100%"
+              h="56px"
+              justifyContent="center"
+              borderRadius={0}
+              bg="transparent"
+              color={iconColor}
+              _hover={{ bg: hoverBgColor }}
               onClick={toggleSidebar}
               aria-label="Toggle Sidebar"
             >
@@ -77,7 +85,13 @@ const NavPanel = ({ toggleSidebar }) => {
         <Box as="li" position="relative" w="100%">
           <Tooltip label="Home" placement="right" hasArrow>
             <Button 
-              variant="navButton" 
+              w="100%"
+              h="56px"
+              justifyContent="center"
+              borderRadius={0}
+              bg="transparent"
+              color={iconColor}
+              _hover={{ bg: hoverBgColor }}
               aria-label="Home"
             >
               <FiHome size={24} />
@@ -88,7 +102,13 @@ const NavPanel = ({ toggleSidebar }) => {
         <Box as="li" position="relative" w="100%">
           <Tooltip label="Nodes" placement="right" hasArrow>
             <Button 
-              variant="navButton" 
+              w="100%"
+              h="56px"
+              justifyContent="center"
+              borderRadius={0}
+              bg="transparent"
+              color={iconColor}
+              _hover={{ bg: hoverBgColor }}
               aria-label="Nodes"
             >
               <FiLayout size={24} />
@@ -96,10 +116,34 @@ const NavPanel = ({ toggleSidebar }) => {
           </Tooltip>
         </Box>
         
+        <Box as="li" position="relative" w="100%">
+          <Tooltip label="Visualize" placement="right" hasArrow>
+            <Button 
+              w="100%"
+              h="56px"
+              justifyContent="center"
+              borderRadius={0}
+              bg="transparent"
+              color={iconColor}
+              _hover={{ bg: hoverBgColor }}
+              onClick={toggleVisualizePanel}
+              aria-label="Visualize"
+            >
+              <FiEye size={24} />
+            </Button>
+          </Tooltip>
+        </Box>
+        
         <Box as="li" position="relative" w="100%" mt="auto">
           <Tooltip label="Toggle Theme" placement="right" hasArrow>
             <Button 
-              variant="navButton" 
+              w="100%"
+              h="56px"
+              justifyContent="center"
+              borderRadius={0}
+              bg="transparent"
+              color={iconColor}
+              _hover={{ bg: hoverBgColor }}
               onClick={toggleColorMode}
               aria-label="Toggle Theme"
             >
@@ -111,7 +155,13 @@ const NavPanel = ({ toggleSidebar }) => {
         <Box as="li" position="relative" w="100%" mb={3}>
           <Tooltip label="Settings" placement="right" hasArrow>
             <Button 
-              variant="navButton" 
+              w="100%"
+              h="56px"
+              justifyContent="center"
+              borderRadius={0}
+              bg="transparent"
+              color={iconColor}
+              _hover={{ bg: hoverBgColor }}
               aria-label="Settings"
             >
               <FiSettings size={24} />

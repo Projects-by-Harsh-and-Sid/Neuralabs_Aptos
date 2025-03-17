@@ -22,7 +22,8 @@ import {
   FiActivity, 
   FiSliders, 
   FiPlus,
-  FiSearch
+  FiSearch,
+  FiEdit2
 } from 'react-icons/fi';
 
 // Node types and their templates
@@ -30,26 +31,27 @@ const NODE_TYPES = {
   data: {
     name: 'Data',
     icon: FiDatabase,
-    color: 'blue.300',
+    color: 'gray.500',
   },
   task: {
     name: 'Task',
     icon: FiActivity,
-    color: 'green.300',
+    color: 'gray.600',
   },
   parameters: {
     name: 'Parameters',
     icon: FiSliders,
-    color: 'purple.300',
+    color: 'gray.700',
   },
 };
 
-const BlocksPanel = ({ onAddNode, onOpenTemplate }) => {
+const BlocksPanel = ({ onAddNode, onOpenTemplate, customTemplates = [], onEditTemplate }) => {
   const [searchTerm, setSearchTerm] = useState('');
   
-  const bgColor = useColorModeValue('white', 'gray.800');
+  const bgColor = useColorModeValue('gray.100', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const itemBgColor = useColorModeValue('gray.50', 'gray.700');
+  const itemBgColor = useColorModeValue('white', 'gray.700');
+  const headingColor = useColorModeValue('gray.800', 'white');
   
   const handleDragStart = (e, nodeType) => {
     e.dataTransfer.setData('nodeType', nodeType);
@@ -59,6 +61,16 @@ const BlocksPanel = ({ onAddNode, onOpenTemplate }) => {
   const filteredNodeTypes = Object.entries(NODE_TYPES).filter(([key, nodeType]) => 
     nodeType.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
+  const filteredCustomTemplates = customTemplates.filter(template =>
+    template.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleTemplateClick = (templateId) => {
+    if (onEditTemplate) {
+      onEditTemplate(templateId);
+    }
+  };
 
   return (
     <Box
@@ -72,13 +84,14 @@ const BlocksPanel = ({ onAddNode, onOpenTemplate }) => {
       overflow="hidden"
     >
       <Box p={4} borderBottom="1px solid" borderColor={borderColor}>
-        <Heading as="h1" size="md" mb={4}>Flow Designer</Heading>
+        <Heading as="h1" size="md" mb={4} color={headingColor}>Flow Designer</Heading>
         <Flex position="relative">
           <Input
             placeholder="Search blocks..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             pr="36px"
+            bg={itemBgColor}
           />
           {searchTerm && (
             <IconButton
@@ -105,7 +118,7 @@ const BlocksPanel = ({ onAddNode, onOpenTemplate }) => {
         <TabPanels flex="1" overflowY="auto">
           <TabPanel p={4} h="100%">
             <Flex justify="space-between" align="center" mb={3}>
-              <Heading as="h2" size="sm">Node Types</Heading>
+              <Heading as="h2" size="sm" color={headingColor}>Node Types</Heading>
               <Button
                 leftIcon={<FiPlus />}
                 size="sm"
@@ -149,11 +162,60 @@ const BlocksPanel = ({ onAddNode, onOpenTemplate }) => {
                   <Text fontWeight="medium" fontSize="sm">{nodeType.name}</Text>
                 </Box>
               ))}
+              
+              {filteredCustomTemplates.map((template) => (
+                <Box
+                  key={template.id}
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  p={4}
+                  bg={itemBgColor}
+                  borderRadius="lg"
+                  cursor="grab"
+                  draggable
+                  onDragStart={(e) => handleDragStart(e, template.type || 'custom')}
+                  transition="all 0.2s"
+                  position="relative"
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'md',
+                  }}
+                  onClick={() => handleTemplateClick(template.id)}
+                >
+                  <Flex
+                    w="48px"
+                    h="48px"
+                    bg="gray.500"
+                    borderRadius="lg"
+                    alignItems="center"
+                    justifyContent="center"
+                    mb={2}
+                  >
+                    <FiActivity color="white" size={24} />
+                  </Flex>
+                  <Text fontWeight="medium" fontSize="sm">{template.name}</Text>
+                  
+                  <IconButton
+                    icon={<FiEdit2 />}
+                    size="xs"
+                    position="absolute"
+                    top="2"
+                    right="2"
+                    opacity="0.7"
+                    aria-label="Edit template"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleTemplateClick(template.id);
+                    }}
+                  />
+                </Box>
+              ))}
             </SimpleGrid>
           </TabPanel>
           
           <TabPanel p={4}>
-            <Heading as="h2" size="sm" mb={3}>Pipelines</Heading>
+            <Heading as="h2" size="sm" mb={3} color={headingColor}>Pipelines</Heading>
             <Text textAlign="center" color="gray.500" p={4}>
               Create pipelines by connecting nodes on the canvas.
             </Text>

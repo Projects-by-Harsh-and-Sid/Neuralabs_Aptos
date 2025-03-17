@@ -11,12 +11,16 @@ const FlowCanvas = ({
   onAddEdge, 
   onSelectNode, 
   selectedNode,
-  onUpdateNodePosition
+  onUpdateNodePosition,
+  scale = 1,
+  translate = { x: 0, y: 0 },
+  setScale,
+  setTranslate,
+  svgRef: externalSvgRef, // Allow using an external ref if provided
+  zoomBehaviorRef: externalZoomRef
 }) => {
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
-  const [scale, setScale] = useState(1);
-  const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [dragging, setDragging] = useState(false);
   const [connectingNode, setConnectingNode] = useState(null);
   const [connectingPort, setConnectingPort] = useState(null);
@@ -29,25 +33,47 @@ const FlowCanvas = ({
   const nodeColor = useColorModeValue('white', 'gray.800');
   const nodeBorderColor = useColorModeValue('gray.200', 'gray.600');
   const textColor = useColorModeValue('gray.800', 'white');
-
-
-// Add a debug effect to check the ref:
-useEffect(() => {
-  console.log("Canvas ref:", canvasRef.current);
-}, [canvasRef.current]);
+  const edgeColor = useColorModeValue('gray.400', 'gray.500');
+  const edgeHighlightColor = useColorModeValue('blue.500', 'blue.300');
 
   useEffect(() => {
-    // Set up the D3 zoom behavior
-    const svg = d3.select(svgRef.current);
+    // Use external ref if provided, otherwise use internal ref
+    const svgElement = externalSvgRef?.current || svgRef.current;
+    if (!svgElement) return;
+    
+    const svg = d3.select(svgElement);
     const canvas = d3.select(canvasRef.current);
     
-    const zoom = d3.zoom()
-      .scaleExtent([0.1, 4])
-      .on('zoom', (event) => {
-        canvas.attr('transform', event.transform);
-        setScale(event.transform.k);
-        setTranslate({ x: event.transform.x, y: event.transform.y });
-      });
+    // Use external zoom behavior if provided, otherwise create a new one
+    let zoom;
+    if (externalZoomRef?.current) {
+      zoom = externalZoomRef.current;
+    } else {
+      zoom = d3.zoom()
+        .scaleExtent([0.1, 4]);
+    }
+    
+    // Configure zoom behavior
+    zoom.on('zoom', (event) => {
+      canvas.attr('transform', event.transform);
+      
+      // Batch state updates to prevent render loops
+      const scaleChanged = Math.abs(event.transform.k - scale) > 0.001;
+      const translateXChanged = Math.abs(event.transform.x - translate.x) > 0.001;
+      const translateYChanged = Math.abs(event.transform.y - translate.y) > 0.001;
+      
+      if ((scaleChanged || translateXChanged || translateYChanged) && setScale && setTranslate) {
+        // Use requestAnimationFrame to throttle updates
+        requestAnimationFrame(() => {
+          if (scaleChanged && setScale) {
+            setScale(event.transform.k);
+          }
+          if ((translateXChanged || translateYChanged) && setTranslate) {
+            setTranslate({ x: event.transform.x, y: event.transform.y });
+          }
+        });
+      }
+    });
     
     svg.call(zoom);
     
@@ -63,7 +89,7 @@ useEffect(() => {
       const nodeType = e.dataTransfer.getData('nodeType');
       if (nodeType) {
         // Calculate the position with respect to the canvas transform
-        const svgRect = svg.node().getBoundingClientRect();
+        const svgRect = svgElement.getBoundingClientRect();
         const x = (e.clientX - svgRect.left - translate.x) / scale;
         const y = (e.clientY - svgRect.top - translate.y) / scale;
         
@@ -71,16 +97,16 @@ useEffect(() => {
       }
     };
     
-    svg.node().addEventListener('dragover', handleDragOver);
-    svg.node().addEventListener('drop', handleDrop);
+    svgElement.addEventListener('dragover', handleDragOver);
+    svgElement.addEventListener('drop', handleDrop);
     
     return () => {
       // Clean up event listeners
       svg.on('.zoom', null);
-      svg.node().removeEventListener('dragover', handleDragOver);
-      svg.node().removeEventListener('drop', handleDrop);
+      svgElement.removeEventListener('dragover', handleDragOver);
+      svgElement.removeEventListener('drop', handleDrop);
     };
-  }, [onAddNode, scale, translate]);
+  }, [onAddNode, externalSvgRef, externalZoomRef]);
 
   // Handle node selection
   useEffect(() => {
@@ -115,6 +141,7 @@ useEffect(() => {
       
       // Find the node
       const nodeData = nodes.find(n => n.id === nodeId);
+      if (!nodeData) return;
       
       // Get the starting position
       const startPos = {
@@ -128,17 +155,24 @@ useEffect(() => {
         y: nodeData.y
       };
       
+      // Use a local variable to track the current position without causing rerenders
+      let latestPosition = { ...currentPos };
+      
       const moveHandler = (e) => {
         // Calculate the new position with respect to the canvas transform
         const dx = (e.clientX - startPos.x) / scale;
         const dy = (e.clientY - startPos.y) / scale;
         
         // Update the node position
-        const newX = currentPos.x + dx;
-        const newY = currentPos.y + dy;
+        latestPosition = {
+          x: currentPos.x + dx,
+          y: currentPos.y + dy
+        };
         
-        if (onUpdateNodePosition) {
-          onUpdateNodePosition(nodeId, { x: newX, y: newY });
+        // Update the node visually without causing a state update
+        const nodeElement = document.querySelector(`[data-node-id="${nodeId}"]`);
+        if (nodeElement) {
+          nodeElement.setAttribute('transform', `translate(${latestPosition.x}, ${latestPosition.y})`);
         }
       };
       
@@ -146,6 +180,11 @@ useEffect(() => {
         document.removeEventListener('mousemove', moveHandler);
         document.removeEventListener('mouseup', upHandler);
         setDragging(false);
+        
+        // Only update state once at the end of drag
+        if (onUpdateNodePosition) {
+          onUpdateNodePosition(nodeId, latestPosition);
+        }
       };
       
       document.addEventListener('mousemove', moveHandler);
@@ -160,57 +199,61 @@ useEffect(() => {
     if (e.button !== 0) return; // Only left mouse button
     
     e.stopPropagation();
-    setConnectingNode(nodeId);
-    setConnectingPort({ type: portType, index: portIndex });
     
     const svg = svgRef.current;
     const svgRect = svg.getBoundingClientRect();
     
     // Find the node
     const nodeData = nodes.find(n => n.id === nodeId);
+    if (!nodeData) return;
     
-    // Create a temporary path
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('class', 'connecting-path');
-    path.setAttribute('stroke', colorMode === 'dark' ? 'white' : 'gray');
-    path.setAttribute('stroke-width', '2');
-    path.setAttribute('stroke-dasharray', '5,5');
-    path.setAttribute('fill', 'none');
+    setConnectingNode(nodeId);
+    setConnectingPort({ type: portType, index: portIndex });
     
-    // Add the path to the canvas
-    canvasRef.current.appendChild(path);
-    setConnectingPath(path);
-    
-    // Get the starting position
-    let startX, startY;
+    // Calculate the start position of the connection
+    let startX = nodeData.x;
+    let startY;
     
     if (portType === 'output') {
-      startX = nodeData.x;
       startY = nodeData.y + 30 + (portIndex * 20);
     } else { // input
-      startX = nodeData.x;
       startY = nodeData.y - 30 - (portIndex * 20); 
+    }
+    
+    // Create a temporary path
+    const tempPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    tempPath.setAttribute('stroke', colorMode === 'dark' ? 'white' : 'gray');
+    tempPath.setAttribute('stroke-width', '2');
+    tempPath.setAttribute('stroke-dasharray', '5,5');
+    tempPath.setAttribute('fill', 'none');
+    
+    // Add the path to the canvas
+    if (canvasRef.current) {
+      canvasRef.current.appendChild(tempPath);
+      setConnectingPath(tempPath);
     }
     
     // Update the path as the mouse moves
     const moveHandler = (e) => {
+      if (!tempPath) return;
+      
       // Calculate the mouse position with respect to the canvas transform
-      const x = (e.clientX - svgRect.left - translate.x) / scale;
-      const y = (e.clientY - svgRect.top - translate.y) / scale;
+      const mouseX = (e.clientX - svgRect.left - translate.x) / scale;
+      const mouseY = (e.clientY - svgRect.top - translate.y) / scale;
       
       // Update the mouse position state
-      setMousePosition({ x, y });
+      setMousePosition({ x: mouseX, y: mouseY });
       
       // Create a smooth bezier curve
-      let path;
+      let pathData;
       
       if (portType === 'output') {
-        path = `M ${startX} ${startY} C ${startX + 100} ${startY}, ${x - 100} ${y}, ${x} ${y}`;
+        pathData = `M ${startX} ${startY} C ${startX + 100} ${startY}, ${mouseX - 100} ${mouseY}, ${mouseX} ${mouseY}`;
       } else { // input
-        path = `M ${x} ${y} C ${x + 100} ${y}, ${startX - 100} ${startY}, ${startX} ${startY}`;
+        pathData = `M ${mouseX} ${mouseY} C ${mouseX + 100} ${mouseY}, ${startX - 100} ${startY}, ${startX} ${startY}`;
       }
       
-      connectingPath.setAttribute('d', path);
+      tempPath.setAttribute('d', pathData);
     };
     
     const upHandler = (e) => {
@@ -218,17 +261,20 @@ useEffect(() => {
       document.removeEventListener('mouseup', upHandler);
       
       // Remove the temporary path
-      if (connectingPath) {
-        connectingPath.remove();
+      if (tempPath && tempPath.parentNode) {
+        tempPath.parentNode.removeChild(tempPath);
       }
       
       // Check if the mouse is over a compatible port
-      const targetElement = document.elementFromPoint(e.clientX, e.clientY);
+      const elementsUnderMouse = document.elementsFromPoint(e.clientX, e.clientY);
+      const portElement = elementsUnderMouse.find(el => 
+        el.classList && el.classList.contains('node-port')
+      );
       
-      if (targetElement && targetElement.classList.contains('node-port')) {
-        const targetNodeId = targetElement.getAttribute('data-node-id');
-        const targetPortType = targetElement.getAttribute('data-port-type');
-        const targetPortIndex = parseInt(targetElement.getAttribute('data-port-index'), 10);
+      if (portElement) {
+        const targetNodeId = portElement.getAttribute('data-node-id');
+        const targetPortType = portElement.getAttribute('data-port-type');
+        const targetPortIndex = parseInt(portElement.getAttribute('data-port-index'), 10);
         
         // Prevent connecting to the same node
         if (targetNodeId !== connectingNode) {
@@ -321,7 +367,7 @@ useEffect(() => {
     return (
       <g
         key={node.id}
-        className="node"
+        className={`node ${isSelected ? 'node-selected' : ''}`}
         transform={`translate(${node.x}, ${node.y})`}
         onClick={(e) => {
           e.stopPropagation();
@@ -353,7 +399,7 @@ useEffect(() => {
               cursor: 'move',
               position: 'relative',
               userSelect: 'none',
-              boxShadow: isSelected ? '0 0 5px rgba(0,0,0,0.2)' : 'none',
+              boxShadow: isSelected ? '0 0 8px rgba(0,188,255,0.5)' : 'none',
               transition: 'box-shadow 0.2s, transform 0.1s',
               color: textColor
             }}
@@ -432,15 +478,13 @@ useEffect(() => {
     const path = `M ${sourceNode.x} ${sourceY} C ${sourceNode.x} ${sourceY + 50}, ${targetNode.x} ${targetY - 50}, ${targetNode.x} ${targetY}`;
     
     const isHighlighted = isConnectionHighlighted(edge.id);
-    const strokeColor = isHighlighted 
-      ? (colorMode === 'dark' ? 'blue.300' : 'blue.500') 
-      : (colorMode === 'dark' ? 'gray.500' : 'gray.400');
+    const strokeColor = isHighlighted ? edgeHighlightColor : edgeColor;
     const strokeWidth = isHighlighted ? 2 : 1;
     
     return (
       <path
         key={edge.id}
-        className="edge-path"
+        className={`edge-path ${isHighlighted ? 'edge-highlighted' : ''}`}
         d={path}
         stroke={strokeColor}
         strokeWidth={strokeWidth}
@@ -477,7 +521,7 @@ useEffect(() => {
             markerHeight="6"
             orient="auto"
           >
-            <path d="M 0 0 L 10 5 L 0 10 z" fill={colorMode === 'dark' ? 'gray' : 'gray'} />
+            <path d="M 0 0 L 10 5 L 0 10 z" fill={edgeColor} />
           </marker>
           <marker
             id="arrow-highlighted"
@@ -488,15 +532,21 @@ useEffect(() => {
             markerHeight="6"
             orient="auto"
           >
-            <path d="M 0 0 L 10 5 L 0 10 z" fill={colorMode === 'dark' ? 'blue.300' : 'blue.500'} />
+            <path d="M 0 0 L 10 5 L 0 10 z" fill={edgeHighlightColor} />
           </marker>
         </defs>
         <g ref={canvasRef}>
+          {/* Grid (optional) */}
+          <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+            <path d="M 50 0 L 0 0 0 50" fill="none" stroke={colorMode === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'} strokeWidth="1"/>
+          </pattern>
+          <rect width="10000" height="10000" x="-5000" y="-5000" fill="url(#grid)" />
+          
           {/* Render edges first so they're under the nodes */}
-          <g>
+          <g className="edges">
             {edges.map(renderEdge)}
           </g>
-          <g>
+          <g className="nodes">
             {nodes.map(renderNode)}
           </g>
         </g>

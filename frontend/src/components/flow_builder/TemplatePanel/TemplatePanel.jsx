@@ -1,5 +1,5 @@
 // src/components/flow_builder/TemplatePanel/TemplatePanel.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Flex,
@@ -26,9 +26,8 @@ import {
   FiPlus,
 } from 'react-icons/fi';
 
-const TemplatePanel = ({ onClose, onSaveTemplate }) => {
+const TemplatePanel = ({ template, onClose, onSaveTemplate, onToggleCode, codeOpen }) => {
   const [activeTab, setActiveTab] = useState(0);
-  const [showCode, setShowCode] = useState(false);
   const [templateData, setTemplateData] = useState({
     name: '',
     type: 'custom',
@@ -39,9 +38,23 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
     code: `import pandas as pd\n\ndef process(data):\n    \"\"\"\n    Process the input data.\n    \n    Args:\n        data: Input data to process\n        \n    Returns:\n        Processed data\n    \"\"\"\n    # Process data\n    result = data.copy()\n    \n    # Add your processing logic here\n    \n    return result`
   });
   
-  const bgColor = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const codeBgColor = useColorModeValue('gray.50', 'gray.700');
+  const bgColor = useColorModeValue('gray.100', 'gray.800');
+  const panelBgColor = useColorModeValue('white', 'gray.700');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+  const formBgColor = useColorModeValue('gray.50', 'gray.600');
+  const textColor = useColorModeValue('gray.800', 'white');
+  
+  // Initialize with template data if editing
+  useEffect(() => {
+    if (template) {
+      setTemplateData({
+        ...template,
+        inputs: template.inputs || [{ name: 'input1', type: 'any' }],
+        outputs: template.outputs || [{ name: 'output1', type: 'any' }],
+        hyperParameters: template.hyperParameters || []
+      });
+    }
+  }, [template]);
   
   const handleInputChange = (e) => {
     setTemplateData({
@@ -108,29 +121,29 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
   const handleSave = () => {
     if (onSaveTemplate) {
       onSaveTemplate(templateData);
-      onClose();
     }
   };
   
   return (
     <Box 
-      w={showCode ? "700px" : "384px"}
+      w="384px"
       h="100%"
-      bg={bgColor}
+      bg={panelBgColor}
       borderLeft="1px solid"
       borderColor={borderColor}
       display="flex"
       flexDirection="column"
-      transition="width 0.3s"
     >
       <Flex justify="space-between" align="center" p={4} borderBottom="1px solid" borderColor={borderColor}>
-        <Heading as="h2" size="md">New Custom Template</Heading>
+        <Heading as="h2" size="md" color={textColor}>
+          {template ? 'Edit Template' : 'New Custom Template'}
+        </Heading>
         <Flex align="center" gap={3}>
           <Button 
             leftIcon={<FiCode />} 
             size="sm"
-            variant={showCode ? "solid" : "outline"}
-            onClick={() => setShowCode(!showCode)}
+            variant={codeOpen ? "solid" : "outline"}
+            onClick={onToggleCode}
           >
             Code
           </Button>
@@ -150,53 +163,23 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
           <Tab>Parameters</Tab>
         </TabList>
         
-        <TabPanels flex="1" overflow="hidden">
-          <TabPanel p={4} h="100%" position="relative">
-            {showCode && (
-              <Box 
-                position="absolute" 
-                left={0} 
-                top={0} 
-                h="100%" 
-                w="304px" 
-                borderRight="1px solid" 
-                borderColor={borderColor} 
-                overflow="auto" 
-                bg={codeBgColor}
-                zIndex={10}
-              >
-                <Textarea 
-                  value={templateData.code}
-                  onChange={handleCodeChange}
-                  fontFamily="mono"
-                  fontSize="sm"
-                  h="100%"
-                  p={4}
-                  resize="none"
-                  border="none"
-                  borderRadius={0}
-                />
-              </Box>
-            )}
-            
-            <VStack 
-              spacing={6} 
-              align="stretch"
-              ml={showCode ? "304px" : 0}
-            >
+        <TabPanels flex="1" overflow="auto">
+          <TabPanel p={4}>
+            <VStack spacing={6} align="stretch">
               <FormControl>
-                <FormLabel htmlFor="template-name" fontSize="sm" fontWeight="medium">Template Name</FormLabel>
+                <FormLabel htmlFor="template-name" fontSize="sm" fontWeight="medium" color={textColor}>Template Name</FormLabel>
                 <Input 
                   id="template-name"
                   name="name"
                   value={templateData.name} 
                   onChange={handleInputChange}
                   placeholder="Enter template name"
+                  bg={formBgColor}
                 />
               </FormControl>
               
               <FormControl>
-                <FormLabel htmlFor="template-description" fontSize="sm" fontWeight="medium">Description</FormLabel>
+                <FormLabel htmlFor="template-description" fontSize="sm" fontWeight="medium" color={textColor}>Description</FormLabel>
                 <Textarea 
                   id="template-description"
                   name="description"
@@ -204,47 +187,17 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
                   onChange={handleInputChange}
                   placeholder="Describe what this template does"
                   minH="100px"
+                  bg={formBgColor}
                 />
               </FormControl>
             </VStack>
           </TabPanel>
           
-          <TabPanel p={4} h="100%" position="relative">
-            {showCode && (
-              <Box 
-                position="absolute" 
-                left={0} 
-                top={0} 
-                h="100%" 
-                w="304px" 
-                borderRight="1px solid" 
-                borderColor={borderColor} 
-                overflow="auto" 
-                bg={codeBgColor}
-                zIndex={10}
-              >
-                <Textarea 
-                  value={templateData.code}
-                  onChange={handleCodeChange}
-                  fontFamily="mono"
-                  fontSize="sm"
-                  h="100%"
-                  p={4}
-                  resize="none"
-                  border="none"
-                  borderRadius={0}
-                />
-              </Box>
-            )}
-            
-            <VStack 
-              spacing={6} 
-              align="stretch"
-              ml={showCode ? "304px" : 0}
-            >
+          <TabPanel p={4}>
+            <VStack spacing={6} align="stretch">
               <Box>
                 <Flex justify="space-between" align="center" mb={4}>
-                  <FormLabel m={0} fontSize="sm" fontWeight="medium">Input Ports</FormLabel>
+                  <FormLabel m={0} fontSize="sm" fontWeight="medium" color={textColor}>Input Ports</FormLabel>
                   <Button 
                     leftIcon={<FiPlus />} 
                     size="sm" 
@@ -263,12 +216,14 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
                         onChange={(e) => updateInput(index, 'name', e.target.value)}
                         placeholder="Name"
                         flex="1"
+                        bg={formBgColor}
                       />
                       <Input 
                         value={input.type}
                         onChange={(e) => updateInput(index, 'type', e.target.value)}
                         placeholder="Type"
                         flex="1"
+                        bg={formBgColor}
                       />
                       <IconButton 
                         icon={<FiTrash2 />} 
@@ -284,7 +239,7 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
               
               <Box>
                 <Flex justify="space-between" align="center" mb={4}>
-                  <FormLabel m={0} fontSize="sm" fontWeight="medium">Output Ports</FormLabel>
+                  <FormLabel m={0} fontSize="sm" fontWeight="medium" color={textColor}>Output Ports</FormLabel>
                   <Button 
                     leftIcon={<FiPlus />} 
                     size="sm" 
@@ -303,12 +258,14 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
                         onChange={(e) => updateOutput(index, 'name', e.target.value)}
                         placeholder="Name"
                         flex="1"
+                        bg={formBgColor}
                       />
                       <Input 
                         value={output.type}
                         onChange={(e) => updateOutput(index, 'type', e.target.value)}
                         placeholder="Type"
                         flex="1"
+                        bg={formBgColor}
                       />
                       <IconButton 
                         icon={<FiTrash2 />} 
@@ -324,42 +281,11 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
             </VStack>
           </TabPanel>
           
-          <TabPanel p={4} h="100%" position="relative">
-            {showCode && (
-              <Box 
-                position="absolute" 
-                left={0} 
-                top={0} 
-                h="100%" 
-                w="304px" 
-                borderRight="1px solid" 
-                borderColor={borderColor} 
-                overflow="auto" 
-                bg={codeBgColor}
-                zIndex={10}
-              >
-                <Textarea 
-                  value={templateData.code}
-                  onChange={handleCodeChange}
-                  fontFamily="mono"
-                  fontSize="sm"
-                  h="100%"
-                  p={4}
-                  resize="none"
-                  border="none"
-                  borderRadius={0}
-                />
-              </Box>
-            )}
-            
-            <VStack 
-              spacing={6} 
-              align="stretch"
-              ml={showCode ? "304px" : 0}
-            >
+          <TabPanel p={4}>
+            <VStack spacing={6} align="stretch">
               <Box>
                 <Flex justify="space-between" align="center" mb={4}>
-                  <FormLabel m={0} fontSize="sm" fontWeight="medium">Hyper Parameters</FormLabel>
+                  <FormLabel m={0} fontSize="sm" fontWeight="medium" color={textColor}>Hyper Parameters</FormLabel>
                   <Button 
                     leftIcon={<FiPlus />} 
                     size="sm" 
@@ -378,12 +304,14 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
                         onChange={(e) => updateHyperParameter(index, 'key', e.target.value)}
                         placeholder="Key"
                         flex="1"
+                        bg={formBgColor}
                       />
                       <Input 
                         value={param.value}
                         onChange={(e) => updateHyperParameter(index, 'value', e.target.value)}
                         placeholder="Default Value"
                         flex="1"
+                        bg={formBgColor}
                       />
                       <IconButton 
                         icon={<FiTrash2 />} 
@@ -393,12 +321,6 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
                       />
                     </Flex>
                   ))}
-                  
-                  {templateData.hyperParameters.length === 0 && (
-                    <Box textAlign="center" color="gray.500" py={4}>
-                      No hyper parameters defined. Click "Add Parameter" to create one.
-                    </Box>
-                  )}
                 </VStack>
               </Box>
             </VStack>
@@ -410,7 +332,6 @@ const TemplatePanel = ({ onClose, onSaveTemplate }) => {
         <Button variant="outline" onClick={onClose}>Cancel</Button>
         <Button 
           leftIcon={<FiSave />} 
-          colorScheme="blue" 
           onClick={handleSave}
         >
           Save Template

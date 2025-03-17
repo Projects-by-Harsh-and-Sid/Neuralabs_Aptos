@@ -25,8 +25,10 @@ const CanvasControls = ({
   onScreenshot,
   zoomLevel 
 }) => {
-  const bgColor = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const bgColor = useColorModeValue('white', 'gray.700');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+  const textColor = useColorModeValue('gray.800', 'gray.200');
+  const buttonBgHover = useColorModeValue('gray.100', 'gray.600');
   
   return (
     <Box
@@ -41,7 +43,7 @@ const CanvasControls = ({
       p={2}
     >
       <VStack spacing={2} align="center">
-        <Text textAlign="center" mb={1} fontWeight="medium" fontSize="sm">
+        <Text textAlign="center" mb={1} fontWeight="medium" fontSize="sm" color={textColor}>
           {Math.round(zoomLevel * 100)}%
         </Text>
         
@@ -53,6 +55,7 @@ const CanvasControls = ({
               onClick={onZoomIn}
               variant="ghost"
               size="sm"
+              _hover={{ bg: buttonBgHover }}
             />
           </Tooltip>
           
@@ -63,6 +66,7 @@ const CanvasControls = ({
               onClick={onZoomOut}
               variant="ghost"
               size="sm"
+              _hover={{ bg: buttonBgHover }}
             />
           </Tooltip>
           
@@ -73,6 +77,7 @@ const CanvasControls = ({
               onClick={onFitView}
               variant="ghost"
               size="sm"
+              _hover={{ bg: buttonBgHover }}
             />
           </Tooltip>
         </VStack>
@@ -87,6 +92,7 @@ const CanvasControls = ({
               onClick={onToggleOrientation}
               variant="ghost"
               size="sm"
+              _hover={{ bg: buttonBgHover }}
             />
           </Tooltip>
           
@@ -97,6 +103,7 @@ const CanvasControls = ({
               onClick={onScreenshot}
               variant="ghost"
               size="sm"
+              _hover={{ bg: buttonBgHover }}
             />
           </Tooltip>
         </VStack>
