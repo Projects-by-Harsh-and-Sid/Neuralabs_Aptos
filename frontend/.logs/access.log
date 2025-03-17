@@ -1,0 +1,4 @@
+192.168.0.142 - - [17/Mar/2025:16:59:55 +0000] "GET / HTTP/1.1" 200 644 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0" "-"
+192.168.0.142 - - [17/Mar/2025:16:59:55 +0000] "GET /static/css/main.b61364db.css HTTP/1.1" 200 7105 "http://192.168.0.35:2030/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0" "-"
+192.168.0.142 - - [17/Mar/2025:16:59:55 +0000] "GET /static/js/main.c1bc278f.js HTTP/1.1" 200 616903 "http://192.168.0.35:2030/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0" "-"
+192.168.0.142 - - [17/Mar/2025:16:59:56 +0000] "GET /favicon.ico HTTP/1.1" 200 3870 "http://192.168.0.35:2030/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0" "-"

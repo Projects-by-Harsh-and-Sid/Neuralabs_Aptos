@@ -1,0 +1,26 @@
+version: '1.0'
+
+services:
+  
+
+  neuralabs_aptos:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "2030:80"
+    volumes:
+      - ./frontend/.logs:/var/log/nginx
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: ["nginx", "-g", "daemon off;"]
+
+    networks:
+      - neuralabs_aptos_network
+
+networks:
+  neuralabs_aptos_network:
+    driver: bridge
