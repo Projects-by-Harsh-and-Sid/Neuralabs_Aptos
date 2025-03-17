@@ -242,7 +242,8 @@ const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode, onTog
       
       <Flex justify="flex-end" gap={3} p={4} borderTop="1px solid" borderColor={borderColor}>
         <Button colorScheme="red" onClick={handleDeleteNode} variant="outline">Delete</Button>
-        <Button onClick={handleApplyChanges}>Apply Changes</Button>
+        <Button onClick={handleApplyChanges}
+        style={{ backgroundColor: 'blue.500', color: 'white' }}>Apply Changes</Button>
       </Flex>
     </Box>
   );
