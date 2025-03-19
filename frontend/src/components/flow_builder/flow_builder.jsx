@@ -287,6 +287,14 @@ const toggleSidebar = () => {
   const closeMarketplaceDetailPanel = () => {
     setSelectedMarketplaceItem(null);
   };
+
+  const handleCloseDetailsPanel = () => {
+    setDetailsOpen(false);
+    // Close code panel if it's open
+    if (codeOpen) {
+      setCodeOpen(false);
+    }
+  };
   
 
   // // Zoom controls
@@ -453,15 +461,15 @@ const toggleSidebar = () => {
       
       {/* Rest of the existing panels */}
       {detailsOpen && selectedNode && (
-        <DetailsPanel 
-          selectedNode={selectedNode}
-          onClose={() => setDetailsOpen(false)}
-          onUpdateNode={handleUpdateNode}
-          onDeleteNode={handleDeleteNode}
-          onToggleCode={toggleCodePanel}
-          codeOpen={codeOpen}
-        />
-      )}
+      <DetailsPanel 
+        selectedNode={selectedNode}
+        onClose={handleCloseDetailsPanel}
+        onUpdateNode={handleUpdateNode}
+        onDeleteNode={handleDeleteNode}
+        onToggleCode={toggleCodePanel}
+        codeOpen={codeOpen}
+  />
+)}
       
       {templateOpen && (
         <TemplatePanel 
