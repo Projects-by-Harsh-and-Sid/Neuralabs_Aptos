@@ -401,6 +401,12 @@ const FlowBuilder = () => {
           setScale={setScale}
           setTranslate={setTranslate}
           zoomBehaviorRef={zoomBehaviorRef}
+          leftPanelOpen={sidebarOpen}
+          leftPanelWidth={280} // Adjust based on your actual sidebar width
+          rightPanelOpen={detailsOpen || templateOpen || marketplacePanelOpen}
+          rightPanelWidth={detailsOpen ? 350 : (templateOpen ? 400 : 300)} // Adjust based on which panel is open
+          detailsPanelOpen={detailsOpen}
+          detailsPanelWidth={350} // Adjust to match your actual details panel width
         />
         
         <CanvasControls 

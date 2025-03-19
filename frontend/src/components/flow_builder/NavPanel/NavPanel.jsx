@@ -66,7 +66,7 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel 
         </Box>
         
         <Box as="li" position="relative" w="100%">
-          <Tooltip label="Toggle Sidebar" placement="right" hasArrow>
+          <Tooltip label="Toggle Sidebar" placement="right"   bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <Button 
               w="100%"
               h="56px"
@@ -84,7 +84,7 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel 
         </Box>
         
         <Box as="li" position="relative" w="100%">
-          <Tooltip label="Home" placement="right" hasArrow>
+          <Tooltip label="Home" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <Button 
               w="100%"
               h="56px"
@@ -101,7 +101,7 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel 
         </Box>
         
         <Box as="li" position="relative" w="100%">
-          <Tooltip label="Nodes" placement="right" hasArrow>
+          <Tooltip label="Nodes" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <Button 
               w="100%"
               h="56px"
@@ -119,7 +119,7 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel 
         
         {/* New Marketplace button */}
         <Box as="li" position="relative" w="100%">
-          <Tooltip label="Marketplace" placement="right" hasArrow>
+          <Tooltip label="Marketplace" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <Button 
               w="100%"
               h="56px"
@@ -137,7 +137,7 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel 
         </Box>
         
         <Box as="li" position="relative" w="100%">
-          <Tooltip label="Visualize" placement="right" hasArrow>
+          <Tooltip label="Visualize" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <Button 
               w="100%"
               h="56px"
@@ -155,7 +155,7 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel 
         </Box>
         
         <Box as="li" position="relative" w="100%" mt="auto">
-          <Tooltip label="Toggle Theme" placement="right" hasArrow>
+          <Tooltip label="Toggle Theme" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <Button 
               w="100%"
               h="56px"
@@ -173,7 +173,7 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel 
         </Box>
         
         <Box as="li" position="relative" w="100%" mb={3}>
-          <Tooltip label="Settings" placement="right" hasArrow>
+          <Tooltip label="Settings" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <Button 
               w="100%"
               h="56px"

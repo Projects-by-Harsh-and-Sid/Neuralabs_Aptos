@@ -17,7 +17,14 @@ const FlowCanvas = ({
   setScale,
   setTranslate,
   svgRef: externalSvgRef, // Allow using an external ref if provided
-  zoomBehaviorRef: externalZoomRef
+  zoomBehaviorRef: externalZoomRef,
+    // NEW PROPS for panel awareness
+  leftPanelOpen = false,
+  leftPanelWidth = 250,
+  rightPanelOpen = false,
+  rightPanelWidth = 350,
+  detailsPanelOpen = false,
+  detailsPanelWidth = 300
 }) => {
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
@@ -50,7 +57,8 @@ const FlowCanvas = ({
       zoom = externalZoomRef.current;
     } else {
       zoom = d3.zoom()
-        .scaleExtent([0.8, 4]);
+        .scaleExtent([0.8, 4])
+        .interpolate(d3.interpolateZoom); 
     }
     
     // Configure zoom behavior
@@ -108,7 +116,36 @@ const FlowCanvas = ({
     };
   }, [onAddNode, externalSvgRef, externalZoomRef, scale, translate, setScale, setTranslate]);
 
+
+
+
+
   // Handle node selection
+  // useEffect(() => {
+  //   if (selectedNode) {
+  //     // Find all connections related to the selected node
+  //     const relatedConnections = edges.filter(
+  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
+  //     );
+  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
+  //   } else {
+  //     setHighlightedConnections([]);
+  //   }
+  // }, [selectedNode, edges]);
+  // useEffect(() => {
+  //   if (selectedNode) {
+  //     // Find all connections related to the selected node
+  //     const relatedConnections = edges.filter(
+  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
+  //     );
+  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
+      
+  //     // Center the selected node in the view - NEW CODE
+  //     centerNodeInView(selectedNode.id);
+  //   } else {
+  //     setHighlightedConnections([]);
+  //   }
+  // }, [selectedNode, edges]);
   useEffect(() => {
     if (selectedNode) {
       // Find all connections related to the selected node
@@ -116,15 +153,27 @@ const FlowCanvas = ({
         edge => edge.source === selectedNode.id || edge.target === selectedNode.id
       );
       setHighlightedConnections(relatedConnections.map(conn => conn.id));
+      
+      // Add a slight delay before centering to allow UI updates to complete
+      const timerId = setTimeout(() => {
+        centerNodeInView(selectedNode.id);
+      }, 100);
+      
+      return () => clearTimeout(timerId);
     } else {
       setHighlightedConnections([]);
     }
   }, [selectedNode, edges]);
 
+
   // Determine if a connection is highlighted
   const isConnectionHighlighted = (connectionId) => {
     return highlightedConnections.includes(connectionId);
   };
+
+
+
+
 
   // Handle node dragging
   const handleNodeMouseDown = (e, nodeId) => {
@@ -194,124 +243,128 @@ const FlowCanvas = ({
     startNodeDrag(e);
   };
 
-  // // Start connecting two nodes
-  // const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
-  //   if (e.button !== 0) return; // Only left mouse button
-    
-  //   e.stopPropagation();
-    
-    
-  //   const svg = svgRef.current;
-  //   const svgRect = svg.getBoundingClientRect();
-    
-  //   // Find the node
-  //   const nodeData = nodes.find(n => n.id === nodeId);
-  //   if (!nodeData) return;
-    
-  //   setConnectingNode(nodeId);
-  //   setConnectingPort({ type: portType, index: portIndex });
-    
-  //   // Calculate the start position of the connection
-  //   const startX = nodeData.x;
-  //   let startY;
-    
-  //   if (portType === 'output') {
-  //     startY = nodeData.y + 30 + (portIndex * 20);
-  //   } else { // input
-  //     startY = nodeData.y - 30 - (portIndex * 20); 
-  //   }
-    
-  //   // Create a temporary path
-  //   const tempPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  //   tempPath.setAttribute('stroke', colorMode === 'dark' ? 'white' : 'gray');
-  //   tempPath.setAttribute('stroke-width', '2');
-  //   tempPath.setAttribute('stroke-dasharray', '5,5');
-  //   tempPath.setAttribute('fill', 'none');
-    
-  //   // Add the path to the canvas
-  //   if (canvasRef.current) {
-  //     canvasRef.current.appendChild(tempPath);
-  //     setConnectingPath(tempPath);
-  //   }
-    
-  //   // Update the path as the mouse moves
-  //   const moveHandler = (e) => {
-  //     if (!tempPath) return;
+  // Add this function to your FlowCanvas component
+const centerNodeInView = (nodeId) => {
+  // Find the node to center
+  const node = nodes.find(n => n.id === nodeId);
+  if (!node) return;
+
+  let leftOffset = 0;
+  let rightOffset = 0;
+
+  if (leftPanelOpen) leftOffset = leftPanelWidth;
+  if (rightPanelOpen) rightOffset = rightPanelWidth;
+  if (detailsPanelOpen) rightOffset = Math.max(rightOffset, detailsPanelWidth);
+  
+  // Get the SVG element and its dimensions
+  const svg = svgRef.current;
+  if (!svg) return;
+  
+  const svgRect = svg.getBoundingClientRect();
+  const svgWidth = svgRect.width;
+  const svgHeight = svgRect.height;
+  
+  // Calculate visible canvas area, accounting for side panels
+  // This requires knowing which panels are open and their widths
+  // We'll pass this information as props
+  const visibleWidth = svgWidth - leftOffset - rightOffset;
+  const visibleHeight = svgHeight;
+  
+  // Calculate the center of the visible area
+  const visibleCenterX = leftOffset + (visibleWidth / 2);
+  const visibleCenterY = visibleHeight / 2;
+  
+  // Calculate the new translate values to center the node
+  // We need to reverse the scale and translation math:
+  // (node.x * scale) + translate.x = visibleCenterX
+  // translate.x = visibleCenterX - (node.x * scale)
+  const newTranslateX = visibleCenterX - (node.x * scale);
+  const newTranslateY = visibleCenterY - (node.y * scale);
+  
+  // Update the translate values, with animation
+  if (externalZoomRef.current && svg) {
+    const d3svg = d3.select(svg);
+    d3svg.transition().duration(500).call(
+      externalZoomRef.current.transform,
+      d3.zoomIdentity.translate(newTranslateX, newTranslateY).scale(scale)
+    );
+  } else {
+    // Fallback if d3 zoom isn't available
+    setTranslate({
+      x: newTranslateX,
+      y: newTranslateY
+    });
+  }
+};
+
+// const centerNodeInView = (nodeId) => {
+//   // Find the node to center
+//   const node = nodes.find(n => n.id === nodeId);
+//   if (!node) return;
+
+//   let leftOffset = 0;
+//   let rightOffset = 0;
+
+//   if (leftPanelOpen) leftOffset = leftPanelWidth;
+//   if (rightPanelOpen) rightOffset = rightPanelWidth;
+//   if (detailsPanelOpen) rightOffset = Math.max(rightOffset, detailsPanelWidth);
+  
+//   // Get the SVG element and its dimensions
+//   const svgElement = externalSvgRef?.current || svgRef.current;
+//   if (!svgElement) return;
+  
+//   const svgRect = svgElement.getBoundingClientRect();
+//   const svgWidth = svgRect.width;
+//   const svgHeight = svgRect.height;
+  
+//   // Calculate visible canvas area, accounting for side panels
+//   const visibleWidth = svgWidth - leftOffset - rightOffset;
+//   const visibleHeight = svgHeight;
+  
+//   // Calculate the center of the visible area
+//   const visibleCenterX = leftOffset + (visibleWidth / 2);
+//   const visibleCenterY = visibleHeight / 2;
+  
+//   // Calculate the new translate values to center the node
+//   const newTranslateX = visibleCenterX - (node.x * scale);
+//   const newTranslateY = visibleCenterY - (node.y * scale);
+  
+//   // Simpler, smoother animation approach
+//   if (externalZoomRef?.current) {
+//     try {
+//       const zoomObj = externalZoomRef.current;
+//       const svg = d3.select(svgElement);
       
-  //     // Calculate the mouse position with respect to the canvas transform
-  //     const mouseX = (e.clientX - svgRect.left - translate.x) / scale;
-  //     const mouseY = (e.clientY - svgRect.top - translate.y) / scale;
+//       // Create the transform to center the node
+//       const transform = d3.zoomIdentity
+//         .translate(newTranslateX, newTranslateY)
+//         .scale(scale);
       
-  //     // Update the mouse position state
-  //     setMousePosition({ x: mouseX, y: mouseY });
-      
-  //     // Create a smooth bezier curve
-  //     let pathData;
-      
-  //     if (portType === 'output') {
-  //       pathData = `M ${startX} ${startY} C ${startX + 100} ${startY}, ${mouseX - 100} ${mouseY}, ${mouseX} ${mouseY}`;
-  //     } else { // input
-  //       pathData = `M ${mouseX} ${mouseY} C ${mouseX + 100} ${mouseY}, ${startX - 100} ${startY}, ${startX} ${startY}`;
-  //     }
-      
-  //     tempPath.setAttribute('d', pathData);
-  //   };
-    
-  //   const upHandler = (e) => {
-  //     document.removeEventListener('mousemove', moveHandler);
-  //     document.removeEventListener('mouseup', upHandler);
-      
-  //     // Remove the temporary path
-  //     if (tempPath && tempPath.parentNode) {
-  //       tempPath.parentNode.removeChild(tempPath);
-  //     }
-      
-  //     // Check if the mouse is over a compatible port
-  //     const elementsUnderMouse = document.elementsFromPoint(e.clientX, e.clientY);
-  //     const portElement = elementsUnderMouse.find(el => 
-  //       el.classList && (el.classList.contains('node-port') || el.hasAttribute('data-port-type'))
-  //     );
-      
-  //     if (portElement) {
-  //       const targetNodeId = portElement.getAttribute('data-node-id');
-  //       const targetPortType = portElement.getAttribute('data-port-type');
-  //       const targetPortIndex = parseInt(portElement.getAttribute('data-port-index'), 10);
+//       // Apply the transform with a smooth transition
+//       svg.transition()
+//         .duration(800)
+//         .ease(d3.easeCubicInOut) // Smoother easing
+//         .call(zoomObj.transform, transform);
         
-  //       // Prevent connecting to the same node
-  //       if (targetNodeId && targetNodeId !== connectingNode) {
-  //         // Validate connection compatibility (output -> input)
-  //         if (
-  //           (portType === 'output' && targetPortType === 'input') ||
-  //           (portType === 'input' && targetPortType === 'output')
-  //         ) {
-  //           // Determine source and target based on the port types
-  //           let source, target, sourcePort, targetPort;
-            
-  //           if (portType === 'output') {
-  //             source = nodeId;
-  //             target = targetNodeId;
-  //             sourcePort = portIndex;
-  //             targetPort = targetPortIndex;
-  //           } else { // input
-  //             source = targetNodeId;
-  //             target = nodeId;
-  //             sourcePort = targetPortIndex;
-  //             targetPort = portIndex;
-  //           }
-            
-  //           onAddEdge(source, target, sourcePort, targetPort);
-  //         }
-  //       }
-  //     }
+//       console.log("Smooth centering applied");
+//     } catch (e) {
+//       console.error("Error in smooth centering:", e);
       
-  //     setConnectingNode(null);
-  //     setConnectingPort(null);
-  //     setConnectingPath(null);
-  //   };
-    
-  //   document.addEventListener('mousemove', moveHandler);
-  //   document.addEventListener('mouseup', upHandler);
-  // };
+//       // Fallback to direct state update
+//       setTranslate({
+//         x: newTranslateX,
+//         y: newTranslateY
+//       });
+//     }
+//   } else {
+//     // If no zoom behavior is available, update state directly
+//     setTranslate({
+//       x: newTranslateX,
+//       y: newTranslateY
+//     });
+//   }
+// };
+
 
   // In your FlowCanvas.jsx file, replace the handlePortMouseDown function with this:
 
@@ -510,110 +563,6 @@ const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
     return colors;
   };
 
-  // Render node
-  // const renderNode = (node) => {
-  //   const isSelected = selectedNode && selectedNode.id === node.id;
-  //   const { ringColor, bgColor, iconColor } = getNodeColors(node.type, isSelected);
-    
-  //   // Determine input and output counts
-  //   const inputCount = node.inputs?.length || 1;
-  //   const outputCount = node.outputs?.length || 1;
-    
-  //   return (
-  //     <g
-  //       key={node.id}
-  //       className={`node ${isSelected ? 'node-selected' : ''}`}
-  //       transform={`translate(${node.x}, ${node.y})`}
-  //       onClick={(e) => {
-  //         e.stopPropagation();
-  //         onSelectNode(node.id);
-  //       }}
-  //       onMouseDown={(e) => handleNodeMouseDown(e, node.id)}
-  //       data-node-id={node.id}
-  //     >
-  //       {/* Node shape */}
-  //       <foreignObject
-  //         x="-60"
-  //         y="-30"
-  //         width="120"
-  //         height="60"
-  //         style={{ overflow: 'visible' }}
-  //       >
-  //         <div 
-  //           style={{ 
-  //             width: '120px', 
-  //             height: '60px', 
-  //             borderRadius: '6px',
-  //             border: '2px solid',
-  //             borderColor: ringColor,
-  //             backgroundColor: bgColor,
-  //             display: 'flex',
-  //             flexDirection: 'column',
-  //             alignItems: 'center',
-  //             justifyContent: 'center',
-  //             cursor: 'move',
-  //             position: 'relative',
-  //             userSelect: 'none',
-  //             boxShadow: isSelected ? '0 0 8px rgba(0,188,255,0.5)' : 'none',
-  //             transition: 'box-shadow 0.2s, transform 0.1s',
-  //             color: textColor
-  //           }}
-  //         >
-  //           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-  //             <div style={{ color: iconColor }}>
-  //               {getNodeIcon(node.type)}
-  //             </div>
-  //             <span style={{ fontWeight: 500, fontSize: '14px' }}>{node.name}</span>
-  //           </div>
-  //         </div>
-  //       </foreignObject>
-        
-  //       {/* Input ports */}
-  //       {Array.from({ length: inputCount }).map((_, i) => (
-  //         <g key={`input-${i}`} transform={`translate(0, ${-30 - (i * 20)})`}>
-  //           <circle
-  //             cx="0"
-  //             cy="0"
-  //             r="5"
-  //             className="node-port"
-  //             fill={colorMode === 'dark' ? 'white' : 'black'}
-  //             stroke={getNodeColors(node.type).ringColor}
-  //             strokeWidth="2"
-  //             style={{
-  //               cursor: 'crosshair'
-  //             }}
-  //             data-node-id={node.id}
-  //             data-port-type="input"
-  //             data-port-index={i}
-  //             onMouseDown={(e) => handlePortMouseDown(e, node.id, 'input', i)}
-  //           />
-  //         </g>
-  //       ))}
-        
-  //       {/* Output ports */}
-  //       {Array.from({ length: outputCount }).map((_, i) => (
-  //         <g key={`output-${i}`} transform={`translate(0, ${30 + (i * 20)})`}>
-  //           <circle
-  //             cx="0"
-  //             cy="0"
-  //             r="5"
-  //             className="node-port"
-  //             fill={colorMode === 'dark' ? 'white' : 'black'}
-  //             stroke={getNodeColors(node.type).ringColor}
-  //             strokeWidth="2"
-  //             style={{
-  //               cursor: 'crosshair'
-  //             }}
-  //             data-node-id={node.id}
-  //             data-port-type="output"
-  //             data-port-index={i}
-  //             onMouseDown={(e) => handlePortMouseDown(e, node.id, 'output', i)}
-  //           />
-  //         </g>
-  //       ))}
-  //     </g>
-  //   );
-  // };
 
   // Render node with dynamic width
 const renderNode = (node) => {
