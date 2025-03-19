@@ -89,16 +89,44 @@ const FlowBuilder = () => {
     return newNode;
   };
 
-  // Handle adding edges
-  const handleAddEdge = (sourceId, targetId, sourcePort = 0, targetPort = 0) => {
+  // // Handle adding edges
+  // const handleAddEdge = (sourceId, targetId, sourcePort = 0, targetPort = 0) => {
+  //   const newEdge = {
+  //     id: `edge-${Date.now()}`,
+  //     source: sourceId,
+  //     target: targetId,
+  //     sourcePort,
+  //     targetPort
+  //   };
+    
+  //   setEdges(prevEdges => [...prevEdges, newEdge]);
+  // };
+
+  const handleAddEdge = (source, target, sourcePort = 0, targetPort = 0) => {
+    // First check if this connection already exists
+    const connectionExists = edges.some(edge => 
+      edge.source === source && 
+      edge.target === target && 
+      edge.sourcePort === sourcePort && 
+      edge.targetPort === targetPort
+    );
+    
+    if (connectionExists) {
+      console.log("Connection already exists");
+      return;
+    }
+    
+    // Create a new unique ID for the edge
     const newEdge = {
       id: `edge-${Date.now()}`,
-      source: sourceId,
-      target: targetId,
+      source,
+      target,
       sourcePort,
       targetPort
     };
     
+    // Update the edges state
+    console.log("Adding new edge:", newEdge);
     setEdges(prevEdges => [...prevEdges, newEdge]);
   };
 

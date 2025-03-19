@@ -194,123 +194,274 @@ const FlowCanvas = ({
     startNodeDrag(e);
   };
 
-  // Start connecting two nodes
-  const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
-    if (e.button !== 0) return; // Only left mouse button
+  // // Start connecting two nodes
+  // const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
+  //   if (e.button !== 0) return; // Only left mouse button
     
-    e.stopPropagation();
+  //   e.stopPropagation();
     
-    const svg = svgRef.current;
-    const svgRect = svg.getBoundingClientRect();
     
-    // Find the node
-    const nodeData = nodes.find(n => n.id === nodeId);
-    if (!nodeData) return;
+  //   const svg = svgRef.current;
+  //   const svgRect = svg.getBoundingClientRect();
     
-    setConnectingNode(nodeId);
-    setConnectingPort({ type: portType, index: portIndex });
+  //   // Find the node
+  //   const nodeData = nodes.find(n => n.id === nodeId);
+  //   if (!nodeData) return;
     
-    // Calculate the start position of the connection
-    const startX = nodeData.x;
-    let startY;
+  //   setConnectingNode(nodeId);
+  //   setConnectingPort({ type: portType, index: portIndex });
+    
+  //   // Calculate the start position of the connection
+  //   const startX = nodeData.x;
+  //   let startY;
+    
+  //   if (portType === 'output') {
+  //     startY = nodeData.y + 30 + (portIndex * 20);
+  //   } else { // input
+  //     startY = nodeData.y - 30 - (portIndex * 20); 
+  //   }
+    
+  //   // Create a temporary path
+  //   const tempPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  //   tempPath.setAttribute('stroke', colorMode === 'dark' ? 'white' : 'gray');
+  //   tempPath.setAttribute('stroke-width', '2');
+  //   tempPath.setAttribute('stroke-dasharray', '5,5');
+  //   tempPath.setAttribute('fill', 'none');
+    
+  //   // Add the path to the canvas
+  //   if (canvasRef.current) {
+  //     canvasRef.current.appendChild(tempPath);
+  //     setConnectingPath(tempPath);
+  //   }
+    
+  //   // Update the path as the mouse moves
+  //   const moveHandler = (e) => {
+  //     if (!tempPath) return;
+      
+  //     // Calculate the mouse position with respect to the canvas transform
+  //     const mouseX = (e.clientX - svgRect.left - translate.x) / scale;
+  //     const mouseY = (e.clientY - svgRect.top - translate.y) / scale;
+      
+  //     // Update the mouse position state
+  //     setMousePosition({ x: mouseX, y: mouseY });
+      
+  //     // Create a smooth bezier curve
+  //     let pathData;
+      
+  //     if (portType === 'output') {
+  //       pathData = `M ${startX} ${startY} C ${startX + 100} ${startY}, ${mouseX - 100} ${mouseY}, ${mouseX} ${mouseY}`;
+  //     } else { // input
+  //       pathData = `M ${mouseX} ${mouseY} C ${mouseX + 100} ${mouseY}, ${startX - 100} ${startY}, ${startX} ${startY}`;
+  //     }
+      
+  //     tempPath.setAttribute('d', pathData);
+  //   };
+    
+  //   const upHandler = (e) => {
+  //     document.removeEventListener('mousemove', moveHandler);
+  //     document.removeEventListener('mouseup', upHandler);
+      
+  //     // Remove the temporary path
+  //     if (tempPath && tempPath.parentNode) {
+  //       tempPath.parentNode.removeChild(tempPath);
+  //     }
+      
+  //     // Check if the mouse is over a compatible port
+  //     const elementsUnderMouse = document.elementsFromPoint(e.clientX, e.clientY);
+  //     const portElement = elementsUnderMouse.find(el => 
+  //       el.classList && (el.classList.contains('node-port') || el.hasAttribute('data-port-type'))
+  //     );
+      
+  //     if (portElement) {
+  //       const targetNodeId = portElement.getAttribute('data-node-id');
+  //       const targetPortType = portElement.getAttribute('data-port-type');
+  //       const targetPortIndex = parseInt(portElement.getAttribute('data-port-index'), 10);
+        
+  //       // Prevent connecting to the same node
+  //       if (targetNodeId && targetNodeId !== connectingNode) {
+  //         // Validate connection compatibility (output -> input)
+  //         if (
+  //           (portType === 'output' && targetPortType === 'input') ||
+  //           (portType === 'input' && targetPortType === 'output')
+  //         ) {
+  //           // Determine source and target based on the port types
+  //           let source, target, sourcePort, targetPort;
+            
+  //           if (portType === 'output') {
+  //             source = nodeId;
+  //             target = targetNodeId;
+  //             sourcePort = portIndex;
+  //             targetPort = targetPortIndex;
+  //           } else { // input
+  //             source = targetNodeId;
+  //             target = nodeId;
+  //             sourcePort = targetPortIndex;
+  //             targetPort = portIndex;
+  //           }
+            
+  //           onAddEdge(source, target, sourcePort, targetPort);
+  //         }
+  //       }
+  //     }
+      
+  //     setConnectingNode(null);
+  //     setConnectingPort(null);
+  //     setConnectingPath(null);
+  //   };
+    
+  //   document.addEventListener('mousemove', moveHandler);
+  //   document.addEventListener('mouseup', upHandler);
+  // };
+
+  // In your FlowCanvas.jsx file, replace the handlePortMouseDown function with this:
+
+// Start connecting two nodes
+const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
+  if (e.button !== 0) return; // Only left mouse button
+  
+  e.stopPropagation();
+  
+  // Add visual feedback - change the port color when clicked
+  const clickedPort = e.target;
+  const originalFill = clickedPort.getAttribute('fill');
+  const originalStroke = clickedPort.getAttribute('stroke');
+  
+  // Highlight the port when clicked
+  clickedPort.setAttribute('fill', '#4ADE80'); // Green fill
+  clickedPort.setAttribute('stroke', '#16A34A'); // Darker green stroke
+  clickedPort.setAttribute('stroke-width', '3');
+  
+  const svg = svgRef.current;
+  const svgRect = svg.getBoundingClientRect();
+  
+  // Find the node
+  const nodeData = nodes.find(n => n.id === nodeId);
+  if (!nodeData) return;
+  
+  setConnectingNode(nodeId);
+  setConnectingPort({ type: portType, index: portIndex });
+  
+  // Calculate the start position of the connection
+  const startX = nodeData.x;
+  let startY;
+  
+  if (portType === 'output') {
+    startY = nodeData.y + 30 + (portIndex * 20);
+  } else { // input
+    startY = nodeData.y - 30 - (portIndex * 20); 
+  }
+  
+  // Create a temporary path
+  const tempPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  tempPath.setAttribute('stroke', colorMode === 'dark' ? 'white' : 'black');
+  tempPath.setAttribute('stroke-width', '2');
+  tempPath.setAttribute('stroke-dasharray', '5,5');
+  tempPath.setAttribute('fill', 'none');
+  tempPath.setAttribute('class', 'connecting-path');
+  tempPath.setAttribute('d', `M ${startX} ${startY} L ${startX} ${startY}`); // Initialize with a point
+  
+  // Add the path to the canvas
+  if (canvasRef.current) {
+    canvasRef.current.appendChild(tempPath);
+    setConnectingPath(tempPath);
+  } else {
+    console.error("Canvas ref is null");
+  }
+  
+  // Update the path as the mouse moves
+  const moveHandler = (e) => {
+    if (!tempPath) return;
+    
+    // Calculate the mouse position with respect to the canvas transform
+    const mouseX = (e.clientX - svgRect.left - translate.x) / scale;
+    const mouseY = (e.clientY - svgRect.top - translate.y) / scale;
+    
+    // Update the mouse position state
+    setMousePosition({ x: mouseX, y: mouseY });
+    
+    // Create a smooth bezier curve
+    let pathData;
     
     if (portType === 'output') {
-      startY = nodeData.y + 30 + (portIndex * 20);
+      pathData = `M ${startX} ${startY} C ${startX + 100} ${startY}, ${mouseX - 100} ${mouseY}, ${mouseX} ${mouseY}`;
     } else { // input
-      startY = nodeData.y - 30 - (portIndex * 20); 
+      pathData = `M ${startX} ${startY} C ${startX - 100} ${startY}, ${mouseX + 100} ${mouseY}, ${mouseX} ${mouseY}`;
     }
     
-    // Create a temporary path
-    const tempPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    tempPath.setAttribute('stroke', colorMode === 'dark' ? 'white' : 'gray');
-    tempPath.setAttribute('stroke-width', '2');
-    tempPath.setAttribute('stroke-dasharray', '5,5');
-    tempPath.setAttribute('fill', 'none');
+    tempPath.setAttribute('d', pathData);
+  };
+  
+  const upHandler = (e) => {
+    document.removeEventListener('mousemove', moveHandler);
+    document.removeEventListener('mouseup', upHandler);
     
-    // Add the path to the canvas
-    if (canvasRef.current) {
-      canvasRef.current.appendChild(tempPath);
-      setConnectingPath(tempPath);
+    // Reset the port appearance
+    clickedPort.setAttribute('fill', originalFill);
+    clickedPort.setAttribute('stroke', originalStroke);
+    clickedPort.setAttribute('stroke-width', '2');
+    
+    // Remove the temporary path
+    if (tempPath && tempPath.parentNode) {
+      tempPath.parentNode.removeChild(tempPath);
     }
     
-    // Update the path as the mouse moves
-    const moveHandler = (e) => {
-      if (!tempPath) return;
-      
-      // Calculate the mouse position with respect to the canvas transform
-      const mouseX = (e.clientX - svgRect.left - translate.x) / scale;
-      const mouseY = (e.clientY - svgRect.top - translate.y) / scale;
-      
-      // Update the mouse position state
-      setMousePosition({ x: mouseX, y: mouseY });
-      
-      // Create a smooth bezier curve
-      let pathData;
-      
-      if (portType === 'output') {
-        pathData = `M ${startX} ${startY} C ${startX + 100} ${startY}, ${mouseX - 100} ${mouseY}, ${mouseX} ${mouseY}`;
-      } else { // input
-        pathData = `M ${mouseX} ${mouseY} C ${mouseX + 100} ${mouseY}, ${startX - 100} ${startY}, ${startX} ${startY}`;
-      }
-      
-      tempPath.setAttribute('d', pathData);
-    };
+    // Check if the mouse is over a compatible port - FIXED METHOD
+    const elementsAtPoint = document.elementsFromPoint(e.clientX, e.clientY);
     
-    const upHandler = (e) => {
-      document.removeEventListener('mousemove', moveHandler);
-      document.removeEventListener('mouseup', upHandler);
+    // Debug - log all elements under mouse
+    console.log("Elements under mouse:", elementsAtPoint.map(el => el.tagName + (el.className ? '.' + el.className : '')));
+    
+    // Find the first element that is a port
+    const portElement = elementsAtPoint.find(el => 
+      el.tagName === 'circle' && 
+      el.hasAttribute('data-port-type')
+    );
+    
+    if (portElement) {
+      const targetNodeId = portElement.getAttribute('data-node-id');
+      const targetPortType = portElement.getAttribute('data-port-type');
+      const targetPortIndex = parseInt(portElement.getAttribute('data-port-index'), 10);
       
-      // Remove the temporary path
-      if (tempPath && tempPath.parentNode) {
-        tempPath.parentNode.removeChild(tempPath);
-      }
+      console.log("Found port:", targetNodeId, targetPortType, targetPortIndex);
       
-      // Check if the mouse is over a compatible port
-      const elementsUnderMouse = document.elementsFromPoint(e.clientX, e.clientY);
-      const portElement = elementsUnderMouse.find(el => 
-        el.classList && (el.classList.contains('node-port') || el.hasAttribute('data-port-type'))
-      );
-      
-      if (portElement) {
-        const targetNodeId = portElement.getAttribute('data-node-id');
-        const targetPortType = portElement.getAttribute('data-port-type');
-        const targetPortIndex = parseInt(portElement.getAttribute('data-port-index'), 10);
-        
-        // Prevent connecting to the same node
-        if (targetNodeId && targetNodeId !== connectingNode) {
-          // Validate connection compatibility (output -> input)
-          if (
-            (portType === 'output' && targetPortType === 'input') ||
-            (portType === 'input' && targetPortType === 'output')
-          ) {
-            // Determine source and target based on the port types
-            let source, target, sourcePort, targetPort;
-            
-            if (portType === 'output') {
-              source = nodeId;
-              target = targetNodeId;
-              sourcePort = portIndex;
-              targetPort = targetPortIndex;
-            } else { // input
-              source = targetNodeId;
-              target = nodeId;
-              sourcePort = targetPortIndex;
-              targetPort = portIndex;
-            }
-            
-            onAddEdge(source, target, sourcePort, targetPort);
+      // Prevent connecting to the same node
+      if (targetNodeId && targetNodeId !== nodeId) {
+        // Validate connection compatibility (output -> input)
+        if (
+          (portType === 'output' && targetPortType === 'input') ||
+          (portType === 'input' && targetPortType === 'output')
+        ) {
+          // Determine source and target based on the port types
+          let source, target, sourcePort, targetPort;
+          
+          if (portType === 'output') {
+            source = nodeId;
+            target = targetNodeId;
+            sourcePort = portIndex;
+            targetPort = targetPortIndex;
+          } else { // input
+            source = targetNodeId;
+            target = nodeId;
+            sourcePort = targetPortIndex;
+            targetPort = portIndex;
           }
+          
+          console.log("Creating connection:", source, target, sourcePort, targetPort);
+          onAddEdge(source, target, sourcePort, targetPort);
         }
       }
-      
-      setConnectingNode(null);
-      setConnectingPort(null);
-      setConnectingPath(null);
-    };
+    } else {
+      console.log("No port found at drop point");
+    }
     
-    document.addEventListener('mousemove', moveHandler);
-    document.addEventListener('mouseup', upHandler);
+    setConnectingNode(null);
+    setConnectingPort(null);
+    setConnectingPath(null);
   };
+  
+  document.addEventListener('mousemove', moveHandler);
+  document.addEventListener('mouseup', upHandler);
+};
 
   // Get node icon
   const getNodeIcon = (nodeType) => {
@@ -425,7 +576,7 @@ const FlowCanvas = ({
               cy="0"
               r="5"
               className="node-port"
-              fill={colorMode === 'dark' ? 'gray.700' : 'white'}
+              fill={colorMode === 'dark' ? 'white' : 'black'}
               stroke={getNodeColors(node.type).ringColor}
               strokeWidth="2"
               style={{
@@ -447,7 +598,7 @@ const FlowCanvas = ({
               cy="0"
               r="5"
               className="node-port"
-              fill={colorMode === 'dark' ? 'gray.700' : 'white'}
+              fill={colorMode === 'dark' ? 'white' : 'black'}
               stroke={getNodeColors(node.type).ringColor}
               strokeWidth="2"
               style={{
@@ -468,8 +619,14 @@ const FlowCanvas = ({
   const renderEdge = (edge) => {
     const sourceNode = nodes.find(n => n.id === edge.source);
     const targetNode = nodes.find(n => n.id === edge.target);
+
+    console.log(`Rendering edge: ${edge.id}, source: ${edge.source}, target: ${edge.target}`);
+
     
-    if (!sourceNode || !targetNode) return null;
+    if (!sourceNode || !targetNode) {
+      console.error(`Missing node for edge ${edge.id}: source=${!!sourceNode}, target=${!!targetNode}`);
+      return null;
+    }
     
     const sourcePortIndex = edge.sourcePort || 0;
     const targetPortIndex = edge.targetPort || 0;
