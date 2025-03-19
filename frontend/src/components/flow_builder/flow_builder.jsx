@@ -253,6 +253,10 @@ const toggleSidebar = () => {
     if (marketplacePanelOpen) {
       setMarketplacePanelOpen(false);
     }
+    // Close marketplace detail panel if it's open
+    if (selectedMarketplaceItem) {
+      setSelectedMarketplaceItem(null);
+    }
     // Open the sidebar
     setSidebarOpen(true);
   } else {
@@ -269,15 +273,14 @@ const toggleSidebar = () => {
     // If marketplace panel is being opened, close blocks panel
     if (!marketplacePanelOpen) {
       setSidebarOpen(false);
+    } else {
+      // If we're closing the marketplace panel, also close the detail panel
+      setSelectedMarketplaceItem(null); // Close marketplace detail panel
     }
     setMarketplacePanelOpen(!marketplacePanelOpen);
-    
-    // Reset selected item when closing
-    if (marketplacePanelOpen) {
-      setSelectedMarketplaceItem(null);
-    }
   };
-  
+
+
   // Handle marketplace item selection
   const handleSelectMarketplaceItem = (item) => {
     setSelectedMarketplaceItem(item);
