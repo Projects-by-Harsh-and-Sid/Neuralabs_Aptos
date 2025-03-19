@@ -30,6 +30,17 @@ const CanvasControls = ({
   const textColor = useColorModeValue('gray.800', 'gray.200');
   const buttonBgHover = useColorModeValue('gray.100', 'gray.600');
   
+   // Add console logging to debug button clicks
+   const handleZoomIn = () => {
+    console.log('Zoom In clicked');
+    onZoomIn();
+  };
+  
+  const handleZoomOut = () => {
+    console.log('Zoom Out clicked');
+    onZoomOut();
+  };
+
   return (
     <Box
       position="absolute"
@@ -53,7 +64,7 @@ const CanvasControls = ({
             <IconButton
               icon={<FiZoomIn />}
               aria-label="Zoom In"
-              onClick={onZoomIn}
+              onClick={handleZoomIn} 
               variant="ghost"
               size="sm"
               _hover={{ bg: buttonBgHover }}
@@ -64,7 +75,7 @@ const CanvasControls = ({
             <IconButton
               icon={<FiZoomOut />}
               aria-label="Zoom Out"
-              onClick={onZoomOut}
+              onClick={handleZoomOut} 
               variant="ghost"
               size="sm"
               _hover={{ bg: buttonBgHover }}

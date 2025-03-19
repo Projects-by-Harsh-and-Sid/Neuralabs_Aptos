@@ -810,31 +810,6 @@ const renderNode = (node) => {
         style={{ cursor: dragging ? 'grabbing' : 'grab' }}
         onClick={() => onSelectNode(null)}
       >
-        {/* <defs>
-          <marker
-            id="arrow"
-            viewBox="0 0 10 10"
-            refX="9"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto"
-          >
-            <path d="M 0 0 L 10 5 L 0 10 z" fill={edgeColor} />
-          </marker>
-          <marker
-            id="arrow-highlighted"
-            viewBox="0 0 10 10"
-            refX="9"
-            refY="5"
-            markerWidth="6"
-            markerHeight="6"
-            orient="auto"
-          >
-            <path d="M 0 0 L 10 5 L 0 10 z" fill={edgeHighlightColor} />
-          </marker>
-        </defs> */}
-
         <defs>
           <marker
             id="arrow"
@@ -861,7 +836,11 @@ const renderNode = (node) => {
         </defs>
 
 
-        <g ref={canvasRef}>
+        <g ref={canvasRef}
+          style={{ 
+                  transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
+                  transformOrigin: '0 0' 
+                }}>
           {/* Grid (optional) */}
           <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
             <path d="M 50 0 L 0 0 0 50" fill="none" stroke={colorMode === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'} strokeWidth="1"/>

@@ -101,7 +101,7 @@ const MarketplaceDetailPanel = ({ item, onClose }) => {
       position="absolute"
       right="0"
       top="0"
-      zIndex={5}
+      zIndex={10}
     >
       <Flex justify="space-between" align="center" p={4} borderBottom="1px solid" borderColor={borderColor}>
         <Flex align="center" gap={3}>

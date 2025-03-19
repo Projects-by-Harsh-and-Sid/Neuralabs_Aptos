@@ -52,6 +52,7 @@ const FlowBuilder = () => {
   
   // Refs for d3 zoom behavior
   const zoomBehaviorRef = useRef(null);
+  const svgRef = useRef(null); // Add this line to create the svgRef
   
   // Handle adding nodes
   const handleAddNode = (nodeType, position) => {
@@ -277,26 +278,68 @@ const FlowBuilder = () => {
   };
   
 
-  // Zoom controls
-  const handleZoomIn = () => {
-    setScale(prev => Math.min(prev + 0.1, 4));
+  // // Zoom controls
+  // const handleZoomIn = () => {
+  //   setScale(prev => Math.min(prev + 0.1, 4));
     
-    // Apply the zoom using d3 if the ref exists
-    if (zoomBehaviorRef.current) {
-      const svg = d3.select('svg');
-      zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 1.1);
-    }
-  };
+  //   // Apply the zoom using d3 if the ref exists
+  //   if (zoomBehaviorRef.current) {
+  //     const svg = d3.select('svg');
+  //     zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 1.1);
+  //   }
+  // };
 
-  const handleZoomOut = () => {
-    setScale(prev => Math.max(prev - 0.1, 0.1));
+  // const handleZoomIn = () => {
+  //   // Log the current scale
+  //   console.log("Zooming in from:", scale);
     
-    // Apply the zoom using d3 if the ref exists
-    if (zoomBehaviorRef.current) {
-      const svg = d3.select('svg');
-      zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 0.9);
-    }
+  //   // Update the scale in state
+  //   setScale(prev => {
+  //     const newScale = Math.min(prev + 0.1, 4); // Max zoom 400%
+  //     console.log("New scale:", newScale);
+  //     return newScale;
+  //   });
+    
+  //   // Apply the zoom using d3 if the ref exists
+  //   if (zoomBehaviorRef.current) {
+  //     try {
+  //       const svg = d3.select(svgRef.current);
+  //       zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 1.2);
+  //       console.log("D3 zoom applied");
+  //     } catch (e) {
+  //       console.error("Error applying d3 zoom:", e);
+  //     }
+  //   } else {
+  //     console.warn("Zoom behavior ref not available");
+  //   }
+  // };
+
+  const handleZoomIn = () => {
+    setScale(prevScale => {
+      const newScale = Math.min(prevScale + 0.1, 4);
+      console.log("New scale:", newScale);
+      return newScale;
+    });
   };
+  
+
+  // const handleZoomOut = () => {
+  //   setScale(prev => Math.max(prev - 0.1, 0.1));
+    
+  //   // Apply the zoom using d3 if the ref exists
+  //   if (zoomBehaviorRef.current) {
+  //     const svg = d3.select('svg');
+  //     zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 0.9);
+  //   }
+  // };
+  const handleZoomOut = () => {
+    setScale(prevScale => {
+      const newScale = Math.max(prevScale - 0.1, 0.1);
+      console.log("New scale:", newScale);
+      return newScale;
+    });
+  };
+  
 
   const handleFitView = () => {
     // In a real implementation, this would calculate the appropriate
