@@ -50,7 +50,7 @@ const FlowCanvas = ({
       zoom = externalZoomRef.current;
     } else {
       zoom = d3.zoom()
-        .scaleExtent([0.1, 4]);
+        .scaleExtent([0.8, 4]);
     }
     
     // Configure zoom behavior

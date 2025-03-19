@@ -334,7 +334,7 @@ const FlowBuilder = () => {
   // };
   const handleZoomOut = () => {
     setScale(prevScale => {
-      const newScale = Math.max(prevScale - 0.1, 0.1);
+      const newScale = Math.max(prevScale - 0.1, 0.8);
       console.log("New scale:", newScale);
       return newScale;
     });
