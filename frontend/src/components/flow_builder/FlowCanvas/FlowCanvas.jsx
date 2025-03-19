@@ -40,7 +40,7 @@ const FlowCanvas = ({
   const bgColor = useColorModeValue('gray.100', 'gray.900');
   const nodeColor = useColorModeValue('white', 'gray.800');
   const nodeBorderColor = useColorModeValue('gray.200', 'gray.600');
-  const textColor = useColorModeValue('gray.800', 'white');
+  const textColor = useColorModeValue('black', 'white');
   const edgeColor = useColorModeValue('gray.400', 'gray.500');
   const edgeHighlightColor = useColorModeValue('blue.500', 'blue.300');
 
