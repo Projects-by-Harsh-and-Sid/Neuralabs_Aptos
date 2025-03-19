@@ -1,6 +1,6 @@
 // src/components/flow_builder/flow_builder.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import { Flex, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Flex, useColorMode, useColorModeValue, useToast } from '@chakra-ui/react';
 import { FiDatabase, FiActivity, FiSliders } from 'react-icons/fi';
 import NavPanel from './NavPanel/NavPanel';
 import BlocksPanel from './BlocksPanel/BlocksPanel';
@@ -35,6 +35,7 @@ const NODE_TYPES = {
 
 const FlowBuilder = () => {
   const { colorMode } = useColorMode();
+  const toast = useToast();
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
@@ -50,9 +51,14 @@ const FlowBuilder = () => {
   const [marketplacePanelOpen, setMarketplacePanelOpen] = useState(false);
   const [selectedMarketplaceItem, setSelectedMarketplaceItem] = useState(null);
   
+  // New states for the new features
+  const [viewOnlyMode, setViewOnlyMode] = useState(false);
+  const [hideTextLabels, setHideTextLabels] = useState(false);
+  const [previousState, setPreviousState] = useState({});
+  
   // Refs for d3 zoom behavior
   const zoomBehaviorRef = useRef(null);
-  const svgRef = useRef(null); // Add this line to create the svgRef
+  const svgRef = useRef(null);
   
   // Handle adding nodes
   const handleAddNode = (nodeType, position) => {
@@ -93,19 +99,6 @@ const FlowBuilder = () => {
     return newNode;
   };
 
-  // // Handle adding edges
-  // const handleAddEdge = (sourceId, targetId, sourcePort = 0, targetPort = 0) => {
-  //   const newEdge = {
-  //     id: `edge-${Date.now()}`,
-  //     source: sourceId,
-  //     target: targetId,
-  //     sourcePort,
-  //     targetPort
-  //   };
-    
-  //   setEdges(prevEdges => [...prevEdges, newEdge]);
-  // };
-
   const handleAddEdge = (source, target, sourcePort = 0, targetPort = 0) => {
     // First check if this connection already exists
     const connectionExists = edges.some(edge => 
@@ -134,8 +127,23 @@ const FlowBuilder = () => {
     setEdges(prevEdges => [...prevEdges, newEdge]);
   };
 
-  // Handle node selection
+  // Handle node selection (modified to respect view-only mode)
   const handleNodeSelect = (nodeId) => {
+    if (viewOnlyMode) {
+      if (nodeId !== null) {
+        // Show a toast in view-only mode
+        toast({
+          title: "View-only mode active",
+          description: "Exit view-only mode to select and edit nodes.",
+          status: "info",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+      return;
+    }
+    
     if (nodeId === null) {
       setSelectedNode(null);
       setDetailsOpen(false);
@@ -224,6 +232,8 @@ const FlowBuilder = () => {
   
   // Handle template editing
   const handleEditTemplate = (templateId) => {
+    if (viewOnlyMode) return;
+    
     const template = customTemplates.find(t => t.id === templateId);
     if (template) {
       setEditingTemplate(template);
@@ -234,6 +244,8 @@ const FlowBuilder = () => {
 
   // Handle opening the template panel
   const handleOpenTemplatePanel = () => {
+    if (viewOnlyMode) return;
+    
     setEditingTemplate(null);
     setDetailsOpen(false);
     setTemplateOpen(true);
@@ -241,35 +253,47 @@ const FlowBuilder = () => {
 
   // Toggle code panel
   const toggleCodePanel = () => {
+    if (viewOnlyMode) return;
     setCodeOpen(!codeOpen);
   };
 
   // Toggle sidebar
-// Update the toggleSidebar function to close the marketplace panel when opening the sidebar
-const toggleSidebar = () => {
-  // If sidebar is currently closed and we're opening it
-  if (!sidebarOpen) {
-    // Close marketplace panel if it's open
-    if (marketplacePanelOpen) {
-      setMarketplacePanelOpen(false);
+  const toggleSidebar = () => {
+    if (viewOnlyMode) {
+      showViewOnlyModeToast();
+      return;
     }
-    // Close marketplace detail panel if it's open
-    if (selectedMarketplaceItem) {
-      setSelectedMarketplaceItem(null);
+    
+    // If sidebar is currently closed and we're opening it
+    if (!sidebarOpen) {
+      // Close marketplace panel if it's open
+      if (marketplacePanelOpen) {
+        setMarketplacePanelOpen(false);
+      }
+      // Close marketplace detail panel if it's open
+      if (selectedMarketplaceItem) {
+        setSelectedMarketplaceItem(null);
+      }
+      // Open the sidebar
+      setSidebarOpen(true);
+    } else {
+      // Just toggle the sidebar if we're closing it
+      setSidebarOpen(false);
     }
-    // Open the sidebar
-    setSidebarOpen(true);
-  } else {
-    // Just toggle the sidebar if we're closing it
-    setSidebarOpen(false);
-  }
-};
+  };
+  
   // Toggle visualize panel
   const toggleVisualizePanel = () => {
     setVisualizePanelOpen(!visualizePanelOpen);
   };
 
+  // Toggle marketplace panel
   const toggleMarketplacePanel = () => {
+    if (viewOnlyMode) {
+      showViewOnlyModeToast();
+      return;
+    }
+    
     // If marketplace panel is being opened, close blocks panel
     if (!marketplacePanelOpen) {
       setSidebarOpen(false);
@@ -280,9 +304,12 @@ const toggleSidebar = () => {
     setMarketplacePanelOpen(!marketplacePanelOpen);
   };
 
-
   // Handle marketplace item selection
   const handleSelectMarketplaceItem = (item) => {
+    if (viewOnlyMode) {
+      showViewOnlyModeToast();
+      return;
+    }
     setSelectedMarketplaceItem(item);
   };
   
@@ -299,43 +326,7 @@ const toggleSidebar = () => {
     }
   };
   
-
-  // // Zoom controls
-  // const handleZoomIn = () => {
-  //   setScale(prev => Math.min(prev + 0.1, 4));
-    
-  //   // Apply the zoom using d3 if the ref exists
-  //   if (zoomBehaviorRef.current) {
-  //     const svg = d3.select('svg');
-  //     zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 1.1);
-  //   }
-  // };
-
-  // const handleZoomIn = () => {
-  //   // Log the current scale
-  //   console.log("Zooming in from:", scale);
-    
-  //   // Update the scale in state
-  //   setScale(prev => {
-  //     const newScale = Math.min(prev + 0.1, 4); // Max zoom 400%
-  //     console.log("New scale:", newScale);
-  //     return newScale;
-  //   });
-    
-  //   // Apply the zoom using d3 if the ref exists
-  //   if (zoomBehaviorRef.current) {
-  //     try {
-  //       const svg = d3.select(svgRef.current);
-  //       zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 1.2);
-  //       console.log("D3 zoom applied");
-  //     } catch (e) {
-  //       console.error("Error applying d3 zoom:", e);
-  //     }
-  //   } else {
-  //     console.warn("Zoom behavior ref not available");
-  //   }
-  // };
-
+  // Zoom controls
   const handleZoomIn = () => {
     setScale(prevScale => {
       const newScale = Math.min(prevScale + 0.1, 4);
@@ -344,16 +335,6 @@ const toggleSidebar = () => {
     });
   };
   
-
-  // const handleZoomOut = () => {
-  //   setScale(prev => Math.max(prev - 0.1, 0.1));
-    
-  //   // Apply the zoom using d3 if the ref exists
-  //   if (zoomBehaviorRef.current) {
-  //     const svg = d3.select('svg');
-  //     zoomBehaviorRef.current.scaleBy(svg.transition().duration(300), 0.9);
-  //   }
-  // };
   const handleZoomOut = () => {
     setScale(prevScale => {
       const newScale = Math.max(prevScale - 0.1, 0.8);
@@ -362,7 +343,6 @@ const toggleSidebar = () => {
     });
   };
   
-
   const handleFitView = () => {
     // In a real implementation, this would calculate the appropriate
     // zoom level to fit all nodes in view
@@ -371,11 +351,138 @@ const toggleSidebar = () => {
     
     // Reset the view using d3 if the ref exists
     if (zoomBehaviorRef.current) {
-      const svg = d3.select('svg');
+      const svg = d3.select(svgRef.current);
       svg.transition().duration(300).call(
         zoomBehaviorRef.current.transform, 
         d3.zoomIdentity.translate(0, 0).scale(1)
       );
+    }
+  };
+
+  // New function to toggle view-only mode
+  const toggleViewOnlyMode = () => {
+    if (!viewOnlyMode) {
+      // Entering view-only mode
+      setPreviousState({
+        sidebarOpen,
+        detailsOpen,
+        templateOpen,
+        codeOpen,
+        marketplacePanelOpen,
+        selectedMarketplaceItem: selectedMarketplaceItem !== null
+      });
+      
+      // Close all panels
+      setSidebarOpen(false);
+      setDetailsOpen(false);
+      setTemplateOpen(false);
+      setCodeOpen(false);
+      setMarketplacePanelOpen(false);
+      setSelectedMarketplaceItem(null);
+      
+      // Center the flow
+      centerFlow();
+      
+      setViewOnlyMode(true);
+      
+      // Notification
+      toast({
+        title: "View-only mode enabled",
+        description: "Only visualization controls are active. Click the eye icon again to exit.",
+        status: "info",
+        duration: 4000,
+        isClosable: true,
+      });
+    } else {
+      // Exiting view-only mode
+      // Restore previous state
+      setSidebarOpen(previousState.sidebarOpen);
+      setDetailsOpen(previousState.detailsOpen);
+      setTemplateOpen(previousState.templateOpen);
+      setCodeOpen(previousState.codeOpen);
+      setMarketplacePanelOpen(previousState.marketplacePanelOpen);
+      // We don't restore the selected marketplace item directly
+      
+      setViewOnlyMode(false);
+      
+      // Notification
+      toast({
+        title: "View-only mode disabled",
+        description: "All controls are now active.",
+        status: "info",
+        duration: 2000,
+        isClosable: true,
+      });
+    }
+  };
+  
+  // Toggle hide text labels feature
+  const toggleHideTextLabels = () => {
+    setHideTextLabels(prev => !prev);
+  };
+  
+  // Helper function to show view-only mode toast
+  const showViewOnlyModeToast = () => {
+    toast({
+      title: "View-only mode active",
+      description: "Exit view-only mode to access this feature",
+      status: "warning",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
+  };
+  
+  // Center the flow in the viewport
+  const centerFlow = () => {
+    if (nodes.length === 0) return;
+    
+    // Calculate the bounding box of all nodes
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    
+    nodes.forEach(node => {
+      minX = Math.min(minX, node.x);
+      maxX = Math.max(maxX, node.x);
+      minY = Math.min(minY, node.y);
+      maxY = Math.max(maxY, node.y);
+    });
+    
+    // Add some padding
+    const padding = 100;
+    minX -= padding;
+    maxX += padding;
+    minY -= padding;
+    maxY += padding;
+    
+    // Calculate the center of the bounding box
+    const centerX = (minX + maxX) / 2;
+    const centerY = (minY + maxY) / 2;
+    
+    // Get SVG dimensions
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
+    
+    const svgRect = svgElement.getBoundingClientRect();
+    const svgWidth = svgRect.width;
+    const svgHeight = svgRect.height;
+    
+    // Calculate the new translate values to center the flow
+    const newTranslateX = svgWidth / 2 - centerX * scale;
+    const newTranslateY = svgHeight / 2 - centerY * scale;
+    
+    // Use d3 for smooth transition
+    if (zoomBehaviorRef.current) {
+      const svg = d3.select(svgElement);
+      svg.transition().duration(500).call(
+        zoomBehaviorRef.current.transform,
+        d3.zoomIdentity.translate(newTranslateX, newTranslateY).scale(scale)
+      );
+    } else {
+      // Fallback
+      setTranslate({
+        x: newTranslateX,
+        y: newTranslateY
+      });
     }
   };
 
@@ -388,10 +495,11 @@ const toggleSidebar = () => {
         sidebarOpen={sidebarOpen}
         visualizePanelOpen={visualizePanelOpen}
         marketplacePanelOpen={marketplacePanelOpen}
+        viewOnlyMode={viewOnlyMode}
       />
       
       {/* Conditionally render either sidebar or marketplace panel */}
-      {sidebarOpen && !marketplacePanelOpen && (
+      {sidebarOpen && !marketplacePanelOpen && !viewOnlyMode && (
         <BlocksPanel 
           onAddNode={handleAddNode}
           onOpenTemplate={handleOpenTemplatePanel}
@@ -401,7 +509,7 @@ const toggleSidebar = () => {
       )}
       
       {/* Add marketplace panel */}
-      {marketplacePanelOpen && (
+      {marketplacePanelOpen && !viewOnlyMode && (
         <MarketplacePanel 
           onClose={toggleMarketplacePanel}
           onSelectItem={handleSelectMarketplaceItem}
@@ -409,7 +517,10 @@ const toggleSidebar = () => {
       )}
       
       {visualizePanelOpen && (
-        <VisualizePanel />
+        <VisualizePanel 
+          hideTextLabels={hideTextLabels}
+          onToggleHideTextLabels={toggleHideTextLabels}
+        />
       )}
       
       <Flex position="relative" flex="1" h="100%" overflow="hidden">
@@ -426,12 +537,14 @@ const toggleSidebar = () => {
           setScale={setScale}
           setTranslate={setTranslate}
           zoomBehaviorRef={zoomBehaviorRef}
+          svgRef={svgRef}
           leftPanelOpen={sidebarOpen}
           leftPanelWidth={280} // Adjust based on your actual sidebar width
           rightPanelOpen={detailsOpen || templateOpen || marketplacePanelOpen}
           rightPanelWidth={detailsOpen ? 350 : (templateOpen ? 400 : 300)} // Adjust based on which panel is open
           detailsPanelOpen={detailsOpen}
           detailsPanelWidth={350} // Adjust to match your actual details panel width
+          hideTextLabels={hideTextLabels}
         />
         
         <CanvasControls 
@@ -441,18 +554,20 @@ const toggleSidebar = () => {
           onToggleOrientation={() => {}}
           onScreenshot={() => {}}
           zoomLevel={scale}
+          viewOnlyMode={viewOnlyMode}
+          onToggleViewOnlyMode={toggleViewOnlyMode}
         />
       </Flex>
       
       {/* Add marketplace detail panel */}
-      {selectedMarketplaceItem && (
+      {selectedMarketplaceItem && !viewOnlyMode && (
         <MarketplaceDetailPanel 
           item={selectedMarketplaceItem}
           onClose={closeMarketplaceDetailPanel}
         />
       )}
       
-      {codeOpen && (
+      {codeOpen && !viewOnlyMode && (
         <CodePanel 
           node={selectedNode} 
           template={editingTemplate} 
@@ -463,18 +578,18 @@ const toggleSidebar = () => {
       )}
       
       {/* Rest of the existing panels */}
-      {detailsOpen && selectedNode && (
-      <DetailsPanel 
-        selectedNode={selectedNode}
-        onClose={handleCloseDetailsPanel}
-        onUpdateNode={handleUpdateNode}
-        onDeleteNode={handleDeleteNode}
-        onToggleCode={toggleCodePanel}
-        codeOpen={codeOpen}
-  />
-)}
+      {detailsOpen && selectedNode && !viewOnlyMode && (
+        <DetailsPanel 
+          selectedNode={selectedNode}
+          onClose={handleCloseDetailsPanel}
+          onUpdateNode={handleUpdateNode}
+          onDeleteNode={handleDeleteNode}
+          onToggleCode={toggleCodePanel}
+          codeOpen={codeOpen}
+        />
+      )}
       
-      {templateOpen && (
+      {templateOpen && !viewOnlyMode && (
         <TemplatePanel 
           template={editingTemplate}
           onClose={() => {

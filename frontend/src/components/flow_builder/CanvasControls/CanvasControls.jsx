@@ -14,7 +14,9 @@ import {
   FiZoomOut, 
   FiMaximize2, 
   FiRotateCcw,
-  FiCamera 
+  FiCamera,
+  FiEye,
+  FiEyeOff
 } from 'react-icons/fi';
 
 const CanvasControls = ({ 
@@ -23,15 +25,19 @@ const CanvasControls = ({
   onFitView, 
   onToggleOrientation, 
   onScreenshot,
-  zoomLevel 
+  zoomLevel,
+  viewOnlyMode,
+  onToggleViewOnlyMode
 }) => {
   const bgColor = useColorModeValue('white', 'gray.700');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
   const textColor = useColorModeValue('gray.800', 'gray.200');
   const buttonBgHover = useColorModeValue('gray.100', 'gray.600');
+  const activeButtonBg = useColorModeValue('blue.50', 'blue.900');
+  const activeButtonColor = useColorModeValue('blue.500', 'blue.300');
   
-   // Add console logging to debug button clicks
-   const handleZoomIn = () => {
+  // Add console logging to debug button clicks
+  const handleZoomIn = () => {
     console.log('Zoom In clicked');
     onZoomIn();
   };
@@ -60,7 +66,7 @@ const CanvasControls = ({
         </Text>
         
         <VStack spacing={2}>
-          <Tooltip label="Zoom In" placement="left" hasArrow>
+          <Tooltip label="Zoom In" placement="left"  bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <IconButton
               icon={<FiZoomIn />}
               aria-label="Zoom In"
@@ -71,7 +77,7 @@ const CanvasControls = ({
             />
           </Tooltip>
           
-          <Tooltip label="Zoom Out" placement="left" hasArrow>
+          <Tooltip label="Zoom Out" placement="left"  bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <IconButton
               icon={<FiZoomOut />}
               aria-label="Zoom Out"
@@ -82,7 +88,7 @@ const CanvasControls = ({
             />
           </Tooltip>
           
-          <Tooltip label="Fit to View" placement="left" hasArrow>
+          <Tooltip label="Fit to View" placement="left"  bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <IconButton
               icon={<FiMaximize2 />}
               aria-label="Fit to View"
@@ -97,7 +103,7 @@ const CanvasControls = ({
         <Divider />
         
         <VStack spacing={2}>
-          <Tooltip label="Toggle Orientation" placement="left" hasArrow>
+          <Tooltip label="Toggle Orientation" placement="left"  bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <IconButton
               icon={<FiRotateCcw />}
               aria-label="Toggle Orientation"
@@ -108,7 +114,7 @@ const CanvasControls = ({
             />
           </Tooltip>
           
-          <Tooltip label="Screenshot" placement="left" hasArrow>
+          <Tooltip label="Screenshot" placement="left"  bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
             <IconButton
               icon={<FiCamera />}
               aria-label="Screenshot"
@@ -116,6 +122,20 @@ const CanvasControls = ({
               variant="ghost"
               size="sm"
               _hover={{ bg: buttonBgHover }}
+            />
+          </Tooltip>
+          
+          {/* View Only Mode Button */}
+          <Tooltip label={viewOnlyMode ? "Exit View Only Mode" : "View Only Mode"} placement="left"  bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
+            <IconButton
+              icon={viewOnlyMode ? <FiEyeOff /> : <FiEye />}
+              aria-label={viewOnlyMode ? "Exit View Only Mode" : "View Only Mode"}
+              onClick={onToggleViewOnlyMode}
+              variant="ghost"
+              size="sm"
+              bg={viewOnlyMode ? activeButtonBg : "transparent"}
+              color={viewOnlyMode ? activeButtonColor : "inherit"}
+              _hover={{ bg: viewOnlyMode ? activeButtonBg : buttonBgHover }}
             />
           </Tooltip>
         </VStack>

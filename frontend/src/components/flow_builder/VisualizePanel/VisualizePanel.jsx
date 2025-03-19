@@ -7,15 +7,20 @@ import {
   Button, 
   VStack,
   Text,
+  Switch,
+  FormControl,
+  FormLabel,
+  Divider,
   useColorModeValue
 } from '@chakra-ui/react';
-import { FiBarChart2 } from 'react-icons/fi';
+import { FiBarChart2, FiType, FiEye } from 'react-icons/fi';
 
-const VisualizePanel = () => {
+const VisualizePanel = ({ hideTextLabels, onToggleHideTextLabels }) => {
   const bgColor = useColorModeValue('gray.100', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const textColor = useColorModeValue('gray.800', 'white');
   const iconColor = useColorModeValue('gray.600', 'gray.400');
+  const cardBg = useColorModeValue('white', 'gray.700');
   
   return (
     <Box
@@ -48,6 +53,29 @@ const VisualizePanel = () => {
             Charts
           </Text>
         </Button>
+        
+        {/* Toggle for Hide Text Labels */}
+        <Box
+          w="60px"
+          bg={cardBg}
+          borderRadius="md"
+          p={2}
+          border="1px solid"
+          borderColor={borderColor}
+        >
+          <VStack spacing={1}>
+            <Box as={FiType} fontSize="18px" color={iconColor} />
+            <Text fontSize="10px" textAlign="center" color={textColor} mb={1}>
+              Hide Text
+            </Text>
+            <Switch 
+              size="sm" 
+              isChecked={hideTextLabels}
+              onChange={onToggleHideTextLabels}
+              colorScheme="blue"
+            />
+          </VStack>
+        </Box>
       </VStack>
     </Box>
   );

@@ -24,7 +24,8 @@ const FlowCanvas = ({
   rightPanelOpen = false,
   rightPanelWidth = 350,
   detailsPanelOpen = false,
-  detailsPanelWidth = 300
+  detailsPanelWidth = 300,
+  hideTextLabels
 }) => {
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
@@ -564,7 +565,145 @@ const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
   };
 
 
-  // Render node with dynamic width
+//   // Render node with dynamic width
+// const renderNode = (node) => {
+//   const isSelected = selectedNode && selectedNode.id === node.id;
+//   const { ringColor, bgColor, iconColor } = getNodeColors(node.type, isSelected);
+  
+//   // Determine input and output counts
+//   const inputCount = node.inputs?.length || 1;
+//   const outputCount = node.outputs?.length || 1;
+  
+//   // Set minimum width and padding
+//   const minWidth = 120;
+//   const horizontalPadding = 16; // Padding on each side
+//   const iconWidth = 28; // Icon width + gap
+  
+//   // Calculate text width (approximate - will be adjusted by the browser)
+//   // We're using approximation because actual measurement requires DOM access
+//   const textLength = node.name.length;
+//   const avgCharWidth = 8; // Average width of a character in pixels
+//   const estimatedTextWidth = textLength * avgCharWidth;
+  
+//   // Calculate the total width with padding and icon
+//   const contentWidth = iconWidth + estimatedTextWidth + (horizontalPadding * 2);
+//   const boxWidth = Math.max(minWidth, contentWidth);
+//   const boxHalfWidth = boxWidth / 2;
+  
+//   return (
+//     <g
+//       key={node.id}
+//       className={`node ${isSelected ? 'node-selected' : ''}`}
+//       transform={`translate(${node.x}, ${node.y})`}
+//       onClick={(e) => {
+//         e.stopPropagation();
+//         onSelectNode(node.id);
+//       }}
+//       onMouseDown={(e) => handleNodeMouseDown(e, node.id)}
+//       data-node-id={node.id}
+//     >
+//       {/* Node shape - using dynamic width */}
+//       <foreignObject
+//         x={-boxHalfWidth}
+//         y="-30"
+//         width={boxWidth}
+//         height="60"
+//         style={{ overflow: 'visible' }}
+//       >
+//         <div 
+//           style={{ 
+//             width: '100%', 
+//             height: '60px', 
+//             borderRadius: '6px',
+//             border: '2px solid',
+//             borderColor: ringColor,
+//             backgroundColor: bgColor,
+//             display: 'flex',
+//             flexDirection: 'column',
+//             alignItems: 'center',
+//             justifyContent: 'center',
+//             cursor: 'move',
+//             position: 'relative',
+//             userSelect: 'none',
+//             boxShadow: isSelected ? '0 0 8px rgba(0,188,255,0.5)' : 'none',
+//             transition: 'box-shadow 0.2s, transform 0.1s',
+//             color: textColor
+//           }}
+//         >
+//           <div style={{ 
+//             display: 'flex', 
+//             alignItems: 'center', 
+//             gap: '8px',
+//             padding: `0 ${horizontalPadding}px`,
+//             maxWidth: '100%'
+//           }}>
+//             <div style={{ color: iconColor, flexShrink: 0 }}>
+//               {getNodeIcon(node.type)}
+//             </div>
+//             <span style={{ 
+//               fontWeight: 500, 
+//               fontSize: '14px',
+//               whiteSpace: 'nowrap',
+//               overflow: 'hidden',
+//               textOverflow: 'ellipsis'
+//             }}>
+//               {node.name}
+//             </span>
+//           </div>
+//         </div>
+//       </foreignObject>
+      
+//       {/* Input ports - centered horizontally regardless of box width */}
+//       {Array.from({ length: inputCount }).map((_, i) => (
+//         <g key={`input-${i}`} transform={`translate(0, ${-30 - (i * 20)})`}>
+//           <circle
+//             cx="0"
+//             cy="0"
+//             r="5"
+//             className="node-port"
+//             fill={colorMode === 'dark' ? 'white' : 'black'}
+//             stroke={getNodeColors(node.type).ringColor}
+//             strokeWidth="2"
+//             style={{
+//               cursor: 'crosshair'
+//             }}
+//             data-node-id={node.id}
+//             data-port-type="input"
+//             data-port-index={i}
+//             onMouseDown={(e) => handlePortMouseDown(e, node.id, 'input', i)}
+//           />
+//         </g>
+//       ))}
+      
+//       {/* Output ports - centered horizontally regardless of box width */}
+//       {Array.from({ length: outputCount }).map((_, i) => (
+//         <g key={`output-${i}`} transform={`translate(0, ${30 + (i * 20)})`}>
+//           <circle
+//             cx="0"
+//             cy="0"
+//             r="5"
+//             className="node-port"
+//             fill={colorMode === 'dark' ? 'white' : 'black'}
+//             stroke={getNodeColors(node.type).ringColor}
+//             strokeWidth="2"
+//             style={{
+//               cursor: 'crosshair'
+//             }}
+//             data-node-id={node.id}
+//             data-port-type="output"
+//             data-port-index={i}
+//             onMouseDown={(e) => handlePortMouseDown(e, node.id, 'output', i)}
+//           />
+//         </g>
+//       ))}
+//     </g>
+//   );
+// };
+
+// Partial update to FlowCanvas.jsx focusing on the renderNode function
+// Only updating the renderNode function to handle the hideTextLabels feature
+
+// Render node with dynamic width
 const renderNode = (node) => {
   const isSelected = selectedNode && selectedNode.id === node.id;
   const { ringColor, bgColor, iconColor } = getNodeColors(node.type, isSelected);
@@ -574,7 +713,7 @@ const renderNode = (node) => {
   const outputCount = node.outputs?.length || 1;
   
   // Set minimum width and padding
-  const minWidth = 120;
+  const minWidth = hideTextLabels ? 60 : 120; // Narrower width when hiding text
   const horizontalPadding = 16; // Padding on each side
   const iconWidth = 28; // Icon width + gap
   
@@ -582,7 +721,7 @@ const renderNode = (node) => {
   // We're using approximation because actual measurement requires DOM access
   const textLength = node.name.length;
   const avgCharWidth = 8; // Average width of a character in pixels
-  const estimatedTextWidth = textLength * avgCharWidth;
+  const estimatedTextWidth = hideTextLabels ? 0 : textLength * avgCharWidth;
   
   // Calculate the total width with padding and icon
   const contentWidth = iconWidth + estimatedTextWidth + (horizontalPadding * 2);
@@ -601,7 +740,7 @@ const renderNode = (node) => {
       onMouseDown={(e) => handleNodeMouseDown(e, node.id)}
       data-node-id={node.id}
     >
-      {/* Node shape - using dynamic width */}
+      {/* Node shape - using dynamic width with transition for smooth resize */}
       <foreignObject
         x={-boxHalfWidth}
         y="-30"
@@ -625,7 +764,7 @@ const renderNode = (node) => {
             position: 'relative',
             userSelect: 'none',
             boxShadow: isSelected ? '0 0 8px rgba(0,188,255,0.5)' : 'none',
-            transition: 'box-shadow 0.2s, transform 0.1s',
+            transition: 'box-shadow 0.2s, transform 0.1s, width 0.3s ease-in-out',
             color: textColor
           }}
         >
@@ -634,20 +773,26 @@ const renderNode = (node) => {
             alignItems: 'center', 
             gap: '8px',
             padding: `0 ${horizontalPadding}px`,
-            maxWidth: '100%'
+            maxWidth: '100%',
+            transition: 'width 0.3s ease-in-out'
           }}>
             <div style={{ color: iconColor, flexShrink: 0 }}>
               {getNodeIcon(node.type)}
             </div>
-            <span style={{ 
-              fontWeight: 500, 
-              fontSize: '14px',
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis'
-            }}>
-              {node.name}
-            </span>
+            {!hideTextLabels && (
+              <span style={{ 
+                fontWeight: 500, 
+                fontSize: '14px',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                transition: 'opacity 0.3s ease-in-out, max-width 0.3s ease-in-out',
+                opacity: hideTextLabels ? 0 : 1,
+                maxWidth: hideTextLabels ? '0' : '100%'
+              }}>
+                {node.name}
+              </span>
+            )}
           </div>
         </div>
       </foreignObject>
@@ -697,7 +842,7 @@ const renderNode = (node) => {
       ))}
     </g>
   );
-};
+}
 
   // Render edge
   const renderEdge = (edge) => {
