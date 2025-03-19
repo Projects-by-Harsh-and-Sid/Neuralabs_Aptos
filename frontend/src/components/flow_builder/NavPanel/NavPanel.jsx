@@ -1,4 +1,4 @@
-// src/components/flow_builder/NavPanel/NavPanel.jsx
+// Updated NavPanel.jsx with marketplace button
 import React from 'react';
 import { 
   Box, 
@@ -17,10 +17,11 @@ import {
   FiSettings, 
   FiSun, 
   FiMoon,
-  FiEye
+  FiEye,
+  FiShoppingBag // Added for marketplace icon
 } from 'react-icons/fi';
 
-const NavPanel = ({ toggleSidebar, toggleVisualizePanel }) => {
+const NavPanel = ({ toggleSidebar, toggleVisualizePanel, toggleMarketplacePanel }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue('gray.800', 'black');
   const borderColor = useColorModeValue('gray.700', 'gray.800');
@@ -112,6 +113,25 @@ const NavPanel = ({ toggleSidebar, toggleVisualizePanel }) => {
               aria-label="Nodes"
             >
               <FiLayout size={24} />
+            </Button>
+          </Tooltip>
+        </Box>
+        
+        {/* New Marketplace button */}
+        <Box as="li" position="relative" w="100%">
+          <Tooltip label="Marketplace" placement="right" hasArrow>
+            <Button 
+              w="100%"
+              h="56px"
+              justifyContent="center"
+              borderRadius={0}
+              bg="transparent"
+              color={iconColor}
+              _hover={{ bg: hoverBgColor }}
+              onClick={toggleMarketplacePanel}
+              aria-label="Marketplace"
+            >
+              <FiShoppingBag size={24} />
             </Button>
           </Tooltip>
         </Box>

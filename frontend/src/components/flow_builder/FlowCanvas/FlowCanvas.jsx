@@ -639,9 +639,12 @@ const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
     const path = `M ${sourceNode.x} ${sourceY} C ${sourceNode.x} ${sourceY + 50}, ${targetNode.x} ${targetY - 50}, ${targetNode.x} ${targetY}`;
     
     const isHighlighted = isConnectionHighlighted(edge.id);
-    const strokeColor = isHighlighted ? edgeHighlightColor : edgeColor;
-    const strokeWidth = isHighlighted ? 2 : 1;
+    const strokeColor = isHighlighted 
+    ? (colorMode === 'dark' ? '#63B3ED' : '#3182CE') // blue.300 or blue.500
+    : (colorMode === 'dark' ? '#A0AEC0' : '#718096'); // gray.400 or gray.500
     
+    const strokeWidth = isHighlighted ? 3 : 2;
+        
     return (
       <path
         key={edge.id}
@@ -672,7 +675,7 @@ const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
         style={{ cursor: dragging ? 'grabbing' : 'grab' }}
         onClick={() => onSelectNode(null)}
       >
-        <defs>
+        {/* <defs>
           <marker
             id="arrow"
             viewBox="0 0 10 10"
@@ -695,7 +698,34 @@ const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
           >
             <path d="M 0 0 L 10 5 L 0 10 z" fill={edgeHighlightColor} />
           </marker>
+        </defs> */}
+
+        <defs>
+          <marker
+            id="arrow"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto"
+          >
+            <path d="M 0 0 L 10 5 L 0 10 z" fill={colorMode === 'dark' ? '#A0AEC0' : '#718096'} />
+          </marker>
+          <marker
+            id="arrow-highlighted"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto"
+          >
+            <path d="M 0 0 L 10 5 L 0 10 z" fill={colorMode === 'dark' ? '#63B3ED' : '#3182CE'} />
+          </marker>
         </defs>
+
+
         <g ref={canvasRef}>
           {/* Grid (optional) */}
           <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">

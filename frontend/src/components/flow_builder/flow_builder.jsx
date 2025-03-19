@@ -10,7 +10,8 @@ import DetailsPanel from './DetailsPanel/DetailsPanel';
 import TemplatePanel from './TemplatePanel/TemplatePanel';
 import VisualizePanel from './VisualizePanel/VisualizePanel';
 import CodePanel from './CodePanel/CodePanel';
-
+import MarketplacePanel from './MarketplacePanel/MarketplacePanel';
+import MarketplaceDetailPanel from './MarketplacePanel/MarketplaceDetailPanel';
 import * as d3 from 'd3';
 
 // Define node types with colors and icons
@@ -46,6 +47,8 @@ const FlowBuilder = () => {
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [customTemplates, setCustomTemplates] = useState([]);
   const [visualizePanelOpen, setVisualizePanelOpen] = useState(false);
+  const [marketplacePanelOpen, setMarketplacePanelOpen] = useState(false);
+  const [selectedMarketplaceItem, setSelectedMarketplaceItem] = useState(null);
   
   // Refs for d3 zoom behavior
   const zoomBehaviorRef = useRef(null);
@@ -250,6 +253,30 @@ const FlowBuilder = () => {
     setVisualizePanelOpen(!visualizePanelOpen);
   };
 
+  const toggleMarketplacePanel = () => {
+    // If marketplace panel is being opened, close blocks panel
+    if (!marketplacePanelOpen) {
+      setSidebarOpen(false);
+    }
+    setMarketplacePanelOpen(!marketplacePanelOpen);
+    
+    // Reset selected item when closing
+    if (marketplacePanelOpen) {
+      setSelectedMarketplaceItem(null);
+    }
+  };
+  
+  // Handle marketplace item selection
+  const handleSelectMarketplaceItem = (item) => {
+    setSelectedMarketplaceItem(item);
+  };
+  
+  // Close marketplace detail panel
+  const closeMarketplaceDetailPanel = () => {
+    setSelectedMarketplaceItem(null);
+  };
+  
+
   // Zoom controls
   const handleZoomIn = () => {
     setScale(prev => Math.min(prev + 0.1, 4));
@@ -292,14 +319,24 @@ const FlowBuilder = () => {
       <NavPanel 
         toggleSidebar={toggleSidebar}
         toggleVisualizePanel={toggleVisualizePanel}
+        toggleMarketplacePanel={toggleMarketplacePanel}
       />
       
-      {sidebarOpen && (
+      {/* Conditionally render either sidebar or marketplace panel */}
+      {sidebarOpen && !marketplacePanelOpen && (
         <BlocksPanel 
           onAddNode={handleAddNode}
           onOpenTemplate={handleOpenTemplatePanel}
           customTemplates={customTemplates}
           onEditTemplate={handleEditTemplate}
+        />
+      )}
+      
+      {/* Add marketplace panel */}
+      {marketplacePanelOpen && (
+        <MarketplacePanel 
+          onClose={toggleMarketplacePanel}
+          onSelectItem={handleSelectMarketplaceItem}
         />
       )}
       
@@ -333,6 +370,14 @@ const FlowBuilder = () => {
         />
       </Flex>
       
+      {/* Add marketplace detail panel */}
+      {selectedMarketplaceItem && (
+        <MarketplaceDetailPanel 
+          item={selectedMarketplaceItem}
+          onClose={closeMarketplaceDetailPanel}
+        />
+      )}
+      
       {codeOpen && (
         <CodePanel 
           node={selectedNode} 
@@ -343,6 +388,7 @@ const FlowBuilder = () => {
         />
       )}
       
+      {/* Rest of the existing panels */}
       {detailsOpen && selectedNode && (
         <DetailsPanel 
           selectedNode={selectedNode}
