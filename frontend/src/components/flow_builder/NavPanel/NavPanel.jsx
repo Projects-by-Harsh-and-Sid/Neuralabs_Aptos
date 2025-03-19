@@ -140,7 +140,7 @@ const NavPanel = ({
             </Tooltip>
           </Box>
           
-          <Box as="li" position="relative" w="100%">
+          {/* <Box as="li" position="relative" w="100%">
             <Tooltip label="Nodes" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
               <Button 
                 {...getButtonStyles('nodes')}
@@ -150,7 +150,7 @@ const NavPanel = ({
                 <FiLayout size={24} />
               </Button>
             </Tooltip>
-          </Box>
+          </Box> */}
           
           {/* New Marketplace button */}
           <Box as="li" position="relative" w="100%">
