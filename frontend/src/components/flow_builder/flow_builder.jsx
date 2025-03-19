@@ -245,10 +245,21 @@ const FlowBuilder = () => {
   };
 
   // Toggle sidebar
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
+// Update the toggleSidebar function to close the marketplace panel when opening the sidebar
+const toggleSidebar = () => {
+  // If sidebar is currently closed and we're opening it
+  if (!sidebarOpen) {
+    // Close marketplace panel if it's open
+    if (marketplacePanelOpen) {
+      setMarketplacePanelOpen(false);
+    }
+    // Open the sidebar
+    setSidebarOpen(true);
+  } else {
+    // Just toggle the sidebar if we're closing it
+    setSidebarOpen(false);
+  }
+};
   // Toggle visualize panel
   const toggleVisualizePanel = () => {
     setVisualizePanelOpen(!visualizePanelOpen);
@@ -363,6 +374,9 @@ const FlowBuilder = () => {
         toggleSidebar={toggleSidebar}
         toggleVisualizePanel={toggleVisualizePanel}
         toggleMarketplacePanel={toggleMarketplacePanel}
+        sidebarOpen={sidebarOpen}
+        visualizePanelOpen={visualizePanelOpen}
+        marketplacePanelOpen={marketplacePanelOpen}
       />
       
       {/* Conditionally render either sidebar or marketplace panel */}
