@@ -14,6 +14,14 @@ import {
   TabPanel, 
   SimpleGrid, 
   Button,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  List,
+  ListItem,
+  Badge,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { 
@@ -23,7 +31,9 @@ import {
   FiSliders, 
   FiPlus,
   FiSearch,
-  FiEdit2
+  FiEdit2,
+  FiLayers,
+  FiMaximize2
 } from 'react-icons/fi';
 
 // Node types and their templates with vibrant colors that remain consistent across themes
@@ -45,13 +55,34 @@ const NODE_TYPES = {
   },
 };
 
-const BlocksPanel = ({ onAddNode, onOpenTemplate, customTemplates = [], onEditTemplate }) => {
+const BlocksPanel = ({ 
+  onAddNode, 
+  onOpenTemplate, 
+  customTemplates = [], 
+  onEditTemplate,
+  layerMap = {},
+  beautifyMode = false,
+  onNodeClick
+}) => {
   const [searchTerm, setSearchTerm] = useState('');
   
   const bgColor = useColorModeValue('gray.100', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const itemBgColor = useColorModeValue('white', 'gray.700');
   const headingColor = useColorModeValue('gray.800', 'white');
+  const accordionBgColor = useColorModeValue('gray.50', 'gray.600');
+  const layerHeaderBg = useColorModeValue('blue.50', 'blue.900');
+  const layerHeaderColor = useColorModeValue('blue.700', 'blue.300');
+
+  const hoverBgColor = useColorModeValue('gray.100', 'gray.600'); // Define here
+  const emptyStateIconColor = useColorModeValue('gray.300', 'gray.600'); // Define here
+  
+  // Define message based on beautify mode before returning JSX
+  const emptyStateMessage = beautifyMode 
+    ? "Your flow has no nodes yet. Add some nodes from the Blocks tab."
+    : "Enable Beautify mode in the Visualize panel to organize your flow into layers.";
+  
+  
   
   const handleDragStart = (e, nodeType) => {
     e.dataTransfer.setData('nodeType', nodeType);
@@ -70,6 +101,14 @@ const BlocksPanel = ({ onAddNode, onOpenTemplate, customTemplates = [], onEditTe
     if (onEditTemplate) {
       onEditTemplate(templateId);
     }
+  };
+  
+  // Get node color based on its type
+  const getNodeTypeColor = (type) => {
+    if (type === 'data') return 'blue';
+    if (type === 'task') return 'green';
+    if (type === 'parameters') return 'purple';
+    return 'gray';
   };
 
   return (
@@ -215,10 +254,85 @@ const BlocksPanel = ({ onAddNode, onOpenTemplate, customTemplates = [], onEditTe
           </TabPanel>
           
           <TabPanel p={4}>
-            <Heading as="h2" size="sm" mb={3} color={headingColor}>Pipelines</Heading>
-            <Text textAlign="center" color="gray.500" p={4}>
-              Create pipelines by connecting nodes on the canvas.
-            </Text>
+            <Flex align="center" justify="space-between" mb={3}>
+              <Heading as="h2" size="sm" color={headingColor}>Flow Layers</Heading>
+              {beautifyMode && (
+                <Badge colorScheme="blue" display="flex" alignItems="center" px={2} py={1}>
+                  <FiMaximize2 style={{ marginRight: '4px' }} />
+                  Beautified
+                </Badge>
+              )}
+            </Flex>
+            
+            {Object.keys(layerMap).length > 0 ? (
+              <Accordion allowMultiple defaultIndex={[0]}>
+                {Object.keys(layerMap).map((layer) => (
+                  <AccordionItem key={layer} mb={2} border="1px solid" borderColor={borderColor} borderRadius="md" overflow="hidden">
+                    <h2>
+                      <AccordionButton bg={layerHeaderBg}>
+                        <Box flex="1" textAlign="left" fontWeight="medium" color={layerHeaderColor}>
+                          <Flex align="center">
+                            <FiLayers style={{ marginRight: '8px' }} />
+                            Layer {layer} ({layerMap[layer].length} node{layerMap[layer].length !== 1 ? 's' : ''})
+                          </Flex>
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4} bg={accordionBgColor}>
+                      <List spacing={2}>
+                        {layerMap[layer].map((node) => (
+                          <ListItem 
+                            key={node.id} 
+                            p={2} 
+                            borderRadius="md" 
+                            bg={itemBgColor}
+                            cursor="pointer"
+                            _hover={{ bg: hoverBgColor }} 
+                            onClick={() => onNodeClick && onNodeClick(node.id)}
+                          >
+                            <Flex align="center">
+                              <Box
+                                w="24px"
+                                h="24px"
+                                borderRadius="md"
+                                bg={NODE_TYPES[node.type]?.color || 'gray.500'}
+                                display="flex"
+                                alignItems="center"
+                                justifyContent="center"
+                                mr={2}
+                              >
+                                {node.type === 'data' && <FiDatabase color="white" size={14} />}
+                                {node.type === 'task' && <FiActivity color="white" size={14} />}
+                                {node.type === 'parameters' && <FiSliders color="white" size={14} />}
+                              </Box>
+                              <Text fontWeight="medium" fontSize="sm">{node.name}</Text>
+                            </Flex>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </AccordionPanel>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            ) : (
+              <Flex 
+                direction="column" 
+                align="center" 
+                justify="center" 
+                p={6} 
+                bg={itemBgColor} 
+                borderRadius="md"
+                h="200px"
+              >
+                <Box as={FiLayers} fontSize="40px" color={emptyStateIconColor} mb={4} />
+                <Text color="gray.500" textAlign="center">
+                  {beautifyMode ? 
+                    "Your flow has no nodes yet. Add some nodes from the Blocks tab." : 
+                    "Enable Beautify mode in the Visualize panel to organize your flow into layers."}
+                </Text>
+              </Flex>
+            )}
           </TabPanel>
         </TabPanels>
       </Tabs>
