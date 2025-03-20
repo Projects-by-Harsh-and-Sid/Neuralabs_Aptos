@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Flex, useColorMode, useColorModeValue, useToast } from '@chakra-ui/react';
 import { FiDatabase, FiActivity, FiSliders } from 'react-icons/fi';
-import NavPanel from './NavPanel/NavPanel';
+import NavPanel from '../common_components/NavPanel/NavelPanel';
 import BlocksPanel from './BlocksPanel/BlocksPanel';
 import CanvasControls from './CanvasControls/CanvasControls';
 import FlowCanvas from './FlowCanvas/FlowCanvas';
@@ -11,8 +11,8 @@ import DetailsPanel from './DetailsPanel/DetailsPanel';
 import TemplatePanel from './TemplatePanel/TemplatePanel';
 import VisualizePanel from './VisualizePanel/VisualizePanel';
 import CodePanel from './CodePanel/CodePanel';
-import MarketplacePanel from './MarketplacePanel/MarketplacePanel';
-import MarketplaceDetailPanel from './MarketplacePanel/MarketplaceDetailPanel';
+import MarketplacePanel from '../marketplace/MarketplacePanel/MarketplacePanel';
+import MarketplaceDetailPanel from '../marketplace/MarketplacePanel/MarketplaceDetailPanel';
 import { beautifyFlow } from '../../utils/flowBeautifier';
 import * as d3 from 'd3';
 
