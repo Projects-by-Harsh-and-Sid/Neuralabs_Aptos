@@ -1,0 +1,11 @@
+[package]
+name = "NFTContract"
+version = "0.1.0"
+authors = ["Your Name"]
+
+[addresses]
+NFTContract = "_"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "main" }
+AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib/", rev = "main" }

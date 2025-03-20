@@ -1,0 +1,2 @@
+aptos-sdk>=0.7.1
+requests>=2.28.1
