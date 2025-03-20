@@ -1,14 +1,37 @@
-// src/App.jsx
 import React from 'react';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './components/layout/layout';
 import FlowBuilderPage from './pages/flow_builder_page';
+import DashboardPage from './pages/home_page';
+import MarketplacePage from './pages/marketplace_page';
 import theme from './theme';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <FlowBuilderPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={
+            <Layout>
+              <DashboardPage />
+            </Layout>
+          } />
+          <Route path="/flow-builder" element={
+            <Layout>
+              <FlowBuilderPage />
+            </Layout>
+          } />
+          <Route path="/marketplace" element={
+            <Layout>
+              <MarketplacePage />
+            </Layout>
+          } />
+          {/* Add more routes as needed */}
+        </Routes>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }

@@ -337,13 +337,14 @@ const FlowBuilder = () => {
     setSelectedMarketplaceItem(null);
   };
 
-  const handleCloseDetailsPanel = () => {
-    setDetailsOpen(false);
-    // Close code panel if it's open
-    if (codeOpen) {
-      setCodeOpen(false);
-    }
-  };
+// Update the handleCloseDetailsPanel function
+const handleCloseDetailsPanel = () => {
+  setDetailsOpen(false);
+  // Close code panel if it's open
+  if (codeOpen) {
+    setCodeOpen(false);
+  }
+};
   
   // Zoom controls
   const handleZoomIn = () => {
@@ -567,7 +568,7 @@ const FlowBuilder = () => {
 
   return (
     <Flex h="100%" w="100%" overflow="hidden">
-      <NavPanel 
+      {/* <NavPanel 
         toggleSidebar={toggleSidebar}
         toggleVisualizePanel={toggleVisualizePanel}
         toggleMarketplacePanel={toggleMarketplacePanel}
@@ -576,7 +577,7 @@ const FlowBuilder = () => {
         marketplacePanelOpen={marketplacePanelOpen}
         viewOnlyMode={viewOnlyMode}
       />
-      
+       */}
       {/* Conditionally render either sidebar or marketplace panel */}
       {sidebarOpen && !marketplacePanelOpen && (
         <BlocksPanel 
@@ -598,14 +599,14 @@ const FlowBuilder = () => {
         />
       )}
       
-      {visualizePanelOpen && (
+      {/* {visualizePanelOpen && ( */}
         <VisualizePanel 
           hideTextLabels={hideTextLabels}
           onToggleHideTextLabels={toggleHideTextLabels}
           beautifyMode={beautifyMode}
           onToggleBeautifyMode={toggleBeautifyMode}
         />
-      )}
+      {/* )} */}
       
       <Flex position="relative" flex="1" h="100%" overflow="hidden">
         <FlowCanvas 
@@ -675,17 +676,21 @@ const FlowBuilder = () => {
       )}
       
       {templateOpen && !viewOnlyMode && (
-        <TemplatePanel 
-          template={editingTemplate}
-          onClose={() => {
-            setTemplateOpen(false);
-            setEditingTemplate(null);
-          }}
-          onSaveTemplate={handleSaveTemplate}
-          onToggleCode={toggleCodePanel}
-          codeOpen={codeOpen}
-        />
-      )}
+  <TemplatePanel 
+    template={editingTemplate}
+    onClose={() => {
+      setTemplateOpen(false);
+      setEditingTemplate(null);
+      // Also close code panel if it's open
+      if (codeOpen) {
+        setCodeOpen(false);
+      }
+    }}
+    onSaveTemplate={handleSaveTemplate}
+    onToggleCode={toggleCodePanel}
+    codeOpen={codeOpen}
+  />
+)}
     </Flex>
   );
 };
