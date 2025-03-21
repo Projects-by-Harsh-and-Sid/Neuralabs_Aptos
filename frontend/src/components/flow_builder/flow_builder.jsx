@@ -630,6 +630,7 @@ const handleCloseDetailsPanel = () => {
           detailsPanelOpen={detailsOpen}
           detailsPanelWidth={384} // Adjusted to match actual details panel width
           hideTextLabels={hideTextLabels}
+          viewOnlyMode={viewOnlyMode}
         />
         
         <CanvasControls 
