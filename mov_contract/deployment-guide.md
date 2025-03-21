@@ -2,6 +2,10 @@
 
 This guide will walk you through deploying the NFT contract to Aptos testnet.
 
+
+1. [Aptos Playlist](https://www.youtube.com/watch?v=giUgccl02-4&list=PLLkrq2VBYc1aMSahgDWehzjhEOXJnLG9C)
+2. [Aptos Advance Playlist](https://www.youtube.com/watch?v=LHJ4p76Z5wI&list=PLLkrq2VBYc1bPU-l6-Fhw-E36s435e-nY)
+
 ## Prerequisites
 
 1. Install the Aptos CLI
@@ -66,7 +70,12 @@ This guide will walk you through deploying the NFT contract to Aptos testnet.
 
 3. Publish the module to testnet
    ```bash
-   aptos move publish --named-addresses NFTContract=$(aptos config show-profiles --profile default | grep 'account:' | awk '{print $2}')
+   aptos move publish --named-addresses NeuralabsNFT=[address]
+   ```
+
+   replace `[address]` with your account address. For example:
+   ```bash
+   aptos move publish --named-addresses NeuralabsNFT=0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
    ```
 
 4. Verify the module was published successfully

@@ -1,6 +1,7 @@
-module NFTContract::NFT {
+address NeuralabsNFT {
+module NFT {
     use std::signer;
-    use std::string::{Self, String};
+    use std::string::String;
     use std::vector;
     use aptos_std::table::{Self, Table};
     use aptos_framework::timestamp;
@@ -97,7 +98,7 @@ module NFTContract::NFT {
                 transfer_events: account::new_event_handle<TransferEvent>(account),
                 burn_events: account::new_event_handle<BurnEvent>(account),
             });
-        }
+        };
         
         if (!exists<NFTAccess>(account_addr)) {
             move_to(account, NFTAccess {
@@ -106,7 +107,7 @@ module NFTContract::NFT {
                 access_grant_events: account::new_event_handle<AccessGrantEvent>(account),
                 access_revoke_events: account::new_event_handle<AccessRevokeEvent>(account),
             });
-        }
+        };
     }
     
     // Create a new NFT
@@ -215,7 +216,7 @@ module NFTContract::NFT {
         let nft_access = borrow_global_mut<NFTAccess>(sender);
         if (table::contains(&nft_access.default_access_levels, token_id)) {
             table::remove(&mut nft_access.default_access_levels, token_id);
-        }
+        };
         
         // Emit burn event
         let now = timestamp::now_microseconds();
@@ -333,13 +334,13 @@ module NFTContract::NFT {
             let user_access = table::borrow(&nft_access.access_rights, user);
             
             if (table::contains(user_access, token_id)) {
-                return *table::borrow(user_access, token_id)
+                return *table::borrow(user_access, token_id);
             };
         };
         
         // Return default access level if exists
         if (table::contains(&nft_access.default_access_levels, token_id)) {
-            return *table::borrow(&nft_access.default_access_levels, token_id)
+            return *table::borrow(&nft_access.default_access_levels, token_id);
         };
         
         // Return no access by default
@@ -402,4 +403,5 @@ module NFTContract::NFT {
         // Generate SHA3-256 hash
         hash::sha3_256(bytes)
     }
+}
 }
