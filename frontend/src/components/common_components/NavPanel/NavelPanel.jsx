@@ -23,7 +23,7 @@ const NavPanel = ({
   viewOnlyMode = false
 }) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue('gray.800', 'black');
+  const bgColor = useColorModeValue('black', 'black');
   const borderColor = useColorModeValue('gray.700', 'gray.800');
   const iconColor = useColorModeValue('white', 'gray.300');
   const hoverBgColor = useColorModeValue('gray.700', 'gray.900');
@@ -74,12 +74,12 @@ const NavPanel = ({
       h: "56px",
       justifyContent: "center",
       borderRadius: 0,
-      bg: isButtonActive ? (colorMode === 'dark' ? 'blue.800' : 'blue.700') : "transparent",
+      bg: isButtonActive ? (colorMode === 'dark' ? hoverBgColor : hoverBgColor) : "transparent", 
       color: isDisabled ? disabledColor : (isButtonActive ? 'white' : iconColor),
       borderLeft: isButtonActive ? "4px solid" : "none",
-      borderColor: isButtonActive ? "blue.400" : "transparent",
+      borderColor: isButtonActive ? hoverBgColor : "transparent",
       _hover: { 
-        bg: isDisabled ? "transparent" : (isButtonActive ? (colorMode === 'dark' ? 'blue.800' : 'blue.700') : hoverBgColor),
+        bg: isDisabled ? "transparent" : (isButtonActive ? (colorMode === 'dark' ? hoverBgColor : hoverBgColor) : hoverBgColor),
         cursor: isDisabled ? "not-allowed" : "pointer"
       }
     };
