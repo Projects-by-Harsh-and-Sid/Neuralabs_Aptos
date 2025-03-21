@@ -2,16 +2,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Flex, useColorMode, useColorModeValue, useToast } from '@chakra-ui/react';
 import { FiDatabase, FiActivity, FiSliders } from 'react-icons/fi';
-import NavPanel from './NavPanel/NavPanel';
+import NavPanel from '../common_components/NavPanel/NavelPanel';
 import BlocksPanel from './BlocksPanel/BlocksPanel';
 import CanvasControls from './CanvasControls/CanvasControls';
 import FlowCanvas from './FlowCanvas/FlowCanvas';
 import DetailsPanel from './DetailsPanel/DetailsPanel';
+// No need for a separate ReadOnlyDetailsPanel
 import TemplatePanel from './TemplatePanel/TemplatePanel';
 import VisualizePanel from './VisualizePanel/VisualizePanel';
 import CodePanel from './CodePanel/CodePanel';
-import MarketplacePanel from './MarketplacePanel/MarketplacePanel';
-import MarketplaceDetailPanel from './MarketplacePanel/MarketplaceDetailPanel';
+import MarketplacePanel from '../marketplace/MarketplacePanel/MarketplacePanel';
+import MarketplaceDetailPanel from '../marketplace/MarketplacePanel/MarketplaceDetailPanel';
+import { beautifyFlow } from '../../utils/flowBeautifier';
 import * as d3 from 'd3';
 
 // Define node types with colors and icons
@@ -51,10 +53,14 @@ const FlowBuilder = () => {
   const [marketplacePanelOpen, setMarketplacePanelOpen] = useState(false);
   const [selectedMarketplaceItem, setSelectedMarketplaceItem] = useState(null);
   
-  // New states for the new features
+  // States for view-only mode and beautify mode
   const [viewOnlyMode, setViewOnlyMode] = useState(false);
   const [hideTextLabels, setHideTextLabels] = useState(false);
   const [previousState, setPreviousState] = useState({});
+  
+  // New states for beautify feature
+  const [beautifyMode, setBeautifyMode] = useState(false);
+  const [layerMap, setLayerMap] = useState({});
   
   // Refs for d3 zoom behavior
   const zoomBehaviorRef = useRef(null);
@@ -62,6 +68,8 @@ const FlowBuilder = () => {
   
   // Handle adding nodes
   const handleAddNode = (nodeType, position) => {
+    if (viewOnlyMode) return null;
+    
     const template = [...customTemplates, ...Object.keys(NODE_TYPES)].find(t => 
       t === nodeType || (typeof t === 'object' && t.type === nodeType)
     );
@@ -96,10 +104,19 @@ const FlowBuilder = () => {
     };
     
     setNodes(prevNodes => [...prevNodes, newNode]);
+    
+    // If beautify mode is active, reapply beautify after adding a node
+    if (beautifyMode) {
+      const updatedNodes = [...nodes, newNode];
+      applyBeautify(updatedNodes, edges);
+    }
+    
     return newNode;
   };
 
   const handleAddEdge = (source, target, sourcePort = 0, targetPort = 0) => {
+    if (viewOnlyMode) return;
+    
     // First check if this connection already exists
     const connectionExists = edges.some(edge => 
       edge.source === source && 
@@ -123,34 +140,29 @@ const FlowBuilder = () => {
     };
     
     // Update the edges state
-    console.log("Adding new edge:", newEdge);
-    setEdges(prevEdges => [...prevEdges, newEdge]);
+    const updatedEdges = [...edges, newEdge];
+    setEdges(updatedEdges);
+    
+    // If beautify mode is active, reapply beautify after adding an edge
+    if (beautifyMode) {
+      applyBeautify(nodes, updatedEdges);
+    }
   };
 
-  // Handle node selection (modified to respect view-only mode)
+  // Handle node selection - modified to support view-only mode
   const handleNodeSelect = (nodeId) => {
-    if (viewOnlyMode) {
-      if (nodeId !== null) {
-        // Show a toast in view-only mode
-        toast({
-          title: "View-only mode active",
-          description: "Exit view-only mode to select and edit nodes.",
-          status: "info",
-          duration: 3000,
-          isClosable: true,
-          position: "top",
-        });
-      }
-      return;
-    }
-    
     if (nodeId === null) {
       setSelectedNode(null);
       setDetailsOpen(false);
-    } else {
-      const node = nodes.find(n => n.id === nodeId);
-      setSelectedNode(node);
-      setDetailsOpen(true);
+      return;
+    }
+    
+    const node = nodes.find(n => n.id === nodeId);
+    setSelectedNode(node);
+    setDetailsOpen(true);
+    
+    // In view-only mode, we keep details panel open but don't allow editing
+    if (!viewOnlyMode) {
       // Close template panel if it's open
       if (templateOpen) {
         setTemplateOpen(false);
@@ -162,6 +174,8 @@ const FlowBuilder = () => {
 
   // Handle node update
   const handleUpdateNode = (nodeId, updates) => {
+    if (viewOnlyMode) return;
+    
     setNodes(prevNodes => 
       prevNodes.map(node => 
         node.id === nodeId ? { ...node, ...updates } : node
@@ -176,28 +190,37 @@ const FlowBuilder = () => {
 
   // Handle node position update
   const handleUpdateNodePosition = (nodeId, position) => {
+    if (viewOnlyMode || beautifyMode) return;
+    
     handleUpdateNode(nodeId, position);
   };
 
   // Handle node deletion
   const handleDeleteNode = (nodeId) => {
+    if (viewOnlyMode) return;
+    
     // Delete connected edges first
-    setEdges(prevEdges => 
-      prevEdges.filter(edge => 
-        edge.source !== nodeId && edge.target !== nodeId
-      )
+    const updatedEdges = edges.filter(edge => 
+      edge.source !== nodeId && edge.target !== nodeId
     );
+    setEdges(updatedEdges);
     
     // Delete the node
-    setNodes(prevNodes => 
-      prevNodes.filter(node => node.id !== nodeId)
-    );
+    const updatedNodes = nodes.filter(node => node.id !== nodeId);
+    setNodes(updatedNodes);
     
     setSelectedNode(null);
+    
+    // If beautify mode is active, reapply beautify after deleting a node
+    if (beautifyMode) {
+      applyBeautify(updatedNodes, updatedEdges);
+    }
   };
 
   // Handle template saving
   const handleSaveTemplate = (templateData) => {
+    if (viewOnlyMode) return;
+    
     if (editingTemplate) {
       // Update existing template
       setCustomTemplates(prev => 
@@ -228,6 +251,11 @@ const FlowBuilder = () => {
     }
     
     setTemplateOpen(false);
+    
+    // If beautify mode is active, reapply beautify
+    if (beautifyMode) {
+      applyBeautify(nodes, edges);
+    }
   };
   
   // Handle template editing
@@ -259,10 +287,7 @@ const FlowBuilder = () => {
 
   // Toggle sidebar
   const toggleSidebar = () => {
-    if (viewOnlyMode) {
-      showViewOnlyModeToast();
-      return;
-    }
+    if (viewOnlyMode) return;
     
     // If sidebar is currently closed and we're opening it
     if (!sidebarOpen) {
@@ -289,10 +314,7 @@ const FlowBuilder = () => {
 
   // Toggle marketplace panel
   const toggleMarketplacePanel = () => {
-    if (viewOnlyMode) {
-      showViewOnlyModeToast();
-      return;
-    }
+    if (viewOnlyMode) return;
     
     // If marketplace panel is being opened, close blocks panel
     if (!marketplacePanelOpen) {
@@ -306,10 +328,7 @@ const FlowBuilder = () => {
 
   // Handle marketplace item selection
   const handleSelectMarketplaceItem = (item) => {
-    if (viewOnlyMode) {
-      showViewOnlyModeToast();
-      return;
-    }
+    if (viewOnlyMode) return;
     setSelectedMarketplaceItem(item);
   };
   
@@ -318,19 +337,19 @@ const FlowBuilder = () => {
     setSelectedMarketplaceItem(null);
   };
 
-  const handleCloseDetailsPanel = () => {
-    setDetailsOpen(false);
-    // Close code panel if it's open
-    if (codeOpen) {
-      setCodeOpen(false);
-    }
-  };
+// Update the handleCloseDetailsPanel function
+const handleCloseDetailsPanel = () => {
+  setDetailsOpen(false);
+  // Close code panel if it's open
+  if (codeOpen) {
+    setCodeOpen(false);
+  }
+};
   
   // Zoom controls
   const handleZoomIn = () => {
     setScale(prevScale => {
       const newScale = Math.min(prevScale + 0.1, 4);
-      console.log("New scale:", newScale);
       return newScale;
     });
   };
@@ -338,28 +357,30 @@ const FlowBuilder = () => {
   const handleZoomOut = () => {
     setScale(prevScale => {
       const newScale = Math.max(prevScale - 0.1, 0.8);
-      console.log("New scale:", newScale);
       return newScale;
     });
   };
   
   const handleFitView = () => {
-    // In a real implementation, this would calculate the appropriate
-    // zoom level to fit all nodes in view
-    setScale(1);
-    setTranslate({ x: 0, y: 0 });
-    
     // Reset the view using d3 if the ref exists
-    if (zoomBehaviorRef.current) {
-      const svg = d3.select(svgRef.current);
-      svg.transition().duration(300).call(
-        zoomBehaviorRef.current.transform, 
-        d3.zoomIdentity.translate(0, 0).scale(1)
-      );
+    if (zoomBehaviorRef.current && nodes.length > 0) {
+      centerFlow();
+    } else {
+      // Default reset if no nodes
+      setScale(1);
+      setTranslate({ x: 0, y: 0 });
+      
+      if (zoomBehaviorRef.current) {
+        const svg = d3.select(svgRef.current);
+        svg.transition().duration(300).call(
+          zoomBehaviorRef.current.transform, 
+          d3.zoomIdentity.translate(0, 0).scale(1)
+        );
+      }
     }
   };
 
-  // New function to toggle view-only mode
+  // Function to toggle view-only mode
   const toggleViewOnlyMode = () => {
     if (!viewOnlyMode) {
       // Entering view-only mode
@@ -372,9 +393,7 @@ const FlowBuilder = () => {
         selectedMarketplaceItem: selectedMarketplaceItem !== null
       });
       
-      // Close all panels
-      setSidebarOpen(false);
-      setDetailsOpen(false);
+      // We don't close details panel anymore, but we do close other panels
       setTemplateOpen(false);
       setCodeOpen(false);
       setMarketplacePanelOpen(false);
@@ -388,20 +407,18 @@ const FlowBuilder = () => {
       // Notification
       toast({
         title: "View-only mode enabled",
-        description: "Only visualization controls are active. Click the eye icon again to exit.",
+        description: "Node editing is disabled. You can still view node details.",
         status: "info",
         duration: 4000,
         isClosable: true,
       });
     } else {
       // Exiting view-only mode
-      // Restore previous state
+      // Restore previous state except for details panel which we handle separately
       setSidebarOpen(previousState.sidebarOpen);
-      setDetailsOpen(previousState.detailsOpen);
       setTemplateOpen(previousState.templateOpen);
       setCodeOpen(previousState.codeOpen);
       setMarketplacePanelOpen(previousState.marketplacePanelOpen);
-      // We don't restore the selected marketplace item directly
       
       setViewOnlyMode(false);
       
@@ -421,16 +438,50 @@ const FlowBuilder = () => {
     setHideTextLabels(prev => !prev);
   };
   
-  // Helper function to show view-only mode toast
-  const showViewOnlyModeToast = () => {
-    toast({
-      title: "View-only mode active",
-      description: "Exit view-only mode to access this feature",
-      status: "warning",
-      duration: 3000,
-      isClosable: true,
-      position: "top",
-    });
+  // Toggle beautify mode
+  const toggleBeautifyMode = () => {
+    const newMode = !beautifyMode;
+    setBeautifyMode(newMode);
+    
+    if (newMode) {
+      // Apply beautify layout
+      applyBeautify(nodes, edges);
+      
+      toast({
+        title: "Beautify mode enabled",
+        description: "Flow has been automatically organized into layers.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    } else {
+      // Clear layer map when disabling
+      setLayerMap({});
+      
+      toast({
+        title: "Beautify mode disabled",
+        description: "You can now freely arrange nodes again.",
+        status: "info",
+        duration: 2000,
+        isClosable: true,
+      });
+    }
+  };
+  
+  // Apply beautify layout
+  const applyBeautify = (currentNodes, currentEdges) => {
+    if (!currentNodes.length) return;
+    
+    const { nodes: beautifiedNodes, layerMap: newLayerMap } = beautifyFlow(currentNodes, currentEdges);
+    
+    // Update nodes with new positions
+    setNodes(beautifiedNodes);
+    
+    // Store layer map for UI display
+    setLayerMap(newLayerMap);
+    
+    // Center the flow
+    setTimeout(centerFlow, 100);
   };
   
   // Center the flow in the viewport
@@ -441,10 +492,10 @@ const FlowBuilder = () => {
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
     
     nodes.forEach(node => {
-      minX = Math.min(minX, node.x);
-      maxX = Math.max(maxX, node.x);
-      minY = Math.min(minY, node.y);
-      maxY = Math.max(maxY, node.y);
+      minX = Math.min(minX, node.x - 100);
+      maxX = Math.max(maxX, node.x + 100);
+      minY = Math.min(minY, node.y - 100);
+      maxY = Math.max(maxY, node.y + 100);
     });
     
     // Add some padding
@@ -485,10 +536,39 @@ const FlowBuilder = () => {
       });
     }
   };
+  
+  // Handle node click from layer view in pipeline section
+  const handleLayerNodeClick = (nodeId) => {
+    // Find the node
+    const node = nodes.find(n => n.id === nodeId);
+    if (!node) return;
+    
+    // Select the node
+    handleNodeSelect(nodeId);
+    
+    // Center on the node
+    const svgElement = svgRef.current;
+    if (!svgElement || !zoomBehaviorRef.current) return;
+    
+    const svgRect = svgElement.getBoundingClientRect();
+    const svgWidth = svgRect.width;
+    const svgHeight = svgRect.height;
+    
+    // Calculate the new translate values to center on the node
+    const newTranslateX = svgWidth / 2 - node.x * scale;
+    const newTranslateY = svgHeight / 2 - node.y * scale;
+    
+    // Use d3 for smooth transition
+    const svg = d3.select(svgElement);
+    svg.transition().duration(500).call(
+      zoomBehaviorRef.current.transform,
+      d3.zoomIdentity.translate(newTranslateX, newTranslateY).scale(scale)
+    );
+  };
 
   return (
     <Flex h="100%" w="100%" overflow="hidden">
-      <NavPanel 
+      {/* <NavPanel 
         toggleSidebar={toggleSidebar}
         toggleVisualizePanel={toggleVisualizePanel}
         toggleMarketplacePanel={toggleMarketplacePanel}
@@ -497,14 +577,17 @@ const FlowBuilder = () => {
         marketplacePanelOpen={marketplacePanelOpen}
         viewOnlyMode={viewOnlyMode}
       />
-      
+       */}
       {/* Conditionally render either sidebar or marketplace panel */}
-      {sidebarOpen && !marketplacePanelOpen && !viewOnlyMode && (
+      {sidebarOpen && !marketplacePanelOpen && (
         <BlocksPanel 
           onAddNode={handleAddNode}
           onOpenTemplate={handleOpenTemplatePanel}
           customTemplates={customTemplates}
           onEditTemplate={handleEditTemplate}
+          layerMap={layerMap}
+          beautifyMode={beautifyMode}
+          onNodeClick={handleLayerNodeClick}
         />
       )}
       
@@ -516,12 +599,14 @@ const FlowBuilder = () => {
         />
       )}
       
-      {visualizePanelOpen && (
+      {/* {visualizePanelOpen && ( */}
         <VisualizePanel 
           hideTextLabels={hideTextLabels}
           onToggleHideTextLabels={toggleHideTextLabels}
+          beautifyMode={beautifyMode}
+          onToggleBeautifyMode={toggleBeautifyMode}
         />
-      )}
+      {/* )} */}
       
       <Flex position="relative" flex="1" h="100%" overflow="hidden">
         <FlowCanvas 
@@ -539,11 +624,11 @@ const FlowBuilder = () => {
           zoomBehaviorRef={zoomBehaviorRef}
           svgRef={svgRef}
           leftPanelOpen={sidebarOpen}
-          leftPanelWidth={280} // Adjust based on your actual sidebar width
+          leftPanelWidth={320} // Adjusted to match actual sidebar width
           rightPanelOpen={detailsOpen || templateOpen || marketplacePanelOpen}
-          rightPanelWidth={detailsOpen ? 350 : (templateOpen ? 400 : 300)} // Adjust based on which panel is open
+          rightPanelWidth={detailsOpen ? 384 : (templateOpen ? 384 : 320)} // Adjusted based on which panel is open
           detailsPanelOpen={detailsOpen}
-          detailsPanelWidth={350} // Adjust to match your actual details panel width
+          detailsPanelWidth={384} // Adjusted to match actual details panel width
           hideTextLabels={hideTextLabels}
         />
         
@@ -577,8 +662,8 @@ const FlowBuilder = () => {
         />
       )}
       
-      {/* Rest of the existing panels */}
-      {detailsOpen && selectedNode && !viewOnlyMode && (
+      {/* Details panel with view-only mode handled internally */}
+      {detailsOpen && selectedNode && (
         <DetailsPanel 
           selectedNode={selectedNode}
           onClose={handleCloseDetailsPanel}
@@ -586,21 +671,26 @@ const FlowBuilder = () => {
           onDeleteNode={handleDeleteNode}
           onToggleCode={toggleCodePanel}
           codeOpen={codeOpen}
+          viewOnlyMode={viewOnlyMode}
         />
       )}
       
       {templateOpen && !viewOnlyMode && (
-        <TemplatePanel 
-          template={editingTemplate}
-          onClose={() => {
-            setTemplateOpen(false);
-            setEditingTemplate(null);
-          }}
-          onSaveTemplate={handleSaveTemplate}
-          onToggleCode={toggleCodePanel}
-          codeOpen={codeOpen}
-        />
-      )}
+  <TemplatePanel 
+    template={editingTemplate}
+    onClose={() => {
+      setTemplateOpen(false);
+      setEditingTemplate(null);
+      // Also close code panel if it's open
+      if (codeOpen) {
+        setCodeOpen(false);
+      }
+    }}
+    onSaveTemplate={handleSaveTemplate}
+    onToggleCode={toggleCodePanel}
+    codeOpen={codeOpen}
+  />
+)}
     </Flex>
   );
 };

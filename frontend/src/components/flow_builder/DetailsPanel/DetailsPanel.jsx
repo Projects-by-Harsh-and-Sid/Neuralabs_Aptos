@@ -1,5 +1,5 @@
 // src/components/flow_builder/DetailsPanel/DetailsPanel.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Box, 
   Flex, 
@@ -22,6 +22,9 @@ import {
   TagLabel, 
   TagCloseButton,
   Code,
+  Alert,
+  AlertIcon,
+  Badge,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { 
@@ -31,17 +34,51 @@ import {
   FiSliders, 
   FiCode, 
   FiEye, 
-  FiPlus
+  FiPlus,
+  FiInfo,
+  FiLink
 } from 'react-icons/fi';
 
-const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode, onToggleCode, codeOpen }) => {
+const DetailsPanel = ({ 
+  selectedNode, 
+  onClose, 
+  onUpdateNode, 
+  onDeleteNode, 
+  onToggleCode, 
+  codeOpen,
+  viewOnlyMode = false 
+}) => {
   const [executeByDefault, setExecuteByDefault] = useState(false);
+  const [tabIndex, setTabIndex] = useState(viewOnlyMode ? 1 : 0); // Default to Preview tab in view-only mode
   
+  // Update tab index when view mode changes
+  useEffect(() => {
+    if (viewOnlyMode) {
+      setTabIndex(1); // Preview tab index
+    }
+  }, [viewOnlyMode]);
+
   const bgColor = useColorModeValue('gray.100', 'gray.800');
   const panelBgColor = useColorModeValue('white', 'gray.700');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
   const formBgColor = useColorModeValue('gray.50', 'gray.600');
   const textColor = useColorModeValue('gray.800', 'white');
+  const mutedTextColor = useColorModeValue('gray.500', 'gray.400');
+  const sectionBgColor = useColorModeValue('gray.50', 'gray.600');
+
+  // Add this function to your DetailsPanel component
+const getNodeTypeColor = (type) => {
+  switch (type) {
+    case 'data':
+      return 'blue';
+    case 'task':
+      return 'green';
+    case 'parameters':
+      return 'purple';
+    default:
+      return 'gray';
+  }
+};
   
   if (!selectedNode) {
     return (
@@ -80,13 +117,13 @@ const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode, onTog
   };
 
   const handleNameChange = (e) => {
-    if (onUpdateNode) {
+    if (onUpdateNode && !viewOnlyMode) {
       onUpdateNode(selectedNode.id, { name: e.target.value });
     }
   };
   
   const handleDeleteNode = () => {
-    if (onDeleteNode) {
+    if (onDeleteNode && !viewOnlyMode) {
       onDeleteNode(selectedNode.id);
       onClose();
     }
@@ -99,13 +136,23 @@ const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode, onTog
   
   const getTypeColor = () => {
     switch (selectedNode.type) {
-      case 'data': return 'gray.500';
-      case 'task': return 'gray.600';
-      case 'parameters': return 'gray.700';
+      case 'data': return 'blue.500';
+      case 'task': return 'green.500';
+      case 'parameters': return 'purple.500';
       default: return 'gray.500';
     }
   };
   
+  // Determine connections for preview
+  const getConnections = () => {
+    return {
+      inputs: selectedNode.inputs || [],
+      outputs: selectedNode.outputs || []
+    };
+  };
+  
+  const { inputs, outputs } = getConnections();
+
   return (
     <Box 
       w="384px"
@@ -127,17 +174,24 @@ const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode, onTog
           >
             {getNodeIcon()}
           </Flex>
-          <Heading as="h2" size="md" color={textColor}>{selectedNode.name}</Heading>
+          <Box>
+            <Heading as="h2" size="md" color={textColor}>{selectedNode.name}</Heading>
+            {/* <Badge colorScheme={selectedNode.type === 'data' ? 'blue' : selectedNode.type === 'task' ? 'green' : 'purple'}>
+              {selectedNode.type}
+            </Badge> */}
+          </Box>
         </Flex>
         <Flex align="center" gap={3}>
-          <Button 
-            leftIcon={<FiCode />} 
-            size="sm"
-            variant={codeOpen ? "solid" : "outline"}
-            onClick={onToggleCode}
-          >
-            Code
-          </Button>
+          {!viewOnlyMode && (
+            <Button 
+              leftIcon={<FiCode />} 
+              size="sm"
+              variant={codeOpen ? "solid" : "outline"}
+              onClick={onToggleCode}
+            >
+              Code
+            </Button>
+          )}
           <IconButton 
             icon={<FiX />} 
             variant="ghost" 
@@ -147,13 +201,28 @@ const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode, onTog
         </Flex>
       </Flex>
       
-      <Tabs flex="1" display="flex" flexDirection="column">
+      {viewOnlyMode && (
+        <Alert status="info" borderRadius="0">
+          <AlertIcon />
+          <Text fontSize="sm">View-only mode - Editing disabled</Text>
+        </Alert>
+      )}
+      
+      <Tabs 
+        flex="1" 
+        display="flex" 
+        flexDirection="column"
+        index={tabIndex}
+        onChange={(index) => !viewOnlyMode && setTabIndex(index)}
+        isLazy
+      >
         <TabList mx={4} mt={2}>
-          <Tab>Properties</Tab>
+          <Tab isDisabled={viewOnlyMode}>Properties</Tab>
           <Tab>Preview</Tab>
         </TabList>
         
         <TabPanels flex="1" overflow="hidden">
+          {/* Properties Tab - Only shown in edit mode */}
           <TabPanel p={4} overflow="auto" h="100%">
             <VStack spacing={6} align="stretch">
               <FormControl>
@@ -231,20 +300,158 @@ const DetailsPanel = ({ selectedNode, onClose, onUpdateNode, onDeleteNode, onTog
             </VStack>
           </TabPanel>
           
-          <TabPanel p={4} h="100%">
-            <Flex h="100%" direction="column" align="center" justify="center" textAlign="center" color="gray.500">
-              <Box as={FiEye} size="48px" mb={4} opacity={0.3} />
-              <Text>No preview available for this node.</Text>
-            </Flex>
+          {/* Preview Tab - Always available */}
+          <TabPanel p={4} h="100%" overflow="auto">
+            {/* Node preview content */}
+            <VStack spacing={6} align="stretch">
+              {/* <Box>
+                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Position</Text>
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                  <Text fontSize="sm">X: {Math.round(selectedNode.x)}, Y: {Math.round(selectedNode.y)}</Text>
+                </Box>
+              </Box> */}
+
+              <Box>
+                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Node Type</Text>
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                  <Text fontSize="sm" fontFamily="monospace">{selectedNode.type}</Text>
+                </Box>
+              </Box>
+
+              <Box>
+                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Node Name</Text>
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                  <Text fontSize="sm" fontFamily="monospace">{selectedNode.name}</Text>
+                  </Box>
+              </Box>
+{/* 
+              {executeByDefault && (  
+                <Box>
+                  <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Default Value</Text>
+                  <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                    <Text fontSize="sm" fontFamily="monospace">{selectedNode.defaultValue}</Text>
+                  </Box>
+                </Box>
+              )} */}
+              
+              <Box>
+                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Node ID</Text>
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                  <Text fontSize="sm" fontFamily="monospace">{selectedNode.id}</Text>
+                </Box>
+              </Box>
+              
+              {/* Input connections */}
+              {inputs.length > 0 && (
+                <Box>
+                  <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={2}>Input Ports</Text>
+                  <VStack spacing={2} align="stretch">
+                    {inputs.map((input, index) => (
+                      <Flex 
+                        key={index} 
+                        py={2} 
+                        px={3} 
+                        bg={sectionBgColor} 
+                        borderRadius="md"
+                        alignItems="center"
+                      >
+                        <Box mr={2}>
+                          <FiLink size={14} />
+                        </Box>
+                        <Box>
+                          <Text fontSize="sm" fontWeight="medium">{input.name || `Input ${index + 1}`}</Text>
+                          {input.type && <Text fontSize="xs" color={mutedTextColor}>Type: {input.type}</Text>}
+                        </Box>
+                      </Flex>
+                    ))}
+                  </VStack>
+                </Box>
+              )}
+              
+              {/* Output connections */}
+              {outputs.length > 0 && (
+                <Box>
+                  <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={2}>Output Ports</Text>
+                  <VStack spacing={2} align="stretch">
+                    {outputs.map((output, index) => (
+                      <Flex 
+                        key={index} 
+                        py={2} 
+                        px={3} 
+                        bg={sectionBgColor} 
+                        borderRadius="md"
+                        alignItems="center"
+                      >
+                        <Box mr={2}>
+                          <FiLink size={14} />
+                        </Box>
+                        <Box>
+                          <Text fontSize="sm" fontWeight="medium">{output.name || `Output ${index + 1}`}</Text>
+                          {output.type && <Text fontSize="xs" color={mutedTextColor}>Type: {output.type}</Text>}
+                        </Box>
+                      </Flex>
+                    ))}
+                  </VStack>
+                </Box>
+              )}
+              
+              {/* Parameters if present */}
+              {selectedNode.type === 'parameters' && selectedNode.hyperParameters && selectedNode.hyperParameters.length > 0 && (
+                <Box>
+                  <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={2}>HyperParameters</Text>
+                  <VStack spacing={2} align="stretch">
+                    {selectedNode.hyperParameters.map((param, index) => (
+                      <Flex 
+                        key={index} 
+                        py={2} 
+                        px={3} 
+                        bg={sectionBgColor} 
+                        borderRadius="md"
+                        justifyContent="space-between"
+                      >
+                        <Text fontSize="sm" fontWeight="medium">{param.key}</Text>
+                        <Text fontSize="sm">{param.value}</Text>
+                      </Flex>
+                    ))}
+                  </VStack>
+                </Box>
+              )}
+              
+              {/* Node description if present */}
+              {selectedNode.description && (
+                <Box>
+                  <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Description</Text>
+                  <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                    <Text fontSize="sm">{selectedNode.description}</Text>
+                  </Box>
+                </Box>
+              )}
+              
+              {/* Tags section */}
+              <Box>
+                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={2}>Tags</Text>
+                <Flex wrap="wrap" gap={2}>
+                  <Tag size="sm" borderRadius="md" variant="subtle" colorScheme={getNodeTypeColor(selectedNode.type)}>
+                    {selectedNode.type}
+                  </Tag>
+                  {selectedNode.tags && selectedNode.tags.map((tag, index) => (
+                    <Tag key={index} size="sm" borderRadius="md" variant="subtle" colorScheme="gray">
+                      {tag}
+                    </Tag>
+                  ))}
+                </Flex>
+              </Box>
+            </VStack>
           </TabPanel>
         </TabPanels>
       </Tabs>
       
-      <Flex justify="flex-end" gap={3} p={4} borderTop="1px solid" borderColor={borderColor}>
-        <Button colorScheme="red" onClick={handleDeleteNode} variant="outline">Delete</Button>
-        <Button onClick={handleApplyChanges}
-        style={{ backgroundColor: 'blue.500', color: 'white' }}>Apply Changes</Button>
-      </Flex>
+      {!viewOnlyMode && (
+        <Flex justify="flex-end" gap={3} p={4} borderTop="1px solid" borderColor={borderColor}>
+          <Button colorScheme="red" onClick={handleDeleteNode} variant="outline">Delete</Button>
+          <Button onClick={handleApplyChanges} colorScheme="blue">Apply Changes</Button>
+        </Flex>
+      )}
     </Box>
   );
 };

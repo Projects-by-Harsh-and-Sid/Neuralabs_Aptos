@@ -91,7 +91,7 @@ const MarketplaceDetailPanel = ({ item, onClose }) => {
   
   return (
     <Box
-      w="calc(100% - 400px)"
+      w="calc(100% - 320px)"
       h="100%"
       bg={bgColor}
       borderLeft="1px solid"

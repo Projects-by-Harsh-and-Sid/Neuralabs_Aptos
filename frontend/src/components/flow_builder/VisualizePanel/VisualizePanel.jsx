@@ -13,14 +13,20 @@ import {
   Divider,
   useColorModeValue
 } from '@chakra-ui/react';
-import { FiBarChart2, FiType, FiEye } from 'react-icons/fi';
+import { FiBarChart2, FiType, FiEye, FiGrid, FiPackage, FiMaximize2 } from 'react-icons/fi';
 
-const VisualizePanel = ({ hideTextLabels, onToggleHideTextLabels }) => {
+const VisualizePanel = ({ 
+  hideTextLabels, 
+  onToggleHideTextLabels,
+  beautifyMode,
+  onToggleBeautifyMode
+}) => {
   const bgColor = useColorModeValue('gray.100', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const textColor = useColorModeValue('gray.800', 'white');
   const iconColor = useColorModeValue('gray.600', 'gray.400');
   const cardBg = useColorModeValue('white', 'gray.700');
+  const activeColor = useColorModeValue('blue.500', 'blue.300');
   
   return (
     <Box
@@ -37,7 +43,7 @@ const VisualizePanel = ({ hideTextLabels, onToggleHideTextLabels }) => {
       <Heading as="h3" size="xs" mb={6} color={textColor}>Visualize</Heading>
       
       <VStack spacing={4} align="center">
-        <Button
+        {/* <Button
           w="60px"
           h="60px"
           display="flex"
@@ -52,7 +58,7 @@ const VisualizePanel = ({ hideTextLabels, onToggleHideTextLabels }) => {
           <Text fontSize="xs" textAlign="center" color={textColor}>
             Charts
           </Text>
-        </Button>
+        </Button> */}
         
         {/* Toggle for Hide Text Labels */}
         <Box
@@ -64,7 +70,7 @@ const VisualizePanel = ({ hideTextLabels, onToggleHideTextLabels }) => {
           borderColor={borderColor}
         >
           <VStack spacing={1}>
-            <Box as={FiType} fontSize="18px" color={iconColor} />
+            <Box as={FiType} fontSize="18px" color={hideTextLabels ? activeColor : iconColor} />
             <Text fontSize="10px" textAlign="center" color={textColor} mb={1}>
               Hide Text
             </Text>
@@ -72,6 +78,29 @@ const VisualizePanel = ({ hideTextLabels, onToggleHideTextLabels }) => {
               size="sm" 
               isChecked={hideTextLabels}
               onChange={onToggleHideTextLabels}
+              colorScheme="blue"
+            />
+          </VStack>
+        </Box>
+        
+        {/* Toggle for Beautify Mode */}
+        <Box
+          w="60px"
+          bg={cardBg}
+          borderRadius="md"
+          p={2}
+          border="1px solid"
+          borderColor={beautifyMode ? activeColor : borderColor}
+        >
+          <VStack spacing={1}>
+            <Box as={FiMaximize2} fontSize="18px" color={beautifyMode ? activeColor : iconColor} />
+            <Text fontSize="10px" textAlign="center" color={textColor} mb={1}>
+              Beautify
+            </Text>
+            <Switch 
+              size="sm" 
+              isChecked={beautifyMode}
+              onChange={onToggleBeautifyMode}
               colorScheme="blue"
             />
           </VStack>
