@@ -20,9 +20,12 @@ services:
 
     networks:
       - neuralabs_aptos_network
+      - traefik-proxy
 
 networks:
   neuralabs_aptos_network:
     driver: bridge
+  traefik-proxy:
+    external: true
 
   
