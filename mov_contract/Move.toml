@@ -1,0 +1,12 @@
+[package]
+name = "NeuralabsNFT"
+version = "0.1.0"
+authors = ["Your Name"]
+
+[addresses]
+NeuralabsNFT = "48b3475fd2c5d2ae55b80154ea006e6ed6ffb78c8e7dbfd14288168d7da3f7e6"
+
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "main" }
+AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib/", rev = "main" }
