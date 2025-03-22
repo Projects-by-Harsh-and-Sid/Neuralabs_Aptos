@@ -1,5 +1,4 @@
-// Update the imports to include React hooks and the nodeApi
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Box, 
   Flex, 
@@ -13,7 +12,6 @@ import {
   Tab, 
   TabPanel, 
   SimpleGrid, 
-  Button,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -23,27 +21,17 @@ import {
   ListItem,
   Badge,
   useColorModeValue,
-  Spinner,
   Center,
 } from '@chakra-ui/react';
 import { 
   FiX, 
-  FiDatabase, 
   FiActivity, 
-  FiSliders, 
-  FiPlus,
-  FiSearch,
   FiEdit2,
   FiLayers,
   FiMaximize2,
-  FiExternalLink,
-  FiRepeat,
-  FiGitBranch,
   FiAlertCircle,
+ FiDatabase, FiSliders, FiExternalLink, FiRepeat, FiGitBranch
 } from 'react-icons/fi';
-
-// Import the nodeApi
-import { nodeApi } from '../../../utils/api';
 
 // Map icon strings to React icons - this allows us to dynamically create icons from string names
 const ICON_MAP = {
@@ -62,30 +50,10 @@ const BlocksPanel = ({
   onEditTemplate,
   layerMap = {},
   beautifyMode = false,
-  onNodeClick
+  onNodeClick,
+  nodeTypes = {} // Now passed from the parent component
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [nodeTypes, setNodeTypes] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  // Fetch node types from API
-  useEffect(() => {
-    const fetchNodeTypes = async () => {
-      try {
-        setLoading(true);
-        const response = await nodeApi.getNodeTypes();
-        setNodeTypes(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching node types:", err);
-        setError("Failed to load node types");
-        setLoading(false);
-      }
-    };
-    
-    fetchNodeTypes();
-  }, []);
   
   const bgColor = useColorModeValue('sidepanel.body.light', 'sidepanel.body.dark');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -110,7 +78,7 @@ const BlocksPanel = ({
   };
 
   // Filter node types based on search term
-  const filteredNodeTypes = Object.entries(nodeTypes).filter(([key, nodeType]) => 
+  const filteredNodeTypes = Object.entries(nodeTypes || {}).filter(([key, nodeType]) => 
     nodeType.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
@@ -126,6 +94,9 @@ const BlocksPanel = ({
   
   // Get the appropriate icon component for a node type
   const getIconComponent = (iconName) => {
+    if (typeof iconName === 'function') {
+      return iconName; // Already a component
+    }
     return ICON_MAP[iconName] || FiActivity; // Default to FiActivity if icon not found
   };
 
@@ -194,14 +165,10 @@ const BlocksPanel = ({
               <Heading as="h2" size="sm" color={headingColor}>Elements</Heading>
             </Flex>
             
-            {loading ? (
-              <Center py={10}>
-                <Spinner color="blue.500" />
-              </Center>
-            ) : error ? (
+            {Object.keys(nodeTypes).length === 0 ? (
               <Center py={10} flexDirection="column">
-                <Box as={FiAlertCircle} color={errorColor} fontSize="24px" mb={2} />
-                <Text color={errorColor}>{error}</Text>
+                {/* <Box as={FiAlertCircle} color={errorColor} fontSize="24px" mb={2} /> */}
+                <Text color={iconColor}>No node types available</Text>
               </Center>
             ) : (
               <SimpleGrid columns={2} spacing={3}>
@@ -293,7 +260,6 @@ const BlocksPanel = ({
             )}
           </TabPanel>
           
-          {/* Pipelines TabPanel remains the same */}
           <TabPanel p={4}>
             <Flex align="center" justify="space-between" mb={3}>
               <Heading as="h2" size="sm" color={headingColor}>Flow Layers</Heading>
@@ -344,7 +310,11 @@ const BlocksPanel = ({
                                 mr={2}
                               >
                                 {node.type && (
-                                  <Box as={getIconComponent(nodeTypes[node.type]?.icon)} color="white" size={14} />
+                                  <Box 
+                                    as={getIconComponent(nodeTypes[node.type]?.icon)} 
+                                    color="white" 
+                                    size={14} 
+                                  />
                                 )}
                               </Box>
                               <Text fontWeight="medium" fontSize="sm">{node.name}</Text>

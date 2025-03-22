@@ -2,7 +2,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import { FiDatabase, FiActivity, FiSliders } from 'react-icons/fi';
+import { FiDatabase, FiActivity, FiSliders, FiExternalLink, FiRepeat, FiGitBranch } from 'react-icons/fi';
+
+// Define the icon mapping object
+const ICON_MAP = {
+  'database': FiDatabase,
+  'activity': FiActivity,
+  'sliders': FiSliders,
+  'external-link': FiExternalLink,
+  'repeat': FiRepeat,
+  'git-branch': FiGitBranch,
+};
 
 const FlowCanvas = ({ 
   nodes, 
@@ -26,7 +36,8 @@ const FlowCanvas = ({
   detailsPanelOpen = false,
   detailsPanelWidth = 300,
   hideTextLabels,
-  viewOnlyMode = false
+  viewOnlyMode = false,
+  nodeTypes = {}
 }) => {
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
@@ -539,20 +550,34 @@ const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
   document.addEventListener('mousemove', moveHandler);
   document.addEventListener('mouseup', upHandler);
 };
-
-  // Get node icon
-  const getNodeIcon = (nodeType) => {
-    switch (nodeType) {
-      case 'data':
-        return <FiDatabase size={20} />;
-      case 'task':
-        return <FiActivity size={20} />;
-      case 'parameters':
-        return <FiSliders size={20} />;
-      default:
-        return null;
+  // Add helper function to get the icon component from string name or component
+  const getIconComponent = (icon) => {
+    if (typeof icon === 'function') {
+      return icon; // Already a component
     }
+    return ICON_MAP[icon] || FiActivity; // Get from map or default to Activity
   };
+  
+const getNodeIcon = (nodeType) => {
+  // Check if nodeType exists in nodeTypes
+  if (nodeTypes[nodeType]) {
+    const IconComponent = getIconComponent(nodeTypes[nodeType].icon);
+    return <IconComponent size={20} />;
+  }
+  
+  // Fallback to default icons if nodeType not found in nodeTypes
+  switch (nodeType) {
+    case 'data':
+      return <FiDatabase size={20} />;
+    case 'task':
+      return <FiActivity size={20} />;
+    case 'parameters':
+      return <FiSliders size={20} />;
+    default:
+      return <FiActivity size={20} />; // Default fallback
+  }
+};
+
 
   // Get node color - Using consistent vibrant colors regardless of theme
   const getNodeColors = (nodeType, isSelected) => {

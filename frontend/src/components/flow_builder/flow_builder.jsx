@@ -1,7 +1,8 @@
 // src/components/flow_builder/flow_builder.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Flex, useColorMode, useColorModeValue, useToast,Box } from '@chakra-ui/react';
-import { FiDatabase, FiActivity, FiSliders } from 'react-icons/fi';
+import { FiActivity, FiDatabase, FiSliders, FiExternalLink, FiRepeat, FiGitBranch } from 'react-icons/fi';
+
 import NavPanel from '../common_components/NavPanel/NavelPanel';
 import BlocksPanel from './BlocksPanel/BlocksPanel';
 import FlowCanvas from './FlowCanvas/FlowCanvas';
@@ -14,34 +15,36 @@ import MarketplaceDetailPanel from '../marketplace/MarketplaceContent/Marketplac
 import { beautifyFlow } from '../../utils/flowBeautifier';
 import * as d3 from 'd3';
 import { exportFlowAsPNG } from '../../utils/flowExport';
+import { nodeApi } from '../../utils/api';
 
 
-// In flow_builder.jsx, import motion from framer-motion
-import { motion, AnimatePresence } from 'framer-motion';
-
-// Create a motion component for the BlocksPanel
-const MotionBlocksPanel = motion(({ children, ...rest }) => (
-  <Box {...rest}>{children}</Box>
-));
+const ICON_MAP = {
+  'database': FiDatabase,
+  'activity': FiActivity,
+  'sliders': FiSliders,
+  'external-link': FiExternalLink,
+  'repeat': FiRepeat,
+  'git-branch': FiGitBranch,
+};
 
 // Define node types with colors and icons
-const NODE_TYPES = {
-  data: {
-    name: 'Data',
-    icon: FiDatabase,
-    color: 'blue.500',
-  },
-  task: {
-    name: 'Task',
-    icon: FiActivity,
-    color: 'green.500',
-  },
-  parameters: {
-    name: 'Parameters',
-    icon: FiSliders,
-    color: 'purple.500',
-  },
-};
+// const NODE_TYPES = {
+//   data: {
+//     name: 'Data',
+//     icon: FiDatabase,
+//     color: 'blue.500',
+//   },
+//   task: {
+//     name: 'Task',
+//     icon: FiActivity,
+//     color: 'green.500',
+//   },
+//   parameters: {
+//     name: 'Parameters',
+//     icon: FiSliders,
+//     color: 'purple.500',
+//   },
+// };
 
 const FlowBuilder = () => {
   const { colorMode } = useColorMode();
@@ -77,11 +80,57 @@ const FlowBuilder = () => {
   const svgRef = useRef(null);
   const flowCanvasRef = useRef(null);
   
+  const [nodeTypes, setNodeTypes] = useState({});
+
+  useEffect(() => {
+    const fetchNodeTypes = async () => {
+      try {
+        const response = await nodeApi.getNodeTypes();
+        
+        // Transform the API response to include the actual icon components
+        const transformedNodeTypes = {};
+        Object.entries(response.data).forEach(([key, nodeType]) => {
+          transformedNodeTypes[key] = {
+            ...nodeType,
+            icon: ICON_MAP[nodeType.icon] || FiActivity // Default to FiActivity if icon not found
+          };
+        });
+        
+        setNodeTypes(transformedNodeTypes);
+
+        console.log('Node types fetched:', transformedNodeTypes);
+      } catch (err) {
+        console.error('Error fetching node types:', err);
+        // Fallback to basic node types if API fails
+        setNodeTypes({
+          data: {
+            name: 'Data',
+            icon: FiDatabase,
+            color: 'blue.500',
+          },
+          task: {
+            name: 'Task',
+            icon: FiActivity,
+            color: 'green.500',
+          },
+          parameters: {
+            name: 'Parameters',
+            icon: FiSliders,
+            color: 'purple.500',
+          },
+        });
+      }
+    };
+    
+    fetchNodeTypes();
+  }, []);
+  
+
   // Handle adding nodes
   const handleAddNode = (nodeType, position) => {
     if (viewOnlyMode) return null;
     
-    const template = [...customTemplates, ...Object.keys(NODE_TYPES)].find(t => 
+    const template = [...customTemplates, ...Object.keys(nodeTypes)].find(t => 
       t === nodeType || (typeof t === 'object' && t.type === nodeType)
     );
     
@@ -652,6 +701,7 @@ const FlowBuilder = () => {
           layerMap={layerMap}
           beautifyMode={beautifyMode}
           onNodeClick={handleLayerNodeClick}
+          nodeTypes={nodeTypes} // Pass the nodeTypes as a prop
         />
       )}
 
@@ -729,6 +779,7 @@ const FlowBuilder = () => {
           detailsPanelWidth={384} // Adjusted to match actual details panel width
           hideTextLabels={hideTextLabels}
           viewOnlyMode={viewOnlyMode}
+          nodeTypes={nodeTypes} // Pass the nodeTypes prop
         />
       </Flex>
       
