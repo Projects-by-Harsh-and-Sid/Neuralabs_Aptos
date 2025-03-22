@@ -46,6 +46,128 @@ const FlowCanvas = ({
   const edgeHighlightColor = useColorModeValue('blue.500', 'blue.300');
   
 
+  // useEffect(() => {
+  //   // Use external ref if provided, otherwise use internal ref
+  //   const svgElement = externalSvgRef?.current || svgRef.current;
+  //   if (!svgElement) return;
+    
+  //   const svg = d3.select(svgElement);
+  //   const canvas = d3.select(canvasRef.current);
+    
+  //   // Use external zoom behavior if provided, otherwise create a new one
+  //   let zoom;
+  //   if (externalZoomRef?.current) {
+  //     zoom = externalZoomRef.current;
+  //   } else {
+  //     zoom = d3.zoom()
+  //       .scaleExtent([0.8, 4])
+  //       .interpolate(d3.interpolateZoom); 
+  //   }
+    
+  //   // Configure zoom behavior
+  //   zoom.on('zoom', (event) => {
+  //     canvas.attr('transform', event.transform);
+      
+  //     // Batch state updates to prevent render loops
+  //     const scaleChanged = Math.abs(event.transform.k - scale) > 0.001;
+  //     const translateXChanged = Math.abs(event.transform.x - translate.x) > 0.001;
+  //     const translateYChanged = Math.abs(event.transform.y - translate.y) > 0.001;
+      
+  //     if ((scaleChanged || translateXChanged || translateYChanged) && setScale && setTranslate) {
+  //       // Use requestAnimationFrame to throttle updates
+  //       requestAnimationFrame(() => {
+  //         if (scaleChanged && setScale) {
+  //           setScale(event.transform.k);
+  //         }
+  //         if ((translateXChanged || translateYChanged) && setTranslate) {
+  //           setTranslate({ x: event.transform.x, y: event.transform.y });
+  //         }
+  //       });
+  //     }
+  //   });
+    
+  //   svg.call(zoom);
+    
+  //   // Handle drag and drop from the blocks panel
+  //   const handleDragOver = (e) => {
+  //     e.preventDefault();
+  //     e.dataTransfer.dropEffect = 'copy';
+  //   };
+    
+  //   const handleDrop = (e) => {
+  //     e.preventDefault();
+      
+  //     const nodeType = e.dataTransfer.getData('nodeType');
+  //     if (nodeType) {
+  //       // Calculate the position with respect to the canvas transform
+  //       const svgRect = svgElement.getBoundingClientRect();
+  //       const x = (e.clientX - svgRect.left - translate.x) / scale;
+  //       const y = (e.clientY - svgRect.top - translate.y) / scale;
+        
+  //       onAddNode(nodeType, { x, y });
+  //     }
+  //   };
+    
+  //   svgElement.addEventListener('dragover', handleDragOver);
+  //   svgElement.addEventListener('drop', handleDrop);
+    
+  //   return () => {
+  //     // Clean up event listeners
+  //     svg.on('.zoom', null);
+  //     svgElement.removeEventListener('dragover', handleDragOver);
+  //     svgElement.removeEventListener('drop', handleDrop);
+  //   };
+  // }, [onAddNode, externalSvgRef, externalZoomRef, scale, translate, setScale, setTranslate]);
+
+
+
+
+
+  // Handle node selection
+  // useEffect(() => {
+  //   if (selectedNode) {
+  //     // Find all connections related to the selected node
+  //     const relatedConnections = edges.filter(
+  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
+  //     );
+  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
+  //   } else {
+  //     setHighlightedConnections([]);
+  //   }
+  // }, [selectedNode, edges]);
+  // useEffect(() => {
+  //   if (selectedNode) {
+  //     // Find all connections related to the selected node
+  //     const relatedConnections = edges.filter(
+  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
+  //     );
+  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
+      
+  //     // Center the selected node in the view - NEW CODE
+  //     centerNodeInView(selectedNode.id);
+  //   } else {
+  //     setHighlightedConnections([]);
+  //   }
+  // }, [selectedNode, edges]);
+  // useEffect(() => {
+  //   if (selectedNode) {
+  //     // Find all connections related to the selected node
+  //     const relatedConnections = edges.filter(
+  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
+  //     );
+  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
+      
+  //     // Add a slight delay before centering to allow UI updates to complete
+  //     const timerId = setTimeout(() => {
+  //       centerNodeInView(selectedNode.id);
+  //     }, 100);
+      
+  //     return () => clearTimeout(timerId);
+  //   } else {
+  //     setHighlightedConnections([]);
+  //   }
+  // }, [selectedNode, edges]);
+
   useEffect(() => {
     // Use external ref if provided, otherwise use internal ref
     const svgElement = externalSvgRef?.current || svgRef.current;
@@ -104,7 +226,11 @@ const FlowCanvas = ({
         const x = (e.clientX - svgRect.left - translate.x) / scale;
         const y = (e.clientY - svgRect.top - translate.y) / scale;
         
-        onAddNode(nodeType, { x, y });
+        // Create the node and automatically open details panel
+        const newNode = onAddNode(nodeType, { x, y });
+        
+        // The onAddNode function in flow_builder.jsx has been updated to
+        // automatically select the node and open the details panel
       }
     };
     
@@ -118,55 +244,6 @@ const FlowCanvas = ({
       svgElement.removeEventListener('drop', handleDrop);
     };
   }, [onAddNode, externalSvgRef, externalZoomRef, scale, translate, setScale, setTranslate]);
-
-
-
-
-
-  // Handle node selection
-  // useEffect(() => {
-  //   if (selectedNode) {
-  //     // Find all connections related to the selected node
-  //     const relatedConnections = edges.filter(
-  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
-  //     );
-  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
-  //   } else {
-  //     setHighlightedConnections([]);
-  //   }
-  // }, [selectedNode, edges]);
-  // useEffect(() => {
-  //   if (selectedNode) {
-  //     // Find all connections related to the selected node
-  //     const relatedConnections = edges.filter(
-  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
-  //     );
-  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
-      
-  //     // Center the selected node in the view - NEW CODE
-  //     centerNodeInView(selectedNode.id);
-  //   } else {
-  //     setHighlightedConnections([]);
-  //   }
-  // }, [selectedNode, edges]);
-  // useEffect(() => {
-  //   if (selectedNode) {
-  //     // Find all connections related to the selected node
-  //     const relatedConnections = edges.filter(
-  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
-  //     );
-  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
-      
-  //     // Add a slight delay before centering to allow UI updates to complete
-  //     const timerId = setTimeout(() => {
-  //       centerNodeInView(selectedNode.id);
-  //     }, 100);
-      
-  //     return () => clearTimeout(timerId);
-  //   } else {
-  //     setHighlightedConnections([]);
-  //   }
-  // }, [selectedNode, edges]);
 
   useEffect(() => {
     if (selectedNode) {
@@ -300,10 +377,6 @@ const centerNodeInView = (nodeId) => {
   const visibleCenterX = leftOffset + (visibleWidth / 2);
   const visibleCenterY = visibleHeight / 2;
   
-  // Calculate the new translate values to center the node
-  // We need to reverse the scale and translation math:
-  // (node.x * scale) + translate.x = visibleCenterX
-  // translate.x = visibleCenterX - (node.x * scale)
   const newTranslateX = visibleCenterX - (node.x * scale);
   const newTranslateY = visibleCenterY - (node.y * scale);
   
@@ -323,225 +396,7 @@ const centerNodeInView = (nodeId) => {
   }
 };
 
-// const centerNodeInView = (nodeId) => {
-//   // Find the node to center
-//   const node = nodes.find(n => n.id === nodeId);
-//   if (!node) return;
-
-//   let leftOffset = 0;
-//   let rightOffset = 0;
-
-//   if (leftPanelOpen) leftOffset = leftPanelWidth;
-//   if (rightPanelOpen) rightOffset = rightPanelWidth;
-//   if (detailsPanelOpen) rightOffset = Math.max(rightOffset, detailsPanelWidth);
-  
-//   // Get the SVG element and its dimensions
-//   const svgElement = externalSvgRef?.current || svgRef.current;
-//   if (!svgElement) return;
-  
-//   const svgRect = svgElement.getBoundingClientRect();
-//   const svgWidth = svgRect.width;
-//   const svgHeight = svgRect.height;
-  
-//   // Calculate visible canvas area, accounting for side panels
-//   const visibleWidth = svgWidth - leftOffset - rightOffset;
-//   const visibleHeight = svgHeight;
-  
-//   // Calculate the center of the visible area
-//   const visibleCenterX = leftOffset + (visibleWidth / 2);
-//   const visibleCenterY = visibleHeight / 2;
-  
-//   // Calculate the new translate values to center the node
-//   const newTranslateX = visibleCenterX - (node.x * scale);
-//   const newTranslateY = visibleCenterY - (node.y * scale);
-  
-//   // Simpler, smoother animation approach
-//   if (externalZoomRef?.current) {
-//     try {
-//       const zoomObj = externalZoomRef.current;
-//       const svg = d3.select(svgElement);
-      
-//       // Create the transform to center the node
-//       const transform = d3.zoomIdentity
-//         .translate(newTranslateX, newTranslateY)
-//         .scale(scale);
-      
-//       // Apply the transform with a smooth transition
-//       svg.transition()
-//         .duration(800)
-//         .ease(d3.easeCubicInOut) // Smoother easing
-//         .call(zoomObj.transform, transform);
-        
-//       console.log("Smooth centering applied");
-//     } catch (e) {
-//       console.error("Error in smooth centering:", e);
-      
-//       // Fallback to direct state update
-//       setTranslate({
-//         x: newTranslateX,
-//         y: newTranslateY
-//       });
-//     }
-//   } else {
-//     // If no zoom behavior is available, update state directly
-//     setTranslate({
-//       x: newTranslateX,
-//       y: newTranslateY
-//     });
-//   }
-// };
-
-
   // In your FlowCanvas.jsx file, replace the handlePortMouseDown function with this:
-
-// Start connecting two nodes
-// const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
-//   if (e.button !== 0) return; // Only left mouse button
-  
-//   e.stopPropagation();
-  
-//   // Add visual feedback - change the port color when clicked
-//   const clickedPort = e.target;
-//   const originalFill = clickedPort.getAttribute('fill');
-//   const originalStroke = clickedPort.getAttribute('stroke');
-  
-//   // Highlight the port when clicked
-//   clickedPort.setAttribute('fill', '#4ADE80'); // Green fill
-//   clickedPort.setAttribute('stroke', '#16A34A'); // Darker green stroke
-//   clickedPort.setAttribute('stroke-width', '3');
-  
-//   const svg = svgRef.current;
-//   const svgRect = svg.getBoundingClientRect();
-  
-//   // Find the node
-//   const nodeData = nodes.find(n => n.id === nodeId);
-//   if (!nodeData) return;
-  
-//   setConnectingNode(nodeId);
-//   setConnectingPort({ type: portType, index: portIndex });
-  
-//   // Calculate the start position of the connection
-//   const startX = nodeData.x;
-//   let startY;
-  
-//   if (portType === 'output') {
-//     startY = nodeData.y + 30 + (portIndex * 20);
-//   } else { // input
-//     startY = nodeData.y - 30 - (portIndex * 20); 
-//   }
-  
-//   // Create a temporary path
-//   const tempPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-//   tempPath.setAttribute('stroke', colorMode === 'dark' ? 'white' : 'black');
-//   tempPath.setAttribute('stroke-width', '2');
-//   tempPath.setAttribute('stroke-dasharray', '5,5');
-//   tempPath.setAttribute('fill', 'none');
-//   tempPath.setAttribute('class', 'connecting-path');
-//   tempPath.setAttribute('d', `M ${startX} ${startY} L ${startX} ${startY}`); // Initialize with a point
-  
-//   // Add the path to the canvas
-//   if (canvasRef.current) {
-//     canvasRef.current.appendChild(tempPath);
-//     setConnectingPath(tempPath);
-//   } else {
-//     console.error("Canvas ref is null");
-//   }
-  
-//   // Update the path as the mouse moves
-//   const moveHandler = (e) => {
-//     if (!tempPath) return;
-    
-//     // Calculate the mouse position with respect to the canvas transform
-//     const mouseX = (e.clientX - svgRect.left - translate.x) / scale;
-//     const mouseY = (e.clientY - svgRect.top - translate.y) / scale;
-    
-//     // Update the mouse position state
-//     setMousePosition({ x: mouseX, y: mouseY });
-    
-//     // Create a smooth bezier curve
-//     let pathData;
-    
-//     if (portType === 'output') {
-//       pathData = `M ${startX} ${startY} C ${startX + 100} ${startY}, ${mouseX - 100} ${mouseY}, ${mouseX} ${mouseY}`;
-//     } else { // input
-//       pathData = `M ${startX} ${startY} C ${startX - 100} ${startY}, ${mouseX + 100} ${mouseY}, ${mouseX} ${mouseY}`;
-//     }
-    
-//     tempPath.setAttribute('d', pathData);
-//   };
-  
-//   const upHandler = (e) => {
-//     document.removeEventListener('mousemove', moveHandler);
-//     document.removeEventListener('mouseup', upHandler);
-    
-//     // Reset the port appearance
-//     clickedPort.setAttribute('fill', originalFill);
-//     clickedPort.setAttribute('stroke', originalStroke);
-//     clickedPort.setAttribute('stroke-width', '2');
-    
-//     // Remove the temporary path
-//     if (tempPath && tempPath.parentNode) {
-//       tempPath.parentNode.removeChild(tempPath);
-//     }
-    
-//     // Check if the mouse is over a compatible port - FIXED METHOD
-//     const elementsAtPoint = document.elementsFromPoint(e.clientX, e.clientY);
-    
-//     // Debug - log all elements under mouse
-//     console.log("Elements under mouse:", elementsAtPoint.map(el => el.tagName + (el.className ? '.' + el.className : '')));
-    
-//     // Find the first element that is a port
-//     const portElement = elementsAtPoint.find(el => 
-//       el.tagName === 'circle' && 
-//       el.hasAttribute('data-port-type')
-//     );
-    
-//     if (portElement) {
-//       const targetNodeId = portElement.getAttribute('data-node-id');
-//       const targetPortType = portElement.getAttribute('data-port-type');
-//       const targetPortIndex = parseInt(portElement.getAttribute('data-port-index'), 10);
-      
-//       console.log("Found port:", targetNodeId, targetPortType, targetPortIndex);
-      
-//       // Prevent connecting to the same node
-//       if (targetNodeId && targetNodeId !== nodeId) {
-//         // Validate connection compatibility (output -> input)
-//         if (
-//           (portType === 'output' && targetPortType === 'input') ||
-//           (portType === 'input' && targetPortType === 'output')
-//         ) {
-//           // Determine source and target based on the port types
-//           let source, target, sourcePort, targetPort;
-          
-//           if (portType === 'output') {
-//             source = nodeId;
-//             target = targetNodeId;
-//             sourcePort = portIndex;
-//             targetPort = targetPortIndex;
-//           } else { // input
-//             source = targetNodeId;
-//             target = nodeId;
-//             sourcePort = targetPortIndex;
-//             targetPort = portIndex;
-//           }
-          
-//           console.log("Creating connection:", source, target, sourcePort, targetPort);
-//           onAddEdge(source, target, sourcePort, targetPort);
-//         }
-//       }
-//     } else {
-//       console.log("No port found at drop point");
-//     }
-    
-//     setConnectingNode(null);
-//     setConnectingPort(null);
-//     setConnectingPath(null);
-//   };
-  
-//   document.addEventListener('mousemove', moveHandler);
-//   document.addEventListener('mouseup', upHandler);
-// };
-
 // Start connecting two nodes
 const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
   if (e.button !== 0) return; // Only left mouse button
@@ -732,143 +587,6 @@ const handlePortMouseDown = (e, nodeId, portType, portIndex) => {
     return colors;
   };
 
-
-//   // Render node with dynamic width
-// const renderNode = (node) => {
-//   const isSelected = selectedNode && selectedNode.id === node.id;
-//   const { ringColor, bgColor, iconColor } = getNodeColors(node.type, isSelected);
-  
-//   // Determine input and output counts
-//   const inputCount = node.inputs?.length || 1;
-//   const outputCount = node.outputs?.length || 1;
-  
-//   // Set minimum width and padding
-//   const minWidth = 120;
-//   const horizontalPadding = 16; // Padding on each side
-//   const iconWidth = 28; // Icon width + gap
-  
-//   // Calculate text width (approximate - will be adjusted by the browser)
-//   // We're using approximation because actual measurement requires DOM access
-//   const textLength = node.name.length;
-//   const avgCharWidth = 8; // Average width of a character in pixels
-//   const estimatedTextWidth = textLength * avgCharWidth;
-  
-//   // Calculate the total width with padding and icon
-//   const contentWidth = iconWidth + estimatedTextWidth + (horizontalPadding * 2);
-//   const boxWidth = Math.max(minWidth, contentWidth);
-//   const boxHalfWidth = boxWidth / 2;
-  
-//   return (
-//     <g
-//       key={node.id}
-//       className={`node ${isSelected ? 'node-selected' : ''}`}
-//       transform={`translate(${node.x}, ${node.y})`}
-//       onClick={(e) => {
-//         e.stopPropagation();
-//         onSelectNode(node.id);
-//       }}
-//       onMouseDown={(e) => handleNodeMouseDown(e, node.id)}
-//       data-node-id={node.id}
-//     >
-//       {/* Node shape - using dynamic width */}
-//       <foreignObject
-//         x={-boxHalfWidth}
-//         y="-30"
-//         width={boxWidth}
-//         height="60"
-//         style={{ overflow: 'visible' }}
-//       >
-//         <div 
-//           style={{ 
-//             width: '100%', 
-//             height: '60px', 
-//             borderRadius: '6px',
-//             border: '2px solid',
-//             borderColor: ringColor,
-//             backgroundColor: bgColor,
-//             display: 'flex',
-//             flexDirection: 'column',
-//             alignItems: 'center',
-//             justifyContent: 'center',
-//             cursor: 'move',
-//             position: 'relative',
-//             userSelect: 'none',
-//             boxShadow: isSelected ? '0 0 8px rgba(0,188,255,0.5)' : 'none',
-//             transition: 'box-shadow 0.2s, transform 0.1s',
-//             color: textColor
-//           }}
-//         >
-//           <div style={{ 
-//             display: 'flex', 
-//             alignItems: 'center', 
-//             gap: '8px',
-//             padding: `0 ${horizontalPadding}px`,
-//             maxWidth: '100%'
-//           }}>
-//             <div style={{ color: iconColor, flexShrink: 0 }}>
-//               {getNodeIcon(node.type)}
-//             </div>
-//             <span style={{ 
-//               fontWeight: 500, 
-//               fontSize: '14px',
-//               whiteSpace: 'nowrap',
-//               overflow: 'hidden',
-//               textOverflow: 'ellipsis'
-//             }}>
-//               {node.name}
-//             </span>
-//           </div>
-//         </div>
-//       </foreignObject>
-      
-//       {/* Input ports - centered horizontally regardless of box width */}
-//       {Array.from({ length: inputCount }).map((_, i) => (
-//         <g key={`input-${i}`} transform={`translate(0, ${-30 - (i * 20)})`}>
-//           <circle
-//             cx="0"
-//             cy="0"
-//             r="5"
-//             className="node-port"
-//             fill={colorMode === 'dark' ? 'white' : 'black'}
-//             stroke={getNodeColors(node.type).ringColor}
-//             strokeWidth="2"
-//             style={{
-//               cursor: 'crosshair'
-//             }}
-//             data-node-id={node.id}
-//             data-port-type="input"
-//             data-port-index={i}
-//             onMouseDown={(e) => handlePortMouseDown(e, node.id, 'input', i)}
-//           />
-//         </g>
-//       ))}
-      
-//       {/* Output ports - centered horizontally regardless of box width */}
-//       {Array.from({ length: outputCount }).map((_, i) => (
-//         <g key={`output-${i}`} transform={`translate(0, ${30 + (i * 20)})`}>
-//           <circle
-//             cx="0"
-//             cy="0"
-//             r="5"
-//             className="node-port"
-//             fill={colorMode === 'dark' ? 'white' : 'black'}
-//             stroke={getNodeColors(node.type).ringColor}
-//             strokeWidth="2"
-//             style={{
-//               cursor: 'crosshair'
-//             }}
-//             data-node-id={node.id}
-//             data-port-type="output"
-//             data-port-index={i}
-//             onMouseDown={(e) => handlePortMouseDown(e, node.id, 'output', i)}
-//           />
-//         </g>
-//       ))}
-//     </g>
-//   );
-// };
-
-// Partial update to FlowCanvas.jsx focusing on the renderNode function
 // Only updating the renderNode function to handle the hideTextLabels feature
 
 // Render node with dynamic width
@@ -1148,12 +866,14 @@ const renderNode = (node) => {
           <rect width="10000" height="10000" x="-5000" y="-5000" fill="url(#grid)" />
           
           {/* Render edges first so they're under the nodes */}
+        {/* <div className="nodesandedges"> */}
           <g className="edges">
             {edges.map(renderEdge)}
           </g>
           <g className="nodes">
             {nodes.map(renderNode)}
           </g>
+          {/* </div> */}
         </g>
       </svg>
     </Box>

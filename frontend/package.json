@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "d3": "^7.9.0",
     "framer-motion": "^11.0.3",
+    "html2canvas": "^1.4.1",
     "konva": "^9.3.19",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
