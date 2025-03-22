@@ -9,8 +9,8 @@ import DetailsPanel from './DetailsPanel/DetailsPanel';
 import TemplatePanel from './TemplatePanel/TemplatePanel';
 import VisualizePanel from './VisualizePanel/VisualizePanel';
 import CodePanel from './CodePanel/CodePanel';
-import MarketplacePanel from '../marketplace/MarketplacePanel/MarketplacePanel';
-import MarketplaceDetailPanel from '../marketplace/MarketplacePanel/MarketplaceDetailPanel';
+import MarketplaceSidebar from '../marketplace/MarketplacePanel/MarketplaceSidebar';
+import MarketplaceDetailPanel from '../marketplace/MarketplaceContent/MarketplaceDetailPanel';
 import { beautifyFlow } from '../../utils/flowBeautifier';
 import * as d3 from 'd3';
 import { exportFlowAsPNG } from '../../utils/flowExport';
@@ -58,7 +58,7 @@ const FlowBuilder = () => {
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [customTemplates, setCustomTemplates] = useState([]);
   const [visualizePanelOpen, setVisualizePanelOpen] = useState(true); // Always visible now
-  const [marketplacePanelOpen, setMarketplacePanelOpen] = useState(false);
+  const [MarketplaceSidebarOpen, setMarketplaceSidebarOpen] = useState(false);
   const [selectedMarketplaceItem, setSelectedMarketplaceItem] = useState(null);
   
   // States for view-only mode and beautify mode
@@ -326,17 +326,17 @@ const FlowBuilder = () => {
   };
   
   // Toggle marketplace panel
-  const toggleMarketplacePanel = () => {
+  const toggleMarketplaceSidebar = () => {
     if (viewOnlyMode) return;
     
     // If marketplace panel is being opened, close blocks panel
-    if (!marketplacePanelOpen) {
+    if (!MarketplaceSidebarOpen) {
       setSidebarOpen(false);
     } else {
       // If we're closing the marketplace panel, also close the detail panel
       setSelectedMarketplaceItem(null); // Close marketplace detail panel
     }
-    setMarketplacePanelOpen(!marketplacePanelOpen);
+    setMarketplaceSidebarOpen(!MarketplaceSidebarOpen);
   };
 
   // Handle marketplace item selection
@@ -402,7 +402,7 @@ const FlowBuilder = () => {
         detailsOpen,
         templateOpen,
         codeOpen,
-        marketplacePanelOpen,
+        MarketplaceSidebarOpen,
         selectedMarketplaceItem: selectedMarketplaceItem !== null,
         positions: nodes.reduce((acc, node) => {
           acc[node.id] = { x: node.x, y: node.y };
@@ -416,7 +416,7 @@ const FlowBuilder = () => {
       // We don't close details panel anymore, but we do close other panels
       setTemplateOpen(false);
       setCodeOpen(false);
-      setMarketplacePanelOpen(false);
+      setMarketplaceSidebarOpen(false);
       setSelectedMarketplaceItem(null);
       
       // Apply beautify if not already applied
@@ -452,7 +452,7 @@ const FlowBuilder = () => {
       setSidebarOpen(previousState.sidebarOpen);
       setTemplateOpen(previousState.templateOpen);
       setCodeOpen(previousState.codeOpen);
-      setMarketplacePanelOpen(previousState.marketplacePanelOpen);
+      setMarketplaceSidebarOpen(previousState.MarketplaceSidebarOpen);
       
       setViewOnlyMode(false);
       
@@ -634,16 +634,16 @@ const FlowBuilder = () => {
       {/* <NavPanel 
         toggleSidebar={toggleSidebar}
         toggleVisualizePanel={toggleVisualizePanel}
-        toggleMarketplacePanel={toggleMarketplacePanel}
+        toggleMarketplaceSidebar={toggleMarketplaceSidebar}
         sidebarOpen={sidebarOpen}
         visualizePanelOpen={visualizePanelOpen}
-        marketplacePanelOpen={marketplacePanelOpen}
+        MarketplaceSidebarOpen={MarketplaceSidebarOpen}
         viewOnlyMode={viewOnlyMode}
       />
        */}
       {/* Conditionally render either sidebar or marketplace panel */}
       
-      {sidebarOpen && !marketplacePanelOpen && (
+      {sidebarOpen && !MarketplaceSidebarOpen && (
         <BlocksPanel 
           onAddNode={handleAddNode}
           onOpenTemplate={handleOpenTemplatePanel}
@@ -656,7 +656,7 @@ const FlowBuilder = () => {
       )}
 
       {/* <AnimatePresence>
-  {sidebarOpen && !marketplacePanelOpen && (
+  {sidebarOpen && !MarketplaceSidebarOpen && (
     <MotionBlocksPanel
       initial={{ x: -320, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
@@ -681,9 +681,9 @@ const FlowBuilder = () => {
 </AnimatePresence>
        */}
       {/* Add marketplace panel */}
-      {marketplacePanelOpen && !viewOnlyMode && (
-        <MarketplacePanel 
-          onClose={toggleMarketplacePanel}
+      {MarketplaceSidebarOpen && !viewOnlyMode && (
+        <MarketplaceSidebar 
+          onClose={toggleMarketplaceSidebar}
           onSelectItem={handleSelectMarketplaceItem}
         />
       )}
@@ -723,7 +723,7 @@ const FlowBuilder = () => {
           svgRef={svgRef}
           leftPanelOpen={sidebarOpen}
           leftPanelWidth={320} // Adjusted to match actual sidebar width
-          rightPanelOpen={detailsOpen || templateOpen || marketplacePanelOpen}
+          rightPanelOpen={detailsOpen || templateOpen || MarketplaceSidebarOpen}
           rightPanelWidth={detailsOpen ? 384 : (templateOpen ? 384 : 320)} // Adjusted based on which panel is open
           detailsPanelOpen={detailsOpen}
           detailsPanelWidth={384} // Adjusted to match actual details panel width

@@ -23,11 +23,12 @@ const NavPanel = ({
   viewOnlyMode = false
 }) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue('black', 'black');
-  const borderColor = useColorModeValue('gray.700', 'gray.800');
-  const iconColor = useColorModeValue('white', 'gray.300');
-  const hoverBgColor = useColorModeValue('gray.700', 'gray.900');
+  const bgColor = useColorModeValue('navbar.body.light', 'navbar.body.dark');
+  const borderColor = useColorModeValue('navbar.border.light', 'navbar.border.dark');
+  const iconColor = useColorModeValue('navbar.icon.light', 'navbar.icon.dark');
+  const hoverBgColor = useColorModeValue('navbar.hover.light', 'navbar.hover.dark');
   const disabledColor = useColorModeValue('gray.500', 'gray.600');
+  // const 
 
   // Add state to track the active button
   const [activeButton, setActiveButton] = useState(null);
@@ -75,8 +76,8 @@ const NavPanel = ({
       justifyContent: "center",
       borderRadius: 0,
       bg: isButtonActive ? (colorMode === 'dark' ? hoverBgColor : hoverBgColor) : "transparent", 
-      color: isDisabled ? disabledColor : (isButtonActive ? 'white' : iconColor),
-      borderLeft: isButtonActive ? "4px solid" : "none",
+      color: isDisabled ? disabledColor : (isButtonActive ? iconColor : iconColor),
+      borderLeft: isButtonActive ? "none" : "none",
       borderColor: isButtonActive ? hoverBgColor : "transparent",
       _hover: { 
         bg: isDisabled ? "transparent" : (isButtonActive ? (colorMode === 'dark' ? hoverBgColor : hoverBgColor) : hoverBgColor),
@@ -124,7 +125,7 @@ const NavPanel = ({
         
         <Box as="li" position="relative" w="100%">
           <Tooltip 
-            label={viewOnlyMode ? "Disabled in view-only mode" : "Dashboard"} 
+            label={"Dashboard"} 
             placement="right" 
             bg={useColorModeValue("gray.900", "gray.900")} 
             hasArrow
@@ -142,7 +143,7 @@ const NavPanel = ({
         
         <Box as="li" position="relative" w="100%">
           <Tooltip 
-            label={viewOnlyMode ? "Disabled in view-only mode" : "Flow Builder"} 
+            label={"Flow Builder"} 
             placement="right" 
             bg={useColorModeValue("gray.900", "gray.900")} 
             hasArrow
@@ -160,7 +161,7 @@ const NavPanel = ({
         
         <Box as="li" position="relative" w="100%">
           <Tooltip 
-            label={viewOnlyMode ? "Disabled in view-only mode" : "Marketplace"} 
+            label={"Marketplace"} 
             placement="right" 
             bg={useColorModeValue("gray.900", "gray.900")} 
             hasArrow
@@ -190,7 +191,7 @@ const NavPanel = ({
         
         <Box as="li" position="relative" w="100%" mb={3}>
           <Tooltip 
-            label={viewOnlyMode ? "Disabled in view-only mode" : "Settings"} 
+            label={"Settings"} 
             placement="right" 
             bg={useColorModeValue("gray.900", "gray.900")} 
             hasArrow

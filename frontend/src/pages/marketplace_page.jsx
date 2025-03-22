@@ -1,3 +1,4 @@
+// src/pages/marketplace_page.jsx
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import Marketplace from '../components/marketplace/marketplace';
@@ -5,20 +6,13 @@ import Marketplace from '../components/marketplace/marketplace';
 /**
  * Marketplace Page
  * 
- * This page wraps the Marketplace component and can be used
- * to add page-specific logic, headers, or additional UI elements
- * surrounding the marketplace.
+ * This page simply renders the Marketplace component which handles its own state
+ * and shows both the marketplace panel and main content or detail panel.
  */
-const MarketplacePage = ({ 
-  marketplacePanelOpen, 
-  toggleMarketplacePanel 
-}) => {
+const MarketplacePage = () => {
   return (
     <Box w="100%" h="100%" overflow="hidden">
-      <Marketplace 
-        marketplacePanelOpen={marketplacePanelOpen}
-        toggleMarketplacePanel={toggleMarketplacePanel}
-      />
+      <Marketplace />
     </Box>
   );
 };

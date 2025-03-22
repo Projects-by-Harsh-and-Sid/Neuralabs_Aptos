@@ -38,7 +38,7 @@ const FlowCanvas = ({
   const [highlightedConnections, setHighlightedConnections] = useState([]);
   
   const { colorMode } = useColorMode();
-  const bgColor = useColorModeValue('gray.100', 'gray.900');
+  const bgColor = useColorModeValue('canvas.body.light', 'canvas.body.dark');
   const nodeColor = useColorModeValue('white', 'gray.800');
   const nodeBorderColor = useColorModeValue('gray.200', 'gray.600');
   const textColor = useColorModeValue('black', 'white');

@@ -66,7 +66,7 @@ const BlocksPanel = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   
-  const bgColor = useColorModeValue('gray.100', 'gray.800');
+  const bgColor = useColorModeValue('sidepanel.body.light', 'sidepanel.body.dark');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const itemBgColor = useColorModeValue('white', 'gray.700');
   const headingColor = useColorModeValue('gray.800', 'white');
