@@ -129,7 +129,7 @@ const MarketplaceContent = ({
       ) : (
         !selectedItem && (
           <Box p={8} maxW="1200px" mx="auto">
-            <Heading as="h1" size="xl" color={headingColor} mb={4}>Marketplace</Heading>
+            <Heading as="h1" size="xl" color={headingColor} mb={4}>Explore AI Agents</Heading>
             
             <Box mb={10}>
               <Heading as="h2" size="lg" color={headingColor} mb={6}>

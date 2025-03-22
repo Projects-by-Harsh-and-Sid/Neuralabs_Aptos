@@ -68,12 +68,15 @@ const BlocksPanel = ({
   
   const bgColor = useColorModeValue('sidepanel.body.light', 'sidepanel.body.dark');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const itemBgColor = useColorModeValue('white', 'gray.700');
+
   const headingColor = useColorModeValue('gray.800', 'white');
   const accordionBgColor = useColorModeValue('gray.50', 'gray.600');
   const layerHeaderBg = useColorModeValue('blue.50', 'blue.900');
   const layerHeaderColor = useColorModeValue('blue.700', 'blue.300');
-
+  const iconColor = useColorModeValue('blockpanel.icon.light', 'blockpanel.icon.dark');
+  const itemBgColor = useColorModeValue('blockpanel.itemBg.light', 'blockpanel.itemBg.dark');
+  // const layerHeaderBg = useColorModeValue('blockpanel.layerHeader.light', 'blockpanel.layerHeader.dark');
+  // const layerHeaderColor = useColorModeValue('blockpanel.layerHeadertext.light', 'blockpanel.layerHeadertext.dark');
   const hoverBgColor = useColorModeValue('gray.100', 'gray.600'); // Define here
   const emptyStateIconColor = useColorModeValue('gray.300', 'gray.600'); // Define here
   
@@ -122,16 +125,41 @@ const BlocksPanel = ({
       flexDirection="column"
       overflow="hidden"
     >
-      <Box p={4} borderBottom="1px solid" borderColor={borderColor}>
-        <Heading as="h1" size="md" mb={4} color={headingColor}>Flow Designer</Heading>
-        <Flex position="relative">
+      <Box p={4} borderColor={borderColor}>
+        <Heading as="h1" size="md" color={headingColor}>Flow Designer</Heading>
+      </Box>
+
+      <Tabs isFitted flex="1" display="flex" flexDirection="column">
+        <TabList>
+          <Tab>Blocks</Tab>
+          <Tab>Pipelines</Tab>
+        </TabList>
+        
+        <TabPanels flex="1" overflowY="auto">
+          <TabPanel p={4} h="100%">
+          <Flex position="relative">
           <Input
-            placeholder="Search blocks..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            pr="36px"
-            bg={itemBgColor}
-          />
+  placeholder="Search blocks..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  pr="36px"
+  bg='transparent'
+  mb={3}
+  border="none"
+  _focus={{ 
+    boxShadow: "none", 
+    outline: "none",
+    borderBottom: "1px solid",
+    borderColor: borderColor
+  }}
+  _hover={{ 
+    borderColor: borderColor 
+  }}
+  borderRadius="none"
+  borderBottom="1px solid"
+  borderColor={borderColor}
+  pl={0}
+/>
           {searchTerm && (
             <IconButton
               icon={<FiX />}
@@ -146,26 +174,16 @@ const BlocksPanel = ({
             />
           )}
         </Flex>
-      </Box>
-
-      <Tabs isFitted flex="1" display="flex" flexDirection="column">
-        <TabList>
-          <Tab>Blocks</Tab>
-          <Tab>Pipelines</Tab>
-        </TabList>
-        
-        <TabPanels flex="1" overflowY="auto">
-          <TabPanel p={4} h="100%">
             <Flex justify="space-between" align="center" mb={3}>
-              <Heading as="h2" size="sm" color={headingColor}>Node Types</Heading>
-              <Button
+              <Heading as="h2" size="sm" color={headingColor}>Elements</Heading>
+              {/* <Button
                 leftIcon={<FiPlus />}
                 size="sm"
                 onClick={onOpenTemplate}
                 variant="outline"
               >
                 Custom
-              </Button>
+              </Button> */}
             </Flex>
             
             <SimpleGrid columns={2} spacing={3}>
@@ -190,13 +208,13 @@ const BlocksPanel = ({
                   <Flex
                     w="48px"
                     h="48px"
-                    bg={nodeType.color}
+                    bg="transparent"
                     borderRadius="lg"
                     alignItems="center"
                     justifyContent="center"
                     mb={2}
                   >
-                    <nodeType.icon color="white" size={24} />
+                    <nodeType.icon color={iconColor} size={40} />
                   </Flex>
                   <Text fontWeight="medium" fontSize="sm">{nodeType.name}</Text>
                 </Box>
@@ -329,7 +347,7 @@ const BlocksPanel = ({
                 <Text color="gray.500" textAlign="center">
                   {beautifyMode ? 
                     "Your flow has no nodes yet. Add some nodes from the Blocks tab." : 
-                    "Enable Beautify mode in the Visualize panel to organize your flow into layers."}
+                    "Visualize panel to organize your flow into layers."}
                 </Text>
               </Flex>
             )}

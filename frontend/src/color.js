@@ -1,3 +1,5 @@
+import BlocksPanel from "./components/flow_builder/BlocksPanel/BlocksPanel";
+
 const colors = {
   // Neutral colors in grayscale
   gray: {
@@ -192,6 +194,51 @@ const colors = {
       dark: "#1e1f21",
       light: "#fdfdfd",
     },
+  },
+
+  blockpanel: {
+    icon: {
+      dark: "#ffffff",
+      light: "#000000",
+    },
+    itemBg: {
+      dark: "#0F0F11",
+      light: "#ffffff",
+    },
+    layerHeader: {
+      dark: "#ffffff",
+      light: "#000000",
+    },
+    layerHeadertext: {
+      dark: "#ffffff", 
+      light: "#000000",
+    },
+    
+  },
+
+  detailpanel : {
+
+    body: {
+      dark: "#141516",
+      light: "#fdfdfd",
+    },
+    border: {
+      dark: "#0F0F11",
+      light: "#e0e2e4",
+    },
+    selected: {
+      dark: "#141516",
+      light: "#fdfdfd",
+    },
+    icon: {
+      dark: "#b8b9b9",
+      light: "#4c4c4c",
+    },
+    hover: {
+      dark: "#1e1f21",
+      light: "#fdfdfd",
+    },
+
   },
 
   canvas: {
