@@ -134,12 +134,12 @@ const MarketplacePanel = ({ onClose, onSelectItem }) => {
       <Box p={4} borderBottom="1px solid" borderColor={borderColor}>
         <Flex justify="space-between" align="center" mb={4}>
           <Heading as="h1" size="md" color={headingColor}>Marketplace</Heading>
-          <IconButton
+          {/* <IconButton
             icon={<FiX />}
             aria-label="Close marketplace"
             variant="ghost"
             onClick={onClose}
-          />
+          /> */}
         </Flex>
         <Flex position="relative">
           <Input
@@ -203,17 +203,17 @@ const MarketplacePanel = ({ onClose, onSelectItem }) => {
                   </Flex>
                   <Box flex="1">
                     <Heading as="h3" size="sm" mb={1} color={headingColor}>{item.name}</Heading>
-                    <Text fontSize="sm" color={textColor} mb={2} noOfLines={2}>{item.description}</Text>
+                    {/* <Text fontSize="sm" color={textColor} mb={2} noOfLines={2}>{item.description}</Text> */}
                     <Flex justify="space-between" align="center">
-                      <Text fontSize="xs" color={textColor}>{item.author}</Text>
+                      {/* <Text fontSize="xs" color={textColor}>{item.author}</Text> */}
                       <Flex align="center" gap={1}>
-                        <FiStar color="gold" />
-                        <Text fontSize="xs" fontWeight="medium">{item.rating}</Text>
+                        {/* <FiStar color="gold" /> */}
+                        {/* <Text fontSize="xs" fontWeight="medium">{item.rating}</Text> */}
                       </Flex>
                     </Flex>
                     <Flex mt={2} gap={2} flexWrap="wrap">
                       {item.tags.map(tag => (
-                        <Tag key={tag} size="sm" variant="subtle" colorScheme="blue">
+                        <Tag key={tag} size="sm" variant="subtle" colorScheme="grey">
                           {tag}
                         </Tag>
                       ))}
