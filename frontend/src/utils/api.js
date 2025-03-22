@@ -68,6 +68,8 @@ export const marketplaceApi = {
 export const nodeApi = {
   // Get all available node types
   getNodeTypes: () => simulateApiCall(nodeData.nodeTypes),
+
+  getNodeCategories: () => simulateApiCall(nodeData.categories),
 };
 
 export default api;

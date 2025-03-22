@@ -213,7 +213,10 @@ const colors = {
       dark: "#ffffff", 
       light: "#000000",
     },
-    
+    listhoverBg: {
+      dark: "#242526",
+      light: "#ffffff",
+    }
   },
 
   detailpanel : {
