@@ -202,7 +202,7 @@ const colors = {
       light: "#000000",
     },
     itemBg: {
-      dark: "#0F0F11",
+      dark: "#0f0f11",
       light: "#ffffff",
     },
     layerHeader: {

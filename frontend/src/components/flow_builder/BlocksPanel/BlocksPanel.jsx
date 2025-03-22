@@ -1,5 +1,5 @@
-// src/components/flow_builder/BlocksPanel/BlocksPanel.jsx
-import React, { useState } from 'react';
+// Update the imports to include React hooks and the nodeApi
+import React, { useState, useEffect } from 'react';
 import { 
   Box, 
   Flex, 
@@ -23,6 +23,8 @@ import {
   ListItem,
   Badge,
   useColorModeValue,
+  Spinner,
+  Center,
 } from '@chakra-ui/react';
 import { 
   FiX, 
@@ -33,26 +35,24 @@ import {
   FiSearch,
   FiEdit2,
   FiLayers,
-  FiMaximize2
+  FiMaximize2,
+  FiExternalLink,
+  FiRepeat,
+  FiGitBranch,
+  FiAlertCircle,
 } from 'react-icons/fi';
 
-// Node types and their templates with vibrant colors that remain consistent across themes
-const NODE_TYPES = {
-  data: {
-    name: 'Data',
-    icon: FiDatabase,
-    color: 'blue.500',
-  },
-  task: {
-    name: 'Task',
-    icon: FiActivity,
-    color: 'green.500',
-  },
-  parameters: {
-    name: 'Parameters',
-    icon: FiSliders,
-    color: 'purple.500',
-  },
+// Import the nodeApi
+import { nodeApi } from '../../../utils/api';
+
+// Map icon strings to React icons - this allows us to dynamically create icons from string names
+const ICON_MAP = {
+  'database': FiDatabase,
+  'activity': FiActivity,
+  'sliders': FiSliders,
+  'external-link': FiExternalLink,
+  'repeat': FiRepeat,
+  'git-branch': FiGitBranch,
 };
 
 const BlocksPanel = ({ 
@@ -65,34 +65,52 @@ const BlocksPanel = ({
   onNodeClick
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [nodeTypes, setNodeTypes] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  // Fetch node types from API
+  useEffect(() => {
+    const fetchNodeTypes = async () => {
+      try {
+        setLoading(true);
+        const response = await nodeApi.getNodeTypes();
+        setNodeTypes(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching node types:", err);
+        setError("Failed to load node types");
+        setLoading(false);
+      }
+    };
+    
+    fetchNodeTypes();
+  }, []);
   
   const bgColor = useColorModeValue('sidepanel.body.light', 'sidepanel.body.dark');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
-
   const headingColor = useColorModeValue('gray.800', 'white');
   const accordionBgColor = useColorModeValue('gray.50', 'gray.600');
   const layerHeaderBg = useColorModeValue('blue.50', 'blue.900');
   const layerHeaderColor = useColorModeValue('blue.700', 'blue.300');
   const iconColor = useColorModeValue('blockpanel.icon.light', 'blockpanel.icon.dark');
   const itemBgColor = useColorModeValue('blockpanel.itemBg.light', 'blockpanel.itemBg.dark');
-  // const layerHeaderBg = useColorModeValue('blockpanel.layerHeader.light', 'blockpanel.layerHeader.dark');
-  // const layerHeaderColor = useColorModeValue('blockpanel.layerHeadertext.light', 'blockpanel.layerHeadertext.dark');
-  const hoverBgColor = useColorModeValue('gray.100', 'gray.600'); // Define here
-  const emptyStateIconColor = useColorModeValue('gray.300', 'gray.600'); // Define here
+  const hoverBgColor = useColorModeValue('gray.100', 'gray.600');
+  const emptyStateIconColor = useColorModeValue('gray.300', 'gray.600');
+  const errorColor = useColorModeValue('red.500', 'red.300');
   
-  // Define message based on beautify mode before returning JSX
+  // Define message based on beautify mode
   const emptyStateMessage = beautifyMode 
     ? "Your flow has no nodes yet. Add some nodes from the Blocks tab."
     : "Enable Beautify mode in the Visualize panel to organize your flow into layers.";
-  
-  
   
   const handleDragStart = (e, nodeType) => {
     e.dataTransfer.setData('nodeType', nodeType);
     e.dataTransfer.effectAllowed = 'copy';
   };
 
-  const filteredNodeTypes = Object.entries(NODE_TYPES).filter(([key, nodeType]) => 
+  // Filter node types based on search term
+  const filteredNodeTypes = Object.entries(nodeTypes).filter(([key, nodeType]) => 
     nodeType.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
@@ -106,12 +124,9 @@ const BlocksPanel = ({
     }
   };
   
-  // Get node color based on its type
-  const getNodeTypeColor = (type) => {
-    if (type === 'data') return 'blue';
-    if (type === 'task') return 'green';
-    if (type === 'parameters') return 'purple';
-    return 'gray';
+  // Get the appropriate icon component for a node type
+  const getIconComponent = (iconName) => {
+    return ICON_MAP[iconName] || FiActivity; // Default to FiActivity if icon not found
   };
 
   return (
@@ -137,140 +152,148 @@ const BlocksPanel = ({
         
         <TabPanels flex="1" overflowY="auto">
           <TabPanel p={4} h="100%">
-          <Flex position="relative">
-          <Input
-  placeholder="Search blocks..."
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-  pr="36px"
-  bg='transparent'
-  mb={3}
-  border="none"
-  _focus={{ 
-    boxShadow: "none", 
-    outline: "none",
-    borderBottom: "1px solid",
-    borderColor: borderColor
-  }}
-  _hover={{ 
-    borderColor: borderColor 
-  }}
-  borderRadius="none"
-  borderBottom="1px solid"
-  borderColor={borderColor}
-  pl={0}
-/>
-          {searchTerm && (
-            <IconButton
-              icon={<FiX />}
-              size="sm"
-              aria-label="Clear search"
-              position="absolute"
-              right="2"
-              top="50%"
-              transform="translateY(-50%)"
-              variant="ghost"
-              onClick={() => setSearchTerm('')}
-            />
-          )}
-        </Flex>
-            <Flex justify="space-between" align="center" mb={3}>
-              <Heading as="h2" size="sm" color={headingColor}>Elements</Heading>
-              {/* <Button
-                leftIcon={<FiPlus />}
-                size="sm"
-                onClick={onOpenTemplate}
-                variant="outline"
-              >
-                Custom
-              </Button> */}
+            <Flex position="relative">
+              <Input
+                placeholder="Search blocks..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                pr="36px"
+                bg='transparent'
+                mb={3}
+                border="none"
+                _focus={{ 
+                  boxShadow: "none", 
+                  outline: "none",
+                  borderBottom: "1px solid",
+                  borderColor: borderColor
+                }}
+                _hover={{ 
+                  borderColor: borderColor 
+                }}
+                borderRadius="none"
+                borderBottom="1px solid"
+                borderColor={borderColor}
+                pl={0}
+              />
+              {searchTerm && (
+                <IconButton
+                  icon={<FiX />}
+                  size="sm"
+                  aria-label="Clear search"
+                  position="absolute"
+                  right="2"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  variant="ghost"
+                  onClick={() => setSearchTerm('')}
+                />
+              )}
             </Flex>
             
-            <SimpleGrid columns={2} spacing={3}>
-              {filteredNodeTypes.map(([key, nodeType]) => (
-                <Box
-                  key={key}
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  p={4}
-                  bg={itemBgColor}
-                  borderRadius="lg"
-                  cursor="grab"
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, key)}
-                  transition="all 0.2s"
-                  _hover={{
-                    transform: 'translateY(-2px)',
-                    boxShadow: 'md',
-                  }}
-                >
-                  <Flex
-                    w="48px"
-                    h="48px"
-                    bg="transparent"
-                    borderRadius="lg"
+            <Flex justify="space-between" align="center" mb={3}>
+              <Heading as="h2" size="sm" color={headingColor}>Elements</Heading>
+            </Flex>
+            
+            {loading ? (
+              <Center py={10}>
+                <Spinner color="blue.500" />
+              </Center>
+            ) : error ? (
+              <Center py={10} flexDirection="column">
+                <Box as={FiAlertCircle} color={errorColor} fontSize="24px" mb={2} />
+                <Text color={errorColor}>{error}</Text>
+              </Center>
+            ) : (
+              <SimpleGrid columns={2} spacing={3}>
+                {filteredNodeTypes.map(([key, nodeType]) => {
+                  const IconComponent = getIconComponent(nodeType.icon);
+                  return (
+                    <Box
+                      key={key}
+                      display="flex"
+                      flexDirection="column"
+                      alignItems="center"
+                      p={4}
+                      bg={itemBgColor}
+                      borderRadius="lg"
+                      cursor="grab"
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, key)}
+                      transition="all 0.2s"
+                      _hover={{
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'md',
+                      }}
+                    >
+                      <Flex
+                        w="48px"
+                        h="48px"
+                        bg="transparent"
+                        borderRadius="lg"
+                        alignItems="center"
+                        justifyContent="center"
+                        mb={2}
+                      >
+                        <IconComponent color={iconColor} size={40} />
+                      </Flex>
+                      <Text fontWeight="medium" fontSize="sm">{nodeType.name}</Text>
+                    </Box>
+                  );
+                })}
+                
+                {filteredCustomTemplates.map((template) => (
+                  <Box
+                    key={template.id}
+                    display="flex"
+                    flexDirection="column"
                     alignItems="center"
-                    justifyContent="center"
-                    mb={2}
-                  >
-                    <nodeType.icon color={iconColor} size={40} />
-                  </Flex>
-                  <Text fontWeight="medium" fontSize="sm">{nodeType.name}</Text>
-                </Box>
-              ))}
-              
-              {filteredCustomTemplates.map((template) => (
-                <Box
-                  key={template.id}
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  p={4}
-                  bg={itemBgColor}
-                  borderRadius="lg"
-                  cursor="grab"
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, template.type || 'custom')}
-                  transition="all 0.2s"
-                  position="relative"
-                  _hover={{
-                    transform: 'translateY(-2px)',
-                    boxShadow: 'md',
-                  }}
-                  onClick={() => handleTemplateClick(template.id)}
-                >
-                  <Flex
-                    w="48px"
-                    h="48px"
-                    bg="yellow.500"
+                    p={4}
+                    bg={itemBgColor}
                     borderRadius="lg"
-                    alignItems="center"
-                    justifyContent="center"
-                    mb={2}
-                  >
-                    <FiActivity color="white" size={24} />
-                  </Flex>
-                  <Text fontWeight="medium" fontSize="sm">{template.name}</Text>
-                  
-                  <IconButton
-                    icon={<FiEdit2 />}
-                    size="xs"
-                    position="absolute"
-                    top="2"
-                    right="2"
-                    opacity="0.7"
-                    aria-label="Edit template"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleTemplateClick(template.id);
+                    cursor="grab"
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, template.type || 'custom')}
+                    transition="all 0.2s"
+                    position="relative"
+                    _hover={{
+                      transform: 'translateY(-2px)',
+                      boxShadow: 'md',
                     }}
-                  />
-                </Box>
-              ))}
-            </SimpleGrid>
+                    onClick={() => handleTemplateClick(template.id)}
+                  >
+                    <Flex
+                      w="48px"
+                      h="48px"
+                      bg="yellow.500"
+                      borderRadius="lg"
+                      alignItems="center"
+                      justifyContent="center"
+                      mb={2}
+                    >
+                      <FiActivity color="white" size={24} />
+                    </Flex>
+                    <Text fontWeight="medium" fontSize="sm">{template.name}</Text>
+                    
+                    <IconButton
+                      icon={<FiEdit2 />}
+                      size="xs"
+                      position="absolute"
+                      top="2"
+                      right="2"
+                      opacity="0.7"
+                      aria-label="Edit template"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleTemplateClick(template.id);
+                      }}
+                    />
+                  </Box>
+                ))}
+              </SimpleGrid>
+            )}
           </TabPanel>
           
+          {/* Pipelines TabPanel remains the same */}
           <TabPanel p={4}>
             <Flex align="center" justify="space-between" mb={3}>
               <Heading as="h2" size="sm" color={headingColor}>Flow Layers</Heading>
@@ -314,15 +337,15 @@ const BlocksPanel = ({
                                 w="24px"
                                 h="24px"
                                 borderRadius="md"
-                                bg={NODE_TYPES[node.type]?.color || 'gray.500'}
+                                bg={nodeTypes[node.type]?.color || 'gray.500'}
                                 display="flex"
                                 alignItems="center"
                                 justifyContent="center"
                                 mr={2}
                               >
-                                {node.type === 'data' && <FiDatabase color="white" size={14} />}
-                                {node.type === 'task' && <FiActivity color="white" size={14} />}
-                                {node.type === 'parameters' && <FiSliders color="white" size={14} />}
+                                {node.type && (
+                                  <Box as={getIconComponent(nodeTypes[node.type]?.icon)} color="white" size={14} />
+                                )}
                               </Box>
                               <Text fontWeight="medium" fontSize="sm">{node.name}</Text>
                             </Flex>
@@ -345,9 +368,7 @@ const BlocksPanel = ({
               >
                 <Box as={FiLayers} fontSize="40px" color={emptyStateIconColor} mb={4} />
                 <Text color="gray.500" textAlign="center">
-                  {beautifyMode ? 
-                    "Your flow has no nodes yet. Add some nodes from the Blocks tab." : 
-                    "Visualize panel to organize your flow into layers."}
+                  {emptyStateMessage}
                 </Text>
               </Flex>
             )}
