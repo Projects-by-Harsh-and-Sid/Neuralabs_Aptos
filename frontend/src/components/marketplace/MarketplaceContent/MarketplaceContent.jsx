@@ -13,13 +13,15 @@ import MarketplaceDetailPanel from './MarketplaceDetailPanel';
 
 // MarketplaceCard component - extracted from marketplace.jsx
 const MarketplaceCard = ({ item, onClick }) => {
-  const bgColor = useColorModeValue('marketplace.body.light', 'marketplace.body.dark');
+  const bgColor = useColorModeValue('marketplace.marketplaceCardbg.light', 'marketplace.marketplaceCardbg.dark');
   const borderColor = useColorModeValue('marketplace.border.light', 'marketplace.border.dark');
   const hoverBorderColor = useColorModeValue('marketplace.hoverBorder.light', 'marketplace.hoverBorder.dark');
   const tagColor = useColorModeValue('marketplace.tag.light', 'marketplace.tag.dark');
   const tagTextColor = useColorModeValue('marketplace.tagText.light', 'marketplace.tagText.dark');
-
+  const cardheadingColor = useColorModeValue('marketplace.heading.light', 'marketplace.heading.dark');
+  const carddescriptionColor = useColorModeValue('marketplace.description.light', 'marketplace.description.dark');
   const loading_color = useColorModeValue('black', 'white');
+
 
   
   return (
@@ -59,7 +61,7 @@ const MarketplaceCard = ({ item, onClick }) => {
       >
         {/* Name and description */}
         <Box>
-          <Heading as="h3" size="md" color="white" mb={1}>{item.name}</Heading>
+          <Heading as="h3" size="md" color={cardheadingColor} mb={1}>{item.name}</Heading>
           <Text color="gray.300" fontSize="sm" mb={2} noOfLines={2}>{item.description}</Text>
         </Box>
         
@@ -105,7 +107,8 @@ const MarketplaceContent = ({
 
   const loading_color = useColorModeValue('black', 'white');
   const main_bg_color = useColorModeValue('marketplace.body.light', 'marketplace.body.dark');
-  
+  const headingColor = useColorModeValue('marketplace.heading.light', 'marketplace.heading.dark');
+
   return (
     <Box 
       flex="1" 
@@ -126,10 +129,10 @@ const MarketplaceContent = ({
       ) : (
         !selectedItem && (
           <Box p={8} maxW="1200px" mx="auto">
-            <Heading as="h1" size="xl" color="white" mb={4}>Marketplace</Heading>
+            <Heading as="h1" size="xl" color={headingColor} mb={4}>Marketplace</Heading>
             
             <Box mb={10}>
-              <Heading as="h2" size="lg" color="white" mb={6}>
+              <Heading as="h2" size="lg" color={headingColor} mb={6}>
                 Featured by NeuraLabs :
               </Heading>
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
