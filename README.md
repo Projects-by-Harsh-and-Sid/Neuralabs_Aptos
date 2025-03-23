@@ -115,6 +115,12 @@ Figure 1 illustrates the high-level architecture and interactions between these 
 
 The bidirectional arrows represent real-time communication channels that enable immediate updates and responsive interactions. Each component maintains a clear separation of responsibilities while working in concert to provide a seamless user experience.
 
+
+<!-- add image here using html tag -->
+
+<img src="./documentation/01_overview.svg" alt="NeuraLabs Architecture" width="100%" margin="0%" padding="0%" />
+
+
 ### 2.2 Role of Blockchain in the System
 
 The Aptos blockchain forms the cryptographic foundation of the NeuraLabs ecosystem, providing immutable, transparent record-keeping and decentralized execution of access control logic. By leveraging blockchain technology, the platform creates a trustless environment where rights can be verified and enforced without requiring centralized authorities or manual oversight.
