@@ -1,834 +1,833 @@
-<?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2631pt" height="1344pt" viewBox="0.00 0.00 2630.72 1343.59">
-<g id="graph0" class="graph" transform="translate(203.58912304954129,1225.2988737539904) scale(0.7578582832551991)" data-name="NeuraLabs System Architecture">
-
-<polygon fill="white" stroke="none" points="-4,4 -4,-1339.59 2626.72,-1339.59 2626.72,4 -4,4" style=""/>
-<g id="clust1" class="cluster" data-name="cluster_frontend">
-
-<path fill="#e8f0fe" stroke="#4285f4" d="M374.92,-1014.73C374.92,-1014.73 1116.92,-1014.73 1116.92,-1014.73 1122.92,-1014.73 1128.92,-1020.73 1128.92,-1026.73 1128.92,-1026.73 1128.92,-1315.59 1128.92,-1315.59 1128.92,-1321.59 1122.92,-1327.59 1116.92,-1327.59 1116.92,-1327.59 374.92,-1327.59 374.92,-1327.59 368.92,-1327.59 362.92,-1321.59 362.92,-1315.59 362.92,-1315.59 362.92,-1026.73 362.92,-1026.73 362.92,-1020.73 368.92,-1014.73 374.92,-1014.73" style=""/>
-<text text-anchor="middle" x="745.92" y="-1309.19" font-family="Arial" font-size="16.00" fill="#4285f4" style="">Client Application (Frontend)</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2606pt" height="1349pt" viewBox="0.00 0.00 2605.85 1348.73">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1344.73)">
+<title>NeuraLabs System Architecture</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1344.73 2601.85,-1344.73 2601.85,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_frontend</title>
+<path fill="#e8f0fe" stroke="#4285f4" d="M386.49,-1018.59C386.49,-1018.59 1132.49,-1018.59 1132.49,-1018.59 1138.49,-1018.59 1144.49,-1024.59 1144.49,-1030.59 1144.49,-1030.59 1144.49,-1320.73 1144.49,-1320.73 1144.49,-1326.73 1138.49,-1332.73 1132.49,-1332.73 1132.49,-1332.73 386.49,-1332.73 386.49,-1332.73 380.49,-1332.73 374.49,-1326.73 374.49,-1320.73 374.49,-1320.73 374.49,-1030.59 374.49,-1030.59 374.49,-1024.59 380.49,-1018.59 386.49,-1018.59"/>
+<text text-anchor="middle" x="759.49" y="-1314.33" font-family="Arial" font-size="16.00" fill="#4285f4">Client Application (Frontend)</text>
 </g>
-<g id="clust2" class="cluster" data-name="cluster_backend2">
-
-<path fill="#e6f4ea" stroke="#0f9d58" d="M291.92,-468.9C291.92,-468.9 987.92,-468.9 987.92,-468.9 993.92,-468.9 999.92,-474.9 999.92,-480.9 999.92,-480.9 999.92,-958.07 999.92,-958.07 999.92,-964.07 993.92,-970.07 987.92,-970.07 987.92,-970.07 291.92,-970.07 291.92,-970.07 285.92,-970.07 279.92,-964.07 279.92,-958.07 279.92,-958.07 279.92,-480.9 279.92,-480.9 279.92,-474.9 285.92,-468.9 291.92,-468.9" style=""/>
-<text text-anchor="middle" x="639.92" y="-951.67" font-family="Arial" font-size="16.00" fill="#0f9d58" style="">Neura Message Passer (Backend 2)</text>
+<g id="clust2" class="cluster">
+<title>cluster_backend2</title>
+<path fill="#e6f4ea" stroke="#0f9d58" d="M257.49,-470.82C257.49,-470.82 957.49,-470.82 957.49,-470.82 963.49,-470.82 969.49,-476.82 969.49,-482.82 969.49,-482.82 969.49,-961.85 969.49,-961.85 969.49,-967.85 963.49,-973.85 957.49,-973.85 957.49,-973.85 257.49,-973.85 257.49,-973.85 251.49,-973.85 245.49,-967.85 245.49,-961.85 245.49,-961.85 245.49,-482.82 245.49,-482.82 245.49,-476.82 251.49,-470.82 257.49,-470.82"/>
+<text text-anchor="middle" x="607.49" y="-955.45" font-family="Arial" font-size="16.00" fill="#0f9d58">Neura Message Passer (Backend 2)</text>
 </g>
-<g id="clust3" class="cluster" data-name="cluster_backend1">
-
-<path fill="#fce8e6" stroke="#db4437" d="M1415.92,-306.24C1415.92,-306.24 2420.92,-306.24 2420.92,-306.24 2426.92,-306.24 2432.92,-312.24 2432.92,-318.24 2432.92,-318.24 2432.92,-805.27 2432.92,-805.27 2432.92,-811.27 2426.92,-817.27 2420.92,-817.27 2420.92,-817.27 1415.92,-817.27 1415.92,-817.27 1409.92,-817.27 1403.92,-811.27 1403.92,-805.27 1403.92,-805.27 1403.92,-318.24 1403.92,-318.24 1403.92,-312.24 1409.92,-306.24 1415.92,-306.24" style=""/>
-<text text-anchor="middle" x="1918.42" y="-798.87" font-family="Arial" font-size="16.00" fill="#db4437" style="">Neura Execution Engine (Backend 1)</text>
+<g id="clust3" class="cluster">
+<title>cluster_backend1</title>
+<path fill="#fce8e6" stroke="#db4437" d="M1386.49,-307.68C1386.49,-307.68 2395.49,-307.68 2395.49,-307.68 2401.49,-307.68 2407.49,-313.68 2407.49,-319.68 2407.49,-319.68 2407.49,-808.65 2407.49,-808.65 2407.49,-814.65 2401.49,-820.65 2395.49,-820.65 2395.49,-820.65 1386.49,-820.65 1386.49,-820.65 1380.49,-820.65 1374.49,-814.65 1374.49,-808.65 1374.49,-808.65 1374.49,-319.68 1374.49,-319.68 1374.49,-313.68 1380.49,-307.68 1386.49,-307.68"/>
+<text text-anchor="middle" x="1890.99" y="-802.25" font-family="Arial" font-size="16.00" fill="#db4437">Neura Execution Engine (Backend 1)</text>
 </g>
-<g id="clust4" class="cluster" data-name="cluster_blockchain">
-
-<path fill="#fef7e0" stroke="#f7b529" d="M731.92,-8C731.92,-8 1383.92,-8 1383.92,-8 1389.92,-8 1395.92,-14 1395.92,-20 1395.92,-20 1395.92,-412.24 1395.92,-412.24 1395.92,-418.24 1389.92,-424.24 1383.92,-424.24 1383.92,-424.24 731.92,-424.24 731.92,-424.24 725.92,-424.24 719.92,-418.24 719.92,-412.24 719.92,-412.24 719.92,-20 719.92,-20 719.92,-14 725.92,-8 731.92,-8" style=""/>
-<text text-anchor="middle" x="1057.92" y="-405.84" font-family="Arial" font-size="16.00" fill="#f7b529" style="">Aptos Blockchain</text>
+<g id="clust4" class="cluster">
+<title>cluster_blockchain</title>
+<path fill="#fef7e0" stroke="#f7b529" d="M699.49,-8C699.49,-8 1354.49,-8 1354.49,-8 1360.49,-8 1366.49,-14 1366.49,-20 1366.49,-20 1366.49,-414.08 1366.49,-414.08 1366.49,-420.08 1360.49,-426.08 1354.49,-426.08 1354.49,-426.08 699.49,-426.08 699.49,-426.08 693.49,-426.08 687.49,-420.08 687.49,-414.08 687.49,-414.08 687.49,-20 687.49,-20 687.49,-14 693.49,-8 699.49,-8"/>
+<text text-anchor="middle" x="1026.99" y="-407.68" font-family="Arial" font-size="16.00" fill="#f7b529">Aptos Blockchain</text>
 </g>
 <!-- FlowCreator -->
-<g id="node1" class="node" pointer-events="visible" data-name="FlowCreator">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1108.91,-1070.13C1108.91,-1070.13 972.93,-1070.13 972.93,-1070.13 966.93,-1070.13 960.93,-1064.13 960.93,-1058.13 960.93,-1058.13 960.93,-1034.93 960.93,-1034.93 960.93,-1028.93 966.93,-1022.93 972.93,-1022.93 972.93,-1022.93 1108.91,-1022.93 1108.91,-1022.93 1114.91,-1022.93 1120.91,-1028.93 1120.91,-1034.93 1120.91,-1034.93 1120.91,-1058.13 1120.91,-1058.13 1120.91,-1064.13 1114.91,-1070.13 1108.91,-1070.13" style=""/>
-<text text-anchor="middle" x="1040.92" y="-1050.73" font-family="Arial" font-size="14.00" fill="#333333" style="">Flow Creator Canvas</text>
-<text text-anchor="middle" x="1040.92" y="-1033.93" font-family="Arial" font-size="14.00" fill="#333333" style="">(React + Canvas)</text>
+<g id="node1" class="node">
+<title>FlowCreator</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1124.63,-1074.59C1124.63,-1074.59 988.34,-1074.59 988.34,-1074.59 982.34,-1074.59 976.34,-1068.59 976.34,-1062.59 976.34,-1062.59 976.34,-1038.59 976.34,-1038.59 976.34,-1032.59 982.34,-1026.59 988.34,-1026.59 988.34,-1026.59 1124.63,-1026.59 1124.63,-1026.59 1130.63,-1026.59 1136.63,-1032.59 1136.63,-1038.59 1136.63,-1038.59 1136.63,-1062.59 1136.63,-1062.59 1136.63,-1068.59 1130.63,-1074.59 1124.63,-1074.59"/>
+<text text-anchor="middle" x="1056.49" y="-1054.79" font-family="Arial" font-size="14.00" fill="#333333">Flow Creator Canvas</text>
+<text text-anchor="middle" x="1056.49" y="-1037.99" font-family="Arial" font-size="14.00" fill="#333333">(React + Canvas)</text>
 </g>
 <!-- APIGateway -->
-<g id="node15" class="node" pointer-events="visible" data-name="APIGateway">
-
-<path fill="#f5f5f5" stroke="#333333" d="M808.63,-907.48C808.63,-907.48 723.22,-907.48 723.22,-907.48 717.22,-907.48 711.22,-901.48 711.22,-895.48 711.22,-895.48 711.22,-872.27 711.22,-872.27 711.22,-866.27 717.22,-860.27 723.22,-860.27 723.22,-860.27 808.63,-860.27 808.63,-860.27 814.63,-860.27 820.63,-866.27 820.63,-872.27 820.63,-872.27 820.63,-895.48 820.63,-895.48 820.63,-901.48 814.63,-907.48 808.63,-907.48" style=""/>
-<text text-anchor="middle" x="765.92" y="-888.07" font-family="Arial" font-size="14.00" fill="#333333" style="">API Gateway</text>
-<text text-anchor="middle" x="765.92" y="-871.27" font-family="Arial" font-size="14.00" fill="#333333" style="">(FastAPI)</text>
+<g id="node15" class="node">
+<title>APIGateway</title>
+<path fill="#f5f5f5" stroke="#333333" d="M865.74,-911.45C865.74,-911.45 779.24,-911.45 779.24,-911.45 773.24,-911.45 767.24,-905.45 767.24,-899.45 767.24,-899.45 767.24,-875.45 767.24,-875.45 767.24,-869.45 773.24,-863.45 779.24,-863.45 779.24,-863.45 865.74,-863.45 865.74,-863.45 871.74,-863.45 877.74,-869.45 877.74,-875.45 877.74,-875.45 877.74,-899.45 877.74,-899.45 877.74,-905.45 871.74,-911.45 865.74,-911.45"/>
+<text text-anchor="middle" x="822.49" y="-891.65" font-family="Arial" font-size="14.00" fill="#333333">API Gateway</text>
+<text text-anchor="middle" x="822.49" y="-874.85" font-family="Arial" font-size="14.00" fill="#333333">(FastAPI)</text>
 </g>
 <!-- FlowCreator&#45;&gt;APIGateway -->
-<g id="edge46" class="edge" data-name="FlowCreator-&gt;APIGateway">
-
-<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M1001.52,-1022.51C952.41,-993.82 868.46,-944.78 815.16,-913.64" style=""/>
-<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="817.22,-910.79 806.82,-908.77 813.69,-916.83 817.22,-910.79" style=""/>
-<text text-anchor="middle" x="990.81" y="-982.27" font-family="Arial" font-size="14.00" fill="#666666" style="">HTTP/REST</text>
+<g id="edge46" class="edge">
+<title>FlowCreator-&gt;APIGateway</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M1022.46,-1026.16C981.13,-997.69 911.34,-949.63 866.1,-918.48"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="868.27,-915.73 858.05,-912.94 864.3,-921.49 868.27,-915.73"/>
+<text text-anchor="middle" x="1019.69" y="-986.05" font-family="Arial" font-size="14.00" fill="#666666">HTTP/REST</text>
 </g>
 <!-- ChatInterface -->
-<g id="node2" class="node" pointer-events="visible" data-name="ChatInterface">
-
-<path fill="#f5f5f5" stroke="#333333" d="M527.36,-1070.13C527.36,-1070.13 382.49,-1070.13 382.49,-1070.13 376.49,-1070.13 370.49,-1064.13 370.49,-1058.13 370.49,-1058.13 370.49,-1034.93 370.49,-1034.93 370.49,-1028.93 376.49,-1022.93 382.49,-1022.93 382.49,-1022.93 527.36,-1022.93 527.36,-1022.93 533.36,-1022.93 539.36,-1028.93 539.36,-1034.93 539.36,-1034.93 539.36,-1058.13 539.36,-1058.13 539.36,-1064.13 533.36,-1070.13 527.36,-1070.13" style=""/>
-<text text-anchor="middle" x="454.92" y="-1050.73" font-family="Arial" font-size="14.00" fill="#333333" style="">Chat Interface</text>
-<text text-anchor="middle" x="454.92" y="-1033.93" font-family="Arial" font-size="14.00" fill="#333333" style="">(React + WebSockets)</text>
+<g id="node2" class="node">
+<title>ChatInterface</title>
+<path fill="#f5f5f5" stroke="#333333" d="M540.11,-1074.59C540.11,-1074.59 394.87,-1074.59 394.87,-1074.59 388.87,-1074.59 382.87,-1068.59 382.87,-1062.59 382.87,-1062.59 382.87,-1038.59 382.87,-1038.59 382.87,-1032.59 388.87,-1026.59 394.87,-1026.59 394.87,-1026.59 540.11,-1026.59 540.11,-1026.59 546.11,-1026.59 552.11,-1032.59 552.11,-1038.59 552.11,-1038.59 552.11,-1062.59 552.11,-1062.59 552.11,-1068.59 546.11,-1074.59 540.11,-1074.59"/>
+<text text-anchor="middle" x="467.49" y="-1054.79" font-family="Arial" font-size="14.00" fill="#333333">Chat Interface</text>
+<text text-anchor="middle" x="467.49" y="-1037.99" font-family="Arial" font-size="14.00" fill="#333333">(React + WebSockets)</text>
 </g>
 <!-- WebSocketManager2 -->
-<g id="node12" class="node" pointer-events="visible" data-name="WebSocketManager2">
-
-<path fill="#f5f5f5" stroke="#333333" d="M794.15,-754.68C794.15,-754.68 659.69,-754.68 659.69,-754.68 653.69,-754.68 647.69,-748.68 647.69,-742.68 647.69,-742.68 647.69,-719.47 647.69,-719.47 647.69,-713.47 653.69,-707.47 659.69,-707.47 659.69,-707.47 794.15,-707.47 794.15,-707.47 800.15,-707.47 806.15,-713.47 806.15,-719.47 806.15,-719.47 806.15,-742.68 806.15,-742.68 806.15,-748.68 800.15,-754.68 794.15,-754.68" style=""/>
-<text text-anchor="middle" x="726.92" y="-735.27" font-family="Arial" font-size="14.00" fill="#333333" style="">WebSocket Manager</text>
-<text text-anchor="middle" x="726.92" y="-718.47" font-family="Arial" font-size="14.00" fill="#333333" style="">(FastAPI + AsyncIO)</text>
+<g id="node12" class="node">
+<title>WebSocketManager2</title>
+<path fill="#f5f5f5" stroke="#333333" d="M763.25,-758.25C763.25,-758.25 627.72,-758.25 627.72,-758.25 621.72,-758.25 615.72,-752.25 615.72,-746.25 615.72,-746.25 615.72,-722.25 615.72,-722.25 615.72,-716.25 621.72,-710.25 627.72,-710.25 627.72,-710.25 763.25,-710.25 763.25,-710.25 769.25,-710.25 775.25,-716.25 775.25,-722.25 775.25,-722.25 775.25,-746.25 775.25,-746.25 775.25,-752.25 769.25,-758.25 763.25,-758.25"/>
+<text text-anchor="middle" x="695.49" y="-738.45" font-family="Arial" font-size="14.00" fill="#333333">WebSocket Manager</text>
+<text text-anchor="middle" x="695.49" y="-721.65" font-family="Arial" font-size="14.00" fill="#333333">(FastAPI + AsyncIO)</text>
 </g>
 <!-- ChatInterface&#45;&gt;WebSocketManager2 -->
-<g id="edge47" class="edge" data-name="ChatInterface-&gt;WebSocketManager2">
-
-<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M474.92,-1022.48C522.87,-967.23 644.43,-827.15 699.3,-763.91" style=""/>
-<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="701.79,-766.38 705.7,-756.53 696.51,-761.79 701.79,-766.38" style=""/>
-<text text-anchor="middle" x="648.72" y="-879.67" font-family="Arial" font-size="14.00" fill="#666666" style="">WebSocket</text>
+<g id="edge47" class="edge">
+<title>ChatInterface-&gt;WebSocketManager2</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M484.44,-1026.22C524.6,-970.84 625.65,-831.53 671.82,-767.89"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="674.63,-769.96 677.67,-759.81 668.96,-765.85 674.63,-769.96"/>
+<text text-anchor="middle" x="636.2" y="-883.25" font-family="Arial" font-size="14.00" fill="#666666">WebSocket</text>
 </g>
 <!-- Marketplace -->
-<g id="node3" class="node" pointer-events="visible" data-name="Marketplace">
-
-<path fill="#f5f5f5" stroke="#333333" d="M728.93,-1070.13C728.93,-1070.13 568.91,-1070.13 568.91,-1070.13 562.91,-1070.13 556.91,-1064.13 556.91,-1058.13 556.91,-1058.13 556.91,-1034.93 556.91,-1034.93 556.91,-1028.93 562.91,-1022.93 568.91,-1022.93 568.91,-1022.93 728.93,-1022.93 728.93,-1022.93 734.93,-1022.93 740.93,-1028.93 740.93,-1034.93 740.93,-1034.93 740.93,-1058.13 740.93,-1058.13 740.93,-1064.13 734.93,-1070.13 728.93,-1070.13" style=""/>
-<text text-anchor="middle" x="648.92" y="-1050.73" font-family="Arial" font-size="14.00" fill="#333333" style="">Marketplace</text>
-<text text-anchor="middle" x="648.92" y="-1033.93" font-family="Arial" font-size="14.00" fill="#333333" style="">(React + Blockchain API)</text>
+<g id="node3" class="node">
+<title>Marketplace</title>
+<path fill="#f5f5f5" stroke="#333333" d="M742.89,-1074.59C742.89,-1074.59 582.08,-1074.59 582.08,-1074.59 576.08,-1074.59 570.08,-1068.59 570.08,-1062.59 570.08,-1062.59 570.08,-1038.59 570.08,-1038.59 570.08,-1032.59 576.08,-1026.59 582.08,-1026.59 582.08,-1026.59 742.89,-1026.59 742.89,-1026.59 748.89,-1026.59 754.89,-1032.59 754.89,-1038.59 754.89,-1038.59 754.89,-1062.59 754.89,-1062.59 754.89,-1068.59 748.89,-1074.59 742.89,-1074.59"/>
+<text text-anchor="middle" x="662.49" y="-1054.79" font-family="Arial" font-size="14.00" fill="#333333">Marketplace</text>
+<text text-anchor="middle" x="662.49" y="-1037.99" font-family="Arial" font-size="14.00" fill="#333333">(React + Blockchain API)</text>
 </g>
 <!-- Marketplace&#45;&gt;APIGateway -->
-<g id="edge48" class="edge" data-name="Marketplace-&gt;APIGateway">
-
-<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M665.69,-1022.51C685.84,-994.84 719.79,-948.22 742.52,-917" style=""/>
-<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="745.06,-919.46 748.12,-909.32 739.41,-915.34 745.06,-919.46" style=""/>
-<text text-anchor="middle" x="735.81" y="-982.27" font-family="Arial" font-size="14.00" fill="#666666" style="">HTTP/REST</text>
+<g id="edge48" class="edge">
+<title>Marketplace-&gt;APIGateway</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M685.75,-1026.16C713.48,-998.23 759.94,-951.44 790.9,-920.26"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="793.35,-922.76 797.92,-913.2 788.39,-917.83 793.35,-922.76"/>
+<text text-anchor="middle" x="767.05" y="-986.05" font-family="Arial" font-size="14.00" fill="#666666">HTTP/REST</text>
 </g>
 <!-- AccessManagement -->
-<g id="node4" class="node" pointer-events="visible" data-name="AccessManagement">
-
-<path fill="#f5f5f5" stroke="#333333" d="M930.93,-1070.13C930.93,-1070.13 770.91,-1070.13 770.91,-1070.13 764.91,-1070.13 758.91,-1064.13 758.91,-1058.13 758.91,-1058.13 758.91,-1034.93 758.91,-1034.93 758.91,-1028.93 764.91,-1022.93 770.91,-1022.93 770.91,-1022.93 930.93,-1022.93 930.93,-1022.93 936.93,-1022.93 942.93,-1028.93 942.93,-1034.93 942.93,-1034.93 942.93,-1058.13 942.93,-1058.13 942.93,-1064.13 936.93,-1070.13 930.93,-1070.13" style=""/>
-<text text-anchor="middle" x="850.92" y="-1050.73" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Management</text>
-<text text-anchor="middle" x="850.92" y="-1033.93" font-family="Arial" font-size="14.00" fill="#333333" style="">(React + Blockchain API)</text>
+<g id="node4" class="node">
+<title>AccessManagement</title>
+<path fill="#f5f5f5" stroke="#333333" d="M945.89,-1074.59C945.89,-1074.59 785.08,-1074.59 785.08,-1074.59 779.08,-1074.59 773.08,-1068.59 773.08,-1062.59 773.08,-1062.59 773.08,-1038.59 773.08,-1038.59 773.08,-1032.59 779.08,-1026.59 785.08,-1026.59 785.08,-1026.59 945.89,-1026.59 945.89,-1026.59 951.89,-1026.59 957.89,-1032.59 957.89,-1038.59 957.89,-1038.59 957.89,-1062.59 957.89,-1062.59 957.89,-1068.59 951.89,-1074.59 945.89,-1074.59"/>
+<text text-anchor="middle" x="865.49" y="-1054.79" font-family="Arial" font-size="14.00" fill="#333333">Access Management</text>
+<text text-anchor="middle" x="865.49" y="-1037.99" font-family="Arial" font-size="14.00" fill="#333333">(React + Blockchain API)</text>
 </g>
 <!-- AccessManagement&#45;&gt;APIGateway -->
-<g id="edge49" class="edge" data-name="AccessManagement-&gt;APIGateway">
-
-<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M838.75,-1022.51C824.29,-995.19 800.07,-949.42 783.57,-918.22" style=""/>
-<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="786.7,-916.66 778.93,-909.46 780.51,-919.93 786.7,-916.66" style=""/>
-<text text-anchor="middle" x="861.81" y="-982.27" font-family="Arial" font-size="14.00" fill="#666666" style="">HTTP/REST</text>
+<g id="edge49" class="edge">
+<title>AccessManagement-&gt;APIGateway</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M859.24,-1026.16C852.01,-999.07 840.04,-954.22 831.74,-923.1"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="835.18,-922.42 829.22,-913.66 828.41,-924.23 835.18,-922.42"/>
+<text text-anchor="middle" x="890.47" y="-986.05" font-family="Arial" font-size="14.00" fill="#666666">HTTP/REST</text>
 </g>
 <!-- UserDashboard -->
-<g id="node5" class="node" pointer-events="visible" data-name="UserDashboard">
-
-<path fill="#f5f5f5" stroke="#333333" d="M844.86,-1180.39C844.86,-1180.39 738.99,-1180.39 738.99,-1180.39 732.99,-1180.39 726.99,-1174.39 726.99,-1168.39 726.99,-1168.39 726.99,-1145.19 726.99,-1145.19 726.99,-1139.19 732.99,-1133.19 738.99,-1133.19 738.99,-1133.19 844.86,-1133.19 844.86,-1133.19 850.86,-1133.19 856.86,-1139.19 856.86,-1145.19 856.86,-1145.19 856.86,-1168.39 856.86,-1168.39 856.86,-1174.39 850.86,-1180.39 844.86,-1180.39" style=""/>
-<text text-anchor="middle" x="791.92" y="-1160.99" font-family="Arial" font-size="14.00" fill="#333333" style="">User Dashboard</text>
-<text text-anchor="middle" x="791.92" y="-1144.19" font-family="Arial" font-size="14.00" fill="#333333" style="">(React)</text>
+<g id="node5" class="node">
+<title>UserDashboard</title>
+<path fill="#f5f5f5" stroke="#333333" d="M858.86,-1185.33C858.86,-1185.33 752.12,-1185.33 752.12,-1185.33 746.12,-1185.33 740.12,-1179.33 740.12,-1173.33 740.12,-1173.33 740.12,-1149.33 740.12,-1149.33 740.12,-1143.33 746.12,-1137.33 752.12,-1137.33 752.12,-1137.33 858.86,-1137.33 858.86,-1137.33 864.86,-1137.33 870.86,-1143.33 870.86,-1149.33 870.86,-1149.33 870.86,-1173.33 870.86,-1173.33 870.86,-1179.33 864.86,-1185.33 858.86,-1185.33"/>
+<text text-anchor="middle" x="805.49" y="-1165.53" font-family="Arial" font-size="14.00" fill="#333333">User Dashboard</text>
+<text text-anchor="middle" x="805.49" y="-1148.73" font-family="Arial" font-size="14.00" fill="#333333">(React)</text>
 </g>
 <!-- UserDashboard&#45;&gt;FlowCreator -->
-<g id="edge1" class="edge" data-name="UserDashboard-&gt;FlowCreator">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M823.01,-1132.72C840,-1121.01 861.83,-1107.35 882.92,-1098.19 911.99,-1085.57 921.68,-1089.66 951.92,-1080.19 957.81,-1078.35 963.89,-1076.34 969.97,-1074.26" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="970.87,-1077.66 979.16,-1071.06 968.56,-1071.05 970.87,-1077.66" style=""/>
+<g id="edge1" class="edge">
+<title>UserDashboard-&gt;FlowCreator</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M859.64,-1136.87C898.41,-1120.07 950.76,-1097.39 991.74,-1079.64"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="992.98,-1082.92 1000.77,-1075.73 990.2,-1076.49 992.98,-1082.92"/>
 </g>
 <!-- UserDashboard&#45;&gt;ChatInterface -->
-<g id="edge2" class="edge" data-name="UserDashboard-&gt;ChatInterface">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M726.52,-1135.59C657.27,-1114.2 556.69,-1083.09 547.92,-1080.19 542.33,-1078.34 536.56,-1076.4 530.76,-1074.42" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="531.92,-1071.12 521.32,-1071.19 529.65,-1077.74 531.92,-1071.12" style=""/>
+<g id="edge2" class="edge">
+<title>UserDashboard-&gt;ChatInterface</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M739.72,-1139.89C736.94,-1139.02 734.19,-1138.17 731.49,-1137.33 655.94,-1113.85 636.61,-1109.35 561.49,-1084.53 555.94,-1082.69 550.21,-1080.77 544.45,-1078.81"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="545.69,-1075.54 535.1,-1075.6 543.42,-1082.16 545.69,-1075.54"/>
 </g>
 <!-- UserDashboard&#45;&gt;Marketplace -->
-<g id="edge3" class="edge" data-name="UserDashboard-&gt;Marketplace">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M761.6,-1132.83C740.27,-1116.69 711.52,-1094.92 688.41,-1077.42" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="690.74,-1074.8 680.65,-1071.55 686.51,-1080.38 690.74,-1074.8" style=""/>
+<g id="edge3" class="edge">
+<title>UserDashboard-&gt;Marketplace</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M774.81,-1137C753.61,-1120.88 725.2,-1099.27 702.25,-1081.83"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="704.64,-1079.24 694.56,-1075.98 700.4,-1084.82 704.64,-1079.24"/>
 </g>
 <!-- UserDashboard&#45;&gt;AccessManagement -->
-<g id="edge4" class="edge" data-name="UserDashboard-&gt;AccessManagement">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M804.44,-1132.83C812.73,-1117.62 823.74,-1097.42 832.96,-1080.5" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="835.85,-1082.51 837.56,-1072.05 829.7,-1079.16 835.85,-1082.51" style=""/>
+<g id="edge4" class="edge">
+<title>UserDashboard-&gt;AccessManagement</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M818.36,-1137C826.74,-1121.81 837.81,-1101.75 847.11,-1084.89"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="849.99,-1086.91 851.76,-1076.47 843.87,-1083.53 849.99,-1086.91"/>
 </g>
 <!-- UserDashboard&#45;&gt;APIGateway -->
-<g id="edge50" class="edge" data-name="UserDashboard-&gt;APIGateway">
-
-<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M726.72,-1135.01C723.76,-1134.29 720.82,-1133.61 717.92,-1132.99 622.95,-1112.75 348.53,-1152.89 284.14,-1080.19 264.31,-1057.79 265.91,-1036.59 284.14,-1012.87 334.69,-947.15 579.49,-908.1 699.43,-892.62" style=""/>
-<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="699.7,-896.11 709.18,-891.38 698.82,-889.17 699.7,-896.11" style=""/>
-<text text-anchor="middle" x="322.81" y="-1042.33" font-family="Arial" font-size="14.00" fill="#666666" style="">HTTP/REST</text>
+<g id="edge50" class="edge">
+<title>UserDashboard-&gt;APIGateway</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M739.89,-1139.26C737.06,-1138.57 734.25,-1137.92 731.49,-1137.33 636.1,-1116.9 360.41,-1157.54 295.71,-1084.53 275.7,-1061.95 277.07,-1040.37 295.71,-1016.65 352.25,-944.7 626.77,-908.09 755.54,-894.64"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="755.77,-898.14 765.36,-893.63 755.06,-891.17 755.77,-898.14"/>
+<text text-anchor="middle" x="334.6" y="-1046.39" font-family="Arial" font-size="14.00" fill="#666666">HTTP/REST</text>
 </g>
 <!-- FrontendRouter -->
-<g id="node6" class="node" pointer-events="visible" data-name="FrontendRouter">
-
-<path fill="#f5f5f5" stroke="#333333" d="M771.73,-1264.99C771.73,-1264.99 676.12,-1264.99 676.12,-1264.99 670.12,-1264.99 664.12,-1258.99 664.12,-1252.99 664.12,-1252.99 664.12,-1229.79 664.12,-1229.79 664.12,-1223.79 670.12,-1217.79 676.12,-1217.79 676.12,-1217.79 771.73,-1217.79 771.73,-1217.79 777.73,-1217.79 783.73,-1223.79 783.73,-1229.79 783.73,-1229.79 783.73,-1252.99 783.73,-1252.99 783.73,-1258.99 777.73,-1264.99 771.73,-1264.99" style=""/>
-<text text-anchor="middle" x="723.92" y="-1245.59" font-family="Arial" font-size="14.00" fill="#333333" style="">Router</text>
-<text text-anchor="middle" x="723.92" y="-1228.79" font-family="Arial" font-size="14.00" fill="#333333" style="">(React Router)</text>
+<g id="node6" class="node">
+<title>FrontendRouter</title>
+<path fill="#f5f5f5" stroke="#333333" d="M782.79,-1270.33C782.79,-1270.33 686.19,-1270.33 686.19,-1270.33 680.19,-1270.33 674.19,-1264.33 674.19,-1258.33 674.19,-1258.33 674.19,-1234.33 674.19,-1234.33 674.19,-1228.33 680.19,-1222.33 686.19,-1222.33 686.19,-1222.33 782.79,-1222.33 782.79,-1222.33 788.79,-1222.33 794.79,-1228.33 794.79,-1234.33 794.79,-1234.33 794.79,-1258.33 794.79,-1258.33 794.79,-1264.33 788.79,-1270.33 782.79,-1270.33"/>
+<text text-anchor="middle" x="734.49" y="-1250.53" font-family="Arial" font-size="14.00" fill="#333333">Router</text>
+<text text-anchor="middle" x="734.49" y="-1233.73" font-family="Arial" font-size="14.00" fill="#333333">(React Router)</text>
 </g>
 <!-- FrontendRouter&#45;&gt;UserDashboard -->
-<g id="edge5" class="edge" data-name="FrontendRouter-&gt;UserDashboard">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M742.87,-1217.38C749.94,-1208.79 758.1,-1198.87 765.71,-1189.63" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="768.28,-1192.02 771.93,-1182.08 762.87,-1187.57 768.28,-1192.02" style=""/>
+<g id="edge5" class="edge">
+<title>FrontendRouter-&gt;UserDashboard</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M754.27,-1222.21C761.59,-1213.65 770.03,-1203.78 777.93,-1194.55"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="780.55,-1196.87 784.39,-1186.99 775.23,-1192.32 780.55,-1196.87"/>
 </g>
 <!-- StateManager -->
-<g id="node7" class="node" pointer-events="visible" data-name="StateManager">
-
-<path fill="#f5f5f5" stroke="#333333" d="M909.76,-1264.99C909.76,-1264.99 814.09,-1264.99 814.09,-1264.99 808.09,-1264.99 802.09,-1258.99 802.09,-1252.99 802.09,-1252.99 802.09,-1229.79 802.09,-1229.79 802.09,-1223.79 808.09,-1217.79 814.09,-1217.79 814.09,-1217.79 909.76,-1217.79 909.76,-1217.79 915.76,-1217.79 921.76,-1223.79 921.76,-1229.79 921.76,-1229.79 921.76,-1252.99 921.76,-1252.99 921.76,-1258.99 915.76,-1264.99 909.76,-1264.99" style=""/>
-<text text-anchor="middle" x="861.92" y="-1245.59" font-family="Arial" font-size="14.00" fill="#333333" style="">State Manager</text>
-<text text-anchor="middle" x="861.92" y="-1228.79" font-family="Arial" font-size="14.00" fill="#333333" style="">(Context API)</text>
+<g id="node7" class="node">
+<title>StateManager</title>
+<path fill="#f5f5f5" stroke="#333333" d="M921.81,-1270.33C921.81,-1270.33 825.17,-1270.33 825.17,-1270.33 819.17,-1270.33 813.17,-1264.33 813.17,-1258.33 813.17,-1258.33 813.17,-1234.33 813.17,-1234.33 813.17,-1228.33 819.17,-1222.33 825.17,-1222.33 825.17,-1222.33 921.81,-1222.33 921.81,-1222.33 927.81,-1222.33 933.81,-1228.33 933.81,-1234.33 933.81,-1234.33 933.81,-1258.33 933.81,-1258.33 933.81,-1264.33 927.81,-1270.33 921.81,-1270.33"/>
+<text text-anchor="middle" x="873.49" y="-1250.53" font-family="Arial" font-size="14.00" fill="#333333">State Manager</text>
+<text text-anchor="middle" x="873.49" y="-1233.73" font-family="Arial" font-size="14.00" fill="#333333">(Context API)</text>
 </g>
 <!-- StateManager&#45;&gt;FlowCreator -->
-<g id="edge7" class="edge" data-name="StateManager-&gt;FlowCreator">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M883.16,-1217.51C915.19,-1183 975.93,-1117.56 1011.98,-1078.72" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1014.24,-1081.43 1018.48,-1071.72 1009.11,-1076.66 1014.24,-1081.43" style=""/>
+<g id="edge7" class="edge">
+<title>StateManager-&gt;FlowCreator</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M895.56,-1221.96C928.26,-1187.34 989.66,-1122.34 1026.44,-1083.4"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1028.77,-1086.03 1033.09,-1076.36 1023.68,-1081.23 1028.77,-1086.03"/>
 </g>
 <!-- StateManager&#45;&gt;ChatInterface -->
-<g id="edge8" class="edge" data-name="StateManager-&gt;ChatInterface">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M801.88,-1219.93C798.86,-1219.09 795.86,-1218.31 792.92,-1217.59 692.77,-1193.12 645.51,-1243.62 563.92,-1180.59 545.62,-1166.46 556.13,-1151.97 542.92,-1132.99 528.84,-1112.74 509.49,-1093.33 492.52,-1078.13" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="495.1,-1075.74 485.27,-1071.78 490.49,-1081.01 495.1,-1075.74" style=""/>
+<g id="edge8" class="edge">
+<title>StateManager-&gt;ChatInterface</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M812.95,-1224.8C809.76,-1223.92 806.6,-1223.09 803.49,-1222.33 704.62,-1198.15 657.88,-1247.76 577.49,-1185.33 559.1,-1171.05 569.79,-1156.44 556.49,-1137.33 542.4,-1117.09 523.01,-1097.73 505.93,-1082.55"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="508.47,-1080.12 498.62,-1076.21 503.88,-1085.41 508.47,-1080.12"/>
 </g>
 <!-- StateManager&#45;&gt;UserDashboard -->
-<g id="edge6" class="edge" data-name="StateManager-&gt;UserDashboard">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M842.42,-1217.38C835.14,-1208.79 826.74,-1198.87 818.9,-1189.63" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="821.63,-1187.43 812.49,-1182.06 816.29,-1191.95 821.63,-1187.43" style=""/>
+<g id="edge6" class="edge">
+<title>StateManager-&gt;UserDashboard</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M854.55,-1222.21C847.53,-1213.65 839.45,-1203.78 831.89,-1194.55"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="834.76,-1192.54 825.72,-1187.02 829.35,-1196.97 834.76,-1192.54"/>
 </g>
 <!-- WebSocketManager -->
-<g id="node8" class="node" pointer-events="visible" data-name="WebSocketManager">
-
-<path fill="#f5f5f5" stroke="#333333" d="M522.15,-1180.39C522.15,-1180.39 387.69,-1180.39 387.69,-1180.39 381.69,-1180.39 375.69,-1174.39 375.69,-1168.39 375.69,-1168.39 375.69,-1145.19 375.69,-1145.19 375.69,-1139.19 381.69,-1133.19 387.69,-1133.19 387.69,-1133.19 522.15,-1133.19 522.15,-1133.19 528.15,-1133.19 534.15,-1139.19 534.15,-1145.19 534.15,-1145.19 534.15,-1168.39 534.15,-1168.39 534.15,-1174.39 528.15,-1180.39 522.15,-1180.39" style=""/>
-<text text-anchor="middle" x="454.92" y="-1160.99" font-family="Arial" font-size="14.00" fill="#333333" style="">WebSocket Manager</text>
-<text text-anchor="middle" x="454.92" y="-1144.19" font-family="Arial" font-size="14.00" fill="#333333" style="">(Frontend)</text>
+<g id="node8" class="node">
+<title>WebSocketManager</title>
+<path fill="#f5f5f5" stroke="#333333" d="M535.25,-1185.33C535.25,-1185.33 399.72,-1185.33 399.72,-1185.33 393.72,-1185.33 387.72,-1179.33 387.72,-1173.33 387.72,-1173.33 387.72,-1149.33 387.72,-1149.33 387.72,-1143.33 393.72,-1137.33 399.72,-1137.33 399.72,-1137.33 535.25,-1137.33 535.25,-1137.33 541.25,-1137.33 547.25,-1143.33 547.25,-1149.33 547.25,-1149.33 547.25,-1173.33 547.25,-1173.33 547.25,-1179.33 541.25,-1185.33 535.25,-1185.33"/>
+<text text-anchor="middle" x="467.49" y="-1165.53" font-family="Arial" font-size="14.00" fill="#333333">WebSocket Manager</text>
+<text text-anchor="middle" x="467.49" y="-1148.73" font-family="Arial" font-size="14.00" fill="#333333">(Frontend)</text>
 </g>
 <!-- WebSocketManager&#45;&gt;ChatInterface -->
-<g id="edge9" class="edge" data-name="WebSocketManager-&gt;ChatInterface">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M454.92,-1132.83C454.92,-1118.05 454.92,-1098.56 454.92,-1081.94" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="458.42,-1082.27 454.92,-1072.27 451.42,-1082.27 458.42,-1082.27" style=""/>
+<g id="edge9" class="edge">
+<title>WebSocketManager-&gt;ChatInterface</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M467.49,-1137C467.49,-1122.24 467.49,-1102.88 467.49,-1086.33"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="470.99,-1086.69 467.49,-1076.69 463.99,-1086.69 470.99,-1086.69"/>
 </g>
 <!-- WalletConnector -->
-<g id="node9" class="node" pointer-events="visible" data-name="WalletConnector">
-
-<path fill="#f5f5f5" stroke="#333333" d="M696.8,-1180.39C696.8,-1180.39 585.04,-1180.39 585.04,-1180.39 579.04,-1180.39 573.04,-1174.39 573.04,-1168.39 573.04,-1168.39 573.04,-1145.19 573.04,-1145.19 573.04,-1139.19 579.04,-1133.19 585.04,-1133.19 585.04,-1133.19 696.8,-1133.19 696.8,-1133.19 702.8,-1133.19 708.8,-1139.19 708.8,-1145.19 708.8,-1145.19 708.8,-1168.39 708.8,-1168.39 708.8,-1174.39 702.8,-1180.39 696.8,-1180.39" style=""/>
-<text text-anchor="middle" x="640.92" y="-1160.99" font-family="Arial" font-size="14.00" fill="#333333" style="">Wallet Connector</text>
-<text text-anchor="middle" x="640.92" y="-1144.19" font-family="Arial" font-size="14.00" fill="#333333" style="">(Aptos Web3)</text>
+<g id="node9" class="node">
+<title>WalletConnector</title>
+<path fill="#f5f5f5" stroke="#333333" d="M710.58,-1185.33C710.58,-1185.33 598.4,-1185.33 598.4,-1185.33 592.4,-1185.33 586.4,-1179.33 586.4,-1173.33 586.4,-1173.33 586.4,-1149.33 586.4,-1149.33 586.4,-1143.33 592.4,-1137.33 598.4,-1137.33 598.4,-1137.33 710.58,-1137.33 710.58,-1137.33 716.58,-1137.33 722.58,-1143.33 722.58,-1149.33 722.58,-1149.33 722.58,-1173.33 722.58,-1173.33 722.58,-1179.33 716.58,-1185.33 710.58,-1185.33"/>
+<text text-anchor="middle" x="654.49" y="-1165.53" font-family="Arial" font-size="14.00" fill="#333333">Wallet Connector</text>
+<text text-anchor="middle" x="654.49" y="-1148.73" font-family="Arial" font-size="14.00" fill="#333333">(Aptos Web3)</text>
 </g>
 <!-- WalletConnector&#45;&gt;Marketplace -->
-<g id="edge10" class="edge" data-name="WalletConnector-&gt;Marketplace">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M642.62,-1132.83C643.71,-1118.05 645.15,-1098.56 646.38,-1081.94" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="649.85,-1082.5 647.1,-1072.27 642.87,-1081.98 649.85,-1082.5" style=""/>
+<g id="edge10" class="edge">
+<title>WalletConnector-&gt;Marketplace</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M656.21,-1137C657.29,-1122.24 658.72,-1102.88 659.93,-1086.33"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="663.4,-1086.92 660.64,-1076.69 656.42,-1086.4 663.4,-1086.92"/>
 </g>
 <!-- WalletConnector&#45;&gt;AccessManagement -->
-<g id="edge11" class="edge" data-name="WalletConnector-&gt;AccessManagement">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M685.72,-1132.7C717.92,-1116.1 761.54,-1093.61 795.87,-1075.92" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="797.3,-1079.11 804.59,-1071.42 794.09,-1072.89 797.3,-1079.11" style=""/>
+<g id="edge11" class="edge">
+<title>WalletConnector-&gt;AccessManagement</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M700.01,-1136.87C732.18,-1120.29 775.49,-1097.97 809.73,-1080.32"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="811.15,-1083.53 818.43,-1075.84 807.94,-1077.31 811.15,-1083.53"/>
 </g>
 <!-- WalletProvider -->
-<g id="node45" class="node" pointer-events="visible" data-name="WalletProvider">
-
-<ellipse fill="#aaaaaa" stroke="#333333" cx="108.92" cy="-1046.53" rx="108.85" ry="33.82" style=""/>
-<text text-anchor="middle" x="108.92" y="-1050.73" font-family="Arial" font-size="14.00" fill="white" style="">Wallet Provider</text>
-<text text-anchor="middle" x="108.92" y="-1033.93" font-family="Arial" font-size="14.00" fill="white" style="">(Browser Extension)</text>
+<g id="node45" class="node">
+<title>WalletProvider</title>
+<ellipse fill="#aaaaaa" stroke="#333333" cx="109.49" cy="-1050.59" rx="109.49" ry="33.94"/>
+<text text-anchor="middle" x="109.49" y="-1054.79" font-family="Arial" font-size="14.00" fill="white">Wallet Provider</text>
+<text text-anchor="middle" x="109.49" y="-1037.99" font-family="Arial" font-size="14.00" fill="white">(Browser Extension)</text>
 </g>
 <!-- WalletConnector&#45;&gt;WalletProvider -->
-<g id="edge51" class="edge" data-name="WalletConnector-&gt;WalletProvider">
-
-<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M572.68,-1138.29C562.75,-1136.22 552.61,-1134.36 542.92,-1132.99 466.9,-1122.25 270.01,-1141.35 197.9,-1114.99 180.57,-1108.66 163.83,-1097.71 149.64,-1086.46" style=""/>
-<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="152.03,-1083.9 142.1,-1080.22 147.57,-1089.29 152.03,-1083.9" style=""/>
-<text text-anchor="middle" x="229.44" y="-1102.39" font-family="Arial" font-size="14.00" fill="#666666" style="">Web3 API</text>
+<g id="edge51" class="edge">
+<title>WalletConnector-&gt;WalletProvider</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M585.98,-1142.62C576.14,-1140.55 566.09,-1138.69 556.49,-1137.33 480.26,-1126.49 283.52,-1143.66 210.46,-1119.33 190.87,-1112.81 171.51,-1101.38 155.07,-1089.75"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="157.34,-1087.08 147.21,-1083.99 153.2,-1092.72 157.34,-1087.08"/>
+<text text-anchor="middle" x="241.98" y="-1106.73" font-family="Arial" font-size="14.00" fill="#666666">Web3 API</text>
 </g>
 <!-- AuthService -->
-<g id="node10" class="node" pointer-events="visible" data-name="AuthService">
-
-<path fill="#f5f5f5" stroke="#333333" d="M979.73,-754.68C979.73,-754.68 836.12,-754.68 836.12,-754.68 830.12,-754.68 824.12,-748.68 824.12,-742.68 824.12,-742.68 824.12,-719.47 824.12,-719.47 824.12,-713.47 830.12,-707.47 836.12,-707.47 836.12,-707.47 979.73,-707.47 979.73,-707.47 985.73,-707.47 991.73,-713.47 991.73,-719.47 991.73,-719.47 991.73,-742.68 991.73,-742.68 991.73,-748.68 985.73,-754.68 979.73,-754.68" style=""/>
-<text text-anchor="middle" x="907.92" y="-735.27" font-family="Arial" font-size="14.00" fill="#333333" style="">Authentication Service</text>
-<text text-anchor="middle" x="907.92" y="-718.47" font-family="Arial" font-size="14.00" fill="#333333" style="">(JWT + Blockchain)</text>
+<g id="node10" class="node">
+<title>AuthService</title>
+<path fill="#f5f5f5" stroke="#333333" d="M949.54,-758.25C949.54,-758.25 805.44,-758.25 805.44,-758.25 799.44,-758.25 793.44,-752.25 793.44,-746.25 793.44,-746.25 793.44,-722.25 793.44,-722.25 793.44,-716.25 799.44,-710.25 805.44,-710.25 805.44,-710.25 949.54,-710.25 949.54,-710.25 955.54,-710.25 961.54,-716.25 961.54,-722.25 961.54,-722.25 961.54,-746.25 961.54,-746.25 961.54,-752.25 955.54,-758.25 949.54,-758.25"/>
+<text text-anchor="middle" x="877.49" y="-738.45" font-family="Arial" font-size="14.00" fill="#333333">Authentication Service</text>
+<text text-anchor="middle" x="877.49" y="-721.65" font-family="Arial" font-size="14.00" fill="#333333">(JWT + Blockchain)</text>
 </g>
 <!-- BlockchainInterface -->
-<g id="node13" class="node" pointer-events="visible" data-name="BlockchainInterface">
-
-<path fill="#f5f5f5" stroke="#333333" d="M959.99,-524.3C959.99,-524.3 829.86,-524.3 829.86,-524.3 823.86,-524.3 817.86,-518.3 817.86,-512.3 817.86,-512.3 817.86,-489.1 817.86,-489.1 817.86,-483.1 823.86,-477.1 829.86,-477.1 829.86,-477.1 959.99,-477.1 959.99,-477.1 965.99,-477.1 971.99,-483.1 971.99,-489.1 971.99,-489.1 971.99,-512.3 971.99,-512.3 971.99,-518.3 965.99,-524.3 959.99,-524.3" style=""/>
-<text text-anchor="middle" x="894.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Blockchain Interface</text>
-<text text-anchor="middle" x="894.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Aptos SDK)</text>
+<g id="node13" class="node">
+<title>BlockchainInterface</title>
+<path fill="#f5f5f5" stroke="#333333" d="M929.92,-526.82C929.92,-526.82 799.05,-526.82 799.05,-526.82 793.05,-526.82 787.05,-520.82 787.05,-514.82 787.05,-514.82 787.05,-490.82 787.05,-490.82 787.05,-484.82 793.05,-478.82 799.05,-478.82 799.05,-478.82 929.92,-478.82 929.92,-478.82 935.92,-478.82 941.92,-484.82 941.92,-490.82 941.92,-490.82 941.92,-514.82 941.92,-514.82 941.92,-520.82 935.92,-526.82 929.92,-526.82"/>
+<text text-anchor="middle" x="864.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Interface</text>
+<text text-anchor="middle" x="864.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Aptos SDK)</text>
 </g>
 <!-- AuthService&#45;&gt;BlockchainInterface -->
-<g id="edge15" class="edge" data-name="AuthService-&gt;BlockchainInterface">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M867.44,-707.11C849,-694.25 829.05,-676.37 818.92,-654.47 806.36,-627.32 808.29,-615.12 818.92,-587.16 826.9,-566.18 842.66,-547.06 857.77,-532.25" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="859.82,-535.12 864.71,-525.73 855.03,-530.02 859.82,-535.12" style=""/>
+<g id="edge15" class="edge">
+<title>AuthService-&gt;BlockchainInterface</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M836.09,-709.97C817.57,-697.12 797.66,-679.3 787.49,-657.45 774.76,-630.09 776.7,-617.74 787.49,-589.56 795.52,-568.6 811.31,-549.54 826.51,-534.74"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="828.58,-537.59 833.51,-528.21 823.81,-532.47 828.58,-537.59"/>
 </g>
 <!-- AccessValidator -->
-<g id="node18" class="node" pointer-events="visible" data-name="AccessValidator">
-
-<path fill="#f5f5f5" stroke="#333333" d="M978.01,-644.42C978.01,-644.42 839.84,-644.42 839.84,-644.42 833.84,-644.42 827.84,-638.42 827.84,-632.42 827.84,-632.42 827.84,-609.21 827.84,-609.21 827.84,-603.21 833.84,-597.21 839.84,-597.21 839.84,-597.21 978.01,-597.21 978.01,-597.21 984.01,-597.21 990.01,-603.21 990.01,-609.21 990.01,-609.21 990.01,-632.42 990.01,-632.42 990.01,-638.42 984.01,-644.42 978.01,-644.42" style=""/>
-<text text-anchor="middle" x="908.92" y="-625.02" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Validator</text>
-<text text-anchor="middle" x="908.92" y="-608.22" font-family="Arial" font-size="14.00" fill="#333333" style="">(Permission Checker)</text>
+<g id="node18" class="node">
+<title>AccessValidator</title>
+<path fill="#f5f5f5" stroke="#333333" d="M948.18,-647.51C948.18,-647.51 808.8,-647.51 808.8,-647.51 802.8,-647.51 796.8,-641.51 796.8,-635.51 796.8,-635.51 796.8,-611.51 796.8,-611.51 796.8,-605.51 802.8,-599.51 808.8,-599.51 808.8,-599.51 948.18,-599.51 948.18,-599.51 954.18,-599.51 960.18,-605.51 960.18,-611.51 960.18,-611.51 960.18,-635.51 960.18,-635.51 960.18,-641.51 954.18,-647.51 948.18,-647.51"/>
+<text text-anchor="middle" x="878.49" y="-627.71" font-family="Arial" font-size="14.00" fill="#333333">Access Validator</text>
+<text text-anchor="middle" x="878.49" y="-610.91" font-family="Arial" font-size="14.00" fill="#333333">(Permission Checker)</text>
 </g>
 <!-- AuthService&#45;&gt;AccessValidator -->
-<g id="edge20" class="edge" data-name="AuthService-&gt;AccessValidator">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M908.14,-707.12C908.27,-692.33 908.45,-672.84 908.61,-656.23" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="912.1,-656.59 908.69,-646.56 905.1,-656.53 912.1,-656.59" style=""/>
+<g id="edge20" class="edge">
+<title>AuthService-&gt;AccessValidator</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M877.7,-709.92C877.84,-695.16 878.02,-675.8 878.17,-659.25"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="881.67,-659.64 878.26,-649.61 874.67,-659.58 881.67,-659.64"/>
 </g>
 <!-- DataPersistence -->
-<g id="node11" class="node" pointer-events="visible" data-name="DataPersistence">
-
-<path fill="#f5f5f5" stroke="#333333" d="M777.66,-644.42C777.66,-644.42 666.19,-644.42 666.19,-644.42 660.19,-644.42 654.19,-638.42 654.19,-632.42 654.19,-632.42 654.19,-609.21 654.19,-609.21 654.19,-603.21 660.19,-597.21 666.19,-597.21 666.19,-597.21 777.66,-597.21 777.66,-597.21 783.66,-597.21 789.66,-603.21 789.66,-609.21 789.66,-609.21 789.66,-632.42 789.66,-632.42 789.66,-638.42 783.66,-644.42 777.66,-644.42" style=""/>
-<text text-anchor="middle" x="721.92" y="-625.02" font-family="Arial" font-size="14.00" fill="#333333" style="">Data Persistence</text>
-<text text-anchor="middle" x="721.92" y="-608.22" font-family="Arial" font-size="14.00" fill="#333333" style="">(FastAPI + ORM)</text>
+<g id="node11" class="node">
+<title>DataPersistence</title>
+<path fill="#f5f5f5" stroke="#333333" d="M746.76,-647.51C746.76,-647.51 634.22,-647.51 634.22,-647.51 628.22,-647.51 622.22,-641.51 622.22,-635.51 622.22,-635.51 622.22,-611.51 622.22,-611.51 622.22,-605.51 628.22,-599.51 634.22,-599.51 634.22,-599.51 746.76,-599.51 746.76,-599.51 752.76,-599.51 758.76,-605.51 758.76,-611.51 758.76,-611.51 758.76,-635.51 758.76,-635.51 758.76,-641.51 752.76,-647.51 746.76,-647.51"/>
+<text text-anchor="middle" x="690.49" y="-627.71" font-family="Arial" font-size="14.00" fill="#333333">Data Persistence</text>
+<text text-anchor="middle" x="690.49" y="-610.91" font-family="Arial" font-size="14.00" fill="#333333">(FastAPI + ORM)</text>
 </g>
 <!-- CacheManager -->
-<g id="node14" class="node" pointer-events="visible" data-name="CacheManager">
-
-<path fill="#f5f5f5" stroke="#333333" d="M773.54,-524.3C773.54,-524.3 670.31,-524.3 670.31,-524.3 664.31,-524.3 658.31,-518.3 658.31,-512.3 658.31,-512.3 658.31,-489.1 658.31,-489.1 658.31,-483.1 664.31,-477.1 670.31,-477.1 670.31,-477.1 773.54,-477.1 773.54,-477.1 779.54,-477.1 785.54,-483.1 785.54,-489.1 785.54,-489.1 785.54,-512.3 785.54,-512.3 785.54,-518.3 779.54,-524.3 773.54,-524.3" style=""/>
-<text text-anchor="middle" x="721.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Cache Manager</text>
-<text text-anchor="middle" x="721.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Redis)</text>
+<g id="node14" class="node">
+<title>CacheManager</title>
+<path fill="#f5f5f5" stroke="#333333" d="M742.7,-526.82C742.7,-526.82 638.28,-526.82 638.28,-526.82 632.28,-526.82 626.28,-520.82 626.28,-514.82 626.28,-514.82 626.28,-490.82 626.28,-490.82 626.28,-484.82 632.28,-478.82 638.28,-478.82 638.28,-478.82 742.7,-478.82 742.7,-478.82 748.7,-478.82 754.7,-484.82 754.7,-490.82 754.7,-490.82 754.7,-514.82 754.7,-514.82 754.7,-520.82 748.7,-526.82 742.7,-526.82"/>
+<text text-anchor="middle" x="690.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Cache Manager</text>
+<text text-anchor="middle" x="690.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Redis)</text>
 </g>
 <!-- DataPersistence&#45;&gt;CacheManager -->
-<g id="edge17" class="edge" data-name="DataPersistence-&gt;CacheManager">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M721.92,-596.76C721.92,-579.61 721.92,-555.9 721.92,-536.45" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="725.42,-536.51 721.92,-526.51 718.42,-536.51 725.42,-536.51" style=""/>
+<g id="edge17" class="edge">
+<title>DataPersistence-&gt;CacheManager</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M690.49,-599.06C690.49,-581.91 690.49,-558.35 690.49,-538.96"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="693.99,-539.04 690.49,-529.04 686.99,-539.04 693.99,-539.04"/>
 </g>
 <!-- ChatHistoryStore -->
-<g id="node19" class="node" pointer-events="visible" data-name="ChatHistoryStore">
-
-<path fill="#f5f5f5" stroke="#333333" d="M627.87,-524.3C627.87,-524.3 493.97,-524.3 493.97,-524.3 487.97,-524.3 481.97,-518.3 481.97,-512.3 481.97,-512.3 481.97,-489.1 481.97,-489.1 481.97,-483.1 487.97,-477.1 493.97,-477.1 493.97,-477.1 627.87,-477.1 627.87,-477.1 633.87,-477.1 639.87,-483.1 639.87,-489.1 639.87,-489.1 639.87,-512.3 639.87,-512.3 639.87,-518.3 633.87,-524.3 627.87,-524.3" style=""/>
-<text text-anchor="middle" x="560.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Chat History Store</text>
-<text text-anchor="middle" x="560.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Message Database)</text>
+<g id="node19" class="node">
+<title>ChatHistoryStore</title>
+<path fill="#f5f5f5" stroke="#333333" d="M595.86,-526.82C595.86,-526.82 461.11,-526.82 461.11,-526.82 455.11,-526.82 449.11,-520.82 449.11,-514.82 449.11,-514.82 449.11,-490.82 449.11,-490.82 449.11,-484.82 455.11,-478.82 461.11,-478.82 461.11,-478.82 595.86,-478.82 595.86,-478.82 601.86,-478.82 607.86,-484.82 607.86,-490.82 607.86,-490.82 607.86,-514.82 607.86,-514.82 607.86,-520.82 601.86,-526.82 595.86,-526.82"/>
+<text text-anchor="middle" x="528.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Chat History Store</text>
+<text text-anchor="middle" x="528.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Message Database)</text>
 </g>
 <!-- DataPersistence&#45;&gt;ChatHistoryStore -->
-<g id="edge22" class="edge" data-name="DataPersistence-&gt;ChatHistoryStore">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M695.6,-596.82C679.82,-583.37 659.15,-566.35 639.92,-552.36 630.04,-545.16 619.17,-537.84 608.73,-531.07" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="610.74,-528.2 600.43,-525.76 606.97,-534.1 610.74,-528.2" style=""/>
+<g id="edge22" class="edge">
+<title>DataPersistence-&gt;ChatHistoryStore</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M663.83,-599.06C648.11,-585.6 627.61,-568.67 608.49,-554.76 598.6,-547.57 587.71,-540.27 577.25,-533.52"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="579.23,-530.63 568.91,-528.21 575.47,-536.54 579.23,-530.63"/>
 </g>
 <!-- Database -->
-<g id="node42" class="node" pointer-events="visible" data-name="Database">
-
-<path fill="#336791" stroke="#333333" d="M304.51,-365C304.51,-368.31 279.15,-370.99 247.92,-370.99 216.7,-370.99 191.34,-368.31 191.34,-365 191.34,-365 191.34,-311.08 191.34,-311.08 191.34,-307.78 216.7,-305.09 247.92,-305.09 279.15,-305.09 304.51,-307.78 304.51,-311.08 304.51,-311.08 304.51,-365 304.51,-365" style=""/>
-<path fill="none" stroke="#333333" d="M304.51,-365C304.51,-361.7 279.15,-359.01 247.92,-359.01 216.7,-359.01 191.34,-361.7 191.34,-365" style=""/>
-<text text-anchor="middle" x="247.92" y="-342.24" font-family="Arial" font-size="14.00" fill="white" style="">Database</text>
-<text text-anchor="middle" x="247.92" y="-325.44" font-family="Arial" font-size="14.00" fill="white" style="">(PostgreSQL)</text>
+<g id="node42" class="node">
+<title>Database</title>
+<path fill="#336791" stroke="#333333" d="M270.68,-366.68C270.68,-369.99 245.05,-372.68 213.49,-372.68 181.93,-372.68 156.3,-369.99 156.3,-366.68 156.3,-366.68 156.3,-312.68 156.3,-312.68 156.3,-309.37 181.93,-306.68 213.49,-306.68 245.05,-306.68 270.68,-309.37 270.68,-312.68 270.68,-312.68 270.68,-366.68 270.68,-366.68"/>
+<path fill="none" stroke="#333333" d="M270.68,-366.68C270.68,-363.37 245.05,-360.68 213.49,-360.68 181.93,-360.68 156.3,-363.37 156.3,-366.68"/>
+<text text-anchor="middle" x="213.49" y="-343.88" font-family="Arial" font-size="14.00" fill="white">Database</text>
+<text text-anchor="middle" x="213.49" y="-327.08" font-family="Arial" font-size="14.00" fill="white">(PostgreSQL)</text>
 </g>
 <!-- DataPersistence&#45;&gt;Database -->
-<g id="edge59" class="edge" data-name="DataPersistence-&gt;Database">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M653.82,-608.33C595.31,-596.3 510.3,-573.57 444.91,-534.36 376.85,-493.54 314.79,-424.35 279.21,-380.22" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="282.13,-378.26 273.16,-372.62 276.65,-382.63 282.13,-378.26" style=""/>
-<text text-anchor="middle" x="457.93" y="-496.5" font-family="Arial" font-size="14.00" fill="#666666" style="">SQL</text>
+<g id="edge59" class="edge">
+<title>DataPersistence-&gt;Database</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M621.88,-610.87C563.19,-598.76 478.06,-575.95 412.48,-536.76 343.87,-495.77 281.14,-426.31 245.15,-382.01"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="248.01,-379.99 239.02,-374.38 242.55,-384.37 248.01,-379.99"/>
+<text text-anchor="middle" x="426.48" y="-498.62" font-family="Arial" font-size="14.00" fill="#666666">SQL</text>
 </g>
 <!-- FileStorage -->
-<g id="node44" class="node" pointer-events="visible" data-name="FileStorage">
-
-<path fill="#ff9900" stroke="#333333" d="M1134.24,-527.66C1134.24,-530.97 1105.86,-533.65 1070.92,-533.65 1035.99,-533.65 1007.61,-530.97 1007.61,-527.66 1007.61,-527.66 1007.61,-473.74 1007.61,-473.74 1007.61,-470.43 1035.99,-467.75 1070.92,-467.75 1105.86,-467.75 1134.24,-470.43 1134.24,-473.74 1134.24,-473.74 1134.24,-527.66 1134.24,-527.66" style=""/>
-<path fill="none" stroke="#333333" d="M1134.24,-527.66C1134.24,-524.35 1105.86,-521.67 1070.92,-521.67 1035.99,-521.67 1007.61,-524.35 1007.61,-527.66" style=""/>
-<text text-anchor="middle" x="1070.92" y="-504.9" font-family="Arial" font-size="14.00" fill="white" style="">Object Storage</text>
-<text text-anchor="middle" x="1070.92" y="-488.1" font-family="Arial" font-size="14.00" fill="white" style="">(S3-compatible)</text>
+<g id="node44" class="node">
+<title>FileStorage</title>
+<path fill="#ff9900" stroke="#333333" d="M1105.3,-529.82C1105.3,-533.13 1076.7,-535.82 1041.49,-535.82 1006.28,-535.82 977.68,-533.13 977.68,-529.82 977.68,-529.82 977.68,-475.82 977.68,-475.82 977.68,-472.51 1006.28,-469.82 1041.49,-469.82 1076.7,-469.82 1105.3,-472.51 1105.3,-475.82 1105.3,-475.82 1105.3,-529.82 1105.3,-529.82"/>
+<path fill="none" stroke="#333333" d="M1105.3,-529.82C1105.3,-526.51 1076.7,-523.82 1041.49,-523.82 1006.28,-523.82 977.68,-526.51 977.68,-529.82"/>
+<text text-anchor="middle" x="1041.49" y="-507.02" font-family="Arial" font-size="14.00" fill="white">Object Storage</text>
+<text text-anchor="middle" x="1041.49" y="-490.22" font-family="Arial" font-size="14.00" fill="white">(S3-compatible)</text>
 </g>
 <!-- DataPersistence&#45;&gt;FileStorage -->
-<g id="edge61" class="edge" data-name="DataPersistence-&gt;FileStorage">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M789.11,-596.74C799.08,-593.45 809.25,-590.16 818.92,-587.16 897.07,-562.87 921.95,-564.72 999.71,-535.82" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1000.7,-539.19 1008.81,-532.38 998.22,-532.64 1000.7,-539.19" style=""/>
-<text text-anchor="middle" x="972.71" y="-556.56" font-family="Arial" font-size="14.00" fill="#666666" style="">S3 API</text>
+<g id="edge61" class="edge">
+<title>DataPersistence-&gt;FileStorage</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M758.18,-599.03C767.99,-595.77 777.98,-592.53 787.49,-589.56 866.01,-565.1 891.04,-567.11 969.96,-537.94"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="971.09,-541.25 979.22,-534.45 968.63,-534.7 971.09,-541.25"/>
+<text text-anchor="middle" x="942.11" y="-558.96" font-family="Arial" font-size="14.00" fill="#666666">S3 API</text>
 </g>
 <!-- WebSocketManager2&#45;&gt;DataPersistence -->
-<g id="edge16" class="edge" data-name="WebSocketManager2-&gt;DataPersistence">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M725.86,-707.12C725.18,-692.33 724.28,-672.84 723.51,-656.23" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="727.02,-656.38 723.07,-646.56 720.03,-656.71 727.02,-656.38" style=""/>
+<g id="edge16" class="edge">
+<title>WebSocketManager2-&gt;DataPersistence</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M694.42,-709.92C693.74,-695.16 692.85,-675.8 692.09,-659.25"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="695.6,-659.44 691.64,-649.61 688.61,-659.76 695.6,-659.44"/>
 </g>
 <!-- WebSocketManager2&#45;&gt;ChatHistoryStore -->
-<g id="edge23" class="edge" data-name="WebSocketManager2-&gt;ChatHistoryStore">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M697.77,-707.24C681.03,-693.18 660.32,-674.14 644.92,-654.47 615.46,-616.85 590.39,-567.52 575.5,-535.24" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="578.73,-533.9 571.42,-526.23 572.36,-536.79 578.73,-533.9" style=""/>
+<g id="edge23" class="edge">
+<title>WebSocketManager2-&gt;ChatHistoryStore</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M665.97,-709.99C649.3,-695.92 628.8,-676.97 613.49,-657.45 583.88,-619.68 558.54,-570.27 543.42,-537.81"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="546.61,-536.37 539.26,-528.74 540.24,-539.29 546.61,-536.37"/>
 </g>
 <!-- StreamManager -->
-<g id="node22" class="node" pointer-events="visible" data-name="StreamManager">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1532.19,-644.42C1532.19,-644.42 1423.65,-644.42 1423.65,-644.42 1417.65,-644.42 1411.65,-638.42 1411.65,-632.42 1411.65,-632.42 1411.65,-609.21 1411.65,-609.21 1411.65,-603.21 1417.65,-597.21 1423.65,-597.21 1423.65,-597.21 1532.19,-597.21 1532.19,-597.21 1538.19,-597.21 1544.19,-603.21 1544.19,-609.21 1544.19,-609.21 1544.19,-632.42 1544.19,-632.42 1544.19,-638.42 1538.19,-644.42 1532.19,-644.42" style=""/>
-<text text-anchor="middle" x="1477.92" y="-625.02" font-family="Arial" font-size="14.00" fill="#333333" style="">Stream Manager</text>
-<text text-anchor="middle" x="1477.92" y="-608.22" font-family="Arial" font-size="14.00" fill="#333333" style="">(WebSockets)</text>
+<g id="node22" class="node">
+<title>StreamManager</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1504.02,-647.51C1504.02,-647.51 1394.95,-647.51 1394.95,-647.51 1388.95,-647.51 1382.95,-641.51 1382.95,-635.51 1382.95,-635.51 1382.95,-611.51 1382.95,-611.51 1382.95,-605.51 1388.95,-599.51 1394.95,-599.51 1394.95,-599.51 1504.02,-599.51 1504.02,-599.51 1510.02,-599.51 1516.02,-605.51 1516.02,-611.51 1516.02,-611.51 1516.02,-635.51 1516.02,-635.51 1516.02,-641.51 1510.02,-647.51 1504.02,-647.51"/>
+<text text-anchor="middle" x="1449.49" y="-627.71" font-family="Arial" font-size="14.00" fill="#333333">Stream Manager</text>
+<text text-anchor="middle" x="1449.49" y="-610.91" font-family="Arial" font-size="14.00" fill="#333333">(WebSockets)</text>
 </g>
 <!-- WebSocketManager2&#45;&gt;StreamManager -->
-<g id="edge52" class="edge" data-name="WebSocketManager2-&gt;StreamManager">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M806.41,-708.8C809.28,-708.25 812.12,-707.74 814.92,-707.27 919.13,-689.96 947.22,-703.27 1051.92,-689.27 1091.14,-684.03 1100.1,-677.57 1139.34,-672.47 1255.78,-657.37 1288.85,-682.32 1402.92,-654.47 1408.96,-653 1415.12,-651.08 1421.19,-648.9" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1422.2,-652.26 1430.28,-645.4 1419.69,-645.73 1422.2,-652.26" style=""/>
-<text text-anchor="middle" x="1174.72" y="-676.67" font-family="Arial" font-size="14.00" fill="#666666" style="">WebSocket</text>
+<g id="edge52" class="edge">
+<title>WebSocketManager2-&gt;StreamManager</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M775.4,-711.88C778.46,-711.29 781.5,-710.74 784.49,-710.25 889.14,-692.91 916.81,-701.47 1022.49,-692.25 1027.38,-691.82 1369.74,-658.69 1374.49,-657.45 1380.11,-655.98 1385.84,-654.14 1391.51,-652.08"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1392.53,-655.44 1400.59,-648.57 1390,-648.91 1392.53,-655.44"/>
+<text text-anchor="middle" x="1223.93" y="-679.65" font-family="Arial" font-size="14.00" fill="#666666">WebSocket</text>
 </g>
 <!-- MessageQueue -->
-<g id="node47" class="node" pointer-events="visible" data-name="MessageQueue">
-
-<path fill="#6929c4" stroke="#333333" d="M1139.15,-647.78C1139.15,-651.08 1109.92,-653.77 1073.92,-653.77 1037.93,-653.77 1008.69,-651.08 1008.69,-647.78 1008.69,-647.78 1008.69,-593.86 1008.69,-593.86 1008.69,-590.55 1037.93,-587.86 1073.92,-587.86 1109.92,-587.86 1139.15,-590.55 1139.15,-593.86 1139.15,-593.86 1139.15,-647.78 1139.15,-647.78" style=""/>
-<path fill="none" stroke="#333333" d="M1139.15,-647.78C1139.15,-644.47 1109.92,-641.79 1073.92,-641.79 1037.93,-641.79 1008.69,-644.47 1008.69,-647.78" style=""/>
-<text text-anchor="middle" x="1073.92" y="-625.02" font-family="Arial" font-size="14.00" fill="white" style="">Message Queue</text>
-<text text-anchor="middle" x="1073.92" y="-608.22" font-family="Arial" font-size="14.00" fill="white" style="">(Redis/Kafka)</text>
+<g id="node47" class="node">
+<title>MessageQueue</title>
+<path fill="#6929c4" stroke="#333333" d="M1109.25,-650.51C1109.25,-653.82 1079.78,-656.51 1043.49,-656.51 1007.2,-656.51 977.72,-653.82 977.72,-650.51 977.72,-650.51 977.72,-596.51 977.72,-596.51 977.72,-593.19 1007.2,-590.51 1043.49,-590.51 1079.78,-590.51 1109.25,-593.19 1109.25,-596.51 1109.25,-596.51 1109.25,-650.51 1109.25,-650.51"/>
+<path fill="none" stroke="#333333" d="M1109.25,-650.51C1109.25,-647.19 1079.78,-644.51 1043.49,-644.51 1007.2,-644.51 977.72,-647.19 977.72,-650.51"/>
+<text text-anchor="middle" x="1043.49" y="-627.71" font-family="Arial" font-size="14.00" fill="white">Message Queue</text>
+<text text-anchor="middle" x="1043.49" y="-610.91" font-family="Arial" font-size="14.00" fill="white">(Redis/Kafka)</text>
 </g>
 <!-- WebSocketManager2&#45;&gt;MessageQueue -->
-<g id="edge67" class="edge" data-name="WebSocketManager2-&gt;MessageQueue">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M806.32,-709.14C873.15,-691.42 962.81,-667.36 999.99,-655.49" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1001.1,-658.81 1009.45,-652.29 998.86,-652.18 1001.1,-658.81" style=""/>
-<text text-anchor="middle" x="992.56" y="-676.67" font-family="Arial" font-size="14.00" fill="#666666" style="">Async Processing</text>
+<g id="edge67" class="edge">
+<title>WebSocketManager2-&gt;MessageQueue</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M775.53,-712.18C842.87,-694.35 933.11,-670.16 970.31,-658.2"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="971.08,-661.63 979.41,-655.09 968.82,-655.01 971.08,-661.63"/>
+<text text-anchor="middle" x="962.86" y="-679.65" font-family="Arial" font-size="14.00" fill="#666666">Async Processing</text>
 </g>
 <!-- TransactionProcessor -->
-<g id="node36" class="node" pointer-events="visible" data-name="TransactionProcessor">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1243.98,-361.64C1243.98,-361.64 1099.87,-361.64 1099.87,-361.64 1093.87,-361.64 1087.87,-355.64 1087.87,-349.64 1087.87,-349.64 1087.87,-326.44 1087.87,-326.44 1087.87,-320.44 1093.87,-314.44 1099.87,-314.44 1099.87,-314.44 1243.98,-314.44 1243.98,-314.44 1249.98,-314.44 1255.98,-320.44 1255.98,-326.44 1255.98,-326.44 1255.98,-349.64 1255.98,-349.64 1255.98,-355.64 1249.98,-361.64 1243.98,-361.64" style=""/>
-<text text-anchor="middle" x="1171.92" y="-342.24" font-family="Arial" font-size="14.00" fill="#333333" style="">Transaction Processor</text>
-<text text-anchor="middle" x="1171.92" y="-325.44" font-family="Arial" font-size="14.00" fill="#333333" style="">(Aptos)</text>
+<g id="node36" class="node">
+<title>TransactionProcessor</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1189.92,-363.68C1189.92,-363.68 1045.06,-363.68 1045.06,-363.68 1039.06,-363.68 1033.06,-357.68 1033.06,-351.68 1033.06,-351.68 1033.06,-327.68 1033.06,-327.68 1033.06,-321.68 1039.06,-315.68 1045.06,-315.68 1045.06,-315.68 1189.92,-315.68 1189.92,-315.68 1195.92,-315.68 1201.92,-321.68 1201.92,-327.68 1201.92,-327.68 1201.92,-351.68 1201.92,-351.68 1201.92,-357.68 1195.92,-363.68 1189.92,-363.68"/>
+<text text-anchor="middle" x="1117.49" y="-343.88" font-family="Arial" font-size="14.00" fill="#333333">Transaction Processor</text>
+<text text-anchor="middle" x="1117.49" y="-327.08" font-family="Arial" font-size="14.00" fill="#333333">(Aptos)</text>
 </g>
 <!-- BlockchainInterface&#45;&gt;TransactionProcessor -->
-<g id="edge54" class="edge" data-name="BlockchainInterface-&gt;TransactionProcessor">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M934.61,-476.68C984.08,-447.99 1068.64,-398.94 1122.33,-367.8" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1123.84,-370.97 1130.74,-362.93 1120.33,-364.92 1123.84,-370.97" style=""/>
-<text text-anchor="middle" x="1022.7" y="-436.44" font-family="Arial" font-size="14.00" fill="#666666" style="">RPC</text>
+<g id="edge54" class="edge">
+<title>BlockchainInterface-&gt;TransactionProcessor</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M901.28,-478.39C946.15,-449.81 1022.06,-401.46 1070.95,-370.32"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1072.57,-373.44 1079.12,-365.12 1068.81,-367.54 1072.57,-373.44"/>
+<text text-anchor="middle" x="983.11" y="-438.28" font-family="Arial" font-size="14.00" fill="#666666">RPC</text>
 </g>
 <!-- EventEmitter -->
-<g id="node37" class="node" pointer-events="visible" data-name="EventEmitter">
-
-<path fill="#f5f5f5" stroke="#333333" d="M867.64,-63.4C867.64,-63.4 740.21,-63.4 740.21,-63.4 734.21,-63.4 728.21,-57.4 728.21,-51.4 728.21,-51.4 728.21,-28.2 728.21,-28.2 728.21,-22.2 734.21,-16.2 740.21,-16.2 740.21,-16.2 867.64,-16.2 867.64,-16.2 873.64,-16.2 879.64,-22.2 879.64,-28.2 879.64,-28.2 879.64,-51.4 879.64,-51.4 879.64,-57.4 873.64,-63.4 867.64,-63.4" style=""/>
-<text text-anchor="middle" x="803.92" y="-44" font-family="Arial" font-size="14.00" fill="#333333" style="">Event Emitter</text>
-<text text-anchor="middle" x="803.92" y="-27.2" font-family="Arial" font-size="14.00" fill="#333333" style="">(Blockchain Events)</text>
+<g id="node37" class="node">
+<title>EventEmitter</title>
+<path fill="#f5f5f5" stroke="#333333" d="M835.75,-64C835.75,-64 707.23,-64 707.23,-64 701.23,-64 695.23,-58 695.23,-52 695.23,-52 695.23,-28 695.23,-28 695.23,-22 701.23,-16 707.23,-16 707.23,-16 835.75,-16 835.75,-16 841.75,-16 847.75,-22 847.75,-28 847.75,-28 847.75,-52 847.75,-52 847.75,-58 841.75,-64 835.75,-64"/>
+<text text-anchor="middle" x="771.49" y="-44.2" font-family="Arial" font-size="14.00" fill="#333333">Event Emitter</text>
+<text text-anchor="middle" x="771.49" y="-27.4" font-family="Arial" font-size="14.00" fill="#333333">(Blockchain Events)</text>
 </g>
 <!-- BlockchainInterface&#45;&gt;EventEmitter -->
-<g id="edge55" class="edge" data-name="BlockchainInterface-&gt;EventEmitter">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M828.58,-476.68C817.42,-473.2 805.9,-469.84 794.92,-467.04 721.09,-448.22 679.31,-481.39 628.92,-424.24 603.27,-395.14 609.92,-377.84 609.92,-339.04 609.92,-339.04 609.92,-339.04 609.92,-123.4 609.92,-73.54 664.84,-53.36 716.23,-45.38" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="716.58,-48.87 726.01,-44.02 715.62,-41.93 716.58,-48.87" style=""/>
-<text text-anchor="middle" x="654.67" y="-214.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Event Listener</text>
+<g id="edge55" class="edge">
+<title>BlockchainInterface-&gt;EventEmitter</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M796.66,-478.35C785.65,-474.93 774.3,-471.64 763.49,-468.88 689.24,-449.97 647.28,-483.45 596.49,-426.08 570.72,-396.97 577.49,-379.57 577.49,-340.68 577.49,-340.68 577.49,-340.68 577.49,-124 577.49,-74.28 632.03,-53.95 683.27,-45.82"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="683.61,-49.31 693.02,-44.43 682.62,-42.38 683.61,-49.31"/>
+<text text-anchor="middle" x="622.24" y="-215.74" font-family="Arial" font-size="14.00" fill="#666666">Event Listener</text>
 </g>
 <!-- CacheStore -->
-<g id="node43" class="node" pointer-events="visible" data-name="CacheStore">
-
-<path fill="#dc382d" stroke="#333333" d="M711.54,-365C711.54,-368.31 695.13,-370.99 674.92,-370.99 654.72,-370.99 638.31,-368.31 638.31,-365 638.31,-365 638.31,-311.08 638.31,-311.08 638.31,-307.78 654.72,-305.09 674.92,-305.09 695.13,-305.09 711.54,-307.78 711.54,-311.08 711.54,-311.08 711.54,-365 711.54,-365" style=""/>
-<path fill="none" stroke="#333333" d="M711.54,-365C711.54,-361.7 695.13,-359.01 674.92,-359.01 654.72,-359.01 638.31,-361.7 638.31,-365" style=""/>
-<text text-anchor="middle" x="674.92" y="-342.24" font-family="Arial" font-size="14.00" fill="white" style="">Cache</text>
-<text text-anchor="middle" x="674.92" y="-325.44" font-family="Arial" font-size="14.00" fill="white" style="">(Redis)</text>
+<g id="node43" class="node">
+<title>CacheStore</title>
+<path fill="#dc382d" stroke="#333333" d="M679.45,-366.68C679.45,-369.99 662.88,-372.68 642.49,-372.68 622.1,-372.68 605.53,-369.99 605.53,-366.68 605.53,-366.68 605.53,-312.68 605.53,-312.68 605.53,-309.37 622.1,-306.68 642.49,-306.68 662.88,-306.68 679.45,-309.37 679.45,-312.68 679.45,-312.68 679.45,-366.68 679.45,-366.68"/>
+<path fill="none" stroke="#333333" d="M679.45,-366.68C679.45,-363.37 662.88,-360.68 642.49,-360.68 622.1,-360.68 605.53,-363.37 605.53,-366.68"/>
+<text text-anchor="middle" x="642.49" y="-343.88" font-family="Arial" font-size="14.00" fill="white">Cache</text>
+<text text-anchor="middle" x="642.49" y="-327.08" font-family="Arial" font-size="14.00" fill="white">(Redis)</text>
 </g>
 <!-- CacheManager&#45;&gt;CacheStore -->
-<g id="edge60" class="edge" data-name="CacheManager-&gt;CacheStore">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M715.19,-476.68C708.03,-452.22 696.55,-412.95 687.67,-382.61" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="691.09,-381.82 684.92,-373.21 684.37,-383.79 691.09,-381.82" style=""/>
-<text text-anchor="middle" x="751.44" y="-436.44" font-family="Arial" font-size="14.00" fill="#666666" style="">Redis Protocol</text>
+<g id="edge60" class="edge">
+<title>CacheManager-&gt;CacheStore</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M683.51,-478.39C676.18,-453.78 664.48,-414.51 655.45,-384.19"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="658.86,-383.38 652.65,-374.8 652.15,-385.38 658.86,-383.38"/>
+<text text-anchor="middle" x="720.48" y="-438.28" font-family="Arial" font-size="14.00" fill="#666666">Redis Protocol</text>
 </g>
 <!-- APIGateway&#45;&gt;AuthService -->
-<g id="edge12" class="edge" data-name="APIGateway-&gt;AuthService">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M787.49,-859.97C811.82,-834.14 851.52,-791.98 878.64,-763.18" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="881.07,-765.7 885.37,-756.02 875.97,-760.9 881.07,-765.7" style=""/>
+<g id="edge12" class="edge">
+<title>APIGateway-&gt;AuthService</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M830.96,-863.15C840.09,-838.07 854.69,-797.92 865.1,-769.29"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="868.26,-770.87 868.39,-760.27 861.68,-768.47 868.26,-770.87"/>
 </g>
 <!-- APIGateway&#45;&gt;DataPersistence -->
-<g id="edge13" class="edge" data-name="APIGateway-&gt;DataPersistence">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M710.91,-869.02C684.25,-859.24 654.67,-843.13 638.92,-817.27 613.49,-775.52 620.54,-752.58 638.92,-707.27 647.58,-685.93 664.42,-666.98 680.68,-652.39" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="682.9,-655.09 688.21,-645.92 678.34,-649.77 682.9,-655.09" style=""/>
+<g id="edge13" class="edge">
+<title>APIGateway-&gt;DataPersistence</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M766.79,-877.17C709.4,-866.34 625.68,-846.56 606.49,-820.65 577.28,-781.22 587.94,-755.67 606.49,-710.25 615.19,-688.92 632.04,-670.03 648.38,-655.44"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="650.63,-658.12 655.96,-648.97 646.08,-652.8 650.63,-658.12"/>
 </g>
 <!-- APIGateway&#45;&gt;WebSocketManager2 -->
-<g id="edge14" class="edge" data-name="APIGateway-&gt;WebSocketManager2">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M760,-859.97C753.52,-834.92 743.07,-794.5 735.65,-765.82" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="739.12,-765.26 733.23,-756.46 732.34,-767.02 739.12,-765.26" style=""/>
+<g id="edge14" class="edge">
+<title>APIGateway-&gt;WebSocketManager2</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M802.92,-863.15C781.39,-837.51 746.63,-796.13 722.51,-767.41"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="725.36,-765.36 716.24,-759.96 720,-769.87 725.36,-765.36"/>
 </g>
 <!-- UserManager -->
-<g id="node16" class="node" pointer-events="visible" data-name="UserManager">
-
-<path fill="#f5f5f5" stroke="#333333" d="M421.91,-754.68C421.91,-754.68 299.94,-754.68 299.94,-754.68 293.94,-754.68 287.94,-748.68 287.94,-742.68 287.94,-742.68 287.94,-719.47 287.94,-719.47 287.94,-713.47 293.94,-707.47 299.94,-707.47 299.94,-707.47 421.91,-707.47 421.91,-707.47 427.91,-707.47 433.91,-713.47 433.91,-719.47 433.91,-719.47 433.91,-742.68 433.91,-742.68 433.91,-748.68 427.91,-754.68 421.91,-754.68" style=""/>
-<text text-anchor="middle" x="360.92" y="-735.27" font-family="Arial" font-size="14.00" fill="#333333" style="">User Manager</text>
-<text text-anchor="middle" x="360.92" y="-718.47" font-family="Arial" font-size="14.00" fill="#333333" style="">(Account Services)</text>
+<g id="node16" class="node">
+<title>UserManager</title>
+<path fill="#f5f5f5" stroke="#333333" d="M387.63,-758.25C387.63,-758.25 265.35,-758.25 265.35,-758.25 259.35,-758.25 253.35,-752.25 253.35,-746.25 253.35,-746.25 253.35,-722.25 253.35,-722.25 253.35,-716.25 259.35,-710.25 265.35,-710.25 265.35,-710.25 387.63,-710.25 387.63,-710.25 393.63,-710.25 399.63,-716.25 399.63,-722.25 399.63,-722.25 399.63,-746.25 399.63,-746.25 399.63,-752.25 393.63,-758.25 387.63,-758.25"/>
+<text text-anchor="middle" x="326.49" y="-738.45" font-family="Arial" font-size="14.00" fill="#333333">User Manager</text>
+<text text-anchor="middle" x="326.49" y="-721.65" font-family="Arial" font-size="14.00" fill="#333333">(Account Services)</text>
 </g>
 <!-- APIGateway&#45;&gt;UserManager -->
-<g id="edge18" class="edge" data-name="APIGateway-&gt;UserManager">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M710.81,-881.55C643.65,-877.8 528.55,-864.33 442.92,-817.27 419.48,-804.39 398.66,-782.56 383.87,-764.21" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="386.72,-762.18 377.81,-756.44 381.19,-766.48 386.72,-762.18" style=""/>
+<g id="edge18" class="edge">
+<title>APIGateway-&gt;UserManager</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M767.12,-882.04C669.18,-873.52 469.92,-852.76 408.49,-820.65 384.76,-808.24 363.94,-786.34 349.22,-767.83"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="352.06,-765.78 343.2,-759.96 346.5,-770.03 352.06,-765.78"/>
 </g>
 <!-- FlowRegistry -->
-<g id="node17" class="node" pointer-events="visible" data-name="FlowRegistry">
-
-<path fill="#f5f5f5" stroke="#333333" d="M598.13,-754.68C598.13,-754.68 463.72,-754.68 463.72,-754.68 457.72,-754.68 451.72,-748.68 451.72,-742.68 451.72,-742.68 451.72,-719.47 451.72,-719.47 451.72,-713.47 457.72,-707.47 463.72,-707.47 463.72,-707.47 598.13,-707.47 598.13,-707.47 604.13,-707.47 610.13,-713.47 610.13,-719.47 610.13,-719.47 610.13,-742.68 610.13,-742.68 610.13,-748.68 604.13,-754.68 598.13,-754.68" style=""/>
-<text text-anchor="middle" x="530.92" y="-735.27" font-family="Arial" font-size="14.00" fill="#333333" style="">Flow Registry</text>
-<text text-anchor="middle" x="530.92" y="-718.47" font-family="Arial" font-size="14.00" fill="#333333" style="">(Workflow Database)</text>
+<g id="node17" class="node">
+<title>FlowRegistry</title>
+<path fill="#f5f5f5" stroke="#333333" d="M565.24,-758.25C565.24,-758.25 429.74,-758.25 429.74,-758.25 423.74,-758.25 417.74,-752.25 417.74,-746.25 417.74,-746.25 417.74,-722.25 417.74,-722.25 417.74,-716.25 423.74,-710.25 429.74,-710.25 429.74,-710.25 565.24,-710.25 565.24,-710.25 571.24,-710.25 577.24,-716.25 577.24,-722.25 577.24,-722.25 577.24,-746.25 577.24,-746.25 577.24,-752.25 571.24,-758.25 565.24,-758.25"/>
+<text text-anchor="middle" x="497.49" y="-738.45" font-family="Arial" font-size="14.00" fill="#333333">Flow Registry</text>
+<text text-anchor="middle" x="497.49" y="-721.65" font-family="Arial" font-size="14.00" fill="#333333">(Workflow Database)</text>
 </g>
 <!-- APIGateway&#45;&gt;FlowRegistry -->
-<g id="edge19" class="edge" data-name="APIGateway-&gt;FlowRegistry">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M710.84,-874.87C683.13,-868.97 649.98,-858.94 623.92,-842.07 593.29,-822.25 567.37,-789.3 550.74,-764.61" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="553.8,-762.91 545.4,-756.46 547.95,-766.74 553.8,-762.91" style=""/>
+<g id="edge19" class="edge">
+<title>APIGateway-&gt;FlowRegistry</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M767.14,-886.94C717.99,-885.07 645.74,-876.52 591.49,-845.45 559.46,-827.1 533.26,-793.57 516.73,-768.29"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="519.73,-766.49 511.43,-759.91 513.82,-770.23 519.73,-766.49"/>
 </g>
 <!-- FlowExecutor -->
-<g id="node20" class="node" pointer-events="visible" data-name="FlowExecutor">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1625.69,-754.68C1625.69,-754.68 1500.15,-754.68 1500.15,-754.68 1494.15,-754.68 1488.15,-748.68 1488.15,-742.68 1488.15,-742.68 1488.15,-719.47 1488.15,-719.47 1488.15,-713.47 1494.15,-707.47 1500.15,-707.47 1500.15,-707.47 1625.69,-707.47 1625.69,-707.47 1631.69,-707.47 1637.69,-713.47 1637.69,-719.47 1637.69,-719.47 1637.69,-742.68 1637.69,-742.68 1637.69,-748.68 1631.69,-754.68 1625.69,-754.68" style=""/>
-<text text-anchor="middle" x="1562.92" y="-735.27" font-family="Arial" font-size="14.00" fill="#333333" style="">Flow Executor</text>
-<text text-anchor="middle" x="1562.92" y="-718.47" font-family="Arial" font-size="14.00" fill="#333333" style="">(Python + AsyncIO)</text>
+<g id="node20" class="node">
+<title>FlowExecutor</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1598.77,-758.25C1598.77,-758.25 1472.2,-758.25 1472.2,-758.25 1466.2,-758.25 1460.2,-752.25 1460.2,-746.25 1460.2,-746.25 1460.2,-722.25 1460.2,-722.25 1460.2,-716.25 1466.2,-710.25 1472.2,-710.25 1472.2,-710.25 1598.77,-710.25 1598.77,-710.25 1604.77,-710.25 1610.77,-716.25 1610.77,-722.25 1610.77,-722.25 1610.77,-746.25 1610.77,-746.25 1610.77,-752.25 1604.77,-758.25 1598.77,-758.25"/>
+<text text-anchor="middle" x="1535.49" y="-738.45" font-family="Arial" font-size="14.00" fill="#333333">Flow Executor</text>
+<text text-anchor="middle" x="1535.49" y="-721.65" font-family="Arial" font-size="14.00" fill="#333333">(Python + AsyncIO)</text>
 </g>
 <!-- APIGateway&#45;&gt;FlowExecutor -->
-<g id="edge53" class="edge" data-name="APIGateway-&gt;FlowExecutor">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M821.08,-878.15C888.06,-871.96 1004.31,-859.77 1102.92,-842.07 1234.43,-818.47 1384.6,-780.43 1476.58,-755.85" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1477.27,-759.28 1486.03,-753.31 1475.46,-752.52 1477.27,-759.28" style=""/>
-<text text-anchor="middle" x="1216.81" y="-829.47" font-family="Arial" font-size="14.00" fill="#666666" style="">HTTP/REST</text>
+<g id="edge53" class="edge">
+<title>APIGateway-&gt;FlowExecutor</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M878.19,-882.37C944.86,-876.85 1059.63,-865.34 1156.49,-845.45 1261.73,-823.83 1380.22,-787.36 1456.26,-762.33"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1457.05,-765.76 1465.44,-759.3 1454.85,-759.11 1457.05,-765.76"/>
+<text text-anchor="middle" x="1258.35" y="-832.85" font-family="Arial" font-size="14.00" fill="#666666">HTTP/REST</text>
 </g>
 <!-- MonitoringSystem -->
-<g id="node48" class="node" pointer-events="visible" data-name="MonitoringSystem">
-
-<ellipse fill="#00539a" stroke="#333333" cx="1275.92" cy="-620.82" rx="118.07" ry="33.82" style=""/>
-<text text-anchor="middle" x="1275.92" y="-625.02" font-family="Arial" font-size="14.00" fill="white" style="">Monitoring System</text>
-<text text-anchor="middle" x="1275.92" y="-608.22" font-family="Arial" font-size="14.00" fill="white" style="">(Prometheus/Grafana)</text>
+<g id="node48" class="node">
+<title>MonitoringSystem</title>
+<ellipse fill="#00539a" stroke="#333333" cx="1246.49" cy="-623.51" rx="118.85" ry="33.94"/>
+<text text-anchor="middle" x="1246.49" y="-627.71" font-family="Arial" font-size="14.00" fill="white">Monitoring System</text>
+<text text-anchor="middle" x="1246.49" y="-610.91" font-family="Arial" font-size="14.00" fill="white">(Prometheus/Grafana)</text>
 </g>
 <!-- APIGateway&#45;&gt;MonitoringSystem -->
-<g id="edge71" class="edge" data-name="APIGateway-&gt;MonitoringSystem">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M820.77,-878.11C871.48,-871.41 946.94,-855.38 1000.92,-817.27 1065.23,-771.88 1038.9,-718.28 1102.92,-672.47 1109.96,-667.44 1143.19,-657.31 1178.67,-647.42" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1179.27,-650.88 1187.98,-644.84 1177.41,-644.13 1179.27,-650.88" style=""/>
-<text text-anchor="middle" x="1090.48" y="-726.87" font-family="Arial" font-size="14.00" fill="#666666" style="">Metrics</text>
+<g id="edge71" class="edge">
+<title>APIGateway-&gt;MonitoringSystem</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M878.22,-865.46C906.66,-853.81 941.32,-838.16 970.49,-820.65 1060.41,-766.67 1069.28,-733.7 1156.49,-675.45 1164.43,-670.14 1172.96,-664.84 1181.48,-659.78"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1183.02,-662.93 1189.89,-654.86 1179.49,-656.89 1183.02,-662.93"/>
+<text text-anchor="middle" x="1130.76" y="-730.05" font-family="Arial" font-size="14.00" fill="#666666">Metrics</text>
 </g>
 <!-- LoggingService -->
-<g id="node49" class="node" pointer-events="visible" data-name="LoggingService">
-
-<ellipse fill="#00797b" stroke="#333333" cx="2531.92" cy="-620.82" rx="90.58" ry="33.82" style=""/>
-<text text-anchor="middle" x="2531.92" y="-625.02" font-family="Arial" font-size="14.00" fill="white" style="">Logging Service</text>
-<text text-anchor="middle" x="2531.92" y="-608.22" font-family="Arial" font-size="14.00" fill="white" style="">(ELK Stack)</text>
+<g id="node49" class="node">
+<title>LoggingService</title>
+<ellipse fill="#00797b" stroke="#333333" cx="2506.49" cy="-623.51" rx="91.36" ry="33.94"/>
+<text text-anchor="middle" x="2506.49" y="-627.71" font-family="Arial" font-size="14.00" fill="white">Logging Service</text>
+<text text-anchor="middle" x="2506.49" y="-610.91" font-family="Arial" font-size="14.00" fill="white">(ELK Stack)</text>
 </g>
 <!-- APIGateway&#45;&gt;LoggingService -->
-<g id="edge69" class="edge" data-name="APIGateway-&gt;LoggingService">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M820.87,-882.3C1101.88,-879.14 2367.81,-862.44 2436.92,-817.27 2488.75,-783.41 2513.17,-712.65 2524.02,-666.21" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="2527.38,-667.26 2526.11,-656.74 2520.54,-665.75 2527.38,-667.26" style=""/>
-<text text-anchor="middle" x="2526.1" y="-726.87" font-family="Arial" font-size="14.00" fill="#666666" style="">Logs</text>
+<g id="edge69" class="edge">
+<title>APIGateway-&gt;LoggingService</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M877.87,-885.74C1151.22,-882.06 2346.09,-863.55 2411.49,-820.65 2463.4,-786.59 2487.8,-715.61 2498.62,-669.03"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="2501.98,-670.04 2500.7,-659.52 2495.14,-668.54 2501.98,-670.04"/>
+<text text-anchor="middle" x="2501.68" y="-730.05" font-family="Arial" font-size="14.00" fill="#666666">Logs</text>
 </g>
 <!-- UserManager&#45;&gt;Database -->
-<g id="edge64" class="edge" data-name="UserManager-&gt;Database">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M287.46,-725.27C259.5,-719.96 229.27,-709.51 207.92,-689.27 167.19,-650.66 177.69,-624.6 168.91,-569.16 157.57,-497.51 197,-418.43 224.19,-374.14" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="227.13,-376.04 229.49,-365.71 221.2,-372.31 227.13,-376.04" style=""/>
-<text text-anchor="middle" x="182.93" y="-556.56" font-family="Arial" font-size="14.00" fill="#666666" style="">SQL</text>
+<g id="edge64" class="edge">
+<title>UserManager-&gt;Database</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M253.01,-728.35C225.05,-723.01 194.82,-712.52 173.49,-692.25 132.63,-653.41 143.25,-627.25 134.48,-571.56 123.74,-503.43 158.62,-428.57 185.44,-383.1"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="188.41,-384.95 190.59,-374.58 182.42,-381.32 188.41,-384.95"/>
+<text text-anchor="middle" x="148.48" y="-558.96" font-family="Arial" font-size="14.00" fill="#666666">SQL</text>
 </g>
 <!-- FlowRegistry&#45;&gt;Database -->
-<g id="edge63" class="edge" data-name="FlowRegistry-&gt;Database">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M506.89,-707.24C470.87,-672.23 401.98,-602.21 353.92,-534.36 318.89,-484.9 286.94,-422.59 267.48,-381.83" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="270.66,-380.37 263.22,-372.83 264.33,-383.36 270.66,-380.37" style=""/>
-<text text-anchor="middle" x="391.93" y="-556.56" font-family="Arial" font-size="14.00" fill="#666666" style="">SQL</text>
+<g id="edge63" class="edge">
+<title>FlowRegistry-&gt;Database</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M473.37,-709.94C437.57,-674.6 369.45,-604.37 321.49,-536.76 286.09,-486.86 253.39,-424.18 233.45,-383.31"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="236.71,-382.02 229.21,-374.54 230.41,-385.06 236.71,-382.02"/>
+<text text-anchor="middle" x="360.36" y="-558.96" font-family="Arial" font-size="14.00" fill="#666666">SQL</text>
 </g>
 <!-- AccessValidator&#45;&gt;BlockchainInterface -->
-<g id="edge21" class="edge" data-name="AccessValidator-&gt;BlockchainInterface">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M906.19,-596.76C904.15,-579.53 901.32,-555.68 899.01,-536.18" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="902.52,-536.02 897.86,-526.5 895.56,-536.84 902.52,-536.02" style=""/>
+<g id="edge21" class="edge">
+<title>AccessValidator-&gt;BlockchainInterface</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M875.72,-599.06C873.69,-581.83 870.9,-558.13 868.6,-538.68"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="872.11,-538.55 867.46,-529.03 865.16,-539.37 872.11,-538.55"/>
 </g>
 <!-- ChatHistoryStore&#45;&gt;Database -->
-<g id="edge62" class="edge" data-name="ChatHistoryStore-&gt;Database">
-
-<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M516.08,-476.68C463.51,-449.7 375.86,-404.71 315.15,-373.55" style=""/>
-<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="317,-370.56 306.51,-369.11 313.81,-376.79 317,-370.56" style=""/>
-<text text-anchor="middle" x="472.93" y="-436.44" font-family="Arial" font-size="14.00" fill="#666666" style="">SQL</text>
+<g id="edge62" class="edge">
+<title>ChatHistoryStore-&gt;Database</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M482.69,-478.39C429.78,-451.33 342.23,-406.54 281.39,-375.42"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="283.23,-372.43 272.73,-370.99 280.04,-378.66 283.23,-372.43"/>
+<text text-anchor="middle" x="440.61" y="-438.28" font-family="Arial" font-size="14.00" fill="#666666">SQL</text>
 </g>
 <!-- ElementRegistry -->
-<g id="node21" class="node" pointer-events="visible" data-name="ElementRegistry">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1722.02,-644.42C1722.02,-644.42 1611.83,-644.42 1611.83,-644.42 1605.83,-644.42 1599.83,-638.42 1599.83,-632.42 1599.83,-632.42 1599.83,-609.21 1599.83,-609.21 1599.83,-603.21 1605.83,-597.21 1611.83,-597.21 1611.83,-597.21 1722.02,-597.21 1722.02,-597.21 1728.02,-597.21 1734.02,-603.21 1734.02,-609.21 1734.02,-609.21 1734.02,-632.42 1734.02,-632.42 1734.02,-638.42 1728.02,-644.42 1722.02,-644.42" style=""/>
-<text text-anchor="middle" x="1666.92" y="-625.02" font-family="Arial" font-size="14.00" fill="#333333" style="">Element Registry</text>
-<text text-anchor="middle" x="1666.92" y="-608.22" font-family="Arial" font-size="14.00" fill="#333333" style="">(Python)</text>
+<g id="node21" class="node">
+<title>ElementRegistry</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1694.19,-647.51C1694.19,-647.51 1582.79,-647.51 1582.79,-647.51 1576.79,-647.51 1570.79,-641.51 1570.79,-635.51 1570.79,-635.51 1570.79,-611.51 1570.79,-611.51 1570.79,-605.51 1576.79,-599.51 1582.79,-599.51 1582.79,-599.51 1694.19,-599.51 1694.19,-599.51 1700.19,-599.51 1706.19,-605.51 1706.19,-611.51 1706.19,-611.51 1706.19,-635.51 1706.19,-635.51 1706.19,-641.51 1700.19,-647.51 1694.19,-647.51"/>
+<text text-anchor="middle" x="1638.49" y="-627.71" font-family="Arial" font-size="14.00" fill="#333333">Element Registry</text>
+<text text-anchor="middle" x="1638.49" y="-610.91" font-family="Arial" font-size="14.00" fill="#333333">(Python)</text>
 </g>
 <!-- FlowExecutor&#45;&gt;ElementRegistry -->
-<g id="edge24" class="edge" data-name="FlowExecutor-&gt;ElementRegistry">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1584.98,-707.12C1600.15,-691.33 1620.47,-670.17 1637.08,-652.88" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1639.24,-655.69 1643.64,-646.05 1634.19,-650.84 1639.24,-655.69" style=""/>
+<g id="edge24" class="edge">
+<title>FlowExecutor-&gt;ElementRegistry</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1557.59,-709.92C1572.52,-694.15 1592.42,-673.15 1608.74,-655.91"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1610.84,-658.78 1615.18,-649.11 1605.76,-653.97 1610.84,-658.78"/>
 </g>
 <!-- FlowExecutor&#45;&gt;StreamManager -->
-<g id="edge25" class="edge" data-name="FlowExecutor-&gt;StreamManager">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1555.76,-707.19C1551.61,-696.06 1545.67,-682.88 1537.92,-672.47 1532.6,-665.32 1526.09,-658.52 1519.33,-652.35" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1521.95,-649.99 1512.09,-646.09 1517.37,-655.28 1521.95,-649.99" style=""/>
+<g id="edge25" class="edge">
+<title>FlowExecutor-&gt;StreamManager</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1521.4,-709.82C1514.59,-699.05 1506.05,-686.28 1497.49,-675.45 1492.36,-668.96 1486.57,-662.32 1480.82,-656.07"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1483.73,-654.05 1474.33,-649.16 1478.63,-658.84 1483.73,-654.05"/>
 </g>
 <!-- AIConnector -->
-<g id="node23" class="node" pointer-events="visible" data-name="AIConnector">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1580.21,-361.64C1580.21,-361.64 1443.64,-361.64 1443.64,-361.64 1437.64,-361.64 1431.64,-355.64 1431.64,-349.64 1431.64,-349.64 1431.64,-326.44 1431.64,-326.44 1431.64,-320.44 1437.64,-314.44 1443.64,-314.44 1443.64,-314.44 1580.21,-314.44 1580.21,-314.44 1586.21,-314.44 1592.21,-320.44 1592.21,-326.44 1592.21,-326.44 1592.21,-349.64 1592.21,-349.64 1592.21,-355.64 1586.21,-361.64 1580.21,-361.64" style=""/>
-<text text-anchor="middle" x="1511.92" y="-342.24" font-family="Arial" font-size="14.00" fill="#333333" style="">AI Service Connector</text>
-<text text-anchor="middle" x="1511.92" y="-325.44" font-family="Arial" font-size="14.00" fill="#333333" style="">(AWS SDK)</text>
+<g id="node23" class="node">
+<title>AIConnector</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1551.03,-363.68C1551.03,-363.68 1413.95,-363.68 1413.95,-363.68 1407.95,-363.68 1401.95,-357.68 1401.95,-351.68 1401.95,-351.68 1401.95,-327.68 1401.95,-327.68 1401.95,-321.68 1407.95,-315.68 1413.95,-315.68 1413.95,-315.68 1551.03,-315.68 1551.03,-315.68 1557.03,-315.68 1563.03,-321.68 1563.03,-327.68 1563.03,-327.68 1563.03,-351.68 1563.03,-351.68 1563.03,-357.68 1557.03,-363.68 1551.03,-363.68"/>
+<text text-anchor="middle" x="1482.49" y="-343.88" font-family="Arial" font-size="14.00" fill="#333333">AI Service Connector</text>
+<text text-anchor="middle" x="1482.49" y="-327.08" font-family="Arial" font-size="14.00" fill="#333333">(AWS SDK)</text>
 </g>
 <!-- FlowExecutor&#45;&gt;AIConnector -->
-<g id="edge27" class="edge" data-name="FlowExecutor-&gt;AIConnector">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1568.18,-707.05C1573.74,-676.55 1578.55,-622.5 1552.92,-587.16 1516.31,-536.67 1457.75,-586.09 1422.92,-534.36 1386.86,-480.79 1440.4,-410.25 1478.76,-370.26" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1481.13,-372.85 1485.64,-363.26 1476.14,-367.94 1481.13,-372.85" style=""/>
+<g id="edge27" class="edge">
+<title>FlowExecutor-&gt;AIConnector</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1540.86,-709.82C1546.47,-679.08 1551.27,-624.93 1525.49,-589.56 1488.27,-538.5 1428.91,-589.09 1393.49,-536.76 1357.27,-483.26 1410.51,-412.64 1448.93,-372.39"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1451.34,-374.93 1455.84,-365.34 1446.34,-370.03 1451.34,-374.93"/>
 </g>
 <!-- ValidationService -->
-<g id="node24" class="node" pointer-events="visible" data-name="ValidationService">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1879.98,-644.42C1879.98,-644.42 1763.86,-644.42 1763.86,-644.42 1757.86,-644.42 1751.86,-638.42 1751.86,-632.42 1751.86,-632.42 1751.86,-609.21 1751.86,-609.21 1751.86,-603.21 1757.86,-597.21 1763.86,-597.21 1763.86,-597.21 1879.98,-597.21 1879.98,-597.21 1885.98,-597.21 1891.98,-603.21 1891.98,-609.21 1891.98,-609.21 1891.98,-632.42 1891.98,-632.42 1891.98,-638.42 1885.98,-644.42 1879.98,-644.42" style=""/>
-<text text-anchor="middle" x="1821.92" y="-625.02" font-family="Arial" font-size="14.00" fill="#333333" style="">Validation Service</text>
-<text text-anchor="middle" x="1821.92" y="-608.22" font-family="Arial" font-size="14.00" fill="#333333" style="">(JSON Schema)</text>
+<g id="node24" class="node">
+<title>ValidationService</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1852.92,-647.51C1852.92,-647.51 1736.06,-647.51 1736.06,-647.51 1730.06,-647.51 1724.06,-641.51 1724.06,-635.51 1724.06,-635.51 1724.06,-611.51 1724.06,-611.51 1724.06,-605.51 1730.06,-599.51 1736.06,-599.51 1736.06,-599.51 1852.92,-599.51 1852.92,-599.51 1858.92,-599.51 1864.92,-605.51 1864.92,-611.51 1864.92,-611.51 1864.92,-635.51 1864.92,-635.51 1864.92,-641.51 1858.92,-647.51 1852.92,-647.51"/>
+<text text-anchor="middle" x="1794.49" y="-627.71" font-family="Arial" font-size="14.00" fill="#333333">Validation Service</text>
+<text text-anchor="middle" x="1794.49" y="-610.91" font-family="Arial" font-size="14.00" fill="#333333">(JSON Schema)</text>
 </g>
 <!-- FlowExecutor&#45;&gt;ValidationService -->
-<g id="edge26" class="edge" data-name="FlowExecutor-&gt;ValidationService">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1618.17,-706.98C1658.48,-690.13 1713.31,-667.22 1755.93,-649.4" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1757.21,-652.66 1765.09,-645.57 1754.51,-646.2 1757.21,-652.66" style=""/>
+<g id="edge26" class="edge">
+<title>FlowExecutor-&gt;ValidationService</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1591.37,-709.79C1631.45,-692.96 1685.62,-670.21 1727.94,-652.44"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1729.17,-655.73 1737.03,-648.63 1726.46,-649.27 1729.17,-655.73"/>
 </g>
 <!-- SecurityManager -->
-<g id="node25" class="node" pointer-events="visible" data-name="SecurityManager">
-
-<path fill="#f5f5f5" stroke="#333333" d="M2035.64,-644.42C2035.64,-644.42 1922.21,-644.42 1922.21,-644.42 1916.21,-644.42 1910.21,-638.42 1910.21,-632.42 1910.21,-632.42 1910.21,-609.21 1910.21,-609.21 1910.21,-603.21 1916.21,-597.21 1922.21,-597.21 1922.21,-597.21 2035.64,-597.21 2035.64,-597.21 2041.64,-597.21 2047.64,-603.21 2047.64,-609.21 2047.64,-609.21 2047.64,-632.42 2047.64,-632.42 2047.64,-638.42 2041.64,-644.42 2035.64,-644.42" style=""/>
-<text text-anchor="middle" x="1978.92" y="-625.02" font-family="Arial" font-size="14.00" fill="#333333" style="">Security Manager</text>
-<text text-anchor="middle" x="1978.92" y="-608.22" font-family="Arial" font-size="14.00" fill="#333333" style="">(Python)</text>
+<g id="node25" class="node">
+<title>SecurityManager</title>
+<path fill="#f5f5f5" stroke="#333333" d="M2009.75,-647.51C2009.75,-647.51 1895.23,-647.51 1895.23,-647.51 1889.23,-647.51 1883.23,-641.51 1883.23,-635.51 1883.23,-635.51 1883.23,-611.51 1883.23,-611.51 1883.23,-605.51 1889.23,-599.51 1895.23,-599.51 1895.23,-599.51 2009.75,-599.51 2009.75,-599.51 2015.75,-599.51 2021.75,-605.51 2021.75,-611.51 2021.75,-611.51 2021.75,-635.51 2021.75,-635.51 2021.75,-641.51 2015.75,-647.51 2009.75,-647.51"/>
+<text text-anchor="middle" x="1952.49" y="-627.71" font-family="Arial" font-size="14.00" fill="#333333">Security Manager</text>
+<text text-anchor="middle" x="1952.49" y="-610.91" font-family="Arial" font-size="14.00" fill="#333333">(Python)</text>
 </g>
 <!-- FlowExecutor&#45;&gt;SecurityManager -->
-<g id="edge28" class="edge" data-name="FlowExecutor-&gt;SecurityManager">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1638.11,-717.2C1707.28,-704.43 1812.26,-682.71 1900.92,-654.47 1906.07,-652.83 1911.35,-650.99 1916.62,-649.04" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1917.6,-652.41 1925.68,-645.55 1915.09,-645.88 1917.6,-652.41" style=""/>
+<g id="edge28" class="edge">
+<title>FlowExecutor-&gt;SecurityManager</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1611,-720.22C1680.17,-707.38 1784.94,-685.6 1873.49,-657.45 1878.62,-655.82 1883.88,-653.99 1889.13,-652.05"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1890.06,-655.44 1898.15,-648.6 1887.56,-648.9 1890.06,-655.44"/>
 </g>
 <!-- FlowExecutor&#45;&gt;MessageQueue -->
-<g id="edge68" class="edge" data-name="FlowExecutor-&gt;MessageQueue">
-
-<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1487.89,-722.13C1403.88,-711.92 1264.39,-691 1148.92,-654.47 1148.25,-654.26 1147.57,-654.04 1146.89,-653.82" style=""/>
-<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1148.06,-650.52 1137.46,-650.52 1145.75,-657.13 1148.06,-650.52" style=""/>
-<text text-anchor="middle" x="1326.5" y="-676.67" font-family="Arial" font-size="14.00" fill="#666666" style="">Task Queuing</text>
+<g id="edge68" class="edge">
+<title>FlowExecutor-&gt;MessageQueue</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1459.86,-726.43C1413.65,-720.67 1353.91,-710.35 1303.33,-692.25 1289,-687.12 1287.96,-680.15 1273.49,-675.45 1210.88,-655.1 1187.78,-673.51 1119.47,-657.22"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1120.42,-653.85 1109.86,-654.75 1118.67,-660.63 1120.42,-653.85"/>
+<text text-anchor="middle" x="1346.91" y="-679.65" font-family="Arial" font-size="14.00" fill="#666666">Task Queuing</text>
 </g>
 <!-- FlowExecutor&#45;&gt;MonitoringSystem -->
-<g id="edge72" class="edge" data-name="FlowExecutor-&gt;MonitoringSystem">
-
-<path fill="none" stroke="#db4437" stroke-width="1.2" stroke-dasharray="5,2" d="M1501.71,-706.98C1459.57,-691.09 1403.13,-669.8 1357.22,-652.48" style=""/>
-<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1358.68,-649.29 1348.09,-649.04 1356.21,-655.84 1358.68,-649.29" style=""/>
-<text text-anchor="middle" x="1475.48" y="-676.67" font-family="Arial" font-size="14.00" fill="#666666" style="">Metrics</text>
+<g id="edge72" class="edge">
+<title>FlowExecutor-&gt;MonitoringSystem</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" stroke-dasharray="5,2" d="M1480.53,-709.86C1454.58,-699.04 1423.08,-686.22 1394.49,-675.45 1374.96,-668.09 1353.84,-660.57 1333.83,-653.63"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1335.15,-650.39 1324.56,-650.44 1332.87,-657.01 1335.15,-650.39"/>
+<text text-anchor="middle" x="1459.96" y="-679.65" font-family="Arial" font-size="14.00" fill="#666666">Metrics</text>
 </g>
 <!-- FlowExecutor&#45;&gt;LoggingService -->
-<g id="edge70" class="edge" data-name="FlowExecutor-&gt;LoggingService">
-
-<path fill="none" stroke="#db4437" stroke-width="1.2" stroke-dasharray="5,2" d="M1638.07,-729.73C1790.44,-727.69 2146.01,-716.09 2436.92,-654.47 2443.92,-652.99 2451.12,-651.15 2458.26,-649.09" style=""/>
-<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="2459.13,-652.49 2467.68,-646.24 2457.1,-645.79 2459.13,-652.49" style=""/>
-<text text-anchor="middle" x="2334.1" y="-676.67" font-family="Arial" font-size="14.00" fill="#666666" style="">Logs</text>
+<g id="edge70" class="edge">
+<title>FlowExecutor-&gt;LoggingService</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" stroke-dasharray="5,2" d="M1611.12,-732.96C1764.02,-731.02 2120.17,-719.55 2411.49,-657.45 2418.49,-655.95 2425.69,-654.09 2432.84,-652.02"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="2433.72,-655.41 2442.26,-649.15 2431.68,-648.72 2433.72,-655.41"/>
+<text text-anchor="middle" x="2309.27" y="-679.65" font-family="Arial" font-size="14.00" fill="#666666">Logs</text>
 </g>
 <!-- FlowControlElements -->
-<g id="node26" class="node" pointer-events="visible" data-name="FlowControlElements">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1927.25,-524.3C1927.25,-524.3 1782.6,-524.3 1782.6,-524.3 1776.6,-524.3 1770.6,-518.3 1770.6,-512.3 1770.6,-512.3 1770.6,-489.1 1770.6,-489.1 1770.6,-483.1 1776.6,-477.1 1782.6,-477.1 1782.6,-477.1 1927.25,-477.1 1927.25,-477.1 1933.25,-477.1 1939.25,-483.1 1939.25,-489.1 1939.25,-489.1 1939.25,-512.3 1939.25,-512.3 1939.25,-518.3 1933.25,-524.3 1927.25,-524.3" style=""/>
-<text text-anchor="middle" x="1854.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Flow Control Elements</text>
-<text text-anchor="middle" x="1854.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Conditional Logic)</text>
+<g id="node26" class="node">
+<title>FlowControlElements</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1900.3,-526.82C1900.3,-526.82 1754.68,-526.82 1754.68,-526.82 1748.68,-526.82 1742.68,-520.82 1742.68,-514.82 1742.68,-514.82 1742.68,-490.82 1742.68,-490.82 1742.68,-484.82 1748.68,-478.82 1754.68,-478.82 1754.68,-478.82 1900.3,-478.82 1900.3,-478.82 1906.3,-478.82 1912.3,-484.82 1912.3,-490.82 1912.3,-490.82 1912.3,-514.82 1912.3,-514.82 1912.3,-520.82 1906.3,-526.82 1900.3,-526.82"/>
+<text text-anchor="middle" x="1827.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Flow Control Elements</text>
+<text text-anchor="middle" x="1827.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Conditional Logic)</text>
 </g>
 <!-- ElementRegistry&#45;&gt;FlowControlElements -->
-<g id="edge29" class="edge" data-name="ElementRegistry-&gt;FlowControlElements">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1703.62,-596.76C1733.64,-577.9 1776.27,-551.12 1808.63,-530.78" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1810.18,-533.95 1816.78,-525.66 1806.45,-528.02 1810.18,-533.95" style=""/>
+<g id="edge29" class="edge">
+<title>ElementRegistry-&gt;FlowControlElements</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1675.83,-599.06C1705.86,-580.2 1748.22,-553.6 1780.54,-533.3"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1782.08,-536.47 1788.69,-528.19 1778.36,-530.54 1782.08,-536.47"/>
 </g>
 <!-- InputElements -->
-<g id="node27" class="node" pointer-events="visible" data-name="InputElements">
-
-<path fill="#f5f5f5" stroke="#333333" d="M2236.53,-524.3C2236.53,-524.3 2133.32,-524.3 2133.32,-524.3 2127.32,-524.3 2121.32,-518.3 2121.32,-512.3 2121.32,-512.3 2121.32,-489.1 2121.32,-489.1 2121.32,-483.1 2127.32,-477.1 2133.32,-477.1 2133.32,-477.1 2236.53,-477.1 2236.53,-477.1 2242.53,-477.1 2248.53,-483.1 2248.53,-489.1 2248.53,-489.1 2248.53,-512.3 2248.53,-512.3 2248.53,-518.3 2242.53,-524.3 2236.53,-524.3" style=""/>
-<text text-anchor="middle" x="2184.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Input Elements</text>
-<text text-anchor="middle" x="2184.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Data Ingestion)</text>
+<g id="node27" class="node">
+<title>InputElements</title>
+<path fill="#f5f5f5" stroke="#333333" d="M2210.69,-526.82C2210.69,-526.82 2106.29,-526.82 2106.29,-526.82 2100.29,-526.82 2094.29,-520.82 2094.29,-514.82 2094.29,-514.82 2094.29,-490.82 2094.29,-490.82 2094.29,-484.82 2100.29,-478.82 2106.29,-478.82 2106.29,-478.82 2210.69,-478.82 2210.69,-478.82 2216.69,-478.82 2222.69,-484.82 2222.69,-490.82 2222.69,-490.82 2222.69,-514.82 2222.69,-514.82 2222.69,-520.82 2216.69,-526.82 2210.69,-526.82"/>
+<text text-anchor="middle" x="2158.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Input Elements</text>
+<text text-anchor="middle" x="2158.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Data Ingestion)</text>
 </g>
 <!-- ElementRegistry&#45;&gt;InputElements -->
-<g id="edge30" class="edge" data-name="ElementRegistry-&gt;InputElements">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1715.29,-596.79C1724.33,-593.14 1733.8,-589.72 1742.92,-587.16 1822.67,-564.74 2032.35,-557.36 2111.92,-534.36 2117.15,-532.85 2122.49,-531.03 2127.78,-529.05" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2128.85,-532.39 2136.84,-525.43 2126.25,-525.89 2128.85,-532.39" style=""/>
+<g id="edge30" class="edge">
+<title>ElementRegistry-&gt;InputElements</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1687.92,-599.11C1696.94,-595.49 1706.39,-592.11 1715.49,-589.56 1795.47,-567.17 2005.73,-559.94 2085.49,-536.76 2090.64,-535.27 2095.9,-533.47 2101.12,-531.5"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2102.04,-534.9 2110.02,-527.94 2099.44,-528.4 2102.04,-534.9"/>
 </g>
 <!-- AIElements -->
-<g id="node28" class="node" pointer-events="visible" data-name="AIElements">
-
-<path fill="#f5f5f5" stroke="#333333" d="M2090.43,-524.3C2090.43,-524.3 1969.42,-524.3 1969.42,-524.3 1963.42,-524.3 1957.42,-518.3 1957.42,-512.3 1957.42,-512.3 1957.42,-489.1 1957.42,-489.1 1957.42,-483.1 1963.42,-477.1 1969.42,-477.1 1969.42,-477.1 2090.43,-477.1 2090.43,-477.1 2096.43,-477.1 2102.43,-483.1 2102.43,-489.1 2102.43,-489.1 2102.43,-512.3 2102.43,-512.3 2102.43,-518.3 2096.43,-524.3 2090.43,-524.3" style=""/>
-<text text-anchor="middle" x="2029.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">AI Elements</text>
-<text text-anchor="middle" x="2029.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Model Integration)</text>
+<g id="node28" class="node">
+<title>AIElements</title>
+<path fill="#f5f5f5" stroke="#333333" d="M2064.64,-526.82C2064.64,-526.82 1942.34,-526.82 1942.34,-526.82 1936.34,-526.82 1930.34,-520.82 1930.34,-514.82 1930.34,-514.82 1930.34,-490.82 1930.34,-490.82 1930.34,-484.82 1936.34,-478.82 1942.34,-478.82 1942.34,-478.82 2064.64,-478.82 2064.64,-478.82 2070.64,-478.82 2076.64,-484.82 2076.64,-490.82 2076.64,-490.82 2076.64,-514.82 2076.64,-514.82 2076.64,-520.82 2070.64,-526.82 2064.64,-526.82"/>
+<text text-anchor="middle" x="2003.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">AI Elements</text>
+<text text-anchor="middle" x="2003.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Model Integration)</text>
 </g>
 <!-- ElementRegistry&#45;&gt;AIElements -->
-<g id="edge31" class="edge" data-name="ElementRegistry-&gt;AIElements">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1717.6,-596.76C1725.98,-593.32 1734.63,-589.99 1742.92,-587.16 1831.96,-556.76 1858.48,-563.56 1947.92,-534.36 1953.34,-532.59 1958.91,-530.65 1964.48,-528.62" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1965.3,-532.05 1973.44,-525.27 1962.85,-525.49 1965.3,-532.05" style=""/>
+<g id="edge31" class="edge">
+<title>ElementRegistry-&gt;AIElements</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1690.26,-599.08C1698.61,-595.67 1707.23,-592.37 1715.49,-589.56 1804.98,-559.15 1831.67,-566.18 1921.49,-536.76 1926.6,-535.09 1931.84,-533.26 1937.09,-531.34"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1938,-534.74 1946.13,-527.96 1935.54,-528.19 1938,-534.74"/>
 </g>
 <!-- DataElements -->
-<g id="node29" class="node" pointer-events="visible" data-name="DataElements">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1551.89,-524.3C1551.89,-524.3 1443.95,-524.3 1443.95,-524.3 1437.95,-524.3 1431.95,-518.3 1431.95,-512.3 1431.95,-512.3 1431.95,-489.1 1431.95,-489.1 1431.95,-483.1 1437.95,-477.1 1443.95,-477.1 1443.95,-477.1 1551.89,-477.1 1551.89,-477.1 1557.89,-477.1 1563.89,-483.1 1563.89,-489.1 1563.89,-489.1 1563.89,-512.3 1563.89,-512.3 1563.89,-518.3 1557.89,-524.3 1551.89,-524.3" style=""/>
-<text text-anchor="middle" x="1497.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Data Elements</text>
-<text text-anchor="middle" x="1497.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Transformation)</text>
+<g id="node29" class="node">
+<title>DataElements</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1522.62,-526.82C1522.62,-526.82 1414.35,-526.82 1414.35,-526.82 1408.35,-526.82 1402.35,-520.82 1402.35,-514.82 1402.35,-514.82 1402.35,-490.82 1402.35,-490.82 1402.35,-484.82 1408.35,-478.82 1414.35,-478.82 1414.35,-478.82 1522.62,-478.82 1522.62,-478.82 1528.62,-478.82 1534.62,-484.82 1534.62,-490.82 1534.62,-490.82 1534.62,-514.82 1534.62,-514.82 1534.62,-520.82 1528.62,-526.82 1522.62,-526.82"/>
+<text text-anchor="middle" x="1468.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Data Elements</text>
+<text text-anchor="middle" x="1468.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Transformation)</text>
 </g>
 <!-- ElementRegistry&#45;&gt;DataElements -->
-<g id="edge32" class="edge" data-name="ElementRegistry-&gt;DataElements">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1633.94,-596.76C1607.18,-578.06 1569.29,-551.58 1540.29,-531.31" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1542.52,-528.6 1532.32,-525.74 1538.51,-534.33 1542.52,-528.6" style=""/>
+<g id="edge32" class="edge">
+<title>ElementRegistry-&gt;DataElements</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1604.9,-599.06C1578.13,-580.36 1540.45,-554.06 1511.47,-533.83"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1513.7,-531.12 1503.5,-528.26 1509.69,-536.86 1513.7,-531.12"/>
 </g>
 <!-- BlockchainElements -->
-<g id="node30" class="node" pointer-events="visible" data-name="BlockchainElements">
-
-<path fill="#f5f5f5" stroke="#333333" d="M2412.87,-524.3C2412.87,-524.3 2278.97,-524.3 2278.97,-524.3 2272.97,-524.3 2266.97,-518.3 2266.97,-512.3 2266.97,-512.3 2266.97,-489.1 2266.97,-489.1 2266.97,-483.1 2272.97,-477.1 2278.97,-477.1 2278.97,-477.1 2412.87,-477.1 2412.87,-477.1 2418.87,-477.1 2424.87,-483.1 2424.87,-489.1 2424.87,-489.1 2424.87,-512.3 2424.87,-512.3 2424.87,-518.3 2418.87,-524.3 2412.87,-524.3" style=""/>
-<text text-anchor="middle" x="2345.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Blockchain Elements</text>
-<text text-anchor="middle" x="2345.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Chain Interaction)</text>
+<g id="node30" class="node">
+<title>BlockchainElements</title>
+<path fill="#f5f5f5" stroke="#333333" d="M2387.86,-526.82C2387.86,-526.82 2253.11,-526.82 2253.11,-526.82 2247.11,-526.82 2241.11,-520.82 2241.11,-514.82 2241.11,-514.82 2241.11,-490.82 2241.11,-490.82 2241.11,-484.82 2247.11,-478.82 2253.11,-478.82 2253.11,-478.82 2387.86,-478.82 2387.86,-478.82 2393.86,-478.82 2399.86,-484.82 2399.86,-490.82 2399.86,-490.82 2399.86,-514.82 2399.86,-514.82 2399.86,-520.82 2393.86,-526.82 2387.86,-526.82"/>
+<text text-anchor="middle" x="2320.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Elements</text>
+<text text-anchor="middle" x="2320.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Chain Interaction)</text>
 </g>
 <!-- ElementRegistry&#45;&gt;BlockchainElements -->
-<g id="edge33" class="edge" data-name="ElementRegistry-&gt;BlockchainElements">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1714.37,-596.75C1723.66,-593 1733.46,-589.57 1742.92,-587.16 1826.41,-565.89 1850.21,-577.79 1935.92,-569.16 2079.14,-554.74 2117.82,-567.39 2257.92,-534.36 2264.9,-532.71 2272.07,-530.67 2279.17,-528.42" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2280.13,-531.79 2288.51,-525.3 2277.91,-525.15 2280.13,-531.79" style=""/>
+<g id="edge33" class="edge">
+<title>ElementRegistry-&gt;BlockchainElements</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1686.99,-599.07C1696.27,-595.36 1706.05,-591.96 1715.49,-589.56 1799.42,-568.28 1823.33,-580.22 1909.49,-571.56 2052.71,-557.18 2091.37,-569.73 2231.49,-536.76 2238.44,-535.13 2245.58,-533.11 2252.65,-530.87"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2253.57,-534.26 2261.95,-527.78 2251.36,-527.61 2253.57,-534.26"/>
 </g>
 <!-- OutputElements -->
-<g id="node31" class="node" pointer-events="visible" data-name="OutputElements">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1740.59,-524.3C1740.59,-524.3 1593.26,-524.3 1593.26,-524.3 1587.26,-524.3 1581.26,-518.3 1581.26,-512.3 1581.26,-512.3 1581.26,-489.1 1581.26,-489.1 1581.26,-483.1 1587.26,-477.1 1593.26,-477.1 1593.26,-477.1 1740.59,-477.1 1740.59,-477.1 1746.59,-477.1 1752.59,-483.1 1752.59,-489.1 1752.59,-489.1 1752.59,-512.3 1752.59,-512.3 1752.59,-518.3 1746.59,-524.3 1740.59,-524.3" style=""/>
-<text text-anchor="middle" x="1666.92" y="-504.9" font-family="Arial" font-size="14.00" fill="#333333" style="">Output Elements</text>
-<text text-anchor="middle" x="1666.92" y="-488.1" font-family="Arial" font-size="14.00" fill="#333333" style="">(Response Formatting)</text>
+<g id="node31" class="node">
+<title>OutputElements</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1712.47,-526.82C1712.47,-526.82 1564.51,-526.82 1564.51,-526.82 1558.51,-526.82 1552.51,-520.82 1552.51,-514.82 1552.51,-514.82 1552.51,-490.82 1552.51,-490.82 1552.51,-484.82 1558.51,-478.82 1564.51,-478.82 1564.51,-478.82 1712.47,-478.82 1712.47,-478.82 1718.47,-478.82 1724.47,-484.82 1724.47,-490.82 1724.47,-490.82 1724.47,-514.82 1724.47,-514.82 1724.47,-520.82 1718.47,-526.82 1712.47,-526.82"/>
+<text text-anchor="middle" x="1638.49" y="-507.02" font-family="Arial" font-size="14.00" fill="#333333">Output Elements</text>
+<text text-anchor="middle" x="1638.49" y="-490.22" font-family="Arial" font-size="14.00" fill="#333333">(Response Formatting)</text>
 </g>
 <!-- ElementRegistry&#45;&gt;OutputElements -->
-<g id="edge34" class="edge" data-name="ElementRegistry-&gt;OutputElements">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1666.92,-596.76C1666.92,-579.61 1666.92,-555.9 1666.92,-536.45" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1670.42,-536.51 1666.92,-526.51 1663.42,-536.51 1670.42,-536.51" style=""/>
+<g id="edge34" class="edge">
+<title>ElementRegistry-&gt;OutputElements</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1638.49,-599.06C1638.49,-581.91 1638.49,-558.35 1638.49,-538.96"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1641.99,-539.04 1638.49,-529.04 1634.99,-539.04 1641.99,-539.04"/>
 </g>
 <!-- BedrockAI -->
-<g id="node40" class="node" pointer-events="visible" data-name="BedrockAI">
-
-<ellipse fill="#232f3e" stroke="#333333" cx="1511.92" cy="-218.86" rx="107.67" ry="33.82" style=""/>
-<text text-anchor="middle" x="1511.92" y="-223.06" font-family="Arial" font-size="14.00" fill="white" style="">AWS Bedrock</text>
-<text text-anchor="middle" x="1511.92" y="-206.26" font-family="Arial" font-size="14.00" fill="white" style="">(Claude / Anthropic)</text>
+<g id="node40" class="node">
+<title>BedrockAI</title>
+<ellipse fill="#232f3e" stroke="#333333" cx="1482.49" cy="-219.94" rx="108.4" ry="33.94"/>
+<text text-anchor="middle" x="1482.49" y="-224.14" font-family="Arial" font-size="14.00" fill="white">AWS Bedrock</text>
+<text text-anchor="middle" x="1482.49" y="-207.34" font-family="Arial" font-size="14.00" fill="white">(Claude / Anthropic)</text>
 </g>
 <!-- AIConnector&#45;&gt;BedrockAI -->
-<g id="edge56" class="edge" data-name="AIConnector-&gt;BedrockAI">
-
-<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1511.92,-314.17C1511.92,-299.99 1511.92,-281.3 1511.92,-264.3" style=""/>
-<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1515.42,-264.69 1511.92,-254.69 1508.42,-264.69 1515.42,-264.69" style=""/>
-<text text-anchor="middle" x="1523.21" y="-274.72" font-family="Arial" font-size="14.00" fill="#666666" style="">API</text>
+<g id="edge56" class="edge">
+<title>AIConnector-&gt;BedrockAI</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1482.49,-315.42C1482.49,-301.15 1482.49,-282.42 1482.49,-265.4"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1485.99,-265.78 1482.49,-255.78 1478.99,-265.78 1485.99,-265.78"/>
+<text text-anchor="middle" x="1493.77" y="-276.08" font-family="Arial" font-size="14.00" fill="#666666">API</text>
 </g>
 <!-- DeepSeekAI -->
-<g id="node41" class="node" pointer-events="visible" data-name="DeepSeekAI">
-
-<ellipse fill="#5a2ca0" stroke="#333333" cx="1749.92" cy="-218.86" rx="111.91" ry="33.82" style=""/>
-<text text-anchor="middle" x="1749.92" y="-223.06" font-family="Arial" font-size="14.00" fill="white" style="">DeepSeek Reasoner</text>
-<text text-anchor="middle" x="1749.92" y="-206.26" font-family="Arial" font-size="14.00" fill="white" style="">(Custom AI Model)</text>
+<g id="node41" class="node">
+<title>DeepSeekAI</title>
+<ellipse fill="#5a2ca0" stroke="#333333" cx="1721.49" cy="-219.94" rx="112.27" ry="33.94"/>
+<text text-anchor="middle" x="1721.49" y="-224.14" font-family="Arial" font-size="14.00" fill="white">DeepSeek Reasoner</text>
+<text text-anchor="middle" x="1721.49" y="-207.34" font-family="Arial" font-size="14.00" fill="white">(Custom AI Model)</text>
 </g>
 <!-- AIConnector&#45;&gt;DeepSeekAI -->
-<g id="edge57" class="edge" data-name="AIConnector-&gt;DeepSeekAI">
-
-<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1558.66,-314.03C1593.75,-296.75 1642.34,-272.83 1681.76,-253.42" style=""/>
-<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1683.3,-256.56 1690.73,-249 1680.21,-250.28 1683.3,-256.56" style=""/>
-<text text-anchor="middle" x="1656.21" y="-274.72" font-family="Arial" font-size="14.00" fill="#666666" style="">API</text>
+<g id="edge57" class="edge">
+<title>AIConnector-&gt;DeepSeekAI</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1529.99,-315.28C1565.28,-297.89 1613.93,-273.93 1653.36,-254.51"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1654.9,-257.65 1662.32,-250.09 1651.81,-251.37 1654.9,-257.65"/>
+<text text-anchor="middle" x="1627.58" y="-276.08" font-family="Arial" font-size="14.00" fill="#666666">API</text>
 </g>
 <!-- AIElements&#45;&gt;AIConnector -->
-<g id="edge35" class="edge" data-name="AIElements-&gt;AIConnector">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1978.1,-476.75C1968.23,-473.04 1957.87,-469.59 1947.92,-467.04 1797.4,-428.47 1741.3,-490.87 1600.92,-424.24 1575.35,-412.1 1552.43,-389.74 1536.26,-370.98" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1539.13,-368.95 1530.04,-363.51 1533.75,-373.43 1539.13,-368.95" style=""/>
+<g id="edge35" class="edge">
+<title>AIElements-&gt;AIConnector</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1950.79,-478.33C1941.19,-474.72 1931.15,-471.37 1921.49,-468.88 1770.15,-429.92 1713.84,-492.73 1572.49,-426.08 1546.71,-413.92 1523.53,-391.51 1507.15,-372.7"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1509.96,-370.6 1500.85,-365.2 1504.6,-375.11 1509.96,-370.6"/>
 </g>
 <!-- BlockchainInterface2 -->
-<g id="node32" class="node" pointer-events="visible" data-name="BlockchainInterface2">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1751.99,-361.64C1751.99,-361.64 1621.86,-361.64 1621.86,-361.64 1615.86,-361.64 1609.86,-355.64 1609.86,-349.64 1609.86,-349.64 1609.86,-326.44 1609.86,-326.44 1609.86,-320.44 1615.86,-314.44 1621.86,-314.44 1621.86,-314.44 1751.99,-314.44 1751.99,-314.44 1757.99,-314.44 1763.99,-320.44 1763.99,-326.44 1763.99,-326.44 1763.99,-349.64 1763.99,-349.64 1763.99,-355.64 1757.99,-361.64 1751.99,-361.64" style=""/>
-<text text-anchor="middle" x="1686.92" y="-342.24" font-family="Arial" font-size="14.00" fill="#333333" style="">Blockchain Interface</text>
-<text text-anchor="middle" x="1686.92" y="-325.44" font-family="Arial" font-size="14.00" fill="#333333" style="">(Backend 1)</text>
+<g id="node32" class="node">
+<title>BlockchainInterface2</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1723.92,-363.68C1723.92,-363.68 1593.05,-363.68 1593.05,-363.68 1587.05,-363.68 1581.05,-357.68 1581.05,-351.68 1581.05,-351.68 1581.05,-327.68 1581.05,-327.68 1581.05,-321.68 1587.05,-315.68 1593.05,-315.68 1593.05,-315.68 1723.92,-315.68 1723.92,-315.68 1729.92,-315.68 1735.92,-321.68 1735.92,-327.68 1735.92,-327.68 1735.92,-351.68 1735.92,-351.68 1735.92,-357.68 1729.92,-363.68 1723.92,-363.68"/>
+<text text-anchor="middle" x="1658.49" y="-343.88" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Interface</text>
+<text text-anchor="middle" x="1658.49" y="-327.08" font-family="Arial" font-size="14.00" fill="#333333">(Backend 1)</text>
 </g>
 <!-- BlockchainElements&#45;&gt;BlockchainInterface2 -->
-<g id="edge36" class="edge" data-name="BlockchainElements-&gt;BlockchainInterface2">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M2287.12,-476.63C2277.44,-473.2 2267.45,-469.86 2257.92,-467.04 2089.82,-417.25 1888.88,-376.42 1775.76,-355.1" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1776.68,-351.71 1766.21,-353.31 1775.39,-358.59 1776.68,-351.71" style=""/>
-<text text-anchor="middle" x="2213.21" y="-436.44" font-family="Arial" font-size="14.00" fill="#666666" style="">RPC Calls</text>
+<g id="edge36" class="edge">
+<title>BlockchainElements-&gt;BlockchainInterface2</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2260.54,-478.39C2250.89,-474.98 2240.97,-471.68 2231.49,-468.88 2062.78,-419.03 1861.14,-378.13 1747.64,-356.77"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1748.52,-353.38 1738.04,-354.97 1747.23,-360.26 1748.52,-353.38"/>
+<text text-anchor="middle" x="2186.91" y="-438.28" font-family="Arial" font-size="14.00" fill="#666666">RPC Calls</text>
 </g>
 <!-- BlockchainInterface2&#45;&gt;TransactionProcessor -->
-<g id="edge58" class="edge" data-name="BlockchainInterface2-&gt;TransactionProcessor">
-
-<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1671.09,-361.92C1655.87,-382.49 1630.83,-410.75 1600.92,-423.03 1472.08,-475.95 1307.58,-409.38 1224.7,-367.4" style=""/>
-<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1226.39,-364.33 1215.9,-362.86 1223.19,-370.55 1226.39,-364.33" style=""/>
-<text text-anchor="middle" x="1331.92" y="-436.44" font-family="Arial" font-size="14.00" fill="#666666" style="">RPC</text>
+<g id="edge58" class="edge">
+<title>BlockchainInterface2-&gt;TransactionProcessor</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1642.37,-364.01C1627.13,-384.59 1602.22,-412.62 1572.49,-424.85 1435.68,-481.13 1260.37,-412.44 1172.66,-369.4"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1174.29,-366.3 1163.78,-364.97 1171.17,-372.57 1174.29,-366.3"/>
+<text text-anchor="middle" x="1303.49" y="-438.28" font-family="Arial" font-size="14.00" fill="#666666">RPC</text>
 </g>
 <!-- NFTContract -->
-<g id="node33" class="node" pointer-events="visible" data-name="NFTContract">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1097.66,-242.46C1097.66,-242.46 968.18,-242.46 968.18,-242.46 962.18,-242.46 956.18,-236.46 956.18,-230.46 956.18,-230.46 956.18,-207.26 956.18,-207.26 956.18,-201.26 962.18,-195.26 968.18,-195.26 968.18,-195.26 1097.66,-195.26 1097.66,-195.26 1103.66,-195.26 1109.66,-201.26 1109.66,-207.26 1109.66,-207.26 1109.66,-230.46 1109.66,-230.46 1109.66,-236.46 1103.66,-242.46 1097.66,-242.46" style=""/>
-<text text-anchor="middle" x="1032.92" y="-223.06" font-family="Arial" font-size="14.00" fill="#333333" style="">NFT Smart Contract</text>
-<text text-anchor="middle" x="1032.92" y="-206.26" font-family="Arial" font-size="14.00" fill="#333333" style="">(Move)</text>
+<g id="node33" class="node">
+<title>NFTContract</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1044.51,-243.94C1044.51,-243.94 914.47,-243.94 914.47,-243.94 908.47,-243.94 902.47,-237.94 902.47,-231.94 902.47,-231.94 902.47,-207.94 902.47,-207.94 902.47,-201.94 908.47,-195.94 914.47,-195.94 914.47,-195.94 1044.51,-195.94 1044.51,-195.94 1050.51,-195.94 1056.51,-201.94 1056.51,-207.94 1056.51,-207.94 1056.51,-231.94 1056.51,-231.94 1056.51,-237.94 1050.51,-243.94 1044.51,-243.94"/>
+<text text-anchor="middle" x="979.49" y="-224.14" font-family="Arial" font-size="14.00" fill="#333333">NFT Smart Contract</text>
+<text text-anchor="middle" x="979.49" y="-207.34" font-family="Arial" font-size="14.00" fill="#333333">(Move)</text>
 </g>
 <!-- AccessControl -->
-<g id="node34" class="node" pointer-events="visible" data-name="AccessControl">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1166.07,-148C1166.07,-148 1067.78,-148 1067.78,-148 1061.78,-148 1055.78,-142 1055.78,-136 1055.78,-136 1055.78,-112.8 1055.78,-112.8 1055.78,-106.8 1061.78,-100.8 1067.78,-100.8 1067.78,-100.8 1166.07,-100.8 1166.07,-100.8 1172.07,-100.8 1178.07,-106.8 1178.07,-112.8 1178.07,-112.8 1178.07,-136 1178.07,-136 1178.07,-142 1172.07,-148 1166.07,-148" style=""/>
-<text text-anchor="middle" x="1116.92" y="-128.6" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Control</text>
-<text text-anchor="middle" x="1116.92" y="-111.8" font-family="Arial" font-size="14.00" fill="#333333" style="">(Move)</text>
+<g id="node34" class="node">
+<title>AccessControl</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1135.96,-149C1135.96,-149 1037.02,-149 1037.02,-149 1031.02,-149 1025.02,-143 1025.02,-137 1025.02,-137 1025.02,-113 1025.02,-113 1025.02,-107 1031.02,-101 1037.02,-101 1037.02,-101 1135.96,-101 1135.96,-101 1141.96,-101 1147.96,-107 1147.96,-113 1147.96,-113 1147.96,-137 1147.96,-137 1147.96,-143 1141.96,-149 1135.96,-149"/>
+<text text-anchor="middle" x="1086.49" y="-129.2" font-family="Arial" font-size="14.00" fill="#333333">Access Control</text>
+<text text-anchor="middle" x="1086.49" y="-112.4" font-family="Arial" font-size="14.00" fill="#333333">(Move)</text>
 </g>
 <!-- NFTContract&#45;&gt;AccessControl -->
-<g id="edge37" class="edge" data-name="NFTContract-&gt;AccessControl">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1053.69,-195C1064.09,-183.56 1076.84,-169.52 1088.17,-157.05" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1090.75,-159.41 1094.89,-149.66 1085.57,-154.7 1090.75,-159.41" style=""/>
+<g id="edge37" class="edge">
+<title>NFTContract-&gt;AccessControl</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1006.49,-195.49C1019.92,-183.82 1036.34,-169.56 1050.79,-157.01"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1052.87,-159.84 1058.13,-150.64 1048.28,-154.55 1052.87,-159.84"/>
 </g>
 <!-- TokenRegistry -->
-<g id="node35" class="node" pointer-events="visible" data-name="TokenRegistry">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1043.87,-63.4C1043.87,-63.4 909.97,-63.4 909.97,-63.4 903.97,-63.4 897.97,-57.4 897.97,-51.4 897.97,-51.4 897.97,-28.2 897.97,-28.2 897.97,-22.2 903.97,-16.2 909.97,-16.2 909.97,-16.2 1043.87,-16.2 1043.87,-16.2 1049.87,-16.2 1055.87,-22.2 1055.87,-28.2 1055.87,-28.2 1055.87,-51.4 1055.87,-51.4 1055.87,-57.4 1049.87,-63.4 1043.87,-63.4" style=""/>
-<text text-anchor="middle" x="976.92" y="-44" font-family="Arial" font-size="14.00" fill="#333333" style="">Token Registry</text>
-<text text-anchor="middle" x="976.92" y="-27.2" font-family="Arial" font-size="14.00" fill="#333333" style="">(Blockchain Storage)</text>
+<g id="node35" class="node">
+<title>TokenRegistry</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1012.86,-64C1012.86,-64 878.11,-64 878.11,-64 872.11,-64 866.11,-58 866.11,-52 866.11,-52 866.11,-28 866.11,-28 866.11,-22 872.11,-16 878.11,-16 878.11,-16 1012.86,-16 1012.86,-16 1018.86,-16 1024.86,-22 1024.86,-28 1024.86,-28 1024.86,-52 1024.86,-52 1024.86,-58 1018.86,-64 1012.86,-64"/>
+<text text-anchor="middle" x="945.49" y="-44.2" font-family="Arial" font-size="14.00" fill="#333333">Token Registry</text>
+<text text-anchor="middle" x="945.49" y="-27.4" font-family="Arial" font-size="14.00" fill="#333333">(Blockchain Storage)</text>
 </g>
 <!-- NFTContract&#45;&gt;TokenRegistry -->
-<g id="edge38" class="edge" data-name="NFTContract-&gt;TokenRegistry">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1025.72,-195.07C1016.08,-164.61 998.92,-110.36 987.74,-74.99" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="991.09,-73.99 984.74,-65.51 984.42,-76.1 991.09,-73.99" style=""/>
+<g id="edge38" class="edge">
+<title>NFTContract-&gt;TokenRegistry</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M975.04,-195.68C969.19,-165.04 958.85,-110.91 952.08,-75.5"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="955.59,-75.22 950.28,-66.05 948.72,-76.53 955.59,-75.22"/>
 </g>
 <!-- NFTContract&#45;&gt;EventEmitter -->
-<g id="edge40" class="edge" data-name="NFTContract-&gt;EventEmitter">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1003.45,-195.07C962.52,-163.42 888.35,-106.08 842.89,-70.93" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="845.13,-68.24 835.08,-64.89 840.85,-73.77 845.13,-68.24" style=""/>
+<g id="edge40" class="edge">
+<title>NFTContract-&gt;EventEmitter</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M952.3,-195.68C915.24,-163.97 848.78,-107.12 807.58,-71.87"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="809.94,-69.29 800.07,-65.45 805.39,-74.61 809.94,-69.29"/>
 </g>
 <!-- AccessControl&#45;&gt;AccessValidator -->
-<g id="edge44" class="edge" data-name="AccessControl-&gt;AccessValidator">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1178.43,-136.04C1251,-150.38 1361.92,-178.7 1361.92,-217.86 1361.92,-501.7 1361.92,-501.7 1361.92,-501.7 1361.92,-518.49 1356.8,-524.9 1342.92,-534.36 1215.48,-621.23 1149.42,-549.2 999.92,-587.16 993.09,-588.89 986.05,-590.94 979.05,-593.14" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="978.27,-589.72 969.86,-596.16 980.45,-596.37 978.27,-589.72" style=""/>
+<g id="edge44" class="edge">
+<title>AccessControl-&gt;AccessValidator</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1148.18,-136.6C1221.34,-150.96 1333.49,-179.42 1333.49,-218.94 1333.49,-503.82 1333.49,-503.82 1333.49,-503.82 1333.49,-520.72 1328.44,-527.23 1314.49,-536.76 1186.06,-624.54 1119.17,-550.91 968.49,-589.56 961.98,-591.23 955.29,-593.19 948.64,-595.32"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="947.62,-591.97 939.23,-598.44 949.82,-598.61 947.62,-591.97"/>
 </g>
 <!-- AccessControl&#45;&gt;TokenRegistry -->
-<g id="edge39" class="edge" data-name="AccessControl-&gt;TokenRegistry">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1077.93,-100.39C1061.69,-90.81 1042.67,-79.59 1025.54,-69.49" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1027.67,-66.68 1017.28,-64.61 1024.11,-72.7 1027.67,-66.68" style=""/>
+<g id="edge39" class="edge">
+<title>AccessControl-&gt;TokenRegistry</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1052.9,-100.67C1043.51,-94.41 1033.21,-87.77 1023.49,-82 1016.77,-78.01 1009.63,-73.98 1002.5,-70.09"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1004.18,-67.02 993.72,-65.36 1000.87,-73.18 1004.18,-67.02"/>
 </g>
 <!-- AccessControl&#45;&gt;EventEmitter -->
-<g id="edge41" class="edge" data-name="AccessControl-&gt;EventEmitter">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1055.45,-107.38C1012.15,-96.07 952.51,-80.44 891.01,-64.15" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="892.24,-60.85 881.67,-61.67 890.44,-67.62 892.24,-60.85" style=""/>
+<g id="edge41" class="edge">
+<title>AccessControl-&gt;EventEmitter</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1024.75,-107.91C981.26,-96.56 921.36,-80.89 859.14,-64.43"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="860.23,-61.1 849.67,-61.93 858.44,-67.87 860.23,-61.1"/>
 </g>
 <!-- AccessLevels -->
-<g id="node38" class="node" pointer-events="visible" data-name="AccessLevels">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1375.61,-63.4C1375.61,-63.4 1262.23,-63.4 1262.23,-63.4 1256.23,-63.4 1250.23,-57.4 1250.23,-51.4 1250.23,-51.4 1250.23,-28.2 1250.23,-28.2 1250.23,-22.2 1256.23,-16.2 1262.23,-16.2 1262.23,-16.2 1375.61,-16.2 1375.61,-16.2 1381.61,-16.2 1387.61,-22.2 1387.61,-28.2 1387.61,-28.2 1387.61,-51.4 1387.61,-51.4 1387.61,-57.4 1381.61,-63.4 1375.61,-63.4" style=""/>
-<text text-anchor="middle" x="1318.92" y="-44" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Levels</text>
-<text text-anchor="middle" x="1318.92" y="-27.2" font-family="Arial" font-size="14.00" fill="#333333" style="">(6 Privilege Tiers)</text>
+<g id="node38" class="node">
+<title>AccessLevels</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1346.73,-64C1346.73,-64 1232.24,-64 1232.24,-64 1226.24,-64 1220.24,-58 1220.24,-52 1220.24,-52 1220.24,-28 1220.24,-28 1220.24,-22 1226.24,-16 1232.24,-16 1232.24,-16 1346.73,-16 1346.73,-16 1352.73,-16 1358.73,-22 1358.73,-28 1358.73,-28 1358.73,-52 1358.73,-52 1358.73,-58 1352.73,-64 1346.73,-64"/>
+<text text-anchor="middle" x="1289.49" y="-44.2" font-family="Arial" font-size="14.00" fill="#333333">Access Levels</text>
+<text text-anchor="middle" x="1289.49" y="-27.4" font-family="Arial" font-size="14.00" fill="#333333">(6 Privilege Tiers)</text>
 </g>
 <!-- AccessControl&#45;&gt;AccessLevels -->
-<g id="edge43" class="edge" data-name="AccessControl-&gt;AccessLevels">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1173.19,-100.39C1197.6,-90.41 1226.39,-78.64 1251.9,-68.21" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1252.99,-71.54 1260.93,-64.52 1250.35,-65.06 1252.99,-71.54" style=""/>
+<g id="edge43" class="edge">
+<title>AccessControl-&gt;AccessLevels</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1143.85,-100.55C1168.06,-90.65 1196.43,-79.05 1221.67,-68.73"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1222.66,-72.11 1230.59,-65.08 1220.01,-65.63 1222.66,-72.11"/>
 </g>
 <!-- AccessModifier -->
-<g id="node39" class="node" pointer-events="visible" data-name="AccessModifier">
-
-<path fill="#f5f5f5" stroke="#333333" d="M1219.84,-63.4C1219.84,-63.4 1086.01,-63.4 1086.01,-63.4 1080.01,-63.4 1074.01,-57.4 1074.01,-51.4 1074.01,-51.4 1074.01,-28.2 1074.01,-28.2 1074.01,-22.2 1080.01,-16.2 1086.01,-16.2 1086.01,-16.2 1219.84,-16.2 1219.84,-16.2 1225.84,-16.2 1231.84,-22.2 1231.84,-28.2 1231.84,-28.2 1231.84,-51.4 1231.84,-51.4 1231.84,-57.4 1225.84,-63.4 1219.84,-63.4" style=""/>
-<text text-anchor="middle" x="1152.92" y="-44" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Modifier</text>
-<text text-anchor="middle" x="1152.92" y="-27.2" font-family="Arial" font-size="14.00" fill="#333333" style="">(Permission Granter)</text>
+<g id="node39" class="node">
+<title>AccessModifier</title>
+<path fill="#f5f5f5" stroke="#333333" d="M1189.85,-64C1189.85,-64 1055.13,-64 1055.13,-64 1049.13,-64 1043.13,-58 1043.13,-52 1043.13,-52 1043.13,-28 1043.13,-28 1043.13,-22 1049.13,-16 1055.13,-16 1055.13,-16 1189.85,-16 1189.85,-16 1195.85,-16 1201.85,-22 1201.85,-28 1201.85,-28 1201.85,-52 1201.85,-52 1201.85,-58 1195.85,-64 1189.85,-64"/>
+<text text-anchor="middle" x="1122.49" y="-44.2" font-family="Arial" font-size="14.00" fill="#333333">Access Modifier</text>
+<text text-anchor="middle" x="1122.49" y="-27.4" font-family="Arial" font-size="14.00" fill="#333333">(Permission Granter)</text>
 </g>
 <!-- AccessControl&#45;&gt;AccessModifier -->
-<g id="edge45" class="edge" data-name="AccessControl-&gt;AccessModifier">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1126.95,-100.39C1130.46,-92.34 1134.48,-83.12 1138.29,-74.38" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1141.44,-75.92 1142.22,-65.35 1135.02,-73.12 1141.44,-75.92" style=""/>
+<g id="edge45" class="edge">
+<title>AccessControl-&gt;AccessModifier</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1096.52,-100.88C1100,-92.85 1103.98,-83.68 1107.76,-74.96"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1110.9,-76.52 1111.67,-65.95 1104.48,-73.73 1110.9,-76.52"/>
 </g>
 <!-- TransactionProcessor&#45;&gt;NFTContract -->
-<g id="edge42" class="edge" data-name="TransactionProcessor-&gt;NFTContract">
-
-<path fill="none" stroke="#666666" stroke-width="1.2" d="M1144.79,-314.17C1123.08,-295.86 1092.43,-270.03 1068.71,-250.03" style=""/>
-<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1071.28,-247.61 1061.37,-243.84 1066.76,-252.97 1071.28,-247.61" style=""/>
+<g id="edge42" class="edge">
+<title>TransactionProcessor-&gt;NFTContract</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1090.22,-315.42C1068.87,-297.2 1038.96,-271.68 1015.61,-251.76"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1017.96,-249.16 1008.08,-245.33 1013.41,-254.49 1017.96,-249.16"/>
 </g>
 <!-- WalletProvider&#45;&gt;TransactionProcessor -->
-<g id="edge66" class="edge" data-name="WalletProvider-&gt;TransactionProcessor">
-
-<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M113.91,-1012.34C124.45,-946.24 151.66,-794.06 195.78,-672.47 213.32,-624.12 229.44,-617.16 247.92,-569.16 264.83,-525.24 239.92,-497.34 275.92,-467.04 313.93,-435.06 671.75,-431.24 720.92,-424.24 844.24,-406.7 985.11,-378.81 1076.12,-359.76" style=""/>
-<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1076.68,-363.22 1085.74,-357.74 1075.24,-356.37 1076.68,-363.22" style=""/>
-<text text-anchor="middle" x="236" y="-676.67" font-family="Arial" font-size="14.00" fill="#666666" style="">Transactions</text>
+<g id="edge66" class="edge">
+<title>WalletProvider-&gt;TransactionProcessor</title>
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M110.47,-1016.27C113.22,-949.94 123.47,-797.24 161.34,-675.45 176.68,-626.12 195.01,-619.81 213.49,-571.56 230.41,-527.39 205.31,-499.36 241.49,-468.88 279.65,-436.74 639.13,-433.34 688.49,-426.08 803.72,-409.14 934.85,-381.85 1021.48,-362.69"/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1022.09,-366.14 1031.1,-360.55 1020.58,-359.3 1022.09,-366.14"/>
+<text text-anchor="middle" x="201.42" y="-679.65" font-family="Arial" font-size="14.00" fill="#666666">Transactions</text>
 </g>
 <!-- ExternalUsers -->
-<g id="node46" class="node" pointer-events="visible" data-name="ExternalUsers">
-
-<ellipse fill="#aaaaaa" stroke="#333333" cx="1242.92" cy="-500.7" rx="90.51" ry="33.82" style=""/>
-<text text-anchor="middle" x="1242.92" y="-504.9" font-family="Arial" font-size="14.00" fill="white" style="">External Users</text>
-<text text-anchor="middle" x="1242.92" y="-488.1" font-family="Arial" font-size="14.00" fill="white" style="">(Wallet Owners)</text>
+<g id="node46" class="node">
+<title>ExternalUsers</title>
+<ellipse fill="#aaaaaa" stroke="#333333" cx="1214.49" cy="-502.82" rx="91.32" ry="33.94"/>
+<text text-anchor="middle" x="1214.49" y="-507.02" font-family="Arial" font-size="14.00" fill="white">External Users</text>
+<text text-anchor="middle" x="1214.49" y="-490.22" font-family="Arial" font-size="14.00" fill="white">(Wallet Owners)</text>
 </g>
 <!-- ExternalUsers&#45;&gt;TransactionProcessor -->
-<g id="edge65" class="edge" data-name="ExternalUsers-&gt;TransactionProcessor">
-
-<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M1228.56,-467.19C1216.38,-439.63 1198.98,-400.26 1186.69,-372.45" style=""/>
-<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1189.9,-371.06 1182.66,-363.33 1183.5,-373.89 1189.9,-371.06" style=""/>
-<text text-anchor="middle" x="1260" y="-436.44" font-family="Arial" font-size="14.00" fill="#666666" style="">Transactions</text>
+<g id="edge65" class="edge">
+<title>ExternalUsers-&gt;TransactionProcessor</title>
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M1194.86,-469.21C1178.17,-441.49 1154.31,-401.85 1137.51,-373.94"/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1140.54,-372.18 1132.38,-365.42 1134.54,-375.79 1140.54,-372.18"/>
+<text text-anchor="middle" x="1223.19" y="-438.28" font-family="Arial" font-size="14.00" fill="#666666">Transactions</text>
 </g>
 </g>
 </svg>

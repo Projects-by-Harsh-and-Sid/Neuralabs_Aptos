@@ -116,10 +116,9 @@ Figure 1 illustrates the high-level architecture and interactions between these 
 The bidirectional arrows represent real-time communication channels that enable immediate updates and responsive interactions. Each component maintains a clear separation of responsibilities while working in concert to provide a seamless user experience.
 
 
-<!-- add image here using html tag -->
+<!-- add image here -->
 
-<img src="./documentation/01_overview.svg" alt="NeuraLabs Architecture" width="100%" margin="0%" padding="0%" />
-
+![NeuraLabs Architecture](./documentation/01_overview.svg)
 
 ### 2.2 Role of Blockchain in the System
 
@@ -146,6 +145,9 @@ The choice of Aptos as the blockchain platform leverages its high-performance Mo
 ### 3.1 Neura Execution Engine (Backend 1)
 
 The Neura Execution Engine represents the computational heart of the NeuraLabs platform, responsible for the actual execution of AI workflows. Implemented in Python using FastAPI for its asynchronous capabilities, this component manages the directed graph of execution elements that comprise each workflow. The Execution Engine operates as a stateless service that processes workflow definitions, resolves dependencies, and ensures proper data flow between components.
+
+![Neura Execution Engine](./documentation/02_neura_execution_engine.svg)
+
 
 #### 3.1.1 Core Functionality
 
@@ -217,6 +219,8 @@ This robust execution model enables workflows of arbitrary complexity while ensu
 
 The Neura Message Passer serves as the central coordinator for the entire system, managing communication between the client application, the blockchain, and the execution engine. This critical middleware component handles authentication, access control verification, data persistence, and message routing, ensuring that all interactions comply with the established permissions and maintain system integrity.
 
+![NeuraMessage Passing](./documentation/03_neura_message_passing.svg)
+
 #### 3.2.1 Core Functionality
 
 The Message Passer provides a comprehensive set of services that form the backbone of the NeuraLabs platform:
@@ -265,6 +269,9 @@ Each communication protocol implements appropriate security measures, including 
 
 ### 3.3 Client Application (Frontend)
 
+![Client Application](./documentation/04_client_application_architecture.svg)
+
+
 The frontend client application provides the user-facing interfaces for interacting with the NeuraLabs platform. Designed with a focus on usability and responsiveness, it abstracts the underlying complexity of the system while providing powerful tools for workflow creation, execution, and management. The client application communicates primarily with the Message Passer, which mediates access to the execution engine and blockchain.
 
 #### 3.3.1 Core Components
@@ -303,6 +310,8 @@ The frontend implementation emphasizes performance and responsiveness, with care
 
 The NeuraLabs NFT smart contract is implemented on the Aptos blockchain using the Move programming language. This contract provides the cryptographic foundation for ownership and access control, implementing the rules that govern how workflows can be owned, transferred, and accessed. The choice of Aptos and Move provides advantages in terms of resource-oriented programming, parallel execution, and formal verification capabilities.
 
+![Smart Contract Implementation](./documentation/05_blockchain.svg)
+
 #### 3.4.1 Contract Structure
 
 The smart contract implements a sophisticated structure to represent workflows as NFTs with associated access rights:
@@ -340,6 +349,9 @@ Each level encompasses all the permissions of the levels below it, creating a co
 The smart contract implements these levels as integer values, with clear definitions of the specific operations permitted at each level. The access control functions compare a user's assigned level against the minimum required level for different operations, providing a simple yet powerful mechanism for enforcing the access hierarchy.
 
 ## 4. Communication and Networking
+
+![Communication and Networking](./documentation/06_data_flow_diag.svg)
+
 
 ### 4.1 WebSocket Implementation
 
@@ -610,6 +622,176 @@ The Marketplace creates a virtuous cycle where high-quality workflows attract mo
 
 ## 7. Execution Model
 
+
+```mermaid
+sequenceDiagram
+    title Detailed Chat Interaction with AI Agent/Flow
+    
+    actor User
+    participant Frontend as Client Application
+    participant Wallet as Wallet Provider
+    participant Backend2 as Neura Message Passer
+    participant Blockchain as Aptos Blockchain
+    participant Backend1 as Neura Execution Engine
+    participant AIService as AI Service (Bedrock)
+    participant Database as Database & Storage
+    
+    %% Initial Authentication & Session Setup
+    User->>Frontend: 1. Open AI Chat Interface
+    
+    %% Authentication Flow
+    Frontend->>Wallet: 2. Request Wallet Connection
+    Wallet-->>User: 3. Request Permission
+    User->>Wallet: 4. Approve Connection
+    Wallet-->>Frontend: 5. Return Wallet Address
+    Frontend->>Backend2: 6. Authentication Request (address)
+    Backend2->>Blockchain: 7. Generate Challenge
+    Blockchain-->>Backend2: 8. Challenge Data
+    Backend2-->>Frontend: 9. Forward Challenge
+    Frontend->>Wallet: 10. Request Signature
+    Wallet-->>User: 11. Prompt for Signature
+    User->>Wallet: 12. Confirm Signature
+    Wallet-->>Frontend: 13. Return Signed Challenge
+    Frontend->>Backend2: 14. Send Signed Challenge
+    Backend2->>Blockchain: 15. Verify Signature
+    Blockchain-->>Backend2: 16. Signature Valid
+    
+    %% Session Creation
+    Backend2->>Database: 17. Create User Session
+    Database-->>Backend2: 18. Session Created
+    Backend2->>Backend2: 19. Generate JWT Token
+    Backend2-->>Frontend: 20. Return JWT + Session Info
+    Frontend->>Frontend: 21. Store Token in LocalStorage
+    
+    %% Access Verification
+    Backend2->>Blockchain: 22. Query NFT Access Rights
+    Note over Backend2,Blockchain: Check if user has access to requested flow
+    Blockchain->>Blockchain: 23. Call smart contract get_access_level()
+    Blockchain-->>Backend2: 24. Return Access Level (1-6)
+    Backend2->>Backend2: 25. Verify Sufficient Access (≥ Level 1)
+    
+    %% Fetch Chat History
+    Backend2->>Database: 26. Get Previous Conversation Context
+    Database-->>Backend2: 27. Return Chat History
+    Backend2-->>Frontend: 28. Send Chat History
+    Frontend->>Frontend: 29. Display Previous Messages
+    
+    %% WebSocket Setup for Live Updates
+    Frontend->>Backend2: 30. Open WebSocket Connection
+    Backend2-->>Frontend: 31. WebSocket Connection Established
+    
+    %% User Sends Message
+    User->>Frontend: 32. Type & Send Message
+    Frontend->>Frontend: 33. Show Message in UI
+    
+    %% Display Typing Indicator
+    Frontend->>Frontend: 34. Show Typing Indicator
+    
+    %% Send Message to Backend
+    Frontend->>Backend2: 35. Send Message (POST /chat with JWT)
+    Backend2->>Database: 36. Store User Message
+    Database-->>Backend2: 37. Message Stored
+    
+    %% Prepare for Flow Execution
+    Backend2->>Database: 38. Fetch Flow Definition
+    Database-->>Backend2: 39. Return Flow Definition
+    Backend2->>Backend2: 40. Prepare Initial Inputs
+    
+    %% Backend1 Setup
+    Backend2->>Backend1: 41. Request Flow Execution
+    Note over Backend2,Backend1: Send flow definition, inputs & stream URL
+    Backend1->>Backend1: 42. Initialize Flow Executor
+    Backend1->>Backend1: 43. Set Up Element Graph
+    
+    %% Start WebSocket for Streaming Updates
+    Backend1->>Backend2: 44. Open WebSocket Connection
+    Backend2-->>Backend1: 45. WebSocket Connection Established
+    
+    %% Execute Flow - Start
+    Backend1->>Backend2: 46. Stream: Flow Started Event
+    Backend2->>Frontend: 47. Forward: Flow Started Event
+    
+    %% Execute Input Elements
+    Backend1->>Backend1: 48. Execute Start Element
+    Backend1->>Backend2: 49. Stream: Start Element Completed
+    Backend2->>Frontend: 50. Forward: Element Update
+    
+    %% Execute Chat Input Element
+    Backend1->>Backend1: 51. Execute Chat Input Element
+    Backend1->>Backend2: 52. Stream: Chat Input Processed
+    Backend2->>Frontend: 53. Forward: Element Update
+    
+    %% Execute Context Element
+    Backend1->>Backend1: 54. Execute Context History Element
+    Backend1->>Backend2: 55. Stream: Context Element Completed
+    Backend2->>Frontend: 56. Forward: Element Update
+    
+    %% Verify Permissions During Execution
+    Backend1->>Blockchain: 57. Verify Execution Permission
+    Blockchain-->>Backend1: 58. Permission Confirmed
+    
+    %% Execute AI Element
+    Backend1->>Backend1: 59. Execute LLM Element
+    
+    %% AI Service Interaction
+    Backend1->>AIService: 60. Request AI Inference
+    AIService->>AIService: 61. Initialize Text Generation
+    
+    %% Streaming AI Response
+    AIService-->>Backend1: 62. Stream: First Token Chunk
+    Backend1->>Backend2: 63. Stream: LLM Chunk Event
+    Backend2->>Database: 64. Begin Storing Partial Response
+    Backend2->>Frontend: 65. Forward: LLM Chunk Event
+    Frontend->>Frontend: 66. Update UI with First Chunk
+    Frontend->>Frontend: 67. Remove Typing Indicator
+    
+    %% Continued Streaming (Multiple Chunks)
+    loop Token Streaming
+        AIService-->>Backend1: 68. Stream: Next Token Chunk
+        Backend1->>Backend2: 69. Stream: LLM Chunk Event
+        Backend2->>Database: 70. Update Partial Response
+        Backend2->>Frontend: 71. Forward: LLM Chunk Event
+        Frontend->>Frontend: 72. Update UI Incrementally
+    end
+    
+    %% AI Response Completion
+    AIService-->>Backend1: 73. Stream: Final Token Chunk
+    AIService-->>Backend1: 74. Generation Complete Signal
+    
+    %% Execute Output Elements
+    Backend1->>Backend1: 75. Process Response Formatting
+    Backend1->>Backend1: 76. Execute End Element
+    
+    %% Flow Completion
+    Backend1->>Backend2: 77. Stream: Flow Completed Event
+    Backend2->>Database: 78. Finalize Response Storage
+    Database-->>Backend2: 79. Storage Confirmed
+    Backend2->>Frontend: 80. Forward: Flow Completed Event
+    Frontend->>Frontend: 81. Update UI Completion State
+    
+    %% Close Streaming Connections
+    Backend1->>Backend2: 82. Close Streaming Connection
+    Backend2-->>Backend1: 83. Connection Closed Confirmation
+    
+    %% Analytics & Logging
+    Backend2->>Database: 84. Store Usage Analytics
+    Backend2->>Backend2: 85. Update Rate Limiting Counters
+    
+    %% Cleanup
+    Backend1->>Backend1: 86. Release Resources
+    
+    %% UI Finalization
+    Frontend->>Frontend: 87. Enable Further User Input
+    Frontend->>User: 88. Show Completed Response
+    
+    %% Keep WebSocket Open for Next Message
+    Note over Frontend,Backend2: WebSocket remains open for next interaction
+
+```
+
+
+
+
 ### 7.1 Flow Compilation
 
 The platform translates visual workflow definitions created in the Flow Creator Canvas into executable representations through a sophisticated multi-stage process. This compilation pipeline ensures that workflows can be efficiently executed while preserving the creator's intent and structure.
@@ -762,6 +944,8 @@ Throughout this evolution, the platform will maintain compatibility with existin
 
 ## 8. Security and Access Control
 
+![Client Application](./documentation/04_client_application_architecture.svg)
+
 ### 8.1 NFT Access Level Implementation
 
 The NFT-based access control system implements a hierarchical structure of six distinct levels, each providing different capabilities and rights related to workflow usage and modification. This granular approach allows workflow creators to precisely control how their intellectual property can be used while enabling flexible sharing and monetization models.
@@ -834,6 +1018,9 @@ The six access levels are implemented as integer values in the smart contract, w
 The smart contract implements these levels through clear functional boundaries and permission checks. Each operation on a workflow is associated with a minimum required access level, and the contract verifies that users have at least that level before allowing the operation to proceed.
 
 The hierarchical nature of the access levels creates a coherent, intuitively understandable permission structure that aligns with common intellectual property concepts while enabling novel business models specific to AI workflows.
+
+
+![NFT Access Level Implementation](./documentation/09_nft_access_control.svg)
 
 ### 8.2 Security Architecture
 
