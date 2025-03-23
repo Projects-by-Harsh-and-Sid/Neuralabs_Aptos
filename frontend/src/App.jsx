@@ -6,6 +6,7 @@ import FlowBuilderPage from './pages/flow_builder_page';
 import DashboardPage from './pages/home_page';
 import MarketplacePage from './pages/marketplace_page';
 import ChatInterfacePage from './pages/chat_interface_page';
+import AccessManagementPage from './pages/access_management_page';
 import theme from './theme';
 
 function App() {
@@ -34,6 +35,11 @@ function App() {
             <Layout>
               <ChatInterfacePage />
             </Layout>
+          } />
+          <Route path="/access-management" element={
+        <Layout>
+          <AccessManagementPage />
+        </Layout>
           } />
           {/* Add more routes as needed */}
         </Routes>

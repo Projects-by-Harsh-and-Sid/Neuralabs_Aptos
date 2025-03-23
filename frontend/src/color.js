@@ -216,11 +216,14 @@ const colors = {
     listhoverBg: {
       dark: "#242526",
       light: "#ffffff",
-    }
+    },
+    selected_category: {
+      dark: "#ffffff",
+      light: "#000000",
+    },
   },
 
   detailpanel : {
-
     body: {
       dark: "#141516",
       light: "#fdfdfd",
@@ -242,6 +245,90 @@ const colors = {
       light: "#fdfdfd",
     },
 
+  },
+
+  // Add this to your existing colors object in color.js
+
+  accessManagement: {
+    // Sidebar colors
+    sidebar: {
+      bg: {
+        light: "#F9F9FA",
+        dark: "#18191b",
+      },
+      border: {
+        light: "#e0e2e4",
+        dark: "#3e4045",
+      },
+      itemHover: {
+        light: "#f2f3f4",
+        dark: "#242526",
+      },
+      selected: {
+        light: "#E9F2FF",
+        dark: "#1F3458",
+      },
+      selectedText: {
+        light: "#1E63EA",
+        dark: "#5290FF",
+      },
+      icon: {
+        light: "#555555",
+        dark: "#9d9d9d",
+      },
+    },
+    
+    // Main content colors
+    mainContent: {
+      bg: {
+        light: "#f2f3f4",
+        dark: "#0f0f11",
+      },
+      heading: {
+        light: "#333333",
+        dark: "#ffffff",
+      },
+    },
+    
+    // Flow card colors
+    flowCard: {
+      bg: {
+        light: "#ffffff",
+        dark: "#18191b",
+      },
+      border: {
+        light: "#e0e2e4",
+        dark: "#3e4045",
+      },
+      iconBg: {
+        light: "#000000",
+        dark: "#000000",
+      },
+      iconText: {
+        light: "#ffffff",
+        dark: "#ffffff",
+      }
+    },
+    
+    // Detail panel colors
+    detailPanel: {
+      bg: {
+        light: "#ffffff",
+        dark: "#18191b",
+      },
+      border: {
+        light: "#e0e2e4",
+        dark: "#3e4045",
+      },
+      addressBg: {
+        light: "#f9f9f9",
+        dark: "#242526",
+      },
+      levelBadge: {
+        light: "#D53F8C",
+        dark: "#ED64A6",
+      }
+    },
   },
 
   canvas: {
