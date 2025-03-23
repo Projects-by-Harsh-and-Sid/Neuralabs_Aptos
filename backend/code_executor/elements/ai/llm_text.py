@@ -53,11 +53,11 @@ class LLMText(ElementBase):
         # Initialize Bedrock service from config
         config = executor.config
         bedrock_service = BedrockService(
-            region_name=config.get("aws_region", "us-west-2"),
-            aws_access_key_id=config.get("aws_access_key_id"),
-            aws_secret_access_key=config.get("aws_secret_access_key"),
-            model_id=self.model
-        )
+                                            region_name=config.get("aws_region", "us-west-2"),
+                                            aws_access_key_id=config.get("aws_access_key_id"),
+                                            aws_secret_access_key=config.get("aws_secret_access_key"),
+                                            model_id=self.model
+                                        )
         
         # Stream the generation to Backend 2
         llm_output = ""

@@ -66,6 +66,9 @@ class BedrockService:
             return response_body.get('content', [{}])[0].get('text', '')
         else:
             return response_body.get('generation', '')
+        
+        
+    # def get_request_body(self, response: Dict[str, Any]) -> str:
     
     async def generate_text_stream(self, 
                                 prompt: str, 
@@ -113,8 +116,13 @@ class BedrockService:
                     content_block = chunk_data.get('content', [{}])[0]
                     if content_block.get('type') == 'text':
                         yield content_block.get('text', '')
+                        
                 else:
-                    yield chunk_data.get('generation', '')
+                    choices = chunk_data.get('choices', [])
+                    if choices:
+                        yield choices[0].get('text', '')
+                    else:
+                        yield ""
     
     async def generate_structured_output(self, 
                                       prompt: str, 

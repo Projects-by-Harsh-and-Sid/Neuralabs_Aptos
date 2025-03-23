@@ -1,14 +1,14 @@
 # config.py
 import os
-# from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
 from typing import Optional
 
 # Load environment variables from .env file
 load_dotenv()
 
-# class Settings(BaseSettings):
-class Settings():
+class Settings(BaseSettings):
+# class Settings():
 
     """Application settings loaded from environment variables."""
     
@@ -47,6 +47,9 @@ class Settings():
 
 # Create settings instance
 settings = Settings()
+
+# convert settings to dictionary for easy access
+# settings_dict = settings.__dict__
 
 # Additional configurations that might be needed at runtime
 runtime_config = {

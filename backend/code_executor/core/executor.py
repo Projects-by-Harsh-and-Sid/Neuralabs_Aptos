@@ -132,17 +132,36 @@ class FlowExecutor:
                 "backtracking": backtracking
             })
             
+
+            
+            for output_mapping in element.output_map:
+                if (output_mapping["dependent_element"] in element.connections 
+                    and output_mapping["output_variable"] in outputs 
+                    and output_mapping["input_variable"] in output_mapping["dependent_element"].input_schema):
+                    
+                    output_mapping["dependent_element"].set_input(
+                        output_mapping["input_variable"], outputs[output_mapping["output_variable"]])
+                    
+                   
+            
+            # for conn in element.connections:
+            #     for output_name, output_value in outputs.items():
+            #         # if output_name in conn.input_schema:
+            #         #     conn.set_input(output_name, output_value)
+            #         if output_name in conn.input_map:
+            #             for input_name in conn.input_map[output_name]:
+            #                 conn.set_input(input_name, output_value)
+
             # If not in backtracking mode and downwards execution is allowed,
             # continue with downstream elements
+
             if not backtracking and element.downwards_execute:
                 for conn in element.connections:
-                    # Map outputs to connected element inputs based on schema
-                    for output_name, output_value in outputs.items():
-                        if output_name in conn.input_schema:
-                            conn.set_input(output_name, output_value)
-                    
                     # Execute connected element
                     await self._execute_element(conn)
+            
+            
+
             
             return outputs
             

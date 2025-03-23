@@ -11,4 +11,5 @@ RestrictedPython
 pandas
 pytz
 starlette
-aiofiles
+aiofiles 
+pydantic-settings

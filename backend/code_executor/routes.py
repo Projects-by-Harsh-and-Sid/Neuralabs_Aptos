@@ -65,7 +65,9 @@ async def execute_flow(request: ExecuteFlowRequest, background_tasks: Background
         flow_def = request.flow_definition
         
         # Create element instances and setup the flow executor
-        elements, executor = await setup_flow_executor(flow_def, stream_manager, request.config)
+        # elements, executor = await setup_flow_executor(flow_def, stream_manager, request.config)
+        elements, executor = await setup_flow_executor(flow_def, stream_manager)
+        
         
         # Execute the flow in the background
         background_tasks.add_task(
@@ -119,8 +121,8 @@ async def execute_flow_websocket(websocket: WebSocket, flow_id: str, flow_defini
     try:
         # Parse the JSON strings
         flow_definition = json.loads(flow_definition_str)
-        initial_inputs = json.loads(initial_inputs_str) if initial_inputs_str else None
-        config = json.loads(config_str) if config_str else None
+        initial_inputs  = json.loads(initial_inputs_str) if initial_inputs_str else None
+        config          = json.loads(config_str) if config_str else None
         
         # Create flow definition model
         flow_def = FlowDefinition(**flow_definition)
@@ -187,12 +189,15 @@ async def setup_flow_executor(flow_def: FlowDefinition, stream_manager, user_con
             if conn.from_output and conn.to_input:
                 # This would require additional logic in your ElementBase class
                 # For example: elements[from_id].map_output_to_input(conn.from_output, elements[to_id], conn.to_input)
-                pass
+                
+                elements[from_id].map_output_to_input(elements[to_id], conn.from_output, conn.to_input)
+
     
     # Merge configuration
     config = {}
     if settings:
-        config.update({k: v for k, v in vars(settings).items() if not k.startswith('_')})
+        config.update({k: v for k, v in vars(settings).items() if not k.startswith('_')})    
+    
     if user_config:
         config.update(user_config)
     
