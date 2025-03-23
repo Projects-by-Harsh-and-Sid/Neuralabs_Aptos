@@ -1025,18 +1025,19 @@ module.exports = processData;`;
     }
 
     // Automatically open appropriate panel based on node type
-    if (nodeType === 'custom-script') {
-      setSelectedNode(newNode);
-      setDetailsOpen(false); // Don't open details panel for custom script
-      setCodeOpen(true); // Open code panel instead
-      setIsCustomScriptNode(true);
-    } else {
-      // For all other node types, open details panel
-      setSelectedNode(newNode);
-      setDetailsOpen(true);
-      setCodeOpen(false);
-      setIsCustomScriptNode(false);
-    }
+// Update the handleAddNode function to open both panels for custom script nodes
+if (nodeType === 'custom-script') {
+  setSelectedNode(newNode);
+  setDetailsOpen(true); // Open details panel 
+  setCodeOpen(true); // Open code panel
+  setIsCustomScriptNode(true);
+} else {
+  // For all other node types, open details panel
+  setSelectedNode(newNode);
+  setDetailsOpen(true);
+  setCodeOpen(false);
+  setIsCustomScriptNode(false);
+}
     
     return newNode;
   };
@@ -1091,7 +1092,7 @@ module.exports = processData;`;
     
     // Special handling for custom script nodes
     if (node.type === 'custom-script') {
-      setDetailsOpen(false); // Don't show details panel for custom script
+      setDetailsOpen(true); // Don't show details panel for custom script
       setCodeOpen(true); // Show code panel instead
       setIsCustomScriptNode(true);
     } else {

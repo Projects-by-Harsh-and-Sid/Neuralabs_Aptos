@@ -134,44 +134,7 @@ const colors = {
 
   },
 
-  sidepanel: {
-    body: {
-      dark: "#18191b",
-      light: "#F9F9FA",
-    },
-    itemBgColor: {
-      dark: "#131313",
-      light: "",
-    },
-    border: {
-      dark: "#d9d9d9",
-      light: "#333333",
-    },
-    headingColor: {
-      dark: "#ffffff",
-      light: "#333333",
-    },
-    accordionBgColor: {},
-    layerHeaderBg: {
-      dark: "#141516",
-      light: "#fdfdfd",
-    },
-    layerHeaderColor: {},
-    emptyStateIconColor: {},
-    selected: {
-      dark: "",
-      light: "",
-    },
-    icon: {
-      dark: "",
-      light: "",
-    },
-    hover: {
-      dark: "",
-      light: "",
-    },
-    text: {},
-  },
+
 
   vizpanel: {
     body: {
@@ -223,15 +186,59 @@ const colors = {
     },
   },
 
-  detailpanel : {
+  sidepanel: {
     body: {
+      dark: "#18191b",
+      light: "#F9F9FA",
+    },
+    itemBgColor: {
+      dark: "#131313",
+      light: "",
+    },
+    border: {
+      dark: "#d9d9d9",
+      light: "#333333",
+    },
+    headingColor: {
+      dark: "#ffffff",
+      light: "#333333",
+    },
+    accordionBgColor: {},
+    layerHeaderBg: {
       dark: "#141516",
       light: "#fdfdfd",
+    },
+    layerHeaderColor: {},
+    emptyStateIconColor: {},
+    selected: {
+      dark: "",
+      light: "",
+    },
+    icon: {
+      dark: "",
+      light: "",
+    },
+    hover: {
+      dark: "",
+      light: "",
+    },
+    text: {},
+  },
+
+  detailpanel : {
+    body: {
+      dark: "#18191b",
+      light: "#F9F9FA",
     },
     border: {
       dark: "#0F0F11",
       light: "#e0e2e4",
     },
+    inputbg: {
+      dark: "#141516",
+      light: "#fdfdfd",
+    },
+    
     selected: {
       dark: "#141516",
       light: "#fdfdfd",
@@ -244,6 +251,7 @@ const colors = {
       dark: "#1e1f21",
       light: "#fdfdfd",
     },
+
 
   },
 

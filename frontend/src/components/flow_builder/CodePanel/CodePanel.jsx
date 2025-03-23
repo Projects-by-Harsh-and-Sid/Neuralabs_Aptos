@@ -159,10 +159,11 @@ def ${node ? node.name.toLowerCase() : 'process'}(data):
 
   const toast = useToast();
   const bgColor = useColorModeValue('white', 'gray.900');
-  const borderColor = useColorModeValue('gray.200', 'gray.800');
+  // const borderColor = useColorModeValue('gray.200', 'gray.800');
   const textColor = useColorModeValue('gray.800', 'white');
   const syntaxColor1 = useColorModeValue('blue.300', 'blue.200');
   const syntaxColor2 = useColorModeValue('green.300', 'green.200');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
   
   // Update code when node or template changes
   useEffect(() => {
@@ -206,33 +207,35 @@ def ${node ? node.name.toLowerCase() : 'process'}(data):
     const panelWidth = 384; // Details panel width
     const sidebarWidth = 320; // Sidebar width
     
-    if (isCustomScript) {
-      // Use more space for custom script
-      return `calc(40%)`; // 80px is for the nav panel
-    }
+    // if (isCustomScript) {
+    //   // Use more space for custom script
+    //   return `calc(40%)`; // 80px is for the nav panel
+    // }
     
     // Regular code panel
     if (sidebarOpen) {
-      return `calc(100% - ${sidebarWidth + panelWidth}px - 80px)`; // 80px is for the nav panel
+      return `calc(100% - ${sidebarWidth + panelWidth}px - 56px)`; // 80px is for the nav panel
     } else {
       return `calc(100% - ${panelWidth}px - 80px)`;
     }
   };
   
   return (
-    <Box
-      position="absolute"
-      right="0"
-      // marginRight={384}
-      top="0"
-      h="100%"
-      w={getWidth()}
-      bg={bgColor}
-      zIndex={10}
-      display="flex"
-      flexDirection="column"
-      boxShadow="0 0 10px rgba(0,0,0,0.1)"
-    >
+<Box
+  position="absolute"
+  right="0"
+  marginRight={384}
+  top="0"
+  h="100%"
+  w={getWidth()}
+  bg={bgColor}
+  zIndex={10}
+  display="flex"
+  flexDirection="column"
+  boxShadow="0 0 10px rgba(0,0,0,0.1)"
+  borderLeft="1px solid"
+  borderColor={borderColor}
+  >
       <Flex 
         align="center" 
         justify="space-between" 
@@ -241,16 +244,17 @@ def ${node ? node.name.toLowerCase() : 'process'}(data):
         borderBottom="1px solid" 
         borderColor={borderColor}
       >
-        <Heading as="h3" size="sm" color={textColor}>
-          {isCustomScript ? 'Custom Script' : (isTemplate ? 'Template Code' : 'Node Code')}
-        </Heading>
+<Heading as="h3" size="sm" color={textColor}>
+  {isTemplate ? 'Template Code' : 'Node Code'}
+</Heading>
+
         <Flex gap={2} align="center">
           <Button
             leftIcon={<FiSave />}
             size="sm"
             colorScheme="blue"
             onClick={handleSaveCode}
-            isDisabled={isTemplate && !isCustomScript}
+            isDisabled={isTemplate} // Only disable for templates
           >
             Save
           </Button>

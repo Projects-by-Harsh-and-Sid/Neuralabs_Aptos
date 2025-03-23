@@ -351,7 +351,11 @@
 
 // export default BlocksPanel;
 
+
+import ICON_MAP from '../Common/IconMap'
+
 import React, { useState, useEffect } from 'react';
+
 import { 
   Box, 
   Flex, 
@@ -376,6 +380,7 @@ import {
   useColorModeValue,
   Center,
 } from '@chakra-ui/react';
+
 import { 
   FiX, 
   FiActivity, 
@@ -407,30 +412,7 @@ import {
   FiChevronDown
 } from 'react-icons/fi';
 
-// Map icon strings to React icons
-const ICON_MAP = {
-  'database': FiDatabase,
-  'activity': FiActivity,
-  'sliders': FiSliders,
-  'external-link': FiExternalLink,
-  'repeat': FiRepeat,
-  'git-branch': FiGitBranch,
-  'play-circle': FiPlayCircle,
-  'x-circle': FiXCircle,
-  'message-circle': FiMessageCircle,
-  'book-open': FiBookOpen,
-  'server': FiServer,
-  'globe': FiGlobe,
-  'link': FiLink,
-  'file-text': FiFileText,
-  'filter': FiFilter,
-  'git-merge': FiGitMerge,
-  'shuffle': FiShuffle,
-  'clock': FiClock,
-  'cpu': FiCpu,
-  'layout': FiLayout,
-  'code': FiCode,
-};
+  
 
 const BlocksPanel = ({ 
   onAddNode, 

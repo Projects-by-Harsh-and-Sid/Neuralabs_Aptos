@@ -534,14 +534,14 @@ const DetailsPanel = ({
     }
   }, [selectedNode]);
 
-  const bgColor = useColorModeValue('gray.100', 'gray.800');
-  const panelBgColor = useColorModeValue('white', 'gray.700');
+  const bgColor = useColorModeValue('detailpanel.body.light', 'detailpanel.body.dark');
+  const panelBgColor = useColorModeValue('detailpanel.body.light', 'detailpanel.body.dark');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
-  const formBgColor = useColorModeValue('gray.50', 'gray.600');
+  // const formBgColor = useColorModeValue('gray.50', 'gray.600');
   const textColor = useColorModeValue('gray.800', 'white');
   const mutedTextColor = useColorModeValue('gray.500', 'gray.400');
   const sectionBgColor = useColorModeValue('gray.50', 'gray.600');
-
+  const formBgColor = useColorModeValue('detailpanel.inputbg.light', 'detailpanel.inputbg.dark');
   // Add this function to your DetailsPanel component
   const getNodeTypeColor = (type) => {
     switch (type) {
@@ -730,8 +730,8 @@ const DetailsPanel = ({
           <TabPanel p={4} overflow="auto" h="100%">
             <VStack spacing={6} align="stretch">
               <FormControl>
-                <FormLabel fontSize="sm" fontWeight="medium" color={textColor}>Template Type</FormLabel>
-                <Box py={2} px={3} bg={formBgColor} borderRadius="md" fontSize="sm" color={textColor}>
+                <FormLabel fontSize="sm" fontWeight="medium" color={textColor} >Template Type</FormLabel>
+                <Box py={2} px={3} bg={formBgColor} borderRadius="md" fontSize="sm" color={textColor} border={borderColor}>
                   {selectedNode.type}
                 </Box>
               </FormControl>
@@ -743,6 +743,7 @@ const DetailsPanel = ({
                   value={selectedNode.name} 
                   onChange={handleNameChange}
                   bg={formBgColor}
+                  border={borderColor}
                 />
               </FormControl>
               
@@ -764,6 +765,7 @@ const DetailsPanel = ({
                   onChange={handleLayerChange}
                   bg={formBgColor}
                   isDisabled={viewOnlyMode}
+                  border={borderColor}
                 >
                   {layerOptions.map(l => (
                     <option key={l} value={l}>Layer {l}</option>
@@ -789,6 +791,7 @@ const DetailsPanel = ({
                     id="default-value"
                     placeholder="Enter default value"
                     bg={formBgColor}
+                    border={borderColor}
                   />
                 </FormControl>
               )}
@@ -813,6 +816,7 @@ const DetailsPanel = ({
                   value={newTag}
                   onChange={(e) => setNewTag(e.target.value)}
                   onKeyPress={handleAddTag}
+                  border={borderColor}
                 />
                 
                 <Flex wrap="wrap" gap={2}>
@@ -833,28 +837,28 @@ const DetailsPanel = ({
             <VStack spacing={6} align="stretch">
               <Box>
                 <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Node Type</Text>
-                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md" bgColor={formBgColor}>
                   <Text fontSize="sm" fontFamily="monospace">{selectedNode.type}</Text>
                 </Box>
               </Box>
 
               <Box>
-                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Node Name</Text>
-                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1} >Node Name</Text>
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md" bgColor={formBgColor}>
                   <Text fontSize="sm" fontFamily="monospace">{selectedNode.name}</Text>
                 </Box>
               </Box>
               
               <Box>
-                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Node Layer</Text>
-                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1} >Node Layer</Text>
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md" bgColor={formBgColor}>
                   <Text fontSize="sm" fontFamily="monospace">Layer {selectedNode.layer || 0}</Text>
                 </Box>
               </Box>
               
               <Box>
                 <Text fontSize="sm" fontWeight="medium" color={mutedTextColor} mb={1}>Node ID</Text>
-                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md">
+                <Box py={2} px={3} bg={sectionBgColor} borderRadius="md" bgColor={formBgColor}>
                   <Text fontSize="sm" fontFamily="monospace">{selectedNode.id}</Text>
                 </Box>
               </Box>

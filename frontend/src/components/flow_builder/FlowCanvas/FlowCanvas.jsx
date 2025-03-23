@@ -2,8 +2,36 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import { FiDatabase, FiActivity, FiSliders, FiExternalLink, FiRepeat, FiGitBranch } from 'react-icons/fi';
-
+import { 
+  FiX, 
+  FiActivity, 
+  FiEdit2,
+  FiLayers,
+  FiMaximize2,
+  FiAlertCircle,
+  FiDatabase, 
+  FiSliders, 
+  FiExternalLink, 
+  FiRepeat, 
+  FiGitBranch,
+  FiPlayCircle,
+  FiXCircle,
+  FiMessageCircle,
+  FiBookOpen,
+  FiServer,
+  FiGlobe,
+  FiLink,
+  FiFileText,
+  FiFilter,
+  FiGitMerge,
+  FiShuffle,
+  FiClock,
+  FiCpu,
+  FiLayout,
+  FiCode,
+  FiChevronRight,
+  FiChevronDown
+} from 'react-icons/fi';
 // Define the icon mapping object
 const ICON_MAP = {
   'database': FiDatabase,
@@ -12,6 +40,21 @@ const ICON_MAP = {
   'external-link': FiExternalLink,
   'repeat': FiRepeat,
   'git-branch': FiGitBranch,
+  'play-circle': FiPlayCircle,
+  'x-circle': FiXCircle,
+  'message-circle': FiMessageCircle,
+  'book-open': FiBookOpen,
+  'server': FiServer,
+  'globe': FiGlobe,
+  'link': FiLink,
+  'file-text': FiFileText,
+  'filter': FiFilter,
+  'git-merge': FiGitMerge,
+  'shuffle': FiShuffle,
+  'clock': FiClock,
+  'cpu': FiCpu,
+  'layout': FiLayout,
+  'code': FiCode,
 };
 
 const FlowCanvas = ({ 
