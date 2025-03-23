@@ -115,6 +115,7 @@ const MarketplaceContent = ({
       bg={main_bg_color} 
       overflow="auto"
       position="relative"
+      paddingTop={"5%"}
     >
       {loading ? (
         <Center h="100%">
@@ -129,12 +130,10 @@ const MarketplaceContent = ({
       ) : (
         !selectedItem && (
           <Box p={8} maxW="1200px" mx="auto">
-            <Heading as="h1" size="xl" color={headingColor} mb={4}>Explore AI Agents</Heading>
+            <Heading as="h1" size="xl" color={headingColor} marginTop={"50px"} marginBottom={"40px"} textAlign={"center"}>Explore AI Agents</Heading>
             
             <Box mb={10}>
-              <Heading as="h2" size="lg" color={headingColor} mb={6}>
-                Featured by NeuraLabs :
-              </Heading>
+
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
                 {featuredItems.map(item => (
                   <MarketplaceCard 

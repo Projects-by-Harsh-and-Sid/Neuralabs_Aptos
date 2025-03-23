@@ -33,29 +33,7 @@ import {
   FiChevronDown
 } from 'react-icons/fi';
 // Define the icon mapping object
-const ICON_MAP = {
-  'database': FiDatabase,
-  'activity': FiActivity,
-  'sliders': FiSliders,
-  'external-link': FiExternalLink,
-  'repeat': FiRepeat,
-  'git-branch': FiGitBranch,
-  'play-circle': FiPlayCircle,
-  'x-circle': FiXCircle,
-  'message-circle': FiMessageCircle,
-  'book-open': FiBookOpen,
-  'server': FiServer,
-  'globe': FiGlobe,
-  'link': FiLink,
-  'file-text': FiFileText,
-  'filter': FiFilter,
-  'git-merge': FiGitMerge,
-  'shuffle': FiShuffle,
-  'clock': FiClock,
-  'cpu': FiCpu,
-  'layout': FiLayout,
-  'code': FiCode,
-};
+import ICON_MAP from '../Common/IconMap'
 
 const FlowCanvas = ({ 
   nodes, 
@@ -100,127 +78,7 @@ const FlowCanvas = ({
   const edgeHighlightColor = useColorModeValue('blue.500', 'blue.300');
   
 
-  // useEffect(() => {
-  //   // Use external ref if provided, otherwise use internal ref
-  //   const svgElement = externalSvgRef?.current || svgRef.current;
-  //   if (!svgElement) return;
-    
-  //   const svg = d3.select(svgElement);
-  //   const canvas = d3.select(canvasRef.current);
-    
-  //   // Use external zoom behavior if provided, otherwise create a new one
-  //   let zoom;
-  //   if (externalZoomRef?.current) {
-  //     zoom = externalZoomRef.current;
-  //   } else {
-  //     zoom = d3.zoom()
-  //       .scaleExtent([0.8, 4])
-  //       .interpolate(d3.interpolateZoom); 
-  //   }
-    
-  //   // Configure zoom behavior
-  //   zoom.on('zoom', (event) => {
-  //     canvas.attr('transform', event.transform);
-      
-  //     // Batch state updates to prevent render loops
-  //     const scaleChanged = Math.abs(event.transform.k - scale) > 0.001;
-  //     const translateXChanged = Math.abs(event.transform.x - translate.x) > 0.001;
-  //     const translateYChanged = Math.abs(event.transform.y - translate.y) > 0.001;
-      
-  //     if ((scaleChanged || translateXChanged || translateYChanged) && setScale && setTranslate) {
-  //       // Use requestAnimationFrame to throttle updates
-  //       requestAnimationFrame(() => {
-  //         if (scaleChanged && setScale) {
-  //           setScale(event.transform.k);
-  //         }
-  //         if ((translateXChanged || translateYChanged) && setTranslate) {
-  //           setTranslate({ x: event.transform.x, y: event.transform.y });
-  //         }
-  //       });
-  //     }
-  //   });
-    
-  //   svg.call(zoom);
-    
-  //   // Handle drag and drop from the blocks panel
-  //   const handleDragOver = (e) => {
-  //     e.preventDefault();
-  //     e.dataTransfer.dropEffect = 'copy';
-  //   };
-    
-  //   const handleDrop = (e) => {
-  //     e.preventDefault();
-      
-  //     const nodeType = e.dataTransfer.getData('nodeType');
-  //     if (nodeType) {
-  //       // Calculate the position with respect to the canvas transform
-  //       const svgRect = svgElement.getBoundingClientRect();
-  //       const x = (e.clientX - svgRect.left - translate.x) / scale;
-  //       const y = (e.clientY - svgRect.top - translate.y) / scale;
-        
-  //       onAddNode(nodeType, { x, y });
-  //     }
-  //   };
-    
-  //   svgElement.addEventListener('dragover', handleDragOver);
-  //   svgElement.addEventListener('drop', handleDrop);
-    
-  //   return () => {
-  //     // Clean up event listeners
-  //     svg.on('.zoom', null);
-  //     svgElement.removeEventListener('dragover', handleDragOver);
-  //     svgElement.removeEventListener('drop', handleDrop);
-  //   };
-  // }, [onAddNode, externalSvgRef, externalZoomRef, scale, translate, setScale, setTranslate]);
 
-
-
-
-
-  // Handle node selection
-  // useEffect(() => {
-  //   if (selectedNode) {
-  //     // Find all connections related to the selected node
-  //     const relatedConnections = edges.filter(
-  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
-  //     );
-  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
-  //   } else {
-  //     setHighlightedConnections([]);
-  //   }
-  // }, [selectedNode, edges]);
-  // useEffect(() => {
-  //   if (selectedNode) {
-  //     // Find all connections related to the selected node
-  //     const relatedConnections = edges.filter(
-  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
-  //     );
-  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
-      
-  //     // Center the selected node in the view - NEW CODE
-  //     centerNodeInView(selectedNode.id);
-  //   } else {
-  //     setHighlightedConnections([]);
-  //   }
-  // }, [selectedNode, edges]);
-  // useEffect(() => {
-  //   if (selectedNode) {
-  //     // Find all connections related to the selected node
-  //     const relatedConnections = edges.filter(
-  //       edge => edge.source === selectedNode.id || edge.target === selectedNode.id
-  //     );
-  //     setHighlightedConnections(relatedConnections.map(conn => conn.id));
-      
-  //     // Add a slight delay before centering to allow UI updates to complete
-  //     const timerId = setTimeout(() => {
-  //       centerNodeInView(selectedNode.id);
-  //     }, 100);
-      
-  //     return () => clearTimeout(timerId);
-  //   } else {
-  //     setHighlightedConnections([]);
-  //   }
-  // }, [selectedNode, edges]);
 
   useEffect(() => {
     // Use external ref if provided, otherwise use internal ref

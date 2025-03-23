@@ -21,9 +21,9 @@ import {
     Badge,
     useColorModeValue,
     Center,
-  } from '@chakra-ui/react';
-  
-  import { 
+} from '@chakra-ui/react';
+
+import { 
     FiX, 
     FiActivity, 
     FiEdit2,
@@ -52,10 +52,10 @@ import {
     FiCode,
     FiChevronRight,
     FiChevronDown
-  } from 'react-icons/fi';
-  
-  // Map icon strings to React icons
-  const ICON_MAP = {
+} from 'react-icons/fi';
+
+// Map icon strings to React icons
+const ICON_MAP = {
     'database': FiDatabase,
     'activity': FiActivity,
     'sliders': FiSliders,
@@ -77,6 +77,6 @@ import {
     'cpu': FiCpu,
     'layout': FiLayout,
     'code': FiCode,
-  };
+};
 
-  export default ICON_MAP;
+export default ICON_MAP;
