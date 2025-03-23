@@ -118,7 +118,7 @@ The bidirectional arrows represent real-time communication channels that enable 
 
 <!-- add image here -->
 
-![NeuraLabs Architecture](./documentation/01_overview.svg)
+![NeuraLabs Architecture](./documentation/images/01_overview.svg)
 
 ### 2.2 Role of Blockchain in the System
 
@@ -146,7 +146,7 @@ The choice of Aptos as the blockchain platform leverages its high-performance Mo
 
 The Neura Execution Engine represents the computational heart of the NeuraLabs platform, responsible for the actual execution of AI workflows. Implemented in Python using FastAPI for its asynchronous capabilities, this component manages the directed graph of execution elements that comprise each workflow. The Execution Engine operates as a stateless service that processes workflow definitions, resolves dependencies, and ensures proper data flow between components.
 
-![Neura Execution Engine](./documentation/02_neura_execution_engine.svg)
+![Neura Execution Engine](./documentation/images/02_neura_execution_engine.svg)
 
 
 #### 3.1.1 Core Functionality
@@ -219,7 +219,7 @@ This robust execution model enables workflows of arbitrary complexity while ensu
 
 The Neura Message Passer serves as the central coordinator for the entire system, managing communication between the client application, the blockchain, and the execution engine. This critical middleware component handles authentication, access control verification, data persistence, and message routing, ensuring that all interactions comply with the established permissions and maintain system integrity.
 
-![NeuraMessage Passing](./documentation/03_neura_message_passing.svg)
+![NeuraMessage Passing](./documentation/images/03_neura_message_passing.svg)
 
 #### 3.2.1 Core Functionality
 
@@ -269,7 +269,7 @@ Each communication protocol implements appropriate security measures, including 
 
 ### 3.3 Client Application (Frontend)
 
-![Client Application](./documentation/04_client_application_architecture.svg)
+![Client Application](./documentation/images/04_client_application_architecture.svg)
 
 
 The frontend client application provides the user-facing interfaces for interacting with the NeuraLabs platform. Designed with a focus on usability and responsiveness, it abstracts the underlying complexity of the system while providing powerful tools for workflow creation, execution, and management. The client application communicates primarily with the Message Passer, which mediates access to the execution engine and blockchain.
@@ -310,7 +310,7 @@ The frontend implementation emphasizes performance and responsiveness, with care
 
 The NeuraLabs NFT smart contract is implemented on the Aptos blockchain using the Move programming language. This contract provides the cryptographic foundation for ownership and access control, implementing the rules that govern how workflows can be owned, transferred, and accessed. The choice of Aptos and Move provides advantages in terms of resource-oriented programming, parallel execution, and formal verification capabilities.
 
-![Smart Contract Implementation](./documentation/05_blockchain.svg)
+![Smart Contract Implementation](./documentation/images/05_blockchain.svg)
 
 #### 3.4.1 Contract Structure
 
@@ -350,7 +350,7 @@ The smart contract implements these levels as integer values, with clear definit
 
 ## 4. Communication and Networking
 
-![Communication and Networking](./documentation/06_data_flow_diag.svg)
+![Communication and Networking](./documentation/images/06_data_flow_diag.svg)
 
 
 ### 4.1 WebSocket Implementation
@@ -944,7 +944,7 @@ Throughout this evolution, the platform will maintain compatibility with existin
 
 ## 8. Security and Access Control
 
-![Client Application](./documentation/04_client_application_architecture.svg)
+![Client Application](./documentation/images/04_client_application_architecture.svg)
 
 ### 8.1 NFT Access Level Implementation
 
@@ -1020,7 +1020,7 @@ The smart contract implements these levels through clear functional boundaries a
 The hierarchical nature of the access levels creates a coherent, intuitively understandable permission structure that aligns with common intellectual property concepts while enabling novel business models specific to AI workflows.
 
 
-![NFT Access Level Implementation](./documentation/09_nft_access_control.svg)
+![NFT Access Level Implementation](./documentation/images/09_nft_access_control.svg)
 
 ### 8.2 Security Architecture
 
