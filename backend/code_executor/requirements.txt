@@ -1,0 +1,11 @@
+# requirements.txt
+fastapi
+uvicorn
+python-dotenv
+websockets
+httpx
+boto3
+pydantic
+psutil
+RestrictedPython
+pandas
