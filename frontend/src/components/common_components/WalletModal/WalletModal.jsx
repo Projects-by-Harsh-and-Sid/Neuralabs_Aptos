@@ -18,7 +18,7 @@ import {
 import { useWallet } from '../../../contexts/WalletContext';
 
 const WalletModal = ({ isOpen, onClose }) => {
-  const { connect, wallets, connecting } = useWallet();
+const { connect, wallets, connecting, connected, account } = useWallet();
   const [connectingWalletName, setConnectingWalletName] = useState(null);
   const toast = useToast();
   
@@ -28,11 +28,35 @@ const WalletModal = ({ isOpen, onClose }) => {
 
   const handleConnectWallet = async (walletName) => {
     setConnectingWalletName(walletName);
+    
     try {
+      // Clear any previous connection state first
+      localStorage.removeItem(`${walletName.toLowerCase()}-autoconnect`);
+      
+      // Add a small delay to ensure previous state is cleared
+      await new Promise(resolve => setTimeout(resolve, 200));
+      
+      // Attempt to connect
       await connect(walletName);
-      onClose();
+      
+      // Close modal - we do this in the effect as well, but better to be safe
+      if (isOpen) onClose();
     } catch (error) {
       console.error('Failed to connect wallet:', error);
+      
+      // Don't show ANS-related errors to users
+      if (error.message && (
+        error.message.includes("Cannot read properties of undefined") ||
+        error.message.includes("toString")
+      )) {
+        console.warn("Handled wallet connection ANS error:", error);
+        // Still close the modal if we have the account
+        if (account) {
+          onClose();
+          return;
+        }
+      }
+      
       toast({
         title: 'Connection Failed',
         description: error.message || 'Failed to connect wallet',
@@ -44,7 +68,6 @@ const WalletModal = ({ isOpen, onClose }) => {
       setConnectingWalletName(null);
     }
   };
-
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />

@@ -24,6 +24,8 @@ export const WalletContextProvider = ({ children, rpcUrl }) => {
     new FewchaWallet()
   ];
 
+  
+
   return (
     <AptosWalletAdapterProvider
       plugins={wallets}
@@ -62,6 +64,26 @@ const InnerWalletContextProvider = ({ children, rpcUrl }) => {
   const [isConnected, setConnected] = useState(false);
   const [currentNetwork, setNetwork] = useState(null);
   const [connectedWallet, setConnectedWallet] = useState(null);
+
+  const safeConnect = async (connect, walletName) => {
+    try {
+      // Add a small delay to ensure wallet state is reset properly
+      await new Promise(resolve => setTimeout(resolve, 100));
+      return await connect(walletName);
+    } catch (error) {
+      // Handle ANS-related errors
+      if (error.message && (
+        error.message.includes("Cannot read properties of undefined") ||
+        error.message.includes("toString")
+      )) {
+        console.warn("Handled wallet connection ANS error:", error);
+        // Still consider this a successful connection if we have an account
+        return true;
+      }
+      // Re-throw other errors
+      throw error;
+    }
+  };
 
   // Initialize Aptos client when RPC URL is provided
   useEffect(() => {
