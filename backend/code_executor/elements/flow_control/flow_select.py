@@ -1,8 +1,8 @@
 # elements/flow_control/flow_select.py
 from typing import Dict, Any, List, Optional
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class FlowSelect(ElementBase):
     """Flow Select element for choosing between multiple flow paths."""

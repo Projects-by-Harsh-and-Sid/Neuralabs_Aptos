@@ -6,8 +6,8 @@ from uuid import uuid4
 import time
 
 from .element_base import ElementBase
-from ..utils.logger import logger
-from ..services.streaming import WebSocketStreamManager
+from utils.logger import logger
+from services.streaming import WebSocketStreamManager
 
 class FlowExecutor:
     """Main class for executing flows."""
@@ -24,21 +24,28 @@ class FlowExecutor:
         self.config = config or {}
         self.flow_id = str(uuid4())
         
-    async def execute_flow(self, initial_inputs: Dict[str, Any] = None) -> Dict[str, Any]:
+    async def execute_flow(self, initial_inputs: Dict[str, Dict[str, Any]] = None) -> Dict[str, Any]:
         """Execute the entire flow starting from the start element."""
         start_time = time.time()
         
-        # Set initial inputs to start element
-        start_element = self.elements[self.start_element_id]
+        # Set initial inputs to respective elements
         if initial_inputs:
-            for key, value in initial_inputs.items():
-                start_element.set_input(key, value)
+            for element_id, inputs in initial_inputs.items():
+                if element_id in self.elements:
+                    element = self.elements[element_id]
+                    for input_name, input_value in inputs.items():
+                        element.set_input(input_name, input_value)
+                else:
+                    logger.warning(f"Element with ID '{element_id}' not found, skipping initial inputs")
         
         # Begin execution
         await self._stream_event("flow_started", {
             "flow_id": self.flow_id,
             "start_time": start_time
         })
+        
+        # Get the start element (after setting inputs)
+        start_element = self.elements[self.start_element_id]
         
         # Execute the start element
         try:
@@ -56,6 +63,19 @@ class FlowExecutor:
             await self._stream_event("flow_completed", final_result)
             
             return final_result
+            
+        except Exception as e:
+            error_data = {
+                "flow_id": self.flow_id,
+                "error": str(e),
+                "partial_execution_order": self.execution_order,
+                "partial_outputs": self.output_cache,
+                "execution_time": time.time() - start_time
+            }
+            
+            await self._stream_event("flow_error", error_data)
+            logger.error(f"Flow execution error: {str(e)}")
+            raise
             
         except Exception as e:
             error_data = {

@@ -1,0 +1,294 @@
+digraph "Client Application Architecture" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="LR";
+    
+    // Core Application
+    subgraph cluster_core {
+        label="Core Application";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        AppRouter [label="App Router\nNavigation control", fillcolor="#D2E3FC"];
+        StateManagement [label="State Management\nGlobal state & context", fillcolor="#D2E3FC"];
+        AuthProvider [label="Auth Provider\nAuthentication context", fillcolor="#D2E3FC"];
+        ThemeProvider [label="Theme Provider\nUI theming", fillcolor="#D2E3FC"];
+        ErrorBoundary [label="Error Boundary\nGraceful error handling", fillcolor="#D2E3FC"];
+        
+        // Core subcomponents
+        subgraph cluster_state_management {
+            label="State Management";
+            style="rounded,filled";
+            color="#4285F4";
+            fillcolor="#BEDAFF";
+            fontcolor="#4285F4";
+            fontsize=14;
+            
+            UserState [label="User State\nProfile & permissions"];
+            WorkflowState [label="Workflow State\nCurrent workflows"];
+            UIState [label="UI State\nInterface preferences"];
+            NotificationState [label="Notification State\nAlerts & messages"];
+        }
+        
+        // Core connections
+        StateManagement -> UserState;
+        StateManagement -> WorkflowState;
+        StateManagement -> UIState;
+        StateManagement -> NotificationState;
+        AppRouter -> StateManagement;
+        AuthProvider -> UserState;
+        ThemeProvider -> UIState;
+        ErrorBoundary -> NotificationState;
+    }
+    
+    // Page Components
+    subgraph cluster_pages {
+        label="Page Components";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        
+        Dashboard [label="Dashboard Page\nUser overview"];
+        FlowCreatorPage [label="Flow Creator Page\nWorkflow editor"];
+        ChatPage [label="Chat Page\nConversational UI"];
+        MarketplacePage [label="Marketplace Page\nWorkflow discovery"];
+        AccessManagementPage [label="Access Management Page\nPermission control"];
+        UserProfilePage [label="User Profile Page\nAccount settings"];
+        
+        // Page subcomponents
+        subgraph cluster_flow_creator_subpages {
+            label="Flow Creator Subpages";
+            style="rounded,filled";
+            color="#DB4437";
+            fillcolor="#FCBDBA";
+            fontcolor="#DB4437";
+            fontsize=14;
+            
+            FlowEditor [label="Flow Editor\nVisual editor"];
+            FlowSettings [label="Flow Settings\nConfiguration"];
+            FlowTesting [label="Flow Testing\nValidation tools"];
+            FlowPublishing [label="Flow Publishing\nDeployment"];
+            FlowVersioning [label="Flow Versioning\nHistory management"];
+        }
+        
+        // Page connections
+        FlowCreatorPage -> FlowEditor;
+        FlowCreatorPage -> FlowSettings;
+        FlowCreatorPage -> FlowTesting;
+        FlowCreatorPage -> FlowPublishing;
+        FlowCreatorPage -> FlowVersioning;
+    }
+    
+    // UI Components
+    subgraph cluster_components {
+        label="UI Components";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        NavBar [label="Navigation Bar\nGlobal navigation"];
+        FlowCreatorCanvas [label="Flow Creator Canvas\nVisual workflow editor"];
+        NodePalette [label="Node Palette\nElement selection"];
+        PropertyPanel [label="Property Panel\nElement configuration"];
+        ChatInterface [label="Chat Interface\nMessage exchange"];
+        MarketplaceList [label="Marketplace List\nWorkflow browsing"];
+        AccessControlPanel [label="Access Control Panel\nPermission management"];
+        
+        // UI subcomponents
+        subgraph cluster_canvas_components {
+            label="Canvas Components";
+            style="rounded,filled";
+            color="#0F9D58";
+            fillcolor="#CEEAD6";
+            fontcolor="#0F9D58";
+            fontsize=14;
+            
+            CanvasRenderer [label="Canvas Renderer\nVisualization engine"];
+            ElementNodes [label="Element Nodes\nNode representation"];
+            Connections [label="Connections\nEdge management"];
+            CanvasControls [label="Canvas Controls\nNavigation tools"];
+            SelectionManager [label="Selection Manager\nItem selection"];
+        }
+        
+        subgraph cluster_chat_components {
+            label="Chat Components";
+            style="rounded,filled";
+            color="#0F9D58";
+            fillcolor="#CEEAD6";
+            fontcolor="#0F9D58";
+            fontsize=14;
+            
+            MessageList [label="Message List\nChat history"];
+            InputArea [label="Input Area\nMessage composition"];
+            FileUploader [label="File Uploader\nAttachment handling"];
+            TypingIndicator [label="Typing Indicator\nStatus display"];
+            ResponseRenderer [label="Response Renderer\nOutput formatting"];
+        }
+        
+        // UI component connections
+        FlowCreatorCanvas -> CanvasRenderer;
+        FlowCreatorCanvas -> ElementNodes;
+        FlowCreatorCanvas -> Connections;
+        FlowCreatorCanvas -> CanvasControls;
+        FlowCreatorCanvas -> SelectionManager;
+        
+        ChatInterface -> MessageList;
+        ChatInterface -> InputArea;
+        ChatInterface -> FileUploader;
+        ChatInterface -> TypingIndicator;
+        ChatInterface -> ResponseRenderer;
+        
+        // UI component relationships
+        FlowCreatorPage -> FlowCreatorCanvas;
+        FlowCreatorPage -> NodePalette;
+        FlowCreatorPage -> PropertyPanel;
+        
+        ChatPage -> ChatInterface;
+    }
+    
+    // Frontend Services
+    subgraph cluster_services {
+        label="Frontend Services";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        
+        APIClient [label="API Client\nREST API integration"];
+        WebSocketClient [label="WebSocket Client\nReal-time communication"];
+        BlockchainClient [label="Blockchain Client\nWallet integration"];
+        LocalStorageService [label="Local Storage Service\nClient-side persistence"];
+        NotificationService [label="Notification Service\nUser alerts"];
+        AnalyticsService [label="Analytics Service\nUsage tracking"];
+        
+        // Service subcomponents
+        subgraph cluster_api_endpoints {
+            label="API Endpoint Groups";
+            style="rounded,filled";
+            color="#F7B529";
+            fillcolor="#FEEFC3";
+            fontcolor="#F7B529";
+            fontsize=14;
+            
+            UserAPI [label="User API\nAccount operations"];
+            FlowAPI [label="Flow API\nWorkflow operations"];
+            ChatAPI [label="Chat API\nConversation history"];
+            MarketplaceAPI [label="Marketplace API\nTrading operations"];
+            AccessAPI [label="Access API\nPermission operations"];
+        }
+        
+        // Service connections
+        APIClient -> UserAPI;
+        APIClient -> FlowAPI;
+        APIClient -> ChatAPI;
+        APIClient -> MarketplaceAPI;
+        APIClient -> AccessAPI;
+        
+        WebSocketClient -> NotificationService;
+        AnalyticsService -> APIClient;
+    }
+    
+    // External Components
+    MessagePasser [label="Neura Message Passer\n(Backend 2)", shape="box", style="rounded,filled", fillcolor="#E6F4EA", color="#0F9D58", fontcolor="#0F9D58"];
+    AptosBlockchain [label="Aptos Blockchain", shape="box", style="rounded,filled", fillcolor="#FEF7E0", color="#F7B529", fontcolor="#F7B529"];
+    WalletProvider [label="Wallet Provider\n(Browser Extension)", shape="ellipse", style="filled", fillcolor="#5A2CA0", fontcolor="white"];
+    
+    // Core to Page connections
+    AppRouter -> Dashboard;
+    AppRouter -> FlowCreatorPage;
+    AppRouter -> ChatPage;
+    AppRouter -> MarketplacePage;
+    AppRouter -> AccessManagementPage;
+    AppRouter -> UserProfilePage;
+    
+    // Page to UI component connections
+    Dashboard -> NavBar;
+    FlowCreatorPage -> NavBar;
+    ChatPage -> NavBar;
+    MarketplacePage -> NavBar;
+    AccessManagementPage -> NavBar;
+    UserProfilePage -> NavBar;
+    
+    MarketplacePage -> MarketplaceList;
+    AccessManagementPage -> AccessControlPanel;
+    
+    // UI to Service connections
+    FlowCreatorCanvas -> APIClient;
+    NodePalette -> APIClient;
+    PropertyPanel -> APIClient;
+    ChatInterface -> WebSocketClient;
+    ChatInterface -> APIClient;
+    MarketplaceList -> APIClient;
+    MarketplaceList -> BlockchainClient;
+    AccessControlPanel -> APIClient;
+    AccessControlPanel -> BlockchainClient;
+    
+    // Data persistence
+    FlowCreatorCanvas -> LocalStorageService [label="Auto-save"];
+    ChatInterface -> LocalStorageService [label="Draft messages"];
+    UserState -> LocalStorageService [label="User preferences"];
+    
+    // External connections
+    APIClient -> MessagePasser [label="HTTP/REST", color="#F7B529"];
+    WebSocketClient -> MessagePasser [label="WebSocket", color="#F7B529", style="bold"];
+    BlockchainClient -> AptosBlockchain [label="RPC", color="#F7B529"];
+    BlockchainClient -> WalletProvider [label="Wallet API", color="#F7B529"];
+    
+    // Utility Components
+    subgraph cluster_utils {
+        label="Utility Components";
+        style="rounded,filled";
+        color="#7627BB";
+        fillcolor="#F3E8FF";
+        fontcolor="#7627BB";
+        fontsize=16;
+        
+        I18N [label="Internationalization\nMultilingual support"];
+        Accessibility [label="Accessibility Manager\nA11y features"];
+        FormBuilder [label="Form Builder\nDynamic forms"];
+        QueryCache [label="Query Cache\nRequest caching"];
+        ErrorTracker [label="Error Tracker\nMonitoring"];
+    }
+    
+    // Utility connections
+    AppRouter -> I18N;
+    AppRouter -> Accessibility;
+    PropertyPanel -> FormBuilder;
+    APIClient -> QueryCache;
+    ErrorBoundary -> ErrorTracker;
+    
+    // Security components
+    subgraph cluster_security {
+        label="Security";
+        style="rounded,filled";
+        color="#0B57D0";
+        fillcolor="#D2E3FC";
+        fontcolor="#0B57D0";
+        fontsize=16;
+        
+        AuthManager [label="Auth Manager\nCredential handling"];
+        TokenStorage [label="Token Storage\nJWT management"];
+        PermissionCache [label="Permission Cache\nAccess caching"];
+        SecureStorage [label="Secure Storage\nEncrypted storage"];
+    }
+    
+    // Security connections
+    AuthProvider -> AuthManager;
+    AuthManager -> TokenStorage;
+    AuthManager -> APIClient;
+    UserState -> PermissionCache;
+    LocalStorageService -> SecureStorage [label="Sensitive data"];
+}

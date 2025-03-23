@@ -2,9 +2,9 @@
 from typing import Dict, Any, List, Optional, Union
 import copy
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import validate_inputs
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import validate_inputs
 
 class Merger(ElementBase):
     """Merger element for combining multiple data inputs."""

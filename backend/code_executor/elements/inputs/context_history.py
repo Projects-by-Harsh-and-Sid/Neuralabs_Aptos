@@ -1,8 +1,8 @@
 # elements/inputs/context_history.py
 from typing import Dict, Any, List, Optional
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class ContextHistory(ElementBase):
     """Context History element for providing conversation context."""

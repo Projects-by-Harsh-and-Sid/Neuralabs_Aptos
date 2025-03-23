@@ -2,10 +2,10 @@
 from typing import Dict, Any, List, Optional
 import json
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import validate_inputs
-from ...services.blockchain import AptosBlockchainService
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import validate_inputs
+from services.blockchain import AptosBlockchainService
 
 class ReadBlockchainData(ElementBase):
     """Read Blockchain Data element for reading data from the Aptos blockchain."""

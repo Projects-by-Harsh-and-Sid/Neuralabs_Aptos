@@ -1,0 +1,270 @@
+digraph "NFT Access Control Model" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="TB";
+    
+    // NFT Representation
+    subgraph cluster_nft {
+        label="NFT Structure";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        
+        TokenMetadata [label="Token Metadata", fillcolor="#FEEFC3", shape="record", 
+                      style="rounded,filled", 
+                      label="{NFTInfo|id: u64\lname: String\llevel_of_ownership: u8\lcreator: address\lcreation_date: u64\lowner: address\lhash_value: vector<u8>\l}"];
+        
+        OwnershipRecord [label="Ownership Record", fillcolor="#FEEFC3", shape="record", 
+                         style="rounded,filled", 
+                         label="{NFTOwnership|nfts: Table<u64, NFTInfo>\lnext_token_id: u64\lcreate_events: EventHandle\ltransfer_events: EventHandle\lburn_events: EventHandle\l}"];
+        
+        AccessControlRecord [label="Access Control Record", fillcolor="#FEEFC3", shape="record", 
+                            style="rounded,filled", 
+                            label="{NFTAccess|access_rights: Table<address, Table<u64, u8>>\ldefault_access_levels: Table<u64, u8>\laccess_grant_events: EventHandle\laccess_revoke_events: EventHandle\l}"];
+    }
+    
+    // Access Levels - vertical hierarchy
+    subgraph cluster_access_levels {
+        label="Access Level Hierarchy";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        
+        Level6 [label="Level 6: ACCESS_ABSOLUTE_OWNERSHIP\nComplete control including ownership transfer", fillcolor="#FCD0CD"];
+        Level5 [label="Level 5: ACCESS_EDIT_DATA\nModify workflow structure and parameters", fillcolor="#FCD0CD"];
+        Level4 [label="Level 4: ACCESS_VIEW_DOWNLOAD\nView workflow internal structure", fillcolor="#FCD0CD"];
+        Level3 [label="Level 3: ACCESS_CREATE_REPLICA\nCreate derivative works", fillcolor="#FCD0CD"];
+        Level2 [label="Level 2: ACCESS_RESALE\nGrant Level 1 access to others", fillcolor="#FCD0CD"];
+        Level1 [label="Level 1: ACCESS_USE_MODEL\nExecute the workflow", fillcolor="#FCD0CD"];
+        Level0 [label="Level 0: ACCESS_NONE\nNo access rights", fillcolor="#FCD0CD"];
+        
+        // Connect levels to show hierarchy
+        Level6 -> Level5 [label="Includes all permissions below", dir="back"];
+        Level5 -> Level4 [label="Includes all permissions below", dir="back"];
+        Level4 -> Level3 [label="Includes all permissions below", dir="back"];
+        Level3 -> Level2 [label="Includes all permissions below", dir="back"];
+        Level2 -> Level1 [label="Includes all permissions below", dir="back"];
+        Level1 -> Level0 [label="Includes all permissions below", dir="back"];
+    }
+    
+    // Permission Functions
+    subgraph cluster_permission_functions {
+        label="Permission Functions";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        GrantAccess [label="grant_access(account, token_id, user, access_level)", fillcolor="#D2E3FC", shape="box"];
+        RevokeAccess [label="revoke_access(account, token_id, user)", fillcolor="#D2E3FC", shape="box"];
+        GetAccessLevel [label="get_access_level(owner, token_id, user)", fillcolor="#D2E3FC", shape="box"];
+        CheckMinimumAccess [label="check_minimum_access(owner, token_id, user, required_access)", fillcolor="#D2E3FC", shape="box"];
+        SetDefaultAccess [label="set_default_access_level(account, token_id, access_level)", fillcolor="#D2E3FC", shape="box"];
+        
+        // Group permission functions
+        {rank=same; GrantAccess RevokeAccess GetAccessLevel CheckMinimumAccess SetDefaultAccess}
+    }
+    
+    // Permission Verification Process
+    subgraph cluster_permission_verification {
+        label="Permission Verification Process";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        // Verification steps
+        VerifyStep1 [label="1. Look up user-specific access in access_rights table", fillcolor="#CEEAD6"];
+        VerifyStep2 [label="2. If not found, check default_access_levels table", fillcolor="#CEEAD6"];
+        VerifyStep3 [label="3. If not found, return ACCESS_NONE (0)", fillcolor="#CEEAD6"];
+        VerifyStep4 [label="4. Compare actual level against required level", fillcolor="#CEEAD6"];
+        VerifyStep5 [label="5. Allow operation if actual level ≥ required level", fillcolor="#CEEAD6"];
+        
+        // Connect verification steps
+        VerifyStep1 -> VerifyStep2 -> VerifyStep3 -> VerifyStep4 -> VerifyStep5;
+    }
+    
+    // Permission Records Structure
+    subgraph cluster_permission_storage {
+        label="Permission Storage Structure";
+        style="rounded,filled";
+        color="#7627BB";
+        fillcolor="#F3E8FF";
+        fontcolor="#7627BB";
+        fontsize=16;
+        
+        // Create nested tables with sample data
+        AccessRightsTable [shape=none, margin=0, label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR>
+                    <TD COLSPAN="3" BGCOLOR="#E9D7FE"><B>access_rights: Table&lt;address, Table&lt;u64, u8&gt;&gt;</B></TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#E9D7FE"><B>User Address</B></TD>
+                    <TD BGCOLOR="#E9D7FE"><B>Token ID</B></TD>
+                    <TD BGCOLOR="#E9D7FE"><B>Access Level</B></TD>
+                </TR>
+                <TR>
+                    <TD ROWSPAN="2">0x123...abc</TD>
+                    <TD>1</TD>
+                    <TD>6 (ABSOLUTE)</TD>
+                </TR>
+                <TR>
+                    <TD>2</TD>
+                    <TD>4 (VIEW_DOWNLOAD)</TD>
+                </TR>
+                <TR>
+                    <TD ROWSPAN="2">0x456...def</TD>
+                    <TD>1</TD>
+                    <TD>1 (USE_MODEL)</TD>
+                </TR>
+                <TR>
+                    <TD>3</TD>
+                    <TD>2 (RESALE)</TD>
+                </TR>
+            </TABLE>
+        >];
+        
+        DefaultAccessTable [shape=none, margin=0, label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR>
+                    <TD COLSPAN="2" BGCOLOR="#E9D7FE"><B>default_access_levels: Table&lt;u64, u8&gt;</B></TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#E9D7FE"><B>Token ID</B></TD>
+                    <TD BGCOLOR="#E9D7FE"><B>Default Access Level</B></TD>
+                </TR>
+                <TR>
+                    <TD>1</TD>
+                    <TD>0 (NONE)</TD>
+                </TR>
+                <TR>
+                    <TD>2</TD>
+                    <TD>1 (USE_MODEL)</TD>
+                </TR>
+                <TR>
+                    <TD>3</TD>
+                    <TD>0 (NONE)</TD>
+                </TR>
+            </TABLE>
+        >];
+    }
+    
+    // Access operations examples
+    subgraph cluster_operation_examples {
+        label="Access Operation Examples";
+        style="rounded,filled";
+        color="#F57C00";
+        fillcolor="#FFF3E0";
+        fontcolor="#F57C00";
+        fontsize=16;
+        
+        // Create example operations with permissions
+        OpExecution [shape=none, margin=0, label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR>
+                    <TD COLSPAN="3" BGCOLOR="#FFE0B2"><B>Workflow Operations &amp; Required Access Levels</B></TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#FFE0B2"><B>Operation</B></TD>
+                    <TD BGCOLOR="#FFE0B2"><B>Min. Access Level</B></TD>
+                    <TD BGCOLOR="#FFE0B2"><B>Description</B></TD>
+                </TR>
+                <TR>
+                    <TD>Execute workflow</TD>
+                    <TD>1 (USE_MODEL)</TD>
+                    <TD>Run the workflow with inputs</TD>
+                </TR>
+                <TR>
+                    <TD>Grant execution access</TD>
+                    <TD>2 (RESALE)</TD>
+                    <TD>Allow others to execute</TD>
+                </TR>
+                <TR>
+                    <TD>Create derivative</TD>
+                    <TD>3 (CREATE_REPLICA)</TD>
+                    <TD>Make modified version</TD>
+                </TR>
+                <TR>
+                    <TD>View internals</TD>
+                    <TD>4 (VIEW_DOWNLOAD)</TD>
+                    <TD>See workflow structure</TD>
+                </TR>
+                <TR>
+                    <TD>Modify workflow</TD>
+                    <TD>5 (EDIT_DATA)</TD>
+                    <TD>Change behavior</TD>
+                </TR>
+                <TR>
+                    <TD>Transfer ownership</TD>
+                    <TD>6 (ABSOLUTE_OWNERSHIP)</TD>
+                    <TD>Change primary owner</TD>
+                </TR>
+            </TABLE>
+        >];
+    }
+    
+    // External entities
+    Marketplace [label="Marketplace\nTrading Interface", shape="box", style="rounded,filled", fillcolor="#E8F0FE", color="#4285F4", fontcolor="#4285F4"];
+    MessagePasser [label="Neura Message Passer\nBackend 2", shape="box", style="rounded,filled", fillcolor="#E6F4EA", color="#0F9D58", fontcolor="#0F9D58"];
+    ExecutionEngine [label="Neura Execution Engine\nBackend 1", shape="box", style="rounded,filled", fillcolor="#FCE8E6", color="#DB4437", fontcolor="#DB4437"];
+    
+    // Relationships between components
+    TokenMetadata -> OwnershipRecord [label="Stored in"];
+    OwnershipRecord -> AccessControlRecord [label="References"];
+    
+    // Access control relationships
+    GrantAccess -> AccessRightsTable [label="Updates"];
+    RevokeAccess -> AccessRightsTable [label="Modifies"];
+    SetDefaultAccess -> DefaultAccessTable [label="Sets"];
+    GetAccessLevel -> AccessRightsTable [label="Queries first"];
+    GetAccessLevel -> DefaultAccessTable [label="Falls back to"];
+    CheckMinimumAccess -> GetAccessLevel [label="Uses"];
+    
+    // External component relationships
+    Marketplace -> GrantAccess [label="Calls on purchase"];
+    MessagePasser -> GetAccessLevel [label="Verifies permissions"];
+    MessagePasser -> CheckMinimumAccess [label="Validates operations"];
+    ExecutionEngine -> CheckMinimumAccess [label="Confirms execution rights"];
+    
+    // Verification process relationships
+    GetAccessLevel -> VerifyStep1 [label="Implements"];
+    
+    // Level requirements for operations
+    OpExecution -> Level1 [label="Execute requires ≥ Level 1", style="dashed"];
+    OpExecution -> Level2 [label="Resale requires ≥ Level 2", style="dashed"];
+    OpExecution -> Level3 [label="Derivative requires ≥ Level 3", style="dashed"];
+    OpExecution -> Level4 [label="Viewing requires ≥ Level 4", style="dashed"];
+    OpExecution -> Level5 [label="Editing requires ≥ Level 5", style="dashed"];
+    OpExecution -> Level6 [label="Transfer requires Level 6", style="dashed"];
+    
+    // Smart contract events
+    subgraph cluster_events {
+        label="Contract Events";
+        style="rounded,filled";
+        color="#A142F4";
+        fillcolor="#F4E9FD";
+        fontcolor="#A142F4";
+        fontsize=16;
+        
+        AccessGrantEvent [label="AccessGrantEvent\nEmitted when access granted", fillcolor="#E9D7FE"];
+        AccessRevokeEvent [label="AccessRevokeEvent\nEmitted when access revoked", fillcolor="#E9D7FE"];
+    }
+    
+    // Event connections
+    GrantAccess -> AccessGrantEvent [label="Emits"];
+    RevokeAccess -> AccessRevokeEvent [label="Emits"];
+    AccessGrantEvent -> MessagePasser [label="Monitored by", style="dashed"];
+    AccessRevokeEvent -> MessagePasser [label="Monitored by", style="dashed"];
+}

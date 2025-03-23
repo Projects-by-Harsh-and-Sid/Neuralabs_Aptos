@@ -1,0 +1,306 @@
+digraph "Blockchain / Smart Contract Architecture" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="LR";
+    
+    // NFT Smart Contract
+    subgraph cluster_contract {
+        label="NFT Smart Contract";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        
+        NFTContract [label="NFT Contract Module\nMain contract entry point", fillcolor="#FEEFC3"];
+        NFTInfo [label="NFT Info Structure\nToken metadata", fillcolor="#FEEFC3"];
+        NFTOwnership [label="NFT Ownership\nOwnership records", fillcolor="#FEEFC3"];
+        NFTAccess [label="NFT Access Control\nPermission system", fillcolor="#FEEFC3"];
+        
+        // Contract internals
+        subgraph cluster_contract_functions {
+            label="Core Functions";
+            style="rounded,filled";
+            color="#F7B529";
+            fillcolor="#FFE8A6";
+            fontcolor="#F7B529";
+            fontsize=14;
+            
+            Initialize [label="Initialize\nSetup contract"];
+            CreateNFT [label="Create NFT\nMint new token"];
+            TransferNFT [label="Transfer NFT\nChange ownership"];
+            BurnNFT [label="Burn NFT\nDestroy token"];
+            GetNFTInfo [label="Get NFT Info\nRead metadata"];
+        }
+        
+        // Contract connections
+        NFTContract -> Initialize;
+        NFTContract -> CreateNFT;
+        NFTContract -> TransferNFT;
+        NFTContract -> BurnNFT;
+        NFTContract -> GetNFTInfo;
+        
+        NFTContract -> NFTInfo [label="Contains"];
+        NFTContract -> NFTOwnership [label="Manages"];
+        NFTContract -> NFTAccess [label="Controls"];
+        
+        CreateNFT -> NFTInfo [label="Creates"];
+        CreateNFT -> NFTOwnership [label="Updates"];
+        TransferNFT -> NFTOwnership [label="Updates"];
+        BurnNFT -> NFTOwnership [label="Updates"];
+        BurnNFT -> NFTInfo [label="Deletes"];
+        GetNFTInfo -> NFTInfo [label="Reads"];
+    }
+    
+    // Access Control
+    subgraph cluster_access {
+        label="Access Control";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        
+        AccessLevels [label="Access Levels\nPermission hierarchy"];
+        PermissionManager [label="Permission Manager\nAccess operations"];
+        VerificationLogic [label="Verification Logic\nAccess checking"];
+        DefaultAccessTable [label="Default Access Table\nFallback permissions"];
+        
+        // Access level definitions
+        subgraph cluster_access_levels {
+            label="Access Level Definitions";
+            style="rounded,filled";
+            color="#DB4437";
+            fillcolor="#FCBDBA";
+            fontcolor="#DB4437";
+            fontsize=14;
+            
+            Level1 [label="Level 1: Use Model\nExecution only"];
+            Level2 [label="Level 2: Resale\nGrant L1 access"];
+            Level3 [label="Level 3: Create Replica\nDerivative works"];
+            Level4 [label="Level 4: View Download\nSee internals"];
+            Level5 [label="Level 5: Edit Data\nModify workflow"];
+            Level6 [label="Level 6: Absolute\nComplete control"];
+        }
+        
+        // Access control functions
+        subgraph cluster_access_functions {
+            label="Access Control Functions";
+            style="rounded,filled";
+            color="#DB4437";
+            fillcolor="#FCBDBA";
+            fontcolor="#DB4437";
+            fontsize=14;
+            
+            GrantAccess [label="Grant Access\nAssign permission"];
+            RevokeAccess [label="Revoke Access\nRemove permission"];
+            CheckAccess [label="Check Access\nVerify permission"];
+            SetDefaultAccess [label="Set Default Access\nDefault permission"];
+            GetAccessLevel [label="Get Access Level\nRead permission"];
+        }
+        
+        // Access hierarchy
+        Level1 -> Level2 [label="Includes", dir="back"];
+        Level2 -> Level3 [label="Includes", dir="back"];
+        Level3 -> Level4 [label="Includes", dir="back"];
+        Level4 -> Level5 [label="Includes", dir="back"];
+        Level5 -> Level6 [label="Includes", dir="back"];
+        
+        // Access control connections
+        AccessLevels -> Level1;
+        AccessLevels -> Level2;
+        AccessLevels -> Level3;
+        AccessLevels -> Level4;
+        AccessLevels -> Level5;
+        AccessLevels -> Level6;
+        
+        PermissionManager -> GrantAccess;
+        PermissionManager -> RevokeAccess;
+        PermissionManager -> SetDefaultAccess;
+        
+        VerificationLogic -> CheckAccess;
+        VerificationLogic -> GetAccessLevel;
+        
+        NFTAccess -> AccessLevels [label="Defines"];
+        NFTAccess -> PermissionManager [label="Implements"];
+        NFTAccess -> VerificationLogic [label="Uses"];
+        NFTAccess -> DefaultAccessTable [label="Maintains"];
+    }
+    
+    // Blockchain Events
+    subgraph cluster_events {
+        label="Blockchain Events";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        CreateEvent [label="Create Event\nMinting notification"];
+        TransferEvent [label="Transfer Event\nOwnership change"];
+        BurnEvent [label="Burn Event\nToken destruction"];
+        AccessGrantEvent [label="Access Grant Event\nPermission granted"];
+        AccessRevokeEvent [label="Access Revoke Event\nPermission removed"];
+        
+        // Event fields
+        subgraph cluster_event_fields {
+            label="Event Fields";
+            style="rounded,filled";
+            color="#0F9D58";
+            fillcolor="#CEEAD6";
+            fontcolor="#0F9D58";
+            fontsize=14;
+            
+            TokenFields [label="Token Fields\nID, metadata"];
+            AddressFields [label="Address Fields\nSender, receiver"];
+            TimestampFields [label="Timestamp Fields\nEvent time"];
+            AccessFields [label="Access Fields\nPermission details"];
+        }
+        
+        // Event connections
+        CreateEvent -> TokenFields;
+        CreateEvent -> AddressFields;
+        CreateEvent -> TimestampFields;
+        
+        TransferEvent -> TokenFields;
+        TransferEvent -> AddressFields;
+        TransferEvent -> TimestampFields;
+        
+        BurnEvent -> TokenFields;
+        BurnEvent -> AddressFields;
+        BurnEvent -> TimestampFields;
+        
+        AccessGrantEvent -> TokenFields;
+        AccessGrantEvent -> AddressFields;
+        AccessGrantEvent -> TimestampFields;
+        AccessGrantEvent -> AccessFields;
+        
+        AccessRevokeEvent -> TokenFields;
+        AccessRevokeEvent -> AddressFields;
+        AccessRevokeEvent -> TimestampFields;
+        AccessRevokeEvent -> AccessFields;
+        
+        // Event source connections
+        CreateNFT -> CreateEvent [label="Emits"];
+        TransferNFT -> TransferEvent [label="Emits"];
+        BurnNFT -> BurnEvent [label="Emits"];
+        GrantAccess -> AccessGrantEvent [label="Emits"];
+        RevokeAccess -> AccessRevokeEvent [label="Emits"];
+    }
+    
+    // Storage
+    subgraph cluster_storage {
+        label="Blockchain Storage";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        ResourcesTables [label="Resources Tables\nOn-chain storage"];
+        TableStructure [label="Table Structure\nKey-value store"];
+        EventStore [label="Event Store\nEvent history"];
+        
+        // Storage implementations
+        subgraph cluster_tables {
+            label="Storage Tables";
+            style="rounded,filled";
+            color="#4285F4";
+            fillcolor="#D2E3FC";
+            fontcolor="#4285F4";
+            fontsize=14;
+            
+            NFTTable [label="NFT Table\nToken records"];
+            OwnershipTable [label="Ownership Table\nOwner mapping"];
+            AccessTable [label="Access Table\nPermission mapping"];
+            DefaultAccessTable2 [label="Default Access Table\nDefault settings"];
+        }
+        
+        // Storage connections
+        ResourcesTables -> TableStructure [label="Uses"];
+        ResourcesTables -> NFTTable;
+        ResourcesTables -> OwnershipTable;
+        ResourcesTables -> AccessTable;
+        ResourcesTables -> DefaultAccessTable2;
+        
+        NFTOwnership -> OwnershipTable [label="Stored in"];
+        NFTInfo -> NFTTable [label="Stored in"];
+        NFTAccess -> AccessTable [label="Stored in"];
+        DefaultAccessTable -> DefaultAccessTable2 [label="Stored in"];
+        
+        CreateEvent -> EventStore [label="Recorded in"];
+        TransferEvent -> EventStore [label="Recorded in"];
+        BurnEvent -> EventStore [label="Recorded in"];
+        AccessGrantEvent -> EventStore [label="Recorded in"];
+        AccessRevokeEvent -> EventStore [label="Recorded in"];
+    }
+    
+    // External Components
+    AptosBlockchain [label="Aptos Blockchain\nL1 Network", shape="ellipse", style="filled", fillcolor="#5A2CA0", fontcolor="white"];
+    MessagePasser [label="Neura Message Passer\n(Backend 2)", shape="box", style="rounded,filled", fillcolor="#E6F4EA", color="#0F9D58", fontcolor="#0F9D58"];
+    FrontendClient [label="Client Application\n(Frontend)", shape="box", style="rounded,filled", fillcolor="#E8F0FE", color="#4285F4", fontcolor="#4285F4"];
+    ExecutionEngine [label="Neura Execution Engine\n(Backend 1)", shape="box", style="rounded,filled", fillcolor="#FCE8E6", color="#DB4437", fontcolor="#DB4437"];
+    
+    // External connections
+    NFTContract -> AptosBlockchain [label="Deployed on", style="dashed"];
+    MessagePasser -> NFTContract [label="Interacts via RPC", color="#0F9D58"];
+    FrontendClient -> NFTContract [label="Submits txns via wallet", color="#4285F4", style="dashed"];
+    ExecutionEngine -> NFTContract [label="Verifies access via RPC", color="#DB4437", style="dashed"];
+    
+    // Event listeners
+    MessagePasser -> CreateEvent [label="Listens for", color="#0F9D58", style="dashed"];
+    MessagePasser -> TransferEvent [label="Listens for", color="#0F9D58", style="dashed"];
+    MessagePasser -> AccessGrantEvent [label="Listens for", color="#0F9D58", style="dashed"];
+    MessagePasser -> AccessRevokeEvent [label="Listens for", color="#0F9D58", style="dashed"];
+    
+    // Utility Functions
+    subgraph cluster_utils {
+        label="Utility Functions";
+        style="rounded,filled";
+        color="#7627BB";
+        fillcolor="#F3E8FF";
+        fontcolor="#7627BB";
+        fontsize=16;
+        
+        HashGenerator [label="Hash Generator\nToken uniqueness", fillcolor="#E9D7FE"];
+        AccessVerifier [label="Access Verifier\nCheckpoint function", fillcolor="#E9D7FE"];
+        ErrorHandler [label="Error Handler\nError constants", fillcolor="#E9D7FE"];
+        Validator [label="Validator\nInput validation", fillcolor="#E9D7FE"];
+    }
+    
+    // Utility connections
+    NFTContract -> HashGenerator [label="Uses"];
+    VerificationLogic -> AccessVerifier [label="Implements"];
+    NFTContract -> ErrorHandler [label="Uses"];
+    NFTContract -> Validator [label="Uses"];
+    
+    // Blockchain internal components
+    subgraph cluster_blockchain_internals {
+        label="Aptos Blockchain Internals";
+        style="rounded,filled";
+        color="#A142F4";
+        fillcolor="#F4E9FD";
+        fontcolor="#A142F4";
+        fontsize=16;
+        
+        MoveVM [label="Move VM\nExecution environment"];
+        Consensus [label="Consensus\nBFT protocol"];
+        Storage [label="Storage\nDistributed ledger"];
+        Network [label="Network\nP2P communication"];
+    }
+    
+    // Blockchain internal connections
+    AptosBlockchain -> MoveVM;
+    AptosBlockchain -> Consensus;
+    AptosBlockchain -> Storage;
+    AptosBlockchain -> Network;
+    
+    MoveVM -> NFTContract [label="Executes"];
+    Storage -> ResourcesTables [label="Stores"];
+    Storage -> EventStore [label="Records"];
+}

@@ -1,0 +1,247 @@
+digraph "NeuraLabs Security Architecture" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="TB";
+    
+    // Define node clusters with distinct colors
+    subgraph cluster_perimeter {
+        // rankdir="TB";
+        label="Security Perimeter";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        rankdir="TB";
+        
+        Firewall [label="Network Firewall\nTraffic Filtering", fillcolor="#FCD0CD"];
+        WAF [label="Web Application Firewall\nApplication Layer Protection", fillcolor="#FCD0CD"];
+        DDoSProtection [label="DDoS Protection\nAttack Mitigation", fillcolor="#FCD0CD"];
+        RateLimiter [label="Rate Limiter\nRequest Throttling", fillcolor="#FCD0CD"];
+        TLS [label="TLS Termination\nEncryption Management", fillcolor="#FCD0CD"];
+
+
+    }
+    
+    subgraph cluster_authentication {
+        label="Authentication & Authorization";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        WalletAuth [label="Wallet Authentication\nCryptographic Identity", fillcolor="#D2E3FC"];
+        JWTProvider [label="JWT Provider\nToken Generation", fillcolor="#D2E3FC"];
+        AccessManager [label="Access Manager\nPermission Verification", fillcolor="#D2E3FC"];
+        BlockchainVerifier [label="Blockchain Verifier\nOn-chain Validation", fillcolor="#D2E3FC"];
+        SessionManager [label="Session Manager\nSession Lifecycle", fillcolor="#D2E3FC"];
+        
+        // Authentication flows
+        WalletAuth -> JWTProvider [label="Generate Token"];
+        JWTProvider -> SessionManager [label="Establish Session"];
+        AccessManager -> BlockchainVerifier [label="Verify Rights"];
+    }
+    
+    subgraph cluster_data_security {
+        label="Data Security";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        Encryption [label="Data Encryption\nAt-rest Protection", fillcolor="#CEEAD6"];
+        SecureStorage [label="Secure Storage\nSensitive Data Handling", fillcolor="#CEEAD6"];
+        DataMasking [label="Data Masking\nPII Protection", fillcolor="#CEEAD6"];
+        KeyManagement [label="Key Management\nCryptographic Material", fillcolor="#CEEAD6"];
+        BackupSecurity [label="Backup Security\nRecovery Protection", fillcolor="#CEEAD6"];
+        
+        // Data security flows
+        KeyManagement -> Encryption [label="Provide Keys"];
+        Encryption -> SecureStorage [label="Store Encrypted"];
+        SecureStorage -> DataMasking [label="Apply Masking"];
+        SecureStorage -> BackupSecurity [label="Secure Backup"];
+    }
+    
+    subgraph cluster_execution_security {
+        label="Execution Security";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        rankdir="TB";
+        
+        Sandbox [label="Execution Sandbox\nIsolation Environment", fillcolor="#FEEFC3"];
+        ResourceLimits [label="Resource Limits\nComputation Boundaries", fillcolor="#FEEFC3"];
+        CodeSecurity [label="Code Security\nExecution Validation", fillcolor="#FEEFC3"];
+        AccessVerification [label="Access Verification\nPermission Checking", fillcolor="#FEEFC3"];
+        AnomalyDetection [label="Anomaly Detection\nUnusual Behavior", fillcolor="#FEEFC3"];
+        
+        // Execution security flows
+        CodeSecurity -> Sandbox [label="Validate Code"];
+        Sandbox -> ResourceLimits [label="Apply Limits"];
+        Sandbox -> AccessVerification [label="Check Rights"];
+        Sandbox -> AnomalyDetection [label="Monitor Behavior"];
+    }
+    
+    subgraph cluster_monitoring {
+        label="Security Monitoring";
+        style="rounded,filled";
+        color="#7627BB";
+        fillcolor="#F3E8FF";
+        fontcolor="#7627BB";
+        fontsize=16;
+        
+        LogCollection [label="Log Collection\nAudit Trail", fillcolor="#E9D7FE"];
+        SIEM [label="Security Information and\nEvent Management", fillcolor="#E9D7FE"];
+        IntrusionDetection [label="Intrusion Detection\nThreat Monitoring", fillcolor="#E9D7FE"];
+        VulnerabilityScanner [label="Vulnerability Scanner\nSecurity Testing", fillcolor="#E9D7FE"];
+        AlertingSystem [label="Alerting System\nIncident Notification", fillcolor="#E9D7FE"];
+        
+        // Monitoring flows
+        LogCollection -> SIEM [label="Feed Logs"];
+        IntrusionDetection -> SIEM [label="Report Threats"];
+        VulnerabilityScanner -> SIEM [label="Report Vulnerabilities"];
+        SIEM -> AlertingSystem [label="Trigger Alerts"];
+    }
+    
+    // Main components
+    Client [label="Client Application\n(Frontend)", fillcolor="#E8F0FE", color="#4285F4", fontcolor="#4285F4"];
+    MessagePasser [label="Neura Message Passer\n(Backend 2)", fillcolor="#E6F4EA", color="#0F9D58", fontcolor="#0F9D58"];
+    ExecutionEngine [label="Neura Execution Engine\n(Backend 1)", fillcolor="#FCE8E6", color="#DB4437", fontcolor="#DB4437"];
+    Blockchain [label="Aptos Blockchain\nSmart Contracts", fillcolor="#FEF7E0", color="#F7B529", fontcolor="#F7B529"];
+    
+    // External entities
+    User [label="End User", shape="ellipse", style="filled", fillcolor="#AAAAAA", fontcolor="white"];
+    AIServices [label="External AI Services\nBedrock/DeepSeek", shape="ellipse", style="filled", fillcolor="#5A2CA0", fontcolor="white"];
+    AttackVector [label="Potential Attackers", shape="ellipse", style="filled", fillcolor="#EA4335", fontcolor="white"];
+    
+    // Component paths through security layers
+    User -> Client [label="User Access"];
+    AttackVector -> Firewall [label="Attack Attempt", color="#EA4335", style="dashed"];
+    Firewall -> WAF [label="Filtered Traffic"];
+    WAF -> RateLimiter [label="Validated Requests"];
+    RateLimiter -> TLS [label="Rate-Limited Traffic"];
+    TLS -> Client [label="Encrypted Connection"];
+    
+    // Authentication flow
+    Client -> WalletAuth [label="1. Authentication Request", color="#4285F4"];
+    WalletAuth -> Blockchain [label="2. Verify Wallet", color="#4285F4"];
+    Blockchain -> WalletAuth [label="3. Signature Confirmation", color="#F7B529"];
+    WalletAuth -> Client [label="4. Auth Token", color="#4285F4"];
+    
+    // Authorization flows
+    Client -> MessagePasser [label="5. Request with Token", color="#4285F4"];
+    MessagePasser -> AccessManager [label="6. Validate Request"];
+    AccessManager -> BlockchainVerifier [label="7. Check Permissions"];
+    BlockchainVerifier -> Blockchain [label="8. NFT Access Query", color="#0F9D58"];
+    Blockchain -> BlockchainVerifier [label="9. Access Level Response", color="#F7B529"];
+    
+    // Execution security flow
+    MessagePasser -> ExecutionEngine [label="10. Execution Request", color="#0F9D58"];
+    ExecutionEngine -> CodeSecurity [label="11. Validate Flow"];
+    CodeSecurity -> AccessVerification [label="12. Check Access Rights"];
+    AccessVerification -> Blockchain [label="13. Verify Permission", color="#DB4437"];
+    AccessVerification -> Sandbox [label="14. Approved Execution"];
+    Sandbox -> ResourceLimits [label="15. Apply Constraints"];
+    
+    // AI service security
+    Sandbox -> AIServices [label="16. Secure AI Request", color="#DB4437"];
+    AIServices -> Sandbox [label="17. AI Response", color="#5A2CA0"];
+    
+    // Data protection
+    MessagePasser -> Encryption [label="18. Sensitive Data"];
+    Encryption -> SecureStorage [label="19. Protected Storage"];
+    
+    // Audit and monitoring
+    Client -> LogCollection [label="20. User Activity Logs", style="dashed", color="#4285F4"];
+    MessagePasser -> LogCollection [label="21. Backend Logs", style="dashed", color="#0F9D58"];
+    ExecutionEngine -> LogCollection [label="22. Execution Logs", style="dashed", color="#DB4437"];
+    Sandbox -> AnomalyDetection [label="23. Execution Metrics"];
+    AnomalyDetection -> AlertingSystem [label="24. Suspicious Activity"];
+    
+    // Security controls
+    subgraph cluster_controls {
+        label="Security Controls";
+        style="rounded,filled";
+        color="#A142F4";
+        fillcolor="#F4E9FD";
+        fontcolor="#A142F4";
+        fontsize=16;
+        rankdir="TB";
+        
+        CORS [label="CORS Policy\nCross-Origin Security"];
+        CSP [label="Content Security Policy\nResource Control"];
+        InputValidation [label="Input Validation\nInjection Prevention"];
+        ErrorHandling [label="Secure Error Handling\nInformation Leakage Prevention"];
+        CSRF [label="CSRF Protection\nRequest Forgery Prevention"];
+
+
+        edge[style=invis]; // Invisible edges to control layout without visible lines
+        CORS -> CSP -> InputValidation -> ErrorHandling -> CSRF
+        edge[style=solid]; // Reset to visible edges if needed later
+    }
+    
+    // Control application
+    Client -> CSP [label="Apply Policy", style="dashed"];
+    Client -> CORS [label="Enforce Origins", style="dashed"];
+    MessagePasser -> InputValidation [label="Validate All Inputs", style="dashed"];
+    MessagePasser -> ErrorHandling [label="Sanitize Errors", style="dashed"];
+    MessagePasser -> CSRF [label="Verify Tokens", style="dashed"];
+    
+    // Blockchain security
+    subgraph cluster_blockchain_security {
+        label="Blockchain Security";
+        style="rounded,filled";
+        color="#F57C00";
+        fillcolor="#FFF3E0";
+        fontcolor="#F57C00";
+        fontsize=16;
+        
+        
+        MoveVerifier [label="Move Verifier\nFormal Verification"];
+        AccessModel [label="Access Model\nGranular Permissions"];
+        TransactionSigning [label="Transaction Signing\nCryptographic Authorization"];
+        EventSecurity [label="Event Security\nTamper-Evident Records"];
+        
+        
+        edge[style=invis]; // Invisible edges to control layout without visible lines
+        MoveVerifier -> AccessModel -> TransactionSigning -> EventSecurity 
+        edge[style=solid]; //
+    }
+    
+    // Blockchain security flow
+    Blockchain -> MoveVerifier [label="Verify Contract", style="dashed"];
+    Blockchain -> AccessModel [label="Implement Access", style="dashed"];
+    Blockchain -> TransactionSigning [label="Require Signatures", style="dashed"];
+    Blockchain -> EventSecurity [label="Record Events", style="dashed"];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Security Legend";
+        style="rounded,filled";
+        color="#333333";
+        fillcolor="#F5F5F5";
+        fontcolor="#333333";
+        fontsize=14;
+        
+        AuthenticationLegend [label="Authentication Controls", fillcolor="#D2E3FC", color="#4285F4", fontcolor="#4285F4"];
+        AuthorizationLegend [label="Authorization Controls", fillcolor="#CEEAD6", color="#0F9D58", fontcolor="#0F9D58"];
+        IsolationLegend [label="Isolation Controls", fillcolor="#FEEFC3", color="#F7B529", fontcolor="#F7B529"];
+        PerimeterLegend [label="Perimeter Controls", fillcolor="#FCD0CD", color="#DB4437", fontcolor="#DB4437"];
+        MonitoringLegend [label="Monitoring Controls", fillcolor="#E9D7FE", color="#7627BB", fontcolor="#7627BB"];
+        
+        DataFlowLegend [label="Encrypted Data Flow", shape="plaintext"];
+        AttackLegend [label="Attack Vector", shape="plaintext"];
+        
+        DataFlowLegend -> PerimeterLegend [style="bold"];
+        AttackLegend -> PerimeterLegend [color="#EA4335", style="dashed"];
+    }
+}

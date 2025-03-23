@@ -1,0 +1,217 @@
+digraph "Workflow Execution Sequence" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="TD";
+    
+    // Define node styles for sequence
+    node [shape=rect, style="rounded,filled", height=1];
+    
+    // Create sequence lanes
+    subgraph cluster_user {
+        color="#AAAAAA";
+        style=filled;
+        fillcolor="#F8F9FA";
+        label="User";
+        fontcolor="#666666";
+        UserStart [label="", shape=point, style=invis];
+        UserEnd [label="", shape=point, style=invis];
+        UserStart -> UserEnd [style=invis];
+    }
+    
+    subgraph cluster_frontend {
+        color="#4285F4";
+        style=filled;
+        fillcolor="#E8F0FE";
+        label="Client Application";
+        fontcolor="#4285F4";
+        FrontendStart [label="", shape=point, style=invis];
+        FrontendEnd [label="", shape=point, style=invis];
+        FrontendStart -> FrontendEnd [style=invis];
+    }
+    
+    subgraph cluster_message_passer {
+        color="#0F9D58";
+        style=filled;
+        fillcolor="#E6F4EA";
+        label="Neura Message Passer";
+        fontcolor="#0F9D58";
+        MessagePasserStart [label="", shape=point, style=invis];
+        MessagePasserEnd [label="", shape=point, style=invis];
+        MessagePasserStart -> MessagePasserEnd [style=invis];
+    }
+    
+    subgraph cluster_blockchain {
+        color="#F7B529";
+        style=filled;
+        fillcolor="#FEF7E0";
+        label="Aptos Blockchain";
+        fontcolor="#F7B529";
+        BlockchainStart [label="", shape=point, style=invis];
+        BlockchainEnd [label="", shape=point, style=invis];
+        BlockchainStart -> BlockchainEnd [style=invis];
+    }
+    
+    subgraph cluster_execution_engine {
+        color="#DB4437";
+        style=filled;
+        fillcolor="#FCE8E6";
+        label="Neura Execution Engine";
+        fontcolor="#DB4437";
+        ExecutionEngineStart [label="", shape=point, style=invis];
+        ExecutionEngineEnd [label="", shape=point, style=invis];
+        ExecutionEngineStart -> ExecutionEngineEnd [style=invis];
+    }
+    
+    subgraph cluster_ai_service {
+        color="#5A2CA0";
+        style=filled;
+        fillcolor="#F3E8FF";
+        label="AI Service (Bedrock)";
+        fontcolor="#5A2CA0";
+        AIServiceStart [label="", shape=point, style=invis];
+        AIServiceEnd [label="", shape=point, style=invis];
+        AIServiceStart -> AIServiceEnd [style=invis];
+    }
+    
+    subgraph cluster_database {
+        color="#336791";
+        style=filled;
+        fillcolor="#E1F5FE";
+        label="Database";
+        fontcolor="#336791";
+        DatabaseStart [label="", shape=point, style=invis];
+        DatabaseEnd [label="", shape=point, style=invis];
+        DatabaseStart -> DatabaseEnd [style=invis];
+    }
+    
+    // Define timeline nodes for each lane (vertical alignment)
+    // User lane
+    U1 [label="Initiate Chat", fillcolor="#F8F9FA"];
+    U2 [label="Wait for\nAuthentication", fillcolor="#F8F9FA"];
+    U3 [label="Send Message", fillcolor="#F8F9FA"];
+    U4 [label="Wait for Response", fillcolor="#F8F9FA"];
+    U5 [label="View Initial\nResponse Chunks", fillcolor="#F8F9FA"];
+    U6 [label="View Complete\nResponse", fillcolor="#F8F9FA"];
+    
+    // Frontend lane
+    F1 [label="Open Chat\nInterface", fillcolor="#D2E3FC"];
+    F2 [label="Request Wallet\nConnection", fillcolor="#D2E3FC"];
+    F3 [label="Send Message to\nBackend 2", fillcolor="#D2E3FC"];
+    F4 [label="Open WebSocket\nfor Streaming", fillcolor="#D2E3FC"];
+    F5 [label="Display Response\nChunks", fillcolor="#D2E3FC"];
+    F6 [label="Complete Conversation\nFlow", fillcolor="#D2E3FC"];
+    
+    // Message Passer lane
+    MP1 [label="Receive\nAuthentication", fillcolor="#CEEAD6"];
+    MP2 [label="Verify Access\nPermissions", fillcolor="#CEEAD6"];
+    MP3 [label="Retrieve Chat\nHistory", fillcolor="#CEEAD6"];
+    MP4 [label="Request Workflow\nExecution", fillcolor="#CEEAD6"];
+    MP5 [label="Stream Response\nto Frontend", fillcolor="#CEEAD6"];
+    MP6 [label="Store Conversation\nHistory", fillcolor="#CEEAD6"];
+    
+    // Blockchain lane
+    B1 [label="Confirm Wallet\nSignature", fillcolor="#FEEFC3"];
+    B2 [label="Verify Access\nLevel", fillcolor="#FEEFC3"];
+    
+    // Execution Engine lane
+    E1 [label="Receive Execution\nRequest", fillcolor="#FCD0CD"];
+    E2 [label="Load Workflow\nDefinition", fillcolor="#FCD0CD"];
+    E3 [label="Process Start & Input\nElements", fillcolor="#FCD0CD"];
+    E4 [label="Execute AI\nInference Element", fillcolor="#FCD0CD"];
+    E5 [label="Process Output\n& End Elements", fillcolor="#FCD0CD"];
+    E6 [label="Stream Results\nto Backend 2", fillcolor="#FCD0CD"];
+    
+    // AI Service lane
+    AI1 [label="Receive Inference\nRequest", fillcolor="#E9D7FE"];
+    AI2 [label="Stream Token\nGeneration", fillcolor="#E9D7FE"];
+    AI3 [label="Complete Text\nGeneration", fillcolor="#E9D7FE"];
+    
+    // Database lane
+    D1 [label="Retrieve User\nProfile", fillcolor="#B3E5FC"];
+    D2 [label="Load Workflow\nDefinition", fillcolor="#B3E5FC"];
+    D3 [label="Load Conversation\nHistory", fillcolor="#B3E5FC"];
+    D4 [label="Store Message\n& Response", fillcolor="#B3E5FC"];
+    
+    // Connect sequence nodes (within lanes)
+    U1 -> U2 -> U3 -> U4 -> U5 -> U6 [style=invis];
+    F1 -> F2 -> F3 -> F4 -> F5 -> F6 [style=invis];
+    MP1 -> MP2 -> MP3 -> MP4 -> MP5 -> MP6 [style=invis];
+    B1 -> B2 [style=invis];
+    E1 -> E2 -> E3 -> E4 -> E5 -> E6 [style=invis];
+    AI1 -> AI2 -> AI3 [style=invis];
+    D1 -> D2 -> D3 -> D4 [style=invis];
+    
+    // Connect sequence nodes (across lanes)
+    // Authentication Flow
+    U1 -> F1 [label="1. Open interface", color="#4285F4"];
+    U2 -> F2 [label="2. Authorize", color="#4285F4"];
+    F2 -> MP1 [label="3. Request authentication", color="#0F9D58"];
+    MP1 -> B1 [label="4. Verify wallet", color="#F7B529"];
+    B1 -> MP1 [label="5. Confirmation", color="#0F9D58"];
+    MP1 -> F2 [label="6. Authentication token", color="#4285F4"];
+    MP1 -> D1 [label="7. Get user data", color="#336791"];
+    
+    // Message Submission Flow
+    U3 -> F3 [label="8. Submit message", color="#4285F4"];
+    F3 -> MP2 [label="9. Send message", color="#0F9D58"];
+    MP2 -> B2 [label="10. Check access", color="#F7B529"];
+    B2 -> MP2 [label="11. Access level", color="#0F9D58"];
+    MP2 -> D3 [label="12. Get history", color="#336791"];
+    
+    // Execution Flow
+    F4 -> MP3 [label="13. WS connection", color="#0F9D58", style="bold"];
+    MP3 -> D2 [label="14. Get workflow", color="#336791"];
+    MP3 -> MP4 [label="15. Process request"];
+    MP4 -> E1 [label="16. Execute flow", color="#DB4437"];
+    E1 -> E2 [label="17. Setup"];
+    E2 -> E3 [label="18. Process inputs"];
+    E3 -> E4 [label="19. AI element"];
+    E4 -> AI1 [label="20. LLM request", color="#5A2CA0"];
+    AI1 -> AI2 [label="21. Generate text"];
+    
+    // Streaming Response Flow
+    AI2 -> E4 [label="22. Token stream", color="#DB4437", style="dashed"];
+    E4 -> E6 [label="23. Process chunks"];
+    E6 -> MP5 [label="24. Stream results", color="#0F9D58", style="bold"];
+    MP5 -> F5 [label="25. Forward stream", color="#4285F4", style="bold"];
+    F5 -> U5 [label="26. Show chunks", color="#666666"];
+    
+    // Completion Flow
+    AI2 -> AI3 [label="27. Complete"];
+    AI3 -> E4 [label="28. Final tokens", color="#DB4437"];
+    E4 -> E5 [label="29. Finalize"];
+    E5 -> E6 [label="30. Complete response"];
+    E6 -> MP5 [label="31. Send completion", color="#0F9D58"];
+    MP5 -> F6 [label="32. Update UI", color="#4285F4"];
+    F6 -> U6 [label="33. View result", color="#666666"];
+    MP5 -> MP6 [label="34. Save history"];
+    MP6 -> D4 [label="35. Persist data", color="#336791"];
+    
+    // Legend nodes
+    subgraph cluster_legend {
+        label="Legend";
+        style="rounded,filled";
+        fontsize=14;
+        color="#333333";
+        fillcolor="#FFFFFF";
+        
+        LegendUser [label="User Action", fillcolor="#F8F9FA"];
+        LegendFrontend [label="Frontend Process", fillcolor="#D2E3FC"];
+        LegendBackend2 [label="Backend 2 Process", fillcolor="#CEEAD6"];
+        LegendBlockchain [label="Blockchain Operation", fillcolor="#FEEFC3"];
+        LegendBackend1 [label="Backend 1 Process", fillcolor="#FCD0CD"];
+        LegendAI [label="AI Service", fillcolor="#E9D7FE"];
+        LegendDB [label="Database Operation", fillcolor="#B3E5FC"];
+        
+        LegendUser -> LegendFrontend [label="HTTP Request", style="solid"];
+        LegendFrontend -> LegendBackend2 [label="WebSocket", style="bold"];
+        LegendBackend1 -> LegendAI [label="Streaming", style="dashed"];
+        
+        {rank=same; LegendUser LegendFrontend LegendBackend2 LegendBlockchain LegendBackend1 LegendAI LegendDB}
+    }
+}

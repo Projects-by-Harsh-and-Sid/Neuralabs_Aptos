@@ -1,8 +1,8 @@
 # elements/flow_control/start.py
 from typing import Dict, Any, Optional
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class Start(ElementBase):
     """Start element for flow execution."""

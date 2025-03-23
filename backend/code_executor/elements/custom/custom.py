@@ -6,9 +6,9 @@ import psutil
 import traceback
 from RestrictedPython import compile_restricted, safe_globals, limited_builtins, utility_builtins
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import validate_inputs, validate_outputs
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import validate_inputs, validate_outputs
 
 class Custom(ElementBase):
     """Custom element for executing user-defined Python code with security restrictions."""

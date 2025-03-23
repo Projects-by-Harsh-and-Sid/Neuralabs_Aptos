@@ -1,0 +1,267 @@
+digraph "Neura Message Passer Architecture" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="LR";
+    
+    // API Layer
+    subgraph cluster_api {
+        label="API Layer";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        APIGateway [label="API Gateway\nFastAPI Router", fillcolor="#B7E1CD"];
+        RESTEndpoints [label="REST Endpoints\nHTTP Handlers", fillcolor="#B7E1CD"];
+        WebSocketHandlers [label="WebSocket Handlers\nWS Connection Mgmt", fillcolor="#B7E1CD"];
+        AuthMiddleware [label="Auth Middleware\nAuthentication/Authorization", fillcolor="#B7E1CD"];
+        RateLimiter [label="Rate Limiter\nRequest throttling", fillcolor="#B7E1CD"];
+        ErrorHandler [label="Error Handler\nException processing", fillcolor="#B7E1CD"];
+        
+        // API subcomponents
+        subgraph cluster_api_endpoints {
+            label="API Endpoint Groups";
+            style="rounded,filled";
+            color="#0F9D58";
+            fillcolor="#CEEAD6";
+            fontcolor="#0F9D58";
+            fontsize=14;
+            
+            UserEndpoints [label="User Endpoints\nAccount management"];
+            FlowEndpoints [label="Flow Endpoints\nWorkflow management"];
+            ExecutionEndpoints [label="Execution Endpoints\nWorkflow execution"];
+            MarketplaceEndpoints [label="Marketplace Endpoints\nTrading interface"];
+            AccessEndpoints [label="Access Endpoints\nPermission management"];
+        }
+        
+        // API Layer connections
+        APIGateway -> RESTEndpoints;
+        APIGateway -> WebSocketHandlers;
+        RESTEndpoints -> AuthMiddleware;
+        WebSocketHandlers -> AuthMiddleware;
+        APIGateway -> RateLimiter;
+        APIGateway -> ErrorHandler;
+        
+        RESTEndpoints -> UserEndpoints;
+        RESTEndpoints -> FlowEndpoints;
+        RESTEndpoints -> ExecutionEndpoints;
+        RESTEndpoints -> MarketplaceEndpoints;
+        RESTEndpoints -> AccessEndpoints;
+    }
+    
+    // Core Services
+    subgraph cluster_core {
+        label="Core Services";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        UserManager [label="User Manager\nAccount handling"];
+        FlowManager [label="Flow Manager\nWorkflow CRUD"];
+        AccessManager [label="Access Manager\nPermission enforcement"];
+        ChatHistoryManager [label="Chat History Manager\nConversation storage"];
+        ExecutionRecordManager [label="Execution Record Manager\nExecution tracking"];
+        NotificationService [label="Notification Service\nUser alerts"];
+        SearchService [label="Search Service\nContent discovery"];
+        AnalyticsService [label="Analytics Service\nUsage tracking"];
+        
+        // Core subcomponents
+        subgraph cluster_flow_management {
+            label="Flow Management";
+            style="rounded,filled";
+            color="#4285F4";
+            fillcolor="#D2E3FC";
+            fontcolor="#4285F4";
+            fontsize=14;
+            
+            FlowVersioning [label="Flow Versioning\nVersion control"];
+            FlowValidation [label="Flow Validation\nStructure checking"];
+            FlowCompilation [label="Flow Compilation\nOptimization"];
+            FlowExecution [label="Flow Execution\nRuntime management"];
+        }
+        
+        // Core service connections
+        FlowManager -> FlowVersioning;
+        FlowManager -> FlowValidation;
+        FlowManager -> FlowCompilation;
+        FlowManager -> FlowExecution;
+        UserManager -> NotificationService;
+        FlowManager -> NotificationService;
+        FlowManager -> SearchService;
+        UserManager -> AnalyticsService;
+        FlowManager -> AnalyticsService;
+        ExecutionRecordManager -> AnalyticsService;
+    }
+    
+    // Integration Services
+    subgraph cluster_integration {
+        label="Integration Services";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        
+        ExecutionEngineClient [label="Execution Engine Client\nBackend 1 communication", fillcolor="#FCD0CD"];
+        BlockchainClient [label="Blockchain Client\nAptos integration", fillcolor="#FCD0CD"];
+        EventSubscriber [label="Event Subscriber\nBlockchain event listener", fillcolor="#FCD0CD"];
+        WebhookService [label="Webhook Service\nExternal notifications", fillcolor="#FCD0CD"];
+        APIClientFactory [label="API Client Factory\nExternal API integration", fillcolor="#FCD0CD"];
+        
+        // Integration subcomponents
+        subgraph cluster_exec_engine_comms {
+            label="Execution Engine Communication";
+            style="rounded,filled";
+            color="#DB4437";
+            fillcolor="#FCBDBA";
+            fontcolor="#DB4437";
+            fontsize=14;
+            
+            WSClient [label="WebSocket Client\nStreaming communication"];
+            RESTClient [label="REST Client\nHTTP communication"];
+            ResponseProcessor [label="Response Processor\nResult handling"];
+            StreamManager [label="Stream Manager\nStream multiplexing"];
+        }
+        
+        // Integration service connections
+        ExecutionEngineClient -> WSClient;
+        ExecutionEngineClient -> RESTClient;
+        ExecutionEngineClient -> ResponseProcessor;
+        ExecutionEngineClient -> StreamManager;
+        BlockchainClient -> EventSubscriber;
+        BlockchainClient -> WebhookService;
+    }
+    
+    // Data Layer
+    subgraph cluster_data {
+        label="Data Layer";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        
+        DBManager [label="Database Manager\nData access layer"];
+        CacheManager [label="Cache Manager\nRedis caching"];
+        StorageManager [label="Storage Manager\nFile storage"];
+        DataMigrationService [label="Data Migration Service\nSchema evolution"];
+        BackupService [label="Backup Service\nData protection"];
+        
+        // Data models
+        subgraph cluster_data_models {
+            label="Data Models";
+            style="rounded,filled";
+            color="#F7B529";
+            fillcolor="#FEEFC3";
+            fontcolor="#F7B529";
+            fontsize=14;
+            
+            UserModel [label="User Model\nAccount data"];
+            FlowModel [label="Flow Model\nWorkflow definition"];
+            ExecutionModel [label="Execution Model\nRun records"];
+            ChatModel [label="Chat Model\nConversation data"];
+            AccessModel [label="Access Model\nPermission records"];
+            MarketplaceModel [label="Marketplace Model\nListing data"];
+        }
+        
+        // Data layer connections
+        DBManager -> UserModel;
+        DBManager -> FlowModel;
+        DBManager -> ExecutionModel;
+        DBManager -> ChatModel;
+        DBManager -> AccessModel;
+        DBManager -> MarketplaceModel;
+        
+        DBManager -> DataMigrationService;
+        DBManager -> BackupService;
+        CacheManager -> DBManager [label="Caches"];
+    }
+    
+    // External Components
+    Database [label="PostgreSQL\nRelational Database", shape="cylinder", style="filled", fillcolor="#336791", fontcolor="white"];
+    CacheStore [label="Redis\nIn-memory Cache", shape="cylinder", style="filled", fillcolor="#DC382D", fontcolor="white"];
+    FileStorage [label="Object Storage\nS3-compatible", shape="cylinder", style="filled", fillcolor="#FF9900", fontcolor="white"];
+    ExecutionEngine [label="Neura Execution Engine\n(Backend 1)", shape="box", style="rounded,filled", fillcolor="#FCE8E6", color="#DB4437", fontcolor="#DB4437"];
+    AptosBlockchain [label="Aptos Blockchain", shape="box", style="rounded,filled", fillcolor="#FEF7E0", color="#F7B529", fontcolor="#F7B529"];
+    ClientApp [label="Client Application\n(Frontend)", shape="box", style="rounded,filled", fillcolor="#E8F0FE", color="#4285F4", fontcolor="#4285F4"];
+    MessageQueue [label="Message Queue\nKafka/Redis Streams", shape="cylinder", style="filled", fillcolor="#6929C4", fontcolor="white"];
+    
+    // API to Core connections
+    UserEndpoints -> UserManager;
+    FlowEndpoints -> FlowManager;
+    ExecutionEndpoints -> ExecutionRecordManager;
+    ExecutionEndpoints -> FlowExecution;
+    MarketplaceEndpoints -> FlowManager;
+    AccessEndpoints -> AccessManager;
+    WebSocketHandlers -> ChatHistoryManager;
+    WebSocketHandlers -> StreamManager;
+    
+    // Core to Integration connections
+    FlowExecution -> ExecutionEngineClient;
+    AccessManager -> BlockchainClient;
+    NotificationService -> WebhookService;
+    
+    // Core to Data connections
+    UserManager -> DBManager;
+    FlowManager -> DBManager;
+    FlowManager -> StorageManager;
+    FlowVersioning -> StorageManager;
+    AccessManager -> DBManager;
+    AccessManager -> CacheManager;
+    ChatHistoryManager -> DBManager;
+    ExecutionRecordManager -> DBManager;
+    NotificationService -> DBManager;
+    
+    // External connections
+    DBManager -> Database [label="SQL", color="#F7B529"];
+    CacheManager -> CacheStore [label="Redis Protocol", color="#F7B529"];
+    StorageManager -> FileStorage [label="S3 API", color="#F7B529"];
+    
+    ExecutionEngineClient -> ExecutionEngine [label="WebSocket\nHTTP/REST", color="#DB4437", style="bold"];
+    BlockchainClient -> AptosBlockchain [label="RPC", color="#DB4437"];
+    EventSubscriber -> AptosBlockchain [label="Event Subscription", color="#DB4437", style="dashed"];
+    
+    WebSocketHandlers -> ClientApp [label="WebSocket", color="#0F9D58", style="bold"];
+    RESTEndpoints -> ClientApp [label="HTTP/REST", color="#0F9D58"];
+    
+    // Async messaging
+    AsyncProcessor [label="Async Processor\nBackground tasks", fillcolor="#E8F0FE"];
+    AsyncProcessor -> MessageQueue [label="Produces/Consumes", color="#4285F4"];
+    NotificationService -> MessageQueue [label="Produces", color="#4285F4"];
+    UserManager -> AsyncProcessor;
+    FlowManager -> AsyncProcessor;
+    ExecutionRecordManager -> AsyncProcessor;
+    
+    // Security Components
+    subgraph cluster_security {
+        label="Security";
+        style="rounded,filled";
+        color="#7627BB";
+        fillcolor="#F3E8FF";
+        fontcolor="#7627BB";
+        fontsize=16;
+        
+        JWTProvider [label="JWT Provider\nToken generation"];
+        PermissionValidator [label="Permission Validator\nAccess checking"];
+        BlockchainVerifier [label="Blockchain Verifier\nOn-chain validation"];
+        EncryptionService [label="Encryption Service\nData protection"];
+        AuditLogger [label="Audit Logger\nSecurity events"];
+    }
+    
+    // Security connections
+    AuthMiddleware -> JWTProvider;
+    AuthMiddleware -> PermissionValidator;
+    PermissionValidator -> BlockchainVerifier;
+    BlockchainVerifier -> BlockchainClient;
+    DBManager -> EncryptionService [label="Encrypts sensitive data"];
+    AuthMiddleware -> AuditLogger;
+    PermissionValidator -> AuditLogger;
+}

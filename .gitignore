@@ -2,3 +2,4 @@
 **/__pycache__/
 build/
 .env
+backend/code_executor/logs

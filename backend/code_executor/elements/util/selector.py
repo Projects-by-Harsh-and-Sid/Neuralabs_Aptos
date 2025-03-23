@@ -1,9 +1,9 @@
 # elements/util/selector.py
 from typing import Dict, Any, List, Optional, Union
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import validate_inputs
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import validate_inputs
 
 class Selector(ElementBase):
     """Selector element for selecting values from data based on a key."""

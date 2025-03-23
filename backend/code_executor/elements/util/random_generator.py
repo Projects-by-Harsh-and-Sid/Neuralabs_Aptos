@@ -3,8 +3,8 @@ from typing import Dict, Any, Optional
 import random
 import string
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class RandomGenerator(ElementBase):
     """Random Generator element for generating random values."""
