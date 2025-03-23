@@ -242,15 +242,14 @@ const NavPanel = ({
         
         <Box as="li" position="relative" w="100%" mb={3}>
           <Tooltip 
-            label={"Settings"} 
+            label={"Connect Wallet"} 
             placement="right" 
             bg={useColorModeValue("gray.900", "gray.900")} 
             hasArrow
           >
             <Button 
-              {...getButtonStyles('settings')}
-              onClick={() => handleButtonClick('settings', null, '/settings')}
-              aria-label="Settings"
+              {...getButtonStyles('Connect Wallet')}
+              aria-label="Connect Wallet"
               disabled={viewOnlyMode}
             >
                          {
