@@ -34,7 +34,8 @@ import ThinkingUI from "./ThinkingUI/ThinkingUI";
 
 // Import colors
 import useUiColors from "../../utils/uiColors";
-
+import colors from "../../color";
+import { useColorModeValue } from "@chakra-ui/react";
 // Sample AI models/agents
 const AI_MODELS = [
   { id: "grok-3", name: "Grok 3" },
@@ -55,7 +56,12 @@ const AI_MODELS = [
 
 const Message = ({ message }) => {
   const isUser = message.role === "user";
-  const colors = useUiColors();
+//   const colors = useUiColors();
+
+  const userMessageBg = useColorModeValue(colors.chat.userMessageBg.light, colors.chat.userMessageBg.dark);
+  const assistantMessageBg = useColorModeValue(colors.chat.assistantMessageBg.light, colors.chat.assistantMessageBg.dark);
+  const textColor = useColorModeValue(colors.chat.textPrimary.light, colors.chat.textPrimary.dark);
+  const iconColor = useColorModeValue(colors.chat.iconColor.light, colors.chat.iconColor.dark);
 
   return (
     <Flex w="100%" maxW="900px" mx="auto" direction="column" mb={8}>
@@ -64,8 +70,8 @@ const Message = ({ message }) => {
           maxW={isUser ? "300px" : "70%"}
           p={3}
           borderRadius="lg"
-          bg={isUser ? colors.userMessageBg : colors.assistantMessageBg}
-          color={colors.textPrimary}
+          bg={isUser ? userMessageBg : assistantMessageBg}
+          color={textColor}
         >
           <Text>{message.content}</Text>
         </Box>
@@ -78,32 +84,32 @@ const Message = ({ message }) => {
             aria-label="Thumbs up"
             size="sm"
             variant="ghost"
-            color={colors.iconColor}
-            _hover={{ color: colors.textPrimary }}
+            color={iconColor}
+            _hover={{ color: textColor }}
           />
           <IconButton
             icon={<FiThumbsDown />}
             aria-label="Thumbs down"
             size="sm"
             variant="ghost"
-            color={colors.iconColor}
-            _hover={{ color: colors.textPrimary }}
+            color={iconColor}
+            _hover={{ color: textColor }}
           />
           <IconButton
             icon={<FiCode />}
             aria-label="Copy code"
             size="sm"
             variant="ghost"
-            color={colors.iconColor}
-            _hover={{ color: colors.textPrimary }}
+            color=  {iconColor}
+            _hover={{ color: textColor }}
           />
           <IconButton
             icon={<FiPaperclip />}
             aria-label="Save"
             size="sm"
             variant="ghost"
-            color={colors.iconColor}
-            _hover={{ color: colors.textPrimary }}
+            color=  {iconColor}
+            _hover={{ color: textColor }}
           />
         </HStack>
       )}
@@ -125,9 +131,20 @@ const ChatInterface = ({
   const [toolSelectionMode, setToolSelectionMode] = useState("deepSearch");
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const [aiagentSelected, setaiagentSelected] = useState(false);
+
 
   // Get color variables
-  const colors = useUiColors();
+//   const colors = useUiColors();
+
+  const bgPrimary = useColorModeValue(colors.chat.bgPrimary.light, colors.chat.bgPrimary.dark);
+  const bgSecondary = useColorModeValue(colors.chat.bgSecondary.light, colors.chat.bgSecondary.dark);
+  const bgInput = useColorModeValue(colors.chat.bgInput.light, colors.chat.bgInput.dark);
+  const bgHover = useColorModeValue(colors.chat.bgHover.light, colors.chat.bgHover.dark);
+  const textPrimary = useColorModeValue(colors.chat.textPrimary.light, colors.chat.textPrimary.dark);
+  const textSecondary = useColorModeValue(colors.chat.textSecondary.light, colors.chat.textSecondary.dark);
+  const borderColor = useColorModeValue(colors.chat.borderColor.light, colors.chat.borderColor.dark);
+  const iconColor = useColorModeValue(colors.chat.iconColor.light, colors.chat.iconColor.dark);
 
   useEffect(() => {
     // Scroll to bottom when messages change
@@ -137,21 +154,32 @@ const ChatInterface = ({
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInput(value);
-
-    // Check for @mention
-    if (value.includes("@")) {
-      const mentionParts = value.split("@");
-      const mentionText = mentionParts[mentionParts.length - 1].split(" ")[0];
-
-      if (mentionText !== "") {
-        setMentionActive(true);
-        setFilteredModels(
-          AI_MODELS.filter((model) =>
-            model.name.toLowerCase().includes(mentionText.toLowerCase())
-          )
+    
+    // If the input is empty, reset the mentionSelected flag
+    if (value.trim() === "") {
+        setaiagentSelected(false);
+    }
+  
+    // Only check for @ mentions if we haven't already selected a mention for this message
+    if (value.includes("@") && !aiagentSelected) {
+      console.log("@ detected in input and no mention previously selected");
+      
+      const atPosition = value.lastIndexOf("@");
+      const textAfterAt = value.substring(atPosition + 1);
+      
+      console.log("Text after @:", textAfterAt);
+      
+      // Activate dropdown when @ is typed and no model has been selected yet
+      setMentionActive(true);
+      
+      if (textAfterAt.trim() !== "") {
+        const filtered = AI_MODELS.filter((model) =>
+          model.name.toLowerCase().includes(textAfterAt.toLowerCase())
         );
+        console.log("Filtered models:", filtered);
+        setFilteredModels(filtered);
       } else {
-        setMentionActive(true);
+        console.log("Showing all models");
         setFilteredModels(AI_MODELS);
       }
     } else {
@@ -159,35 +187,163 @@ const ChatInterface = ({
     }
   };
 
-  const handleSendMessage = () => {
-    if (input.trim() === "") return;
+//   const handleSendMessage = () => {
+//     if (input.trim() === "") return;
+  
+//     // Check if this message has an @mention
+//     const hasAtMention = input.includes("@");
+//     let modelId = selectedModel.id;
+//     let cleanMessage = input;
+  
+//     // If the message has @mention, extract the model name and remove it from message
+//     if (hasAtMention) {
+//       // Find the mentioned model name
+//       const mentionParts = input.split("@");
+//       const beforeMention = mentionParts[0];
+//       const afterMentionFull = mentionParts[1];
+      
+//       // Extract the model name (text until the first space)
+//       const mentionText = afterMentionFull.split(" ")[0];
+//       const afterMention = afterMentionFull.substring(mentionText.length).trim();
+      
+//       // Find the matching model
+//       const mentionedModel = AI_MODELS.find(
+//         (model) => model.name.toLowerCase() === mentionText.toLowerCase()
+//       );
+  
+//       if (mentionedModel) {
+//         modelId = mentionedModel.id;
+        
+//         // Create a clean message without the @mention
+//         cleanMessage = beforeMention + afterMention;
+//       }
+//     }
+  
+//     // Send the clean message with the appropriate model
+//     onSendMessage(cleanMessage.trim(), modelId, toolSelectionMode === "think");
+//     setInput("");
+//     setMentionActive(false);
+//   };
 
-    // Check if this message has an @mention to trigger thinking UI
+// const handleSendMessage = () => {
+//   if (input.trim() === "") return;
+  
+//   // Check if this message has an @mention
+//   const hasAtMention = input.includes("@");
+//   let modelId = selectedModel.id;
+//   let cleanMessage = input;
+  
+//   // If the message has @mention, extract the model name and remove it from message
+//   if (hasAtMention) {
+//     // First just extract everything after the @ symbol
+//     const atPosition = input.indexOf("@");
+//     const textAfterAt = input.substring(atPosition + 1);
+    
+//     // Check each model name to see if it appears at the start of the text after @
+//     let matchedModel = null;
+//     let matchedModelName = "";
+    
+//     // Sort models by name length (descending) to match longer names first
+//     // This prevents "Grok" matching before "Grok 3"
+//     const sortedModels = [...AI_MODELS].sort(
+//       (a, b) => b.name.length - a.name.length
+//     );
+    
+//     for (const model of sortedModels) {
+//       if (textAfterAt.toLowerCase().startsWith(model.name.toLowerCase())) {
+//         matchedModel = model;
+//         matchedModelName = model.name;
+//         break;
+//       }
+//     }
+    
+//     if (matchedModel) {
+//       modelId = matchedModel.id;
+      
+//       // Get everything before the @ and everything after the model name
+//       const beforeMention = input.substring(0, atPosition);
+//       const afterModelName = textAfterAt.substring(matchedModelName.length);
+      
+//       // Create clean message by combining before @ and after model name
+//       cleanMessage = beforeMention + afterModelName;
+//     }
+//   }
+  
+//   // Debug logs to verify the extraction
+//   console.log("Original input:", input);
+//   console.log("Clean message:", cleanMessage);
+//   console.log("Selected model:", modelId);
+//   console.log("Think mode:", toolSelectionMode === "think");
+  
+//   // Check if we're in think mode and pass that info to onSendMessage
+//   const isThinkMode = toolSelectionMode === "think";
+  
+//   // Send the clean message with the appropriate model and think mode flag
+//   onSendMessage(cleanMessage.trim(), modelId, isThinkMode);
+//   setInput("");
+//   setMentionActive(false);
+// };
+
+
+const handleSendMessage = () => {
+    if (input.trim() === "") return;
+  
+    // Check if this message has an @mention
     const hasAtMention = input.includes("@");
     let modelId = selectedModel.id;
-
-    // If the message has @mention, extract the model name
+    let cleanMessage = input;
+    let useThinkMode = toolSelectionMode === "think";
+  
+    // If the message has @mention, extract the model name and remove it from message
     if (hasAtMention) {
-      // Find the mentioned model name
-      const mentionParts = input.split("@");
-      const mentionText = mentionParts[1].split(" ")[0];
-
-      // Find the matching model
-      const mentionedModel = AI_MODELS.find(
-        (model) => model.name.toLowerCase() === mentionText.toLowerCase()
+      // First just extract everything after the @ symbol
+      const atPosition = input.indexOf("@");
+      const textAfterAt = input.substring(atPosition + 1);
+      
+      // Check each model name to see if it appears at the start of the text after @
+      let matchedModel = null;
+      let matchedModelName = "";
+      
+      // Sort models by name length (descending) to match longer names first
+      // This prevents "Grok" matching before "Grok 3"
+      const sortedModels = [...AI_MODELS].sort(
+        (a, b) => b.name.length - a.name.length
       );
-
-      if (mentionedModel) {
-        modelId = mentionedModel.id;
+      
+      for (const model of sortedModels) {
+        if (textAfterAt.toLowerCase().startsWith(model.name.toLowerCase())) {
+          matchedModel = model;
+          matchedModelName = model.name;
+          break;
+        }
+      }
+      
+      if (matchedModel) {
+        modelId = matchedModel.id;
+        
+        // Get everything before the @ and everything after the model name
+        const beforeMention = input.substring(0, atPosition);
+        const afterModelName = textAfterAt.substring(matchedModelName.length);
+        
+        // Create clean message by combining before @ and after model name
+        cleanMessage = beforeMention + afterModelName;
+        
+        // Always enable think mode when an agent is mentioned with @
+        useThinkMode = true;
       }
     }
-
-    // Send the message with the appropriate model
-    onSendMessage(input, modelId, hasAtMention);
+    
+    // Debug logs to verify the extraction
+    console.log("Original input:", input);
+    console.log("Clean message:", cleanMessage);
+    console.log("Selected model:", modelId);
+    console.log("Using Think mode:", useThinkMode);
+    
+    // Send the clean message with the appropriate model and think mode flag
+    onSendMessage(cleanMessage.trim(), modelId, useThinkMode);
     setInput("");
     setMentionActive(false);
   };
-
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -204,8 +360,13 @@ const ChatInterface = ({
         : "";
     setInput(`${beforeMention}@${model.name} ${afterMention}`);
     setMentionActive(false);
+    
+    // Set the flag to indicate a mention has been selected for this message
+    setaiagentSelected(true);
+    
     inputRef.current?.focus();
   };
+  
 
   const handleToolSelect = (tool) => {
     // In a real app, this would activate the selected tool
@@ -216,8 +377,8 @@ const ChatInterface = ({
     <Flex
       direction="column"
       h={messages.length > 0 ? "100%" : "auto"} // Dynamic height
-      bg={colors.bgPrimary}
-      color={colors.textPrimary}
+      bg={bgPrimary}
+      color={textPrimary}
       transition="height 0.3s ease" // Smooth transition for height change
     >
       {isLanding ? (
@@ -228,10 +389,10 @@ const ChatInterface = ({
           align="center"
           px={4}
         >
-          <Text fontSize="2xl" fontWeight="medium" mb={2}>
+          <Text fontSize="2xl" fontWeight="medium">
             Good afternoon, User.
           </Text>
-          <Text fontSize="xl" color={colors.textSecondary}>
+          <Text fontSize="xl" color={textSecondary}>
             How can I help you today?
           </Text>
         </Flex>
@@ -274,13 +435,13 @@ const ChatInterface = ({
       )} */}
 
       {/* Footer with input */}
-      <Box p={5} pb={10}> {/* Add position relative here */}
+      <Box p={5} pb={10} > {/* Add position relative here */}
         <Flex
           direction="column"
           borderRadius="lg"
-          bg={colors.bgInput}
+          bg={bgInput}
           border="1px solid"
-          borderColor={colors.borderColor}
+          borderColor={borderColor}
           p={2}
           maxW={isLanding ? "600px" : "900px"}
           mx="auto"
@@ -309,36 +470,39 @@ const ChatInterface = ({
             <Box
               position="absolute"
               // Position based on chat state: below input for new chat, above input for existing chat
-              top={isLanding ? "100%" : "auto"}
-              bottom={isLanding ? "auto" : "100%"}
-              left="50%"
-              transform="translateX(-50%)"
-              width="80%"
-              maxW="600px"
-              bg={colors.bgSecondary}
+              top={isLanding ? "58%" : "auto"}
+              bottom={isLanding ? "auto" : "16%"}
+            //   left="50%"
+            //   transform="translateX(-40%)"
+              width="50%"
+              maxW="300px"
+              bg={bgSecondary}
               boxShadow="md"
               borderRadius="md"
               mt={isLanding ? 2 : 0} // Margin top when below
               mb={isLanding ? 0 : 2} // Margin bottom when above
               zIndex={10}
               border="1px solid"
-              borderColor={colors.borderColor}
+              borderColor={borderColor}
+              px={2}
             >
-              <VStack align="stretch" p={2} maxH="200px" overflow="auto">
-                <Text
+              <VStack align="stretch"
+               p={2} 
+               maxH="200px" overflow="auto">
+                {/* <Text
                   fontWeight="bold"
                   p={2}
                   borderBottom="1px solid"
                   borderColor={colors.borderColor}
                 >
-                  Select AI Model
-                </Text>
+                  Select Agent
+                </Text> */}
                 {filteredModels.length > 0 ? (
                   filteredModels.map((model) => (
                     <Flex
                       key={model.id}
-                      p={2}
-                      _hover={{ bg: colors.bgHover }}
+                      px={2}
+                      _hover={{ bg: bgHover }}
                       cursor="pointer"
                       onClick={() => handleMentionSelect(model)}
                       borderRadius="md"
@@ -347,13 +511,15 @@ const ChatInterface = ({
                     </Flex>
                   ))
                 ) : (
-                  <Text p={2}>No models found</Text>
+                  <Text 
+                  p={2}
+                  >No models found</Text>
                 )}
               </VStack>
             </Box>
           )}
 
-          <Divider my={2} borderColor={colors.borderColor} />
+          <Divider my={2} borderColor={borderColor} />
 
           <Flex justify="space-between" align="center">
             <HStack spacing={2}>
@@ -362,7 +528,7 @@ const ChatInterface = ({
                 aria-label="Attach file"
                 variant="ghost"
                 size="sm"
-                color={colors.iconColor}
+                color={iconColor}
               />
 
             <Menu placement={isLanding ? "bottom" : "top"} gutter={4}>
@@ -371,7 +537,7 @@ const ChatInterface = ({
                   rightIcon={<FiChevronDown />}
                   size="sm"
                   variant="ghost"
-                  color={colors.iconColor}
+                  color={iconColor}
                 >
                   <Flex align="center">
                     <Box
@@ -386,20 +552,24 @@ const ChatInterface = ({
                   </Flex>
                 </MenuButton>
                 <MenuList
-                  bg={colors.bgSecondary}
-                  borderColor={colors.borderColor}
+                  bg={bgSecondary}
+                  borderColor={borderColor}
+                  p={0}
+                  
+                //   width="10px"
                 >
                   <MenuItem
                     icon={<FiSearch />}
                     onClick={() => setToolSelectionMode("deepSearch")}
-                    _hover={{ bg: colors.bgHover }}
+                    _hover={{ bg: bgHover }}
+                    
                   >
                     DeepSearch
                   </MenuItem>
                   <MenuItem
                     icon={<FiCode />}
                     onClick={() => setToolSelectionMode("think")}
-                    _hover={{ bg: colors.bgHover }}
+                    _hover={{ bg: bgHover }}
                   >
                     Think
                   </MenuItem>
@@ -414,19 +584,20 @@ const ChatInterface = ({
                   rightIcon={<FiChevronDown />}
                   size="sm"
                   variant="ghost"
-                  color={colors.iconColor}
+                  color={iconColor}
                 >
                   {selectedModel.name}
                 </MenuButton>
                 <MenuList
-                  bg={colors.bgSecondary}
-                  borderColor={colors.borderColor}
+                  bg={bgSecondary}
+                  borderColor={borderColor}
+                  p={0}
                 >
                   {AI_MODELS.map((model) => (
                     <MenuItem
                       key={model.id}
                       onClick={() => setSelectedModel(model)}
-                      _hover={{ bg: colors.bgHover }}
+                      _hover={{ bg: bgHover }}
                     >
                       {model.name}
                     </MenuItem>

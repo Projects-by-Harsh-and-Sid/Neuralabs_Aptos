@@ -27,7 +27,7 @@ const ThinkingUI = ({ thinkingState }) => {
   const textColor = useColorModeValue("gray.800", "white");
   const secondaryColor = useColorModeValue("gray.600", "gray.400");
   const sourceBgColor = useColorModeValue("gray.50", "gray.800");
-  const checkmarkBgColor = useColorModeValue("green.500", "green.400");
+  const checkmarkBgColor = useColorModeValue("black", "black");
   const spinnerBgColor = useColorModeValue("gray.200", "gray.700");
   const spinnerColor = useColorModeValue("gray.500", "gray.300");
   const linkColor = useColorModeValue("blue.500", "blue.300");
@@ -69,9 +69,14 @@ const ThinkingUI = ({ thinkingState }) => {
               <ListItem key={index} display="flex" alignItems="center">
                 <Box 
                   borderRadius="full" 
+                  width="24px"       // Add fixed width
+                  height="24px"      // Add fixed height
+                  display="flex"     // Use flex to center the icon
                   bg={step.completed ? checkmarkBgColor : spinnerBgColor}
                   p={1}
                   mr={3}
+                  alignItems="center"
+                  justifyContent="center"
                 >
                   {step.completed ? (
                     <FiCheck color="white" size={14} />
@@ -146,7 +151,7 @@ const ThinkingUI = ({ thinkingState }) => {
       </Flex>
       
       {/* Footer with sources count */}
-      <Flex 
+      {/* <Flex 
         p={3} 
         borderTop="1px solid" 
         borderColor={borderColor}
@@ -157,8 +162,8 @@ const ThinkingUI = ({ thinkingState }) => {
           <FiList size={14} />
           <Text ml={1} fontWeight="medium" fontSize="sm">12 web pages</Text>
         </Flex>
-      </Flex>
-    </Box>
+      </Flex> */}
+    </Box> 
   );
 };
 

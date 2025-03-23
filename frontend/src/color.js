@@ -266,6 +266,102 @@ const colors = {
     //   light: "#fdfdfd",
     // },
   },
+  chat: {
+    // Background colors
+    bgPrimary: {
+      light: "#FFFFFF", 
+      dark: "#121212"
+    },
+    bgSecondary: {
+      light: "#F9F9F9", 
+      dark: "#1E1E1E"
+    },
+    bgTertiary: {
+      light: "#F3F4F6", 
+      dark: "#252525"
+    },
+    bgInput: {
+      light: "white", 
+      dark: "rgba(40, 40, 40, 0.5)"
+    },
+    bgHover: {
+      light: "gray.100", 
+      dark: "gray.700"
+    },
+    bgSelected: {
+      light: "blue.50", 
+      dark: "#333"
+    },
+    bgSource: {
+      light: "gray.50", 
+      dark: "gray.800"
+    },
+    bgButton: {
+      light: "white", 
+      dark: "#333"
+    },
+    bgButtonHover: {
+      light: "gray.100", 
+      dark: "#444"
+    },
+    
+    // Text colors
+    textPrimary: {
+      light: "gray.800", 
+      dark: "white"
+    },
+    textSecondary: {
+      light: "gray.600", 
+      dark: "gray.400"
+    },
+    textMuted: {
+      light: "gray.500", 
+      dark: "gray.500"
+    },
+    
+    // Border colors
+    borderColor: {
+      light: "gray.200", 
+      dark: "gray.700"
+    },
+    borderLight: {
+      light: "gray.100", 
+      dark: "#333"
+    },
+    
+    // UI element colors
+    iconColor: {
+      light: "gray.500", 
+      dark: "gray.400"
+    },
+    linkColor: {
+      light: "blue.500", 
+      dark: "blue.300"
+    },
+    checkmarkBgColor: {
+      light: "green.500", 
+      dark: "green.400"
+    },
+    spinnerBgColor: {
+      light: "gray.200", 
+      dark: "gray.700"
+    },
+    spinnerColor: {
+      light: "gray.500", 
+      dark: "gray.300"
+    },
+    
+    // Chat message colors
+    userMessageBg: {
+      light: "gray.200", 
+      dark: "gray.700"
+    },
+    assistantMessageBg: {
+      light: "white", 
+      dark: "transparent"
+    }
+  }
 };
+
 
 export default colors;
