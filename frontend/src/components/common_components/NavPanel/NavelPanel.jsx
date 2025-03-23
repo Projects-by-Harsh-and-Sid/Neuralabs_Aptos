@@ -14,7 +14,8 @@ import {
   FiSettings, 
   FiSun, 
   FiMoon,
-  FiShoppingBag
+  FiShoppingBag,
+  FiMessageSquare // Added for chat icon
 } from 'react-icons/fi';
 
 const NavPanel = ({ 
@@ -43,6 +44,8 @@ const NavPanel = ({
       setActiveButton('marketplace');
     } else if (currentPath === '/settings') {
       setActiveButton('settings');
+    } else if (currentPath === '/chat') {
+      setActiveButton('chat');
     } else {
       setActiveButton(null);
     }
@@ -137,6 +140,24 @@ const NavPanel = ({
               disabled={viewOnlyMode}
             >
               <FiHome size={24} />
+            </Button>
+          </Tooltip>
+        </Box>
+
+        <Box as="li" position="relative" w="100%">
+          <Tooltip 
+            label={"Chat"} 
+            placement="right" 
+            bg={useColorModeValue("gray.900", "gray.900")} 
+            hasArrow
+          >
+            <Button 
+              {...getButtonStyles('chat')}
+              onClick={() => handleButtonClick('chat', null, '/chat')}
+              aria-label="Chat Interface"
+              disabled={viewOnlyMode}
+            >
+              <FiMessageSquare size={24} />
             </Button>
           </Tooltip>
         </Box>

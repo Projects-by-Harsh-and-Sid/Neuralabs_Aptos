@@ -5,6 +5,7 @@ import Layout from './components/layout/layout';
 import FlowBuilderPage from './pages/flow_builder_page';
 import DashboardPage from './pages/home_page';
 import MarketplacePage from './pages/marketplace_page';
+import ChatInterfacePage from './pages/chat_interface_page';
 import theme from './theme';
 
 function App() {
@@ -27,6 +28,11 @@ function App() {
           <Route path="/marketplace" element={
             <Layout>
               <MarketplacePage />
+            </Layout>
+          } />
+          <Route path="/chat" element={
+            <Layout>
+              <ChatInterfacePage />
             </Layout>
           } />
           {/* Add more routes as needed */}
