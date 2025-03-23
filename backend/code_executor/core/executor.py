@@ -6,8 +6,8 @@ from uuid import uuid4
 import time
 
 from .element_base import ElementBase
-from ..utils.logger import logger
-from ..services.streaming import WebSocketStreamManager
+from utils.logger import logger
+from services.streaming import WebSocketStreamManager
 
 class FlowExecutor:
     """Main class for executing flows."""

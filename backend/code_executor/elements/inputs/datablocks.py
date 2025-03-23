@@ -4,8 +4,8 @@ import json
 import pandas as pd
 import io
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class Datablocks(ElementBase):
     """Datablocks element for providing constant data (JSON or CSV)."""

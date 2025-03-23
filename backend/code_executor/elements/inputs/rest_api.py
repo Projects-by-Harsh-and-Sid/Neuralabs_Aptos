@@ -4,9 +4,9 @@ import json
 import httpx
 import asyncio
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import validate_inputs
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import validate_inputs
 
 class RestAPI(ElementBase):
     """REST API element for making HTTP requests to external APIs."""

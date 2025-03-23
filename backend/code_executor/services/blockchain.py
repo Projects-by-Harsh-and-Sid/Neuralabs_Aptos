@@ -6,7 +6,7 @@ from typing import Dict, Any, List, Optional, Union
 import base64
 import time
 
-from ..utils.logger import logger
+from utils.logger import logger
 
 class AptosBlockchainService:
     """Service for interacting with the Aptos blockchain."""

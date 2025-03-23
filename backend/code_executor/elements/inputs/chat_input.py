@@ -1,8 +1,8 @@
 # elements/inputs/chat_input.py
 from typing import Dict, Any, Optional
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class ChatInput(ElementBase):
     """Chat Input element for retrieving user input."""

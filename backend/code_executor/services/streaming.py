@@ -3,7 +3,7 @@ import json
 import asyncio
 from typing import Dict, Any, Optional, AsyncGenerator
 import websockets
-from ..utils.logger import logger
+from utils.logger import logger
 
 class WebSocketStreamManager:
     """Manages WebSocket streaming to Backend 2."""

@@ -4,8 +4,8 @@ import datetime
 import time
 import pytz
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class TimeBlock(ElementBase):
     """Time Block element for providing time and date information."""

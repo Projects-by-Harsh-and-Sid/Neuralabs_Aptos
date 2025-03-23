@@ -2,9 +2,9 @@
 from typing import Dict, Any, List, Optional
 import json
 
-from ...core.element_base import ElementBase
-from ...services.bedrock import BedrockService
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from services.bedrock import BedrockService
+from utils.logger import logger
 
 class LLMStructured(ElementBase):
     """LLM Structured Output Generation Element."""

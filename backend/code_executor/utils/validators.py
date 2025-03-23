@@ -1,7 +1,7 @@
 # utils/validators.py
 from typing import Dict, Any, List, Union, Optional, Type
 import json
-from ..utils.logger import logger
+from .logger import logger
 
 def validate_type(value: Any, expected_type: str) -> bool:
     """Validate that a value matches the expected type."""

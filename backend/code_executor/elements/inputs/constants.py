@@ -2,9 +2,9 @@
 from typing import Dict, Any, Optional
 import json
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import coerce_value
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import coerce_value
 
 class Constants(ElementBase):
     """Constants element for providing fixed values."""
