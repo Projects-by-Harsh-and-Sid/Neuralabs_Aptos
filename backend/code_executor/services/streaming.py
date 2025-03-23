@@ -122,12 +122,14 @@ class DirectResponseStreamManager(StreamManager):
     
     def __init__(self, websocket: WebSocket):
         self.websocket = websocket
-        self.connected = True
+        self.connected = True  # Assume the websocket is already connected by FastAPI
         self.queue = asyncio.Queue()
         self.task = None
     
     async def connect(self) -> bool:
         """Already connected through FastAPI websocket."""
+        # The WebSocket is already accepted by FastAPI
+        # Don't try to accept it again
         return self.connected
     
     async def disconnect(self):

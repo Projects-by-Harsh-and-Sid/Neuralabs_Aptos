@@ -26,7 +26,7 @@ app.middleware("http")(log_requests)
 # Register WebSocket route with two-phase communication
 @app.websocket("/ws/execute/{flow_id}")
 async def websocket_endpoint(websocket: WebSocket, flow_id: str):
-    await websocket.accept()
+    await websocket.accept()  # Accept the WebSocket connection
     
     try:
         # First send a ready message
@@ -53,6 +53,7 @@ async def websocket_endpoint(websocket: WebSocket, flow_id: str):
         await websocket.send_text(json.dumps({"status": "starting", "message": "Starting flow execution"}))
         
         # Execute the flow with the received data
+        # Note: Don't need to accept WebSocket again in execute_flow_websocket
         await execute_flow_websocket(
             websocket=websocket,
             flow_id=flow_id,
@@ -62,11 +63,13 @@ async def websocket_endpoint(websocket: WebSocket, flow_id: str):
         )
     except Exception as e:
         error_msg = f"Error in WebSocket setup: {str(e)}"
-        await websocket.send_text(json.dumps({
-            "type": "error",
-            "data": {"error": error_msg}
-        }))
-        await websocket.close()
+        try:
+            await websocket.send_text(json.dumps({
+                "type": "error",
+                "data": {"error": error_msg}
+            }))
+        except:
+            pass
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))

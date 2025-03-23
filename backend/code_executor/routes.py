@@ -115,7 +115,6 @@ async def execute_flow(request: ExecuteFlowRequest, background_tasks: Background
 async def execute_flow_websocket(websocket: WebSocket, flow_id: str, flow_definition_str: str, 
                                initial_inputs_str: Optional[str] = None, config_str: Optional[str] = None):
     """WebSocket endpoint for executing flows with direct WebSocket streaming."""
-    await websocket.accept()
     
     try:
         # Parse the JSON strings
@@ -148,8 +147,6 @@ async def execute_flow_websocket(websocket: WebSocket, flow_id: str, flow_defini
             }))
         except Exception:
             pass
-        finally:
-            await websocket.close()
 
 async def setup_flow_executor(flow_def: FlowDefinition, stream_manager, user_config: Optional[Dict[str, Any]] = None):
     """Setup the flow executor with elements and connections."""
@@ -209,7 +206,7 @@ async def setup_flow_executor(flow_def: FlowDefinition, stream_manager, user_con
     
     return elements, executor
 
-async def execute_flow_task(executor, initial_inputs, flow_id, stream_manager):
+async def execute_flow_task(executor: FlowExecutor, initial_inputs, flow_id, stream_manager):
     """Execute the flow and handle cleanup."""
     try:
         # Execute the flow

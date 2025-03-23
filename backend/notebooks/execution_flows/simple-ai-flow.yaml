@@ -91,9 +91,7 @@ flow_definition:
           required: false
   connections:
     - from_id: start-node
-      to_id: chat-input
-    - from_id: start-node
-      to_id: context-history
+      to_id: llm-text
     - from_id: chat-input
       to_id: llm-text
       from_output: chat_input
@@ -111,6 +109,8 @@ flow_definition:
     name: Simple AI Flow
     description: A simple flow that takes user input and generates a response using an LLM
 initial_inputs:
-  chat_input: What is the capital of France?
-  context_history:
-    - Hello, I'm a geography enthusiast.
+  chat-input:
+    chat_input: What is the capital of France?
+  context-history:
+    context_history:
+      - Hello, I'm a geography enthusiast.
