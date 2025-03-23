@@ -1,22 +1,24 @@
 # config.py
 import os
-from pydantic import BaseSettings
+# from pydantic import BaseSettings
 from dotenv import load_dotenv
 from typing import Optional
 
 # Load environment variables from .env file
 load_dotenv()
 
-class Settings(BaseSettings):
+# class Settings(BaseSettings):
+class Settings():
+
     """Application settings loaded from environment variables."""
     
     # AWS Bedrock settings
-    aws_region: str                         = os.getenv("AWS_REGION", "us-west-2")
+    aws_region: str                         = os.getenv("AWS_REGION", "us-east-1")
     aws_access_key_id: Optional[str]        = os.getenv("AWS_ACCESS_KEY_ID")
     aws_secret_access_key: Optional[str]    = os.getenv("AWS_SECRET_ACCESS_KEY")
     
     # Default model settings
-    default_model_id: str                   = os.getenv("DEFAULT_MODEL_ID", "anthropic.claude-3-sonnet-20240229-v1:0")
+    default_model_id: str                   = os.getenv("DEFAULT_MODEL_ID", "us.deepseek.r1-v1:0")
     
     # Aptos blockchain settings
     aptos_node_url: str                     = os.getenv("APTOS_NODE_URL", "https://testnet.aptoslabs.com")

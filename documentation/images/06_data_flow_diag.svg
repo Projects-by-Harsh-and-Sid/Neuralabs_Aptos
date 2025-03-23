@@ -1,0 +1,556 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2665pt" height="1092pt" viewBox="0.00 0.00 2664.65 1091.94">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1087.94)">
+<title>NeuraLabs Data Flow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1087.94 2660.65,-1087.94 2660.65,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_client</title>
+<path fill="#e8f0fe" stroke="#4285f4" d="M2193.61,-541.94C2193.61,-541.94 2519.61,-541.94 2519.61,-541.94 2525.61,-541.94 2531.61,-547.94 2531.61,-553.94 2531.61,-553.94 2531.61,-988.34 2531.61,-988.34 2531.61,-994.34 2525.61,-1000.34 2519.61,-1000.34 2519.61,-1000.34 2193.61,-1000.34 2193.61,-1000.34 2187.61,-1000.34 2181.61,-994.34 2181.61,-988.34 2181.61,-988.34 2181.61,-553.94 2181.61,-553.94 2181.61,-547.94 2187.61,-541.94 2193.61,-541.94"/>
+<text text-anchor="middle" x="2356.61" y="-981.94" font-family="Arial" font-size="16.00" fill="#4285f4">Client Application (Frontend)</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_message_passer</title>
+<path fill="#e6f4ea" stroke="#0f9d58" d="M1418.61,-254.34C1418.61,-254.34 1986.61,-254.34 1986.61,-254.34 1992.61,-254.34 1998.61,-260.34 1998.61,-266.34 1998.61,-266.34 1998.61,-818.34 1998.61,-818.34 1998.61,-824.34 1992.61,-830.34 1986.61,-830.34 1986.61,-830.34 1418.61,-830.34 1418.61,-830.34 1412.61,-830.34 1406.61,-824.34 1406.61,-818.34 1406.61,-818.34 1406.61,-266.34 1406.61,-266.34 1406.61,-260.34 1412.61,-254.34 1418.61,-254.34"/>
+<text text-anchor="middle" x="1702.61" y="-811.94" font-family="Arial" font-size="16.00" fill="#0f9d58">Neura Message Passer (Backend 2)</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_execution_engine</title>
+<path fill="#fce8e6" stroke="#db4437" d="M649.61,-424.34C649.61,-424.34 1137.61,-424.34 1137.61,-424.34 1143.61,-424.34 1149.61,-430.34 1149.61,-436.34 1149.61,-436.34 1149.61,-648.34 1149.61,-648.34 1149.61,-654.34 1143.61,-660.34 1137.61,-660.34 1137.61,-660.34 649.61,-660.34 649.61,-660.34 643.61,-660.34 637.61,-654.34 637.61,-648.34 637.61,-648.34 637.61,-436.34 637.61,-436.34 637.61,-430.34 643.61,-424.34 649.61,-424.34"/>
+<text text-anchor="middle" x="893.61" y="-641.94" font-family="Arial" font-size="16.00" fill="#db4437">Neura Execution Engine (Backend 1)</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_blockchain</title>
+<path fill="#fef7e0" stroke="#f7b529" d="M2240.61,-8C2240.61,-8 2426.61,-8 2426.61,-8 2432.61,-8 2438.61,-14 2438.61,-20 2438.61,-20 2438.61,-360.74 2438.61,-360.74 2438.61,-366.74 2432.61,-372.74 2426.61,-372.74 2426.61,-372.74 2240.61,-372.74 2240.61,-372.74 2234.61,-372.74 2228.61,-366.74 2228.61,-360.74 2228.61,-360.74 2228.61,-20 2228.61,-20 2228.61,-14 2234.61,-8 2240.61,-8"/>
+<text text-anchor="middle" x="2333.61" y="-354.34" font-family="Arial" font-size="16.00" fill="#f7b529">Aptos Blockchain</text>
+</g>
+<!-- Frontend -->
+<g id="node1" class="node">
+<title>Frontend</title>
+<path fill="#d2e3fc" stroke="#333333" d="M2325.93,-767.94C2325.93,-767.94 2201.29,-767.94 2201.29,-767.94 2195.29,-767.94 2189.29,-761.94 2189.29,-755.94 2189.29,-755.94 2189.29,-731.94 2189.29,-731.94 2189.29,-725.94 2195.29,-719.94 2201.29,-719.94 2201.29,-719.94 2325.93,-719.94 2325.93,-719.94 2331.93,-719.94 2337.93,-725.94 2337.93,-731.94 2337.93,-731.94 2337.93,-755.94 2337.93,-755.94 2337.93,-761.94 2331.93,-767.94 2325.93,-767.94"/>
+<text text-anchor="middle" x="2263.61" y="-748.14" font-family="Arial" font-size="14.00" fill="#333333">Frontend UI</text>
+<text text-anchor="middle" x="2263.61" y="-731.34" font-family="Arial" font-size="14.00" fill="#333333">React Components</text>
+</g>
+<!-- WebSocketClient -->
+<g id="node3" class="node">
+<title>WebSocketClient</title>
+<path fill="#d2e3fc" stroke="#333333" d="M2329.48,-597.94C2329.48,-597.94 2201.74,-597.94 2201.74,-597.94 2195.74,-597.94 2189.74,-591.94 2189.74,-585.94 2189.74,-585.94 2189.74,-561.94 2189.74,-561.94 2189.74,-555.94 2195.74,-549.94 2201.74,-549.94 2201.74,-549.94 2329.48,-549.94 2329.48,-549.94 2335.48,-549.94 2341.48,-555.94 2341.48,-561.94 2341.48,-561.94 2341.48,-585.94 2341.48,-585.94 2341.48,-591.94 2335.48,-597.94 2329.48,-597.94"/>
+<text text-anchor="middle" x="2265.61" y="-578.14" font-family="Arial" font-size="14.00" fill="#333333">WebSocket Client</text>
+<text text-anchor="middle" x="2265.61" y="-561.34" font-family="Arial" font-size="14.00" fill="#333333">Streaming Receiver</text>
+</g>
+<!-- Frontend&#45;&gt;WebSocketClient -->
+<g id="edge2" class="edge">
+<title>Frontend-&gt;WebSocketClient</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2245.37,-719.81C2241.93,-714.25 2238.84,-708.12 2237.01,-701.94 2227.79,-670.79 2237.94,-634.59 2248.61,-608.82"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2251.77,-610.34 2252.59,-599.78 2245.36,-607.52 2251.77,-610.34"/>
+<text text-anchor="middle" x="2279.81" y="-680.94" font-family="Arial" font-size="14.00" fill="#666666">2. UI Updates</text>
+</g>
+<!-- APIGateway -->
+<g id="node5" class="node">
+<title>APIGateway</title>
+<path fill="#ceead6" stroke="#333333" d="M1717.54,-767.94C1717.54,-767.94 1607.68,-767.94 1607.68,-767.94 1601.68,-767.94 1595.68,-761.94 1595.68,-755.94 1595.68,-755.94 1595.68,-731.94 1595.68,-731.94 1595.68,-725.94 1601.68,-719.94 1607.68,-719.94 1607.68,-719.94 1717.54,-719.94 1717.54,-719.94 1723.54,-719.94 1729.54,-725.94 1729.54,-731.94 1729.54,-731.94 1729.54,-755.94 1729.54,-755.94 1729.54,-761.94 1723.54,-767.94 1717.54,-767.94"/>
+<text text-anchor="middle" x="1662.61" y="-748.14" font-family="Arial" font-size="14.00" fill="#333333">API Gateway</text>
+<text text-anchor="middle" x="1662.61" y="-731.34" font-family="Arial" font-size="14.00" fill="#333333">Request Handler</text>
+</g>
+<!-- Frontend&#45;&gt;APIGateway -->
+<g id="edge6" class="edge">
+<title>Frontend-&gt;APIGateway</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M2188.88,-743.94C2074.74,-743.94 1857.99,-743.94 1741.45,-743.94"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="1741.62,-740.44 1731.62,-743.94 1741.62,-747.44 1741.62,-740.44"/>
+<text text-anchor="middle" x="1959.42" y="-767.94" font-family="Arial" font-size="14.00" fill="#666666">6. HTTP Requests</text>
+<text text-anchor="middle" x="1959.42" y="-751.14" font-family="Arial" font-size="14.00" fill="#666666">(Data Queries, Actions)</text>
+</g>
+<!-- UserInteraction -->
+<g id="node23" class="node">
+<title>UserInteraction</title>
+<ellipse fill="#aaaaaa" stroke="#333333" cx="2130.61" cy="-913.94" rx="41.27" ry="22.06"/>
+<text text-anchor="middle" x="2130.61" y="-909.74" font-family="Arial" font-size="14.00" fill="white">User</text>
+</g>
+<!-- Frontend&#45;&gt;UserInteraction -->
+<g id="edge35" class="edge">
+<title>Frontend-&gt;UserInteraction</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2260.26,-768.17C2255.15,-800.55 2244.53,-856.96 2230.61,-871.94 2213.67,-890.16 2200.61,-880.45 2177.61,-889.94 2175.26,-890.91 2172.85,-891.95 2170.44,-893.02"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2169.19,-889.74 2161.58,-897.12 2172.13,-896.1 2169.19,-889.74"/>
+<text text-anchor="middle" x="2305.48" y="-859.34" font-family="Arial" font-size="14.00" fill="#666666">35. Display Results</text>
+<text text-anchor="middle" x="2305.48" y="-842.54" font-family="Arial" font-size="14.00" fill="#666666">(UI Rendering)</text>
+</g>
+<!-- LocalStorage -->
+<g id="node2" class="node">
+<title>LocalStorage</title>
+<path fill="#d2e3fc" stroke="#333333" d="M2339.54,-937.94C2339.54,-937.94 2201.68,-937.94 2201.68,-937.94 2195.68,-937.94 2189.68,-931.94 2189.68,-925.94 2189.68,-925.94 2189.68,-901.94 2189.68,-901.94 2189.68,-895.94 2195.68,-889.94 2201.68,-889.94 2201.68,-889.94 2339.54,-889.94 2339.54,-889.94 2345.54,-889.94 2351.54,-895.94 2351.54,-901.94 2351.54,-901.94 2351.54,-925.94 2351.54,-925.94 2351.54,-931.94 2345.54,-937.94 2339.54,-937.94"/>
+<text text-anchor="middle" x="2270.61" y="-918.14" font-family="Arial" font-size="14.00" fill="#333333">Local Storage</text>
+<text text-anchor="middle" x="2270.61" y="-901.34" font-family="Arial" font-size="14.00" fill="#333333">Cache &amp; Preferences</text>
+</g>
+<!-- LocalStorage&#45;&gt;Frontend -->
+<g id="edge3" class="edge">
+<title>LocalStorage-&gt;Frontend</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2351.89,-892.11C2360.41,-886.83 2367.99,-880.22 2373.61,-871.94 2381.99,-859.58 2379.88,-851.89 2373.61,-838.34 2361.51,-812.2 2338.09,-790.7 2315.96,-774.94"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2317.99,-772.09 2307.76,-769.35 2314.05,-777.88 2317.99,-772.09"/>
+<text text-anchor="middle" x="2443.34" y="-850.94" font-family="Arial" font-size="14.00" fill="#666666">3. Local Preferences</text>
+</g>
+<!-- WebSocketClient&#45;&gt;Frontend -->
+<g id="edge33" class="edge">
+<title>WebSocketClient-&gt;Frontend</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2289.1,-598.28C2312.07,-624.06 2341.09,-666.6 2322.61,-701.94 2320.85,-705.31 2318.67,-708.46 2316.19,-711.4"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2313.91,-708.73 2309.31,-718.27 2318.86,-713.68 2313.91,-708.73"/>
+<text text-anchor="middle" x="2371.67" y="-680.94" font-family="Arial" font-size="14.00" fill="#666666">33. Update UI</text>
+</g>
+<!-- WebSocketServer -->
+<g id="node6" class="node">
+<title>WebSocketServer</title>
+<path fill="#ceead6" stroke="#333333" d="M1788.49,-480.34C1788.49,-480.34 1660.73,-480.34 1660.73,-480.34 1654.73,-480.34 1648.73,-474.34 1648.73,-468.34 1648.73,-468.34 1648.73,-444.34 1648.73,-444.34 1648.73,-438.34 1654.73,-432.34 1660.73,-432.34 1660.73,-432.34 1788.49,-432.34 1788.49,-432.34 1794.49,-432.34 1800.49,-438.34 1800.49,-444.34 1800.49,-444.34 1800.49,-468.34 1800.49,-468.34 1800.49,-474.34 1794.49,-480.34 1788.49,-480.34"/>
+<text text-anchor="middle" x="1724.61" y="-460.54" font-family="Arial" font-size="14.00" fill="#333333">WebSocket Server</text>
+<text text-anchor="middle" x="1724.61" y="-443.74" font-family="Arial" font-size="14.00" fill="#333333">Streaming Manager</text>
+</g>
+<!-- WebSocketClient&#45;&gt;WebSocketServer -->
+<g id="edge7" class="edge">
+<title>WebSocketClient-&gt;WebSocketServer</title>
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M2189.3,-565.41C2133.73,-558.77 2064.09,-547.68 2039.74,-531.94 2024.51,-522.1 2032.19,-507.61 2016.61,-498.34 1983.77,-478.82 1883.41,-485.91 1845.61,-480.34 1834.86,-478.76 1823.6,-476.89 1812.47,-474.93"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="1813.19,-471.5 1802.72,-473.17 1811.94,-478.39 1813.19,-471.5"/>
+<text text-anchor="middle" x="2120.68" y="-519.34" font-family="Arial" font-size="14.00" fill="#666666">7. WebSocket Connection</text>
+<text text-anchor="middle" x="2120.68" y="-502.54" font-family="Arial" font-size="14.00" fill="#666666">(Streaming Updates)</text>
+</g>
+<!-- WalletConnector -->
+<g id="node4" class="node">
+<title>WalletConnector</title>
+<path fill="#d2e3fc" stroke="#333333" d="M2512.04,-937.94C2512.04,-937.94 2381.18,-937.94 2381.18,-937.94 2375.18,-937.94 2369.18,-931.94 2369.18,-925.94 2369.18,-925.94 2369.18,-901.94 2369.18,-901.94 2369.18,-895.94 2375.18,-889.94 2381.18,-889.94 2381.18,-889.94 2512.04,-889.94 2512.04,-889.94 2518.04,-889.94 2524.04,-895.94 2524.04,-901.94 2524.04,-901.94 2524.04,-925.94 2524.04,-925.94 2524.04,-931.94 2518.04,-937.94 2512.04,-937.94"/>
+<text text-anchor="middle" x="2446.61" y="-918.14" font-family="Arial" font-size="14.00" fill="#333333">Wallet Connector</text>
+<text text-anchor="middle" x="2446.61" y="-901.34" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Interface</text>
+</g>
+<!-- BlockchainClient -->
+<g id="node10" class="node">
+<title>BlockchainClient</title>
+<path fill="#ceead6" stroke="#333333" d="M1978.7,-480.34C1978.7,-480.34 1866.52,-480.34 1866.52,-480.34 1860.52,-480.34 1854.52,-474.34 1854.52,-468.34 1854.52,-468.34 1854.52,-444.34 1854.52,-444.34 1854.52,-438.34 1860.52,-432.34 1866.52,-432.34 1866.52,-432.34 1978.7,-432.34 1978.7,-432.34 1984.7,-432.34 1990.7,-438.34 1990.7,-444.34 1990.7,-444.34 1990.7,-468.34 1990.7,-468.34 1990.7,-474.34 1984.7,-480.34 1978.7,-480.34"/>
+<text text-anchor="middle" x="1922.61" y="-460.54" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Client</text>
+<text text-anchor="middle" x="1922.61" y="-443.74" font-family="Arial" font-size="14.00" fill="#333333">Aptos Interface</text>
+</g>
+<!-- WalletConnector&#45;&gt;BlockchainClient -->
+<g id="edge5" class="edge">
+<title>WalletConnector-&gt;BlockchainClient</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2496.41,-889.46C2502.49,-884.53 2507.87,-878.72 2511.61,-871.94 2518.82,-858.86 2514.58,-852.98 2511.61,-838.34 2478.96,-677.52 2500.11,-595.16 2367.61,-498.34 2338.89,-477.36 2122.94,-465.4 2002.76,-460.3"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2003.04,-456.81 1992.9,-459.89 2002.75,-463.8 2003.04,-456.81"/>
+<text text-anchor="middle" x="2573.01" y="-689.34" font-family="Arial" font-size="14.00" fill="#666666">5. Verify Identity</text>
+<text text-anchor="middle" x="2573.01" y="-672.54" font-family="Arial" font-size="14.00" fill="#666666">(Wallet Address/Signature)</text>
+</g>
+<!-- APIGateway&#45;&gt;Frontend -->
+<g id="edge34" class="edge">
+<title>APIGateway-&gt;Frontend</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1729.8,-743.94C1839.34,-743.94 2056.26,-743.94 2177.13,-743.94"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="2177.06,-747.44 2187.06,-743.94 2177.06,-740.44 2177.06,-747.44"/>
+<text text-anchor="middle" x="1959.42" y="-767.94" font-family="Arial" font-size="14.00" fill="#666666">34. HTTP Responses</text>
+<text text-anchor="middle" x="1959.42" y="-751.14" font-family="Arial" font-size="14.00" fill="#666666">(Query Results)</text>
+</g>
+<!-- DataPersistence -->
+<g id="node7" class="node">
+<title>DataPersistence</title>
+<path fill="#ceead6" stroke="#333333" d="M1538.71,-310.34C1538.71,-310.34 1426.51,-310.34 1426.51,-310.34 1420.51,-310.34 1414.51,-304.34 1414.51,-298.34 1414.51,-298.34 1414.51,-274.34 1414.51,-274.34 1414.51,-268.34 1420.51,-262.34 1426.51,-262.34 1426.51,-262.34 1538.71,-262.34 1538.71,-262.34 1544.71,-262.34 1550.71,-268.34 1550.71,-274.34 1550.71,-274.34 1550.71,-298.34 1550.71,-298.34 1550.71,-304.34 1544.71,-310.34 1538.71,-310.34"/>
+<text text-anchor="middle" x="1482.61" y="-290.54" font-family="Arial" font-size="14.00" fill="#333333">Data Persistence</text>
+<text text-anchor="middle" x="1482.61" y="-273.74" font-family="Arial" font-size="14.00" fill="#333333">Storage Interface</text>
+</g>
+<!-- APIGateway&#45;&gt;DataPersistence -->
+<g id="edge9" class="edge">
+<title>APIGateway-&gt;DataPersistence</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1595.2,-720.32C1563.75,-706.96 1527.79,-687.3 1502.61,-660.34 1460.18,-614.9 1459.7,-592.82 1447.1,-531.94 1431.75,-457.76 1454.46,-369.57 1470.03,-321.97"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1473.35,-323.09 1473.23,-312.49 1466.72,-320.85 1473.35,-323.09"/>
+<text text-anchor="middle" x="1505.86" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">9. Data Operations</text>
+</g>
+<!-- AccessControl -->
+<g id="node8" class="node">
+<title>AccessControl</title>
+<path fill="#ceead6" stroke="#333333" d="M1908.2,-597.94C1908.2,-597.94 1761.02,-597.94 1761.02,-597.94 1755.02,-597.94 1749.02,-591.94 1749.02,-585.94 1749.02,-585.94 1749.02,-561.94 1749.02,-561.94 1749.02,-555.94 1755.02,-549.94 1761.02,-549.94 1761.02,-549.94 1908.2,-549.94 1908.2,-549.94 1914.2,-549.94 1920.2,-555.94 1920.2,-561.94 1920.2,-561.94 1920.2,-585.94 1920.2,-585.94 1920.2,-591.94 1914.2,-597.94 1908.2,-597.94"/>
+<text text-anchor="middle" x="1834.61" y="-578.14" font-family="Arial" font-size="14.00" fill="#333333">Access Control</text>
+<text text-anchor="middle" x="1834.61" y="-561.34" font-family="Arial" font-size="14.00" fill="#333333">Permission Verification</text>
+</g>
+<!-- APIGateway&#45;&gt;AccessControl -->
+<g id="edge8" class="edge">
+<title>APIGateway-&gt;AccessControl</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1729.93,-732.28C1750.2,-726.24 1771.14,-716.77 1786.61,-701.94 1812.07,-677.53 1824.16,-638.27 1829.82,-609.86"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1833.23,-610.67 1831.55,-600.21 1826.34,-609.43 1833.23,-610.67"/>
+<text text-anchor="middle" x="1874.24" y="-680.94" font-family="Arial" font-size="14.00" fill="#666666">8. Permission Check</text>
+</g>
+<!-- ExecutionEngineClient -->
+<g id="node9" class="node">
+<title>ExecutionEngineClient</title>
+<path fill="#ceead6" stroke="#333333" d="M1677.33,-597.94C1677.33,-597.94 1523.89,-597.94 1523.89,-597.94 1517.89,-597.94 1511.89,-591.94 1511.89,-585.94 1511.89,-585.94 1511.89,-561.94 1511.89,-561.94 1511.89,-555.94 1517.89,-549.94 1523.89,-549.94 1523.89,-549.94 1677.33,-549.94 1677.33,-549.94 1683.33,-549.94 1689.33,-555.94 1689.33,-561.94 1689.33,-561.94 1689.33,-585.94 1689.33,-585.94 1689.33,-591.94 1683.33,-597.94 1677.33,-597.94"/>
+<text text-anchor="middle" x="1600.61" y="-578.14" font-family="Arial" font-size="14.00" fill="#333333">Execution Engine Client</text>
+<text text-anchor="middle" x="1600.61" y="-561.34" font-family="Arial" font-size="14.00" fill="#333333">Backend 1 Interface</text>
+</g>
+<!-- APIGateway&#45;&gt;ExecutionEngineClient -->
+<g id="edge18" class="edge">
+<title>APIGateway-&gt;ExecutionEngineClient</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1647.75,-719.59C1644.51,-713.94 1641.3,-707.83 1638.74,-701.94 1625.55,-671.54 1615.14,-635.17 1608.55,-609.16"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1612.02,-608.63 1606.23,-599.76 1605.23,-610.31 1612.02,-608.63"/>
+<text text-anchor="middle" x="1712.68" y="-680.94" font-family="Arial" font-size="14.00" fill="#666666">18. Execution Requests</text>
+</g>
+<!-- WebSocketServer&#45;&gt;WebSocketClient -->
+<g id="edge32" class="edge">
+<title>WebSocketServer-&gt;WebSocketClient</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1800.85,-473.48C1815.64,-476.14 1831.07,-478.6 1845.61,-480.34 1884.94,-485.05 2166.05,-480.9 2201.61,-498.34 2220.13,-507.43 2235.43,-524.57 2246.43,-540.14"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="2243.23,-541.65 2251.7,-548.03 2249.05,-537.77 2243.23,-541.65"/>
+<text text-anchor="middle" x="2302.13" y="-519.34" font-family="Arial" font-size="14.00" fill="#666666">32. Stream to Client</text>
+<text text-anchor="middle" x="2302.13" y="-502.54" font-family="Arial" font-size="14.00" fill="#666666">(Results &amp; Updates)</text>
+</g>
+<!-- WebSocketServer&#45;&gt;DataPersistence -->
+<g id="edge10" class="edge">
+<title>WebSocketServer-&gt;DataPersistence</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1690.96,-431.98C1647.92,-402.1 1573.3,-350.3 1526.02,-317.47"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1528.06,-314.64 1517.85,-311.81 1524.07,-320.39 1528.06,-314.64"/>
+<text text-anchor="middle" x="1715.36" y="-393.34" font-family="Arial" font-size="14.00" fill="#666666">10. Save Updates</text>
+</g>
+<!-- WebSocketServer&#45;&gt;ExecutionEngineClient -->
+<g id="edge19" class="edge">
+<title>WebSocketServer-&gt;ExecutionEngineClient</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1648.25,-469.35C1616.07,-476.12 1583.83,-485.76 1574.22,-498.34 1565.05,-510.35 1568.63,-525.8 1575.7,-539.53"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1572.62,-541.2 1580.7,-548.04 1578.65,-537.65 1572.62,-541.2"/>
+<text text-anchor="middle" x="1631.42" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">19. Create Stream</text>
+</g>
+<!-- Database -->
+<g id="node19" class="node">
+<title>Database</title>
+<path fill="#336791" stroke="#333333" d="M392.05,-176.8C392.05,-180.11 357.34,-182.8 314.61,-182.8 271.88,-182.8 237.17,-180.11 237.17,-176.8 237.17,-176.8 237.17,-122.8 237.17,-122.8 237.17,-119.49 271.88,-116.8 314.61,-116.8 357.34,-116.8 392.05,-119.49 392.05,-122.8 392.05,-122.8 392.05,-176.8 392.05,-176.8"/>
+<path fill="none" stroke="#333333" d="M392.05,-176.8C392.05,-173.49 357.34,-170.8 314.61,-170.8 271.88,-170.8 237.17,-173.49 237.17,-176.8"/>
+<text text-anchor="middle" x="314.61" y="-154" font-family="Arial" font-size="14.00" fill="white">PostgreSQL</text>
+<text text-anchor="middle" x="314.61" y="-137.2" font-family="Arial" font-size="14.00" fill="white">Relational Database</text>
+</g>
+<!-- DataPersistence&#45;&gt;Database -->
+<g id="edge11" class="edge">
+<title>DataPersistence-&gt;Database</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1414.22,-262.71C1399.03,-258.54 1382.9,-254.76 1367.61,-252.4 1080.08,-207.99 1002.19,-268.39 713.24,-234.4 605.42,-221.72 483.55,-194.18 403.26,-174.16"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="404.53,-170.87 393.98,-171.83 402.82,-177.66 404.53,-170.87"/>
+<text text-anchor="middle" x="766.92" y="-221.8" font-family="Arial" font-size="14.00" fill="#666666">11. SQL Queries</text>
+<text text-anchor="middle" x="766.92" y="-205" font-family="Arial" font-size="14.00" fill="#666666">(Structured Data)</text>
+</g>
+<!-- CacheStore -->
+<g id="node20" class="node">
+<title>CacheStore</title>
+<path fill="#dc382d" stroke="#333333" d="M904.64,-176.8C904.64,-180.11 873.25,-182.8 834.61,-182.8 795.97,-182.8 764.58,-180.11 764.58,-176.8 764.58,-176.8 764.58,-122.8 764.58,-122.8 764.58,-119.49 795.97,-116.8 834.61,-116.8 873.25,-116.8 904.64,-119.49 904.64,-122.8 904.64,-122.8 904.64,-176.8 904.64,-176.8"/>
+<path fill="none" stroke="#333333" d="M904.64,-176.8C904.64,-173.49 873.25,-170.8 834.61,-170.8 795.97,-170.8 764.58,-173.49 764.58,-176.8"/>
+<text text-anchor="middle" x="834.61" y="-154" font-family="Arial" font-size="14.00" fill="white">Redis</text>
+<text text-anchor="middle" x="834.61" y="-137.2" font-family="Arial" font-size="14.00" fill="white">In-memory Cache</text>
+</g>
+<!-- DataPersistence&#45;&gt;CacheStore -->
+<g id="edge12" class="edge">
+<title>DataPersistence-&gt;CacheStore</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1414.16,-264.63C1398.91,-260.33 1382.76,-256.01 1367.61,-252.4 1209.06,-214.66 1021.37,-181.53 916.34,-164.01"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="917.11,-160.59 906.68,-162.4 915.97,-167.5 917.11,-160.59"/>
+<text text-anchor="middle" x="1349.12" y="-221.8" font-family="Arial" font-size="14.00" fill="#666666">12. Cache Operations</text>
+<text text-anchor="middle" x="1349.12" y="-205" font-family="Arial" font-size="14.00" fill="#666666">(Temporary Data)</text>
+</g>
+<!-- FileStorage -->
+<g id="node21" class="node">
+<title>FileStorage</title>
+<path fill="#ff9900" stroke="#333333" d="M714.7,-176.8C714.7,-180.11 687.32,-182.8 653.61,-182.8 619.9,-182.8 592.52,-180.11 592.52,-176.8 592.52,-176.8 592.52,-122.8 592.52,-122.8 592.52,-119.49 619.9,-116.8 653.61,-116.8 687.32,-116.8 714.7,-119.49 714.7,-122.8 714.7,-122.8 714.7,-176.8 714.7,-176.8"/>
+<path fill="none" stroke="#333333" d="M714.7,-176.8C714.7,-173.49 687.32,-170.8 653.61,-170.8 619.9,-170.8 592.52,-173.49 592.52,-176.8"/>
+<text text-anchor="middle" x="653.61" y="-154" font-family="Arial" font-size="14.00" fill="white">Object Storage</text>
+<text text-anchor="middle" x="653.61" y="-137.2" font-family="Arial" font-size="14.00" fill="white">S3-compatible</text>
+</g>
+<!-- DataPersistence&#45;&gt;FileStorage -->
+<g id="edge13" class="edge">
+<title>DataPersistence-&gt;FileStorage</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1414.18,-262.95C1399,-258.76 1382.88,-254.92 1367.61,-252.4 1203.79,-225.36 1159.09,-256 994.47,-234.4 886.79,-220.27 860.61,-210.55 755.61,-182.8 746.03,-180.27 736,-177.4 726.14,-174.45"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="727.43,-171.18 716.84,-171.62 725.39,-177.88 727.43,-171.18"/>
+<text text-anchor="middle" x="1062.54" y="-221.8" font-family="Arial" font-size="14.00" fill="#666666">13. File Operations</text>
+<text text-anchor="middle" x="1062.54" y="-205" font-family="Arial" font-size="14.00" fill="#666666">(Workflow Definitions)</text>
+</g>
+<!-- AccessControl&#45;&gt;BlockchainClient -->
+<g id="edge14" class="edge">
+<title>AccessControl-&gt;BlockchainClient</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1844.47,-549.75C1851.66,-534.31 1862.33,-514.05 1874.99,-498.34 1877.68,-495 1880.67,-491.72 1883.8,-488.56"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1886.13,-491.17 1890.99,-481.76 1881.32,-486.09 1886.13,-491.17"/>
+<text text-anchor="middle" x="1945.8" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">14. Access Verification</text>
+</g>
+<!-- ExecutionEngineClient&#45;&gt;WebSocketServer -->
+<g id="edge31" class="edge">
+<title>ExecutionEngineClient-&gt;WebSocketServer</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1664.62,-549.62C1673.33,-544.67 1681.65,-538.81 1688.61,-531.94 1699.92,-520.78 1708.17,-505.37 1713.9,-491.44"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1717.05,-492.99 1717.32,-482.4 1710.51,-490.52 1717.05,-492.99"/>
+<text text-anchor="middle" x="1768.43" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">31. Relay Updates</text>
+</g>
+<!-- FlowExecutor -->
+<g id="node12" class="node">
+<title>FlowExecutor</title>
+<path fill="#fcd0cd" stroke="#333333" d="M838.24,-597.94C838.24,-597.94 708.98,-597.94 708.98,-597.94 702.98,-597.94 696.98,-591.94 696.98,-585.94 696.98,-585.94 696.98,-561.94 696.98,-561.94 696.98,-555.94 702.98,-549.94 708.98,-549.94 708.98,-549.94 838.24,-549.94 838.24,-549.94 844.24,-549.94 850.24,-555.94 850.24,-561.94 850.24,-561.94 850.24,-585.94 850.24,-585.94 850.24,-591.94 844.24,-597.94 838.24,-597.94"/>
+<text text-anchor="middle" x="773.61" y="-578.14" font-family="Arial" font-size="14.00" fill="#333333">Flow Executor</text>
+<text text-anchor="middle" x="773.61" y="-561.34" font-family="Arial" font-size="14.00" fill="#333333">Workflow Processor</text>
+</g>
+<!-- ExecutionEngineClient&#45;&gt;FlowExecutor -->
+<g id="edge20" class="edge">
+<title>ExecutionEngineClient-&gt;FlowExecutor</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1511.67,-573.94C1352.58,-573.94 1021.14,-573.94 862.27,-573.94"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="862.49,-570.44 852.49,-573.94 862.49,-577.44 862.49,-570.44"/>
+<text text-anchor="middle" x="1181.07" y="-597.94" font-family="Arial" font-size="14.00" fill="#666666">20. Execute Workflow</text>
+<text text-anchor="middle" x="1181.07" y="-581.14" font-family="Arial" font-size="14.00" fill="#666666">(Flow Definition)</text>
+</g>
+<!-- StreamManager -->
+<g id="node13" class="node">
+<title>StreamManager</title>
+<path fill="#fcd0cd" stroke="#333333" d="M1129.77,-480.34C1129.77,-480.34 1007.45,-480.34 1007.45,-480.34 1001.45,-480.34 995.45,-474.34 995.45,-468.34 995.45,-468.34 995.45,-444.34 995.45,-444.34 995.45,-438.34 1001.45,-432.34 1007.45,-432.34 1007.45,-432.34 1129.77,-432.34 1129.77,-432.34 1135.77,-432.34 1141.77,-438.34 1141.77,-444.34 1141.77,-444.34 1141.77,-468.34 1141.77,-468.34 1141.77,-474.34 1135.77,-480.34 1129.77,-480.34"/>
+<text text-anchor="middle" x="1068.61" y="-460.54" font-family="Arial" font-size="14.00" fill="#333333">Stream Manager</text>
+<text text-anchor="middle" x="1068.61" y="-443.74" font-family="Arial" font-size="14.00" fill="#333333">Execution Updates</text>
+</g>
+<!-- ExecutionEngineClient&#45;&gt;StreamManager -->
+<g id="edge21" class="edge">
+<title>ExecutionEngineClient-&gt;StreamManager</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1511.44,-567.54C1375.42,-558.99 1130.02,-542.28 1113.42,-531.94 1109.19,-529.31 1097.43,-509.6 1087.02,-491.1"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1090.08,-489.4 1082.16,-482.36 1083.96,-492.8 1090.08,-489.4"/>
+<text text-anchor="middle" x="1185.01" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">21. Stream Connection</text>
+</g>
+<!-- NFTContract -->
+<g id="node16" class="node">
+<title>NFTContract</title>
+<path fill="#feefc3" stroke="#333333" d="M2382.59,-173.8C2382.59,-173.8 2248.63,-173.8 2248.63,-173.8 2242.63,-173.8 2236.63,-167.8 2236.63,-161.8 2236.63,-161.8 2236.63,-137.8 2236.63,-137.8 2236.63,-131.8 2242.63,-125.8 2248.63,-125.8 2248.63,-125.8 2382.59,-125.8 2382.59,-125.8 2388.59,-125.8 2394.59,-131.8 2394.59,-137.8 2394.59,-137.8 2394.59,-161.8 2394.59,-161.8 2394.59,-167.8 2388.59,-173.8 2382.59,-173.8"/>
+<text text-anchor="middle" x="2315.61" y="-154" font-family="Arial" font-size="14.00" fill="#333333">NFT Contract</text>
+<text text-anchor="middle" x="2315.61" y="-137.2" font-family="Arial" font-size="14.00" fill="#333333">Ownership &amp; Access</text>
+</g>
+<!-- BlockchainClient&#45;&gt;NFTContract -->
+<g id="edge15" class="edge">
+<title>BlockchainClient-&gt;NFTContract</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1894.71,-432.07C1878.91,-417 1860.65,-395.91 1852.11,-372.74 1833.6,-322.56 1818.58,-294.07 1852.11,-252.4 1898.01,-195.35 2103.66,-168.54 2225.06,-157.48"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="2225.08,-160.99 2234.73,-156.62 2224.46,-154.02 2225.08,-160.99"/>
+<text text-anchor="middle" x="1924.86" y="-290.54" font-family="Arial" font-size="14.00" fill="#666666">15. Permission Queries</text>
+<text text-anchor="middle" x="1924.86" y="-273.74" font-family="Arial" font-size="14.00" fill="#666666">(RPC Calls)</text>
+</g>
+<!-- TransactionProcessor -->
+<g id="node17" class="node">
+<title>TransactionProcessor</title>
+<path fill="#feefc3" stroke="#333333" d="M2396.04,-310.34C2396.04,-310.34 2251.18,-310.34 2251.18,-310.34 2245.18,-310.34 2239.18,-304.34 2239.18,-298.34 2239.18,-298.34 2239.18,-274.34 2239.18,-274.34 2239.18,-268.34 2245.18,-262.34 2251.18,-262.34 2251.18,-262.34 2396.04,-262.34 2396.04,-262.34 2402.04,-262.34 2408.04,-268.34 2408.04,-274.34 2408.04,-274.34 2408.04,-298.34 2408.04,-298.34 2408.04,-304.34 2402.04,-310.34 2396.04,-310.34"/>
+<text text-anchor="middle" x="2323.61" y="-290.54" font-family="Arial" font-size="14.00" fill="#333333">Transaction Processor</text>
+<text text-anchor="middle" x="2323.61" y="-273.74" font-family="Arial" font-size="14.00" fill="#333333">State Updates</text>
+</g>
+<!-- BlockchainClient&#45;&gt;TransactionProcessor -->
+<g id="edge16" class="edge">
+<title>BlockchainClient-&gt;TransactionProcessor</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M1991.03,-446.43C2055.64,-435.88 2153.69,-414.23 2229.61,-372.74 2254.72,-359.02 2278.52,-337.27 2295.9,-319.15"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="2298.38,-321.62 2302.65,-311.93 2293.26,-316.84 2298.38,-321.62"/>
+<text text-anchor="middle" x="2293.08" y="-401.74" font-family="Arial" font-size="14.00" fill="#666666">16. Transaction Submission</text>
+<text text-anchor="middle" x="2293.08" y="-384.94" font-family="Arial" font-size="14.00" fill="#666666">(Access Changes)</text>
+</g>
+<!-- EventListener -->
+<g id="node11" class="node">
+<title>EventListener</title>
+<path fill="#ceead6" stroke="#333333" d="M1546.21,-767.94C1546.21,-767.94 1427.01,-767.94 1427.01,-767.94 1421.01,-767.94 1415.01,-761.94 1415.01,-755.94 1415.01,-755.94 1415.01,-731.94 1415.01,-731.94 1415.01,-725.94 1421.01,-719.94 1427.01,-719.94 1427.01,-719.94 1546.21,-719.94 1546.21,-719.94 1552.21,-719.94 1558.21,-725.94 1558.21,-731.94 1558.21,-731.94 1558.21,-755.94 1558.21,-755.94 1558.21,-761.94 1552.21,-767.94 1546.21,-767.94"/>
+<text text-anchor="middle" x="1486.61" y="-748.14" font-family="Arial" font-size="14.00" fill="#333333">Event Listener</text>
+<text text-anchor="middle" x="1486.61" y="-731.34" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Events</text>
+</g>
+<!-- EventEmitter -->
+<g id="node18" class="node">
+<title>EventEmitter</title>
+<path fill="#feefc3" stroke="#333333" d="M2418.89,-64C2418.89,-64 2248.33,-64 2248.33,-64 2242.33,-64 2236.33,-58 2236.33,-52 2236.33,-52 2236.33,-28 2236.33,-28 2236.33,-22 2242.33,-16 2248.33,-16 2248.33,-16 2418.89,-16 2418.89,-16 2424.89,-16 2430.89,-22 2430.89,-28 2430.89,-28 2430.89,-52 2430.89,-52 2430.89,-58 2424.89,-64 2418.89,-64"/>
+<text text-anchor="middle" x="2333.61" y="-44.2" font-family="Arial" font-size="14.00" fill="#333333">Event Emitter</text>
+<text text-anchor="middle" x="2333.61" y="-27.4" font-family="Arial" font-size="14.00" fill="#333333">State Change Notifications</text>
+</g>
+<!-- EventListener&#45;&gt;EventEmitter -->
+<g id="edge17" class="edge">
+<title>EventListener-&gt;EventEmitter</title>
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M1414.64,-739.51C1236.61,-730.45 779.46,-703.6 633.61,-660.34 554.82,-636.97 469.61,-657.12 469.61,-574.94 469.61,-574.94 469.61,-574.94 469.61,-148.8 469.61,-60.35 1824.94,-44.36 2224.2,-41.57"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="2224.23,-45.07 2234.2,-41.5 2224.18,-38.07 2224.23,-45.07"/>
+<text text-anchor="middle" x="539.65" y="-401.74" font-family="Arial" font-size="14.00" fill="#666666">17. Event Subscription</text>
+<text text-anchor="middle" x="539.65" y="-384.94" font-family="Arial" font-size="14.00" fill="#666666">(State Changes)</text>
+</g>
+<!-- FlowExecutor&#45;&gt;StreamManager -->
+<g id="edge22" class="edge">
+<title>FlowExecutor-&gt;StreamManager</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M850.57,-563.31C876.45,-557.33 904.37,-547.65 926.61,-531.94 941.42,-521.48 935.31,-509.31 949.74,-498.34 956.31,-493.35 969.35,-487.73 984.48,-482.29"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="985.22,-485.74 993.52,-479.16 982.92,-479.13 985.22,-485.74"/>
+<text text-anchor="middle" x="1020.18" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">22. Execution Updates</text>
+</g>
+<!-- AIConnector -->
+<g id="node14" class="node">
+<title>AIConnector</title>
+<path fill="#fcd0cd" stroke="#333333" d="M965.82,-480.34C965.82,-480.34 847.4,-480.34 847.4,-480.34 841.4,-480.34 835.4,-474.34 835.4,-468.34 835.4,-468.34 835.4,-444.34 835.4,-444.34 835.4,-438.34 841.4,-432.34 847.4,-432.34 847.4,-432.34 965.82,-432.34 965.82,-432.34 971.82,-432.34 977.82,-438.34 977.82,-444.34 977.82,-444.34 977.82,-468.34 977.82,-468.34 977.82,-474.34 971.82,-480.34 965.82,-480.34"/>
+<text text-anchor="middle" x="906.61" y="-460.54" font-family="Arial" font-size="14.00" fill="#333333">AI Connector</text>
+<text text-anchor="middle" x="906.61" y="-443.74" font-family="Arial" font-size="14.00" fill="#333333">AI Model Interface</text>
+</g>
+<!-- FlowExecutor&#45;&gt;AIConnector -->
+<g id="edge24" class="edge">
+<title>FlowExecutor-&gt;AIConnector</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M790.84,-549.59C795.04,-543.84 799.51,-537.68 803.61,-531.94 814.18,-517.13 813.31,-510.33 827,-498.34 831.75,-494.18 837,-490.31 842.47,-486.74"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="844.21,-489.77 850.93,-481.58 840.57,-483.79 844.21,-489.77"/>
+<text text-anchor="middle" x="876.8" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">24. AI Requests</text>
+</g>
+<!-- EngineBlockchainClient -->
+<g id="node15" class="node">
+<title>EngineBlockchainClient</title>
+<path fill="#fcd0cd" stroke="#333333" d="M805.2,-480.34C805.2,-480.34 658.02,-480.34 658.02,-480.34 652.02,-480.34 646.02,-474.34 646.02,-468.34 646.02,-468.34 646.02,-444.34 646.02,-444.34 646.02,-438.34 652.02,-432.34 658.02,-432.34 658.02,-432.34 805.2,-432.34 805.2,-432.34 811.2,-432.34 817.2,-438.34 817.2,-444.34 817.2,-444.34 817.2,-468.34 817.2,-468.34 817.2,-474.34 811.2,-480.34 805.2,-480.34"/>
+<text text-anchor="middle" x="731.61" y="-460.54" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Client</text>
+<text text-anchor="middle" x="731.61" y="-443.74" font-family="Arial" font-size="14.00" fill="#333333">Permission Verification</text>
+</g>
+<!-- FlowExecutor&#45;&gt;EngineBlockchainClient -->
+<g id="edge26" class="edge">
+<title>FlowExecutor-&gt;EngineBlockchainClient</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M696.62,-557.67C683.91,-551.71 672.3,-543.43 664.34,-531.94 655.84,-519.67 657.03,-511.36 664.34,-498.34 666.25,-494.94 668.57,-491.79 671.18,-488.88"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="673.55,-491.46 678.46,-482.07 668.76,-486.35 673.55,-491.46"/>
+<text text-anchor="middle" x="733.98" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">26. Verify Permissions</text>
+</g>
+<!-- StreamManager&#45;&gt;WebSocketServer -->
+<g id="edge23" class="edge">
+<title>StreamManager-&gt;WebSocketServer</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1141.95,-456.34C1263.57,-456.34 1506.5,-456.34 1636.96,-456.34"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1636.64,-459.84 1646.64,-456.34 1636.64,-452.84 1636.64,-459.84"/>
+<text text-anchor="middle" x="1395.25" y="-480.34" font-family="Arial" font-size="14.00" fill="#666666">23. Stream Updates</text>
+<text text-anchor="middle" x="1395.25" y="-463.54" font-family="Arial" font-size="14.00" fill="#666666">(Real-time Progress)</text>
+</g>
+<!-- StreamManager&#45;&gt;ExecutionEngineClient -->
+<g id="edge30" class="edge">
+<title>StreamManager-&gt;ExecutionEngineClient</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1141.83,-460.7C1178.82,-465.38 1222.88,-475.76 1256.61,-498.34 1271.7,-508.45 1264.36,-522.51 1279.88,-531.94 1315.89,-553.82 1419.95,-564.14 1499.87,-568.93"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1499.48,-572.42 1509.67,-569.5 1499.88,-565.43 1499.48,-572.42"/>
+<text text-anchor="middle" x="1345.24" y="-510.94" font-family="Arial" font-size="14.00" fill="#666666">30. Forward Updates</text>
+</g>
+<!-- AIServices -->
+<g id="node22" class="node">
+<title>AIServices</title>
+<ellipse fill="#5a2ca0" stroke="#333333" cx="1249.61" cy="-286.34" rx="109.49" ry="33.94"/>
+<text text-anchor="middle" x="1249.61" y="-290.54" font-family="Arial" font-size="14.00" fill="white">External AI Services</text>
+<text text-anchor="middle" x="1249.61" y="-273.74" font-family="Arial" font-size="14.00" fill="white">Bedrock/DeepSeek</text>
+</g>
+<!-- AIConnector&#45;&gt;AIServices -->
+<g id="edge25" class="edge">
+<title>AIConnector-&gt;AIServices</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M966.86,-431.89C973.52,-429.33 980.2,-426.77 986.61,-424.34 1048.22,-400.97 1067.14,-403.13 1125.61,-372.74 1151.57,-359.25 1178.54,-341.23 1200.67,-325.22"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1202.69,-328.07 1208.69,-319.34 1198.55,-322.43 1202.69,-328.07"/>
+<text text-anchor="middle" x="1171.04" y="-401.74" font-family="Arial" font-size="14.00" fill="#666666">25. Model Inference</text>
+<text text-anchor="middle" x="1171.04" y="-384.94" font-family="Arial" font-size="14.00" fill="#666666">(Text Generation)</text>
+</g>
+<!-- EngineBlockchainClient&#45;&gt;NFTContract -->
+<g id="edge27" class="edge">
+<title>EngineBlockchainClient-&gt;NFTContract</title>
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M752.44,-432.12C793.73,-387.9 891.04,-292.44 995.44,-252.4 1220.7,-166.01 1964.07,-152.98 2224.51,-151.09"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="2224.38,-154.59 2234.35,-151.03 2224.33,-147.59 2224.38,-154.59"/>
+<text text-anchor="middle" x="1063.53" y="-290.54" font-family="Arial" font-size="14.00" fill="#666666">27. Permission Check</text>
+<text text-anchor="middle" x="1063.53" y="-273.74" font-family="Arial" font-size="14.00" fill="#666666">(RPC Calls)</text>
+</g>
+<!-- NFTContract&#45;&gt;EventEmitter -->
+<g id="edge29" class="edge">
+<title>NFTContract-&gt;EventEmitter</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2319.52,-125.41C2321.95,-110.86 2325.11,-91.89 2327.83,-75.61"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2331.22,-76.58 2329.41,-66.14 2324.31,-75.42 2331.22,-76.58"/>
+<text text-anchor="middle" x="2375.77" y="-86.2" font-family="Arial" font-size="14.00" fill="#666666">29. Emit Events</text>
+</g>
+<!-- TransactionProcessor&#45;&gt;NFTContract -->
+<g id="edge28" class="edge">
+<title>TransactionProcessor-&gt;NFTContract</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2322.22,-261.91C2320.97,-240.88 2319.11,-209.73 2317.69,-185.76"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2321.18,-185.55 2317.1,-175.78 2314.2,-185.97 2321.18,-185.55"/>
+<text text-anchor="middle" x="2401.5" y="-213.4" font-family="Arial" font-size="14.00" fill="#666666">28. Update Contract State</text>
+</g>
+<!-- UserInteraction&#45;&gt;Frontend -->
+<g id="edge1" class="edge">
+<title>UserInteraction-&gt;Frontend</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2117.66,-892.57C2109.5,-876.94 2102.15,-855.26 2111.61,-838.34 2127.83,-809.33 2157.17,-788.23 2185.77,-773.5"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2187.18,-776.71 2194.62,-769.16 2184.1,-770.42 2187.18,-776.71"/>
+<text text-anchor="middle" x="2171.11" y="-859.34" font-family="Arial" font-size="14.00" fill="#666666">1. User Input</text>
+<text text-anchor="middle" x="2171.11" y="-842.54" font-family="Arial" font-size="14.00" fill="#666666">(Clicks, Text, Files)</text>
+</g>
+<!-- UserInteraction&#45;&gt;WalletConnector -->
+<g id="edge4" class="edge">
+<title>UserInteraction-&gt;WalletConnector</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2136.25,-936.26C2142.63,-956.28 2155.18,-984.48 2177.61,-997.61 2247.81,-1038.69 2285.26,-1028.22 2360.61,-997.61 2385.71,-987.41 2407.49,-965.99 2422.86,-947.37"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2425.5,-949.68 2428.96,-939.67 2420.01,-945.34 2425.5,-949.68"/>
+<text text-anchor="middle" x="2270.61" y="-1012.54" font-family="Arial" font-size="14.00" fill="#666666">4. Connect Wallet</text>
+</g>
+<!-- DataFormatFlowDef -->
+<g id="node24" class="node">
+<title>DataFormatFlowDef</title>
+<polygon fill="#e8f0fe" stroke="#333333" points="728.42,-767.94 564.8,-767.94 564.8,-719.94 734.42,-719.94 734.42,-761.94 728.42,-767.94"/>
+<polyline fill="none" stroke="#333333" points="728.42,-767.94 728.42,-761.94"/>
+<polyline fill="none" stroke="#333333" points="734.42,-761.94 728.42,-761.94"/>
+<text text-anchor="middle" x="649.61" y="-748.14" font-family="Arial" font-size="14.00" fill="#333333">Flow Definition Format</text>
+<text text-anchor="middle" x="649.61" y="-731.34" font-family="Arial" font-size="14.00" fill="#333333">JSON Graph Structure</text>
+</g>
+<!-- DataFormatFlowDef&#45;&gt;FlowExecutor -->
+<g id="edge37" class="edge">
+<title>DataFormatFlowDef-&gt;FlowExecutor</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M666.85,-719.58C688.35,-690.45 725.23,-640.48 749.52,-607.58"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="752.11,-609.96 755.24,-599.83 746.48,-605.8 752.11,-609.96"/>
+</g>
+<!-- DataFormatFlowDef&#45;&gt;FileStorage -->
+<g id="edge36" class="edge">
+<title>DataFormatFlowDef-&gt;FileStorage</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M643.85,-719.62C640.1,-703.17 635.55,-680.55 633.61,-660.34 617.13,-488.64 637.32,-283.15 647.91,-194.76"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="651.38,-195.23 649.11,-184.88 644.43,-194.38 651.38,-195.23"/>
+</g>
+<!-- DataFormatExecution -->
+<g id="node25" class="node">
+<title>DataFormatExecution</title>
+<polygon fill="#e6f4ea" stroke="#333333" points="207.22,-310.34 0,-310.34 0,-262.34 213.22,-262.34 213.22,-304.34 207.22,-310.34"/>
+<polyline fill="none" stroke="#333333" points="207.22,-310.34 207.22,-304.34"/>
+<polyline fill="none" stroke="#333333" points="213.22,-304.34 207.22,-304.34"/>
+<text text-anchor="middle" x="106.61" y="-290.54" font-family="Arial" font-size="14.00" fill="#333333">Execution Data Format</text>
+<text text-anchor="middle" x="106.61" y="-273.74" font-family="Arial" font-size="14.00" fill="#333333">Executed Elements &amp; Results</text>
+</g>
+<!-- DataFormatExecution&#45;&gt;Database -->
+<g id="edge38" class="edge">
+<title>DataFormatExecution-&gt;Database</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M142.84,-261.91C174.04,-241.73 219.65,-212.22 256.03,-188.69"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="257.53,-191.89 264.02,-183.52 253.72,-186.01 257.53,-191.89"/>
+</g>
+<!-- DataFormatChat -->
+<g id="node26" class="node">
+<title>DataFormatChat</title>
+<polygon fill="#fce8e6" stroke="#333333" points="392.28,-310.34 230.94,-310.34 230.94,-262.34 398.28,-262.34 398.28,-304.34 392.28,-310.34"/>
+<polyline fill="none" stroke="#333333" points="392.28,-310.34 392.28,-304.34"/>
+<polyline fill="none" stroke="#333333" points="398.28,-304.34 392.28,-304.34"/>
+<text text-anchor="middle" x="314.61" y="-290.54" font-family="Arial" font-size="14.00" fill="#333333">Chat History Format</text>
+<text text-anchor="middle" x="314.61" y="-273.74" font-family="Arial" font-size="14.00" fill="#333333">Sequenced Messages</text>
+</g>
+<!-- DataFormatChat&#45;&gt;Database -->
+<g id="edge39" class="edge">
+<title>DataFormatChat-&gt;Database</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M314.61,-261.91C314.61,-243.46 314.61,-217.23 314.61,-194.89"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="318.11,-195.1 314.61,-185.1 311.11,-195.1 318.11,-195.1"/>
+</g>
+<!-- DataFormatNFT -->
+<g id="node27" class="node">
+<title>DataFormatNFT</title>
+<polygon fill="#fef7e0" stroke="#333333" points="2214.99,-310.34 2006.23,-310.34 2006.23,-262.34 2220.99,-262.34 2220.99,-304.34 2214.99,-310.34"/>
+<polyline fill="none" stroke="#333333" points="2214.99,-310.34 2214.99,-304.34"/>
+<polyline fill="none" stroke="#333333" points="2220.99,-304.34 2214.99,-304.34"/>
+<text text-anchor="middle" x="2113.61" y="-290.54" font-family="Arial" font-size="14.00" fill="#333333">NFT Access Format</text>
+<text text-anchor="middle" x="2113.61" y="-273.74" font-family="Arial" font-size="14.00" fill="#333333">On-chain Permission Records</text>
+</g>
+<!-- DataFormatNFT&#45;&gt;NFTContract -->
+<g id="edge40" class="edge">
+<title>DataFormatNFT-&gt;NFTContract</title>
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M2148.8,-261.91C2182.73,-239.31 2234.21,-205.02 2271,-180.51"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2272.59,-183.66 2278.98,-175.2 2268.71,-177.83 2272.59,-183.66"/>
+</g>
+<!-- EncryptedConnections -->
+<g id="node28" class="node">
+<title>EncryptedConnections</title>
+<polygon fill="#f3e8ff" stroke="#7627bb" points="2065.14,-937.94 1896.08,-937.94 1896.08,-889.94 2071.14,-889.94 2071.14,-931.94 2065.14,-937.94"/>
+<polyline fill="none" stroke="#7627bb" points="2065.14,-937.94 2065.14,-931.94"/>
+<polyline fill="none" stroke="#7627bb" points="2071.14,-931.94 2065.14,-931.94"/>
+<text text-anchor="middle" x="1983.61" y="-918.14" font-family="Arial" font-size="14.00" fill="#7627bb">Encrypted Connections</text>
+<text text-anchor="middle" x="1983.61" y="-901.34" font-family="Arial" font-size="14.00" fill="#7627bb">(TLS, JWT, Signatures)</text>
+</g>
+<!-- EncryptedConnections&#45;&gt;Frontend -->
+<g id="edge41" class="edge">
+<title>EncryptedConnections-&gt;Frontend</title>
+<path fill="none" stroke="#7627bb" stroke-width="1.2" stroke-dasharray="5,2" d="M2033.68,-889.48C2043.83,-884.12 2054.25,-878.16 2063.61,-871.94 2082.95,-859.1 2084.63,-851.71 2103.61,-838.34 2137.16,-814.72 2177.01,-791.44 2208.54,-774.04"/>
+<polygon fill="#7627bb" stroke="#7627bb" stroke-width="1.2" points="2210.22,-777.11 2217.31,-769.24 2206.85,-770.97 2210.22,-777.11"/>
+</g>
+<!-- EncryptedConnections&#45;&gt;APIGateway -->
+<g id="edge42" class="edge">
+<title>EncryptedConnections-&gt;APIGateway</title>
+<path fill="none" stroke="#7627bb" stroke-width="1.2" stroke-dasharray="5,2" d="M1938.98,-889.58C1881.17,-859.33 1780.41,-806.59 1717.84,-773.85"/>
+<polygon fill="#7627bb" stroke="#7627bb" stroke-width="1.2" points="1719.47,-770.75 1708.99,-769.21 1716.23,-776.95 1719.47,-770.75"/>
+</g>
+<!-- EncryptedConnections&#45;&gt;WebSocketServer -->
+<g id="edge43" class="edge">
+<title>EncryptedConnections-&gt;WebSocketServer</title>
+<path fill="none" stroke="#7627bb" stroke-width="1.2" stroke-dasharray="5,2" d="M1988.96,-889.64C1990.06,-883.89 1991.05,-877.72 1991.61,-871.94 2007.58,-706.67 2101.6,-622.73 1991.61,-498.34 1969.95,-473.85 1877.91,-485.4 1845.61,-480.34 1834.87,-478.66 1823.62,-476.74 1812.49,-474.74"/>
+<polygon fill="#7627bb" stroke="#7627bb" stroke-width="1.2" points="1813.22,-471.32 1802.75,-472.96 1811.96,-478.2 1813.22,-471.32"/>
+</g>
+<!-- EncryptedConnections&#45;&gt;ExecutionEngineClient -->
+<g id="edge44" class="edge">
+<title>EncryptedConnections-&gt;ExecutionEngineClient</title>
+<path fill="none" stroke="#7627bb" stroke-width="1.2" stroke-dasharray="5,2" d="M1983.28,-889.54C1981.97,-834.11 1975.41,-697.23 1942.61,-668.34 1925.67,-653.42 1761.21,-666.91 1739.61,-660.34 1702.2,-648.97 1664.72,-625.03 1638.12,-605.38"/>
+<polygon fill="#7627bb" stroke="#7627bb" stroke-width="1.2" points="1640.37,-602.7 1630.28,-599.46 1636.15,-608.28 1640.37,-602.7"/>
+</g>
+<!-- EncryptedConnections&#45;&gt;BlockchainClient -->
+<g id="edge45" class="edge">
+<title>EncryptedConnections-&gt;BlockchainClient</title>
+<path fill="none" stroke="#7627bb" stroke-width="1.2" stroke-dasharray="5,2" d="M2006.09,-889.55C2010.86,-884 2015.64,-877.95 2019.61,-871.94 2109.21,-736.24 2042.6,-632.57 2177.61,-541.94 2193.5,-531.27 2336.47,-545.86 2349.61,-531.94 2359.86,-521.08 2359.65,-509.39 2349.61,-498.34 2326.79,-473.23 2120.07,-463.09 2002.84,-459.34"/>
+<polygon fill="#7627bb" stroke="#7627bb" stroke-width="1.2" points="2003.01,-455.84 1992.91,-459.03 2002.79,-462.84 2003.01,-455.84"/>
+</g>
+</g>
+</svg>

@@ -2,10 +2,10 @@
 from typing import Dict, Any, List, Optional
 import json
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import validate_inputs
-from ...services.blockchain import AptosBlockchainService
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import validate_inputs
+from services.blockchain import AptosBlockchainService
 
 class BuildTransactionJSON(ElementBase):
     """Build Transaction JSON element for creating blockchain transaction payloads."""

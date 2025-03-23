@@ -1,0 +1,116 @@
+flow_id: simple-ai-flow
+flow_definition:
+  flow_id: simple-ai-flow
+  elements:
+    start-node:
+      type: start
+      element_id: start-node
+      name: Start Block
+      description: Entry point of the flow
+      input_schema: {}
+      output_schema: {}
+    chat-input:
+      type: chat_input
+      element_id: chat-input
+      name: User Input
+      description: Captures the user's message
+      input_schema:
+        chat_input:
+          type: string
+          description: The input provided by the user
+          required: true
+      output_schema:
+        chat_input:
+          type: string
+          description: The input provided by the user
+          required: true
+    context-history:
+      type: context_history
+      element_id: context-history
+      name: Conversation Context
+      description: Provides conversation history for context
+      input_schema:
+        context_history:
+          type: list
+          description: List of previous messages
+          required: false
+      output_schema:
+        context_history:
+          type: list
+          description: List of previous messages
+          required: false
+    llm-text:
+      type: llm_text
+      element_id: llm-text
+      name: AI Text Generator
+      description: Generates a response using the LLM
+      input_schema:
+        prompt:
+          type: string
+          description: The prompt for the LLM
+          required: true
+        context:
+          type: list
+          description: Context for the LLM
+          required: false
+        additional_data:
+          type: json
+          description: Additional data for the LLM
+          required: false
+      output_schema:
+        llm_output:
+          type: string
+          description: Generated text from the LLM
+          required: true
+      model: anthropic.claude-3-sonnet-20240229-v1:0
+      temperature: 0.7
+      max_tokens: 1000
+      wrapper_prompt: "You are a helpful AI assistant. Please respond to the following: {prompt}\n\nContext: {context}"
+    end-node:
+      type: end
+      element_id: end-node
+      name: End Block
+      description: Exit point of the flow
+      input_schema:
+        text_input:
+          type: string
+          description: Text output to return to the user
+          required: true
+        proposed_transaction:
+          type: json
+          description: Transaction to be sent to the blockchain
+          required: false
+      output_schema:
+        text_output:
+          type: string
+          description: Final text output
+          required: true
+        proposed_transaction:
+          type: json
+          description: Final transaction payload
+          required: false
+  connections:
+    - from_id: start-node
+      to_id: llm-text
+    - from_id: chat-input
+      to_id: llm-text
+      from_output: chat_input
+      to_input: prompt
+    - from_id: context-history
+      to_id: llm-text
+      from_output: context_history
+      to_input: context
+    - from_id: llm-text
+      to_id: end-node
+      from_output: llm_output
+      to_input: text_input
+  start_element_id: start-node
+  metadata:
+    name: Simple AI Flow
+    description: A simple flow that takes user input and generates a response using an LLM
+initial_inputs:
+  chat-input:
+    chat_input: What is the capital of France?
+  context-history:
+    context_history:
+      - Hello, I'm a geography enthusiast.

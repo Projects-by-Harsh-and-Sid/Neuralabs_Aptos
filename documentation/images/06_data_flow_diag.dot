@@ -1,0 +1,156 @@
+digraph "NeuraLabs Data Flow" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="TB";
+    
+    // Define node clusters with distinct colors
+    subgraph cluster_client {
+        label="Client Application (Frontend)";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        Frontend [label="Frontend UI\nReact Components", fillcolor="#D2E3FC"];
+        LocalStorage [label="Local Storage\nCache & Preferences", fillcolor="#D2E3FC"];
+        WebSocketClient [label="WebSocket Client\nStreaming Receiver", fillcolor="#D2E3FC"];
+        WalletConnector [label="Wallet Connector\nBlockchain Interface", fillcolor="#D2E3FC"];
+    }
+    
+    subgraph cluster_message_passer {
+        label="Neura Message Passer (Backend 2)";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        APIGateway [label="API Gateway\nRequest Handler", fillcolor="#CEEAD6"];
+        WebSocketServer [label="WebSocket Server\nStreaming Manager", fillcolor="#CEEAD6"];
+        DataPersistence [label="Data Persistence\nStorage Interface", fillcolor="#CEEAD6"];
+        AccessControl [label="Access Control\nPermission Verification", fillcolor="#CEEAD6"];
+        ExecutionEngineClient [label="Execution Engine Client\nBackend 1 Interface", fillcolor="#CEEAD6"];
+        BlockchainClient [label="Blockchain Client\nAptos Interface", fillcolor="#CEEAD6"];
+        EventListener [label="Event Listener\nBlockchain Events", fillcolor="#CEEAD6"];
+    }
+    
+    subgraph cluster_execution_engine {
+        label="Neura Execution Engine (Backend 1)";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        
+        FlowExecutor [label="Flow Executor\nWorkflow Processor", fillcolor="#FCD0CD"];
+        StreamManager [label="Stream Manager\nExecution Updates", fillcolor="#FCD0CD"];
+        AIConnector [label="AI Connector\nAI Model Interface", fillcolor="#FCD0CD"];
+        EngineBlockchainClient [label="Blockchain Client\nPermission Verification", fillcolor="#FCD0CD"];
+    }
+    
+    subgraph cluster_blockchain {
+        label="Aptos Blockchain";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        
+        NFTContract [label="NFT Contract\nOwnership & Access", fillcolor="#FEEFC3"];
+        TransactionProcessor [label="Transaction Processor\nState Updates", fillcolor="#FEEFC3"];
+        EventEmitter [label="Event Emitter\nState Change Notifications", fillcolor="#FEEFC3"];
+    }
+    
+    // External services
+    Database [label="PostgreSQL\nRelational Database", shape="cylinder", style="filled", fillcolor="#336791", fontcolor="white"];
+    CacheStore [label="Redis\nIn-memory Cache", shape="cylinder", style="filled", fillcolor="#DC382D", fontcolor="white"];
+    FileStorage [label="Object Storage\nS3-compatible", shape="cylinder", style="filled", fillcolor="#FF9900", fontcolor="white"];
+    AIServices [label="External AI Services\nBedrock/DeepSeek", shape="ellipse", style="filled", fillcolor="#5A2CA0", fontcolor="white"];
+    
+    // Define data flow paths with descriptive labels
+    
+    // User Interaction Flows
+    UserInteraction [label="User", shape="ellipse", style="filled", fillcolor="#AAAAAA", fontcolor="white"];
+    UserInteraction -> Frontend [label="1. User Input\n(Clicks, Text, Files)"];
+    Frontend -> WebSocketClient [label="2. UI Updates"];
+    LocalStorage -> Frontend [label="3. Local Preferences"];
+    
+    // Authentication Flows
+    UserInteraction -> WalletConnector [label="4. Connect Wallet"];
+    WalletConnector -> BlockchainClient [label="5. Verify Identity\n(Wallet Address/Signature)"];
+    
+    // Frontend to Backend 2 Flows
+    Frontend -> APIGateway [label="6. HTTP Requests\n(Data Queries, Actions)", color="#4285F4"];
+    WebSocketClient -> WebSocketServer [label="7. WebSocket Connection\n(Streaming Updates)", color="#4285F4", style="bold"];
+    
+    // Backend 2 Internal Flows
+    APIGateway -> AccessControl [label="8. Permission Check"];
+    APIGateway -> DataPersistence [label="9. Data Operations"];
+    WebSocketServer -> DataPersistence [label="10. Save Updates"];
+    
+    // Backend 2 Storage Flows
+    DataPersistence -> Database [label="11. SQL Queries\n(Structured Data)", color="#0F9D58"];
+    DataPersistence -> CacheStore [label="12. Cache Operations\n(Temporary Data)", color="#0F9D58"];
+    DataPersistence -> FileStorage [label="13. File Operations\n(Workflow Definitions)", color="#0F9D58"];
+    
+    // Backend 2 to Blockchain Flows
+    AccessControl -> BlockchainClient [label="14. Access Verification"];
+    BlockchainClient -> NFTContract [label="15. Permission Queries\n(RPC Calls)", color="#0F9D58"];
+    BlockchainClient -> TransactionProcessor [label="16. Transaction Submission\n(Access Changes)", color="#0F9D58"];
+    EventListener -> EventEmitter [label="17. Event Subscription\n(State Changes)", color="#0F9D58", style="dashed"];
+    
+    // Backend 2 to Backend 1 Flows
+    APIGateway -> ExecutionEngineClient [label="18. Execution Requests"];
+    WebSocketServer -> ExecutionEngineClient [label="19. Create Stream"];
+    ExecutionEngineClient -> FlowExecutor [label="20. Execute Workflow\n(Flow Definition)", color="#0F9D58"];
+    ExecutionEngineClient -> StreamManager [label="21. Stream Connection", color="#0F9D58", style="bold"];
+    
+    // Execution Engine Flows
+    FlowExecutor -> StreamManager [label="22. Execution Updates"];
+    StreamManager -> WebSocketServer [label="23. Stream Updates\n(Real-time Progress)", color="#DB4437", style="bold"];
+    FlowExecutor -> AIConnector [label="24. AI Requests"];
+    AIConnector -> AIServices [label="25. Model Inference\n(Text Generation)", color="#DB4437"];
+    FlowExecutor -> EngineBlockchainClient [label="26. Verify Permissions"];
+    EngineBlockchainClient -> NFTContract [label="27. Permission Check\n(RPC Calls)", color="#DB4437"];
+    
+    // Blockchain Event Flows
+    TransactionProcessor -> NFTContract [label="28. Update Contract State"];
+    NFTContract -> EventEmitter [label="29. Emit Events"];
+    
+    // Response Flows
+    StreamManager -> ExecutionEngineClient [label="30. Forward Updates"];
+    ExecutionEngineClient -> WebSocketServer [label="31. Relay Updates", color="#DB4437", style="bold"];
+    WebSocketServer -> WebSocketClient [label="32. Stream to Client\n(Results & Updates)", color="#0F9D58", style="bold"];
+    WebSocketClient -> Frontend [label="33. Update UI"];
+    APIGateway -> Frontend [label="34. HTTP Responses\n(Query Results)", color="#0F9D58"];
+    
+    // User OUTPUT flow
+    Frontend -> UserInteraction [label="35. Display Results\n(UI Rendering)"];
+    
+    // Data Store formats
+    DataFormatFlowDef [label="Flow Definition Format\nJSON Graph Structure", shape="note", fillcolor="#E8F0FE"];
+    DataFormatExecution [label="Execution Data Format\nExecuted Elements & Results", shape="note", fillcolor="#E6F4EA"];
+    DataFormatChat [label="Chat History Format\nSequenced Messages", shape="note", fillcolor="#FCE8E6"];
+    DataFormatNFT [label="NFT Access Format\nOn-chain Permission Records", shape="note", fillcolor="#FEF7E0"];
+    
+    // Connect formats to relevant components
+    DataFormatFlowDef -> FileStorage [style="dashed"];
+    DataFormatFlowDef -> FlowExecutor [style="dashed"];
+    DataFormatExecution -> Database [style="dashed"];
+    DataFormatChat -> Database [style="dashed"];
+    DataFormatNFT -> NFTContract [style="dashed"];
+    
+    // Encryption and security flows
+    EncryptedConnections [label="Encrypted Connections\n(TLS, JWT, Signatures)", shape="note", fillcolor="#F3E8FF", color="#7627BB", fontcolor="#7627BB"];
+    EncryptedConnections -> Frontend [style="dashed", color="#7627BB"];
+    EncryptedConnections -> APIGateway [style="dashed", color="#7627BB"];
+    EncryptedConnections -> WebSocketServer [style="dashed", color="#7627BB"];
+    EncryptedConnections -> ExecutionEngineClient [style="dashed", color="#7627BB"];
+    EncryptedConnections -> BlockchainClient [style="dashed", color="#7627BB"];
+}

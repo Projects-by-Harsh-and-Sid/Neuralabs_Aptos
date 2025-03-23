@@ -1,8 +1,8 @@
 # elements/inputs/metadata.py
 from typing import Dict, Any, Optional, List
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
+from core.element_base import ElementBase
+from utils.logger import logger
 
 class Metadata(ElementBase):
     """Metadata element for providing user and environment metadata."""

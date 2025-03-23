@@ -1,9 +1,9 @@
 # elements/flow_control/end.py
 from typing import Dict, Any, Optional
 
-from ...core.element_base import ElementBase
-from ...utils.logger import logger
-from ...utils.validators import validate_inputs
+from core.element_base import ElementBase
+from utils.logger import logger
+from utils.validators import validate_inputs
 
 class End(ElementBase):
     """End element for flow execution."""
