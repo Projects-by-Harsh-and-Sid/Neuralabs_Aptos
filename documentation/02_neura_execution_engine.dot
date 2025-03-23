@@ -1,0 +1,215 @@
+digraph "Neura Execution Engine Architecture" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="LR";
+    
+    // Core Components
+    subgraph cluster_core {
+        label="Core Components";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        
+        FlowExecutor [label="Flow Executor\nManages execution graph", fillcolor="#FCD0CD"];
+        ExecutionContext [label="Execution Context\nHolds execution state", fillcolor="#FCD0CD"];
+        ElementBase [label="Element Base\nAbstract base class", fillcolor="#FCD0CD"];
+        DependencyResolver [label="Dependency Resolver\nManages execution order", fillcolor="#FCD0CD"];
+        CacheSystem [label="Cache System\nOutput caching", fillcolor="#FCD0CD"];
+        LoggingService [label="Logging Service\nExecution logs", fillcolor="#FCD0CD"];
+        ConfigManager [label="Config Manager\nEnvironment setup", fillcolor="#FCD0CD"];
+    }
+    
+    // Element Types
+    subgraph cluster_elements {
+        label="Element Types";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        
+        FlowControl [label="Flow Control Elements\nConditional execution"];
+        InputElements [label="Input Elements\nData input handling"];
+        AIElements [label="AI Elements\nModel integration"];
+        UtilityElements [label="Utility Elements\nData transformation"];
+        OutputElements [label="Output Elements\nResult formatting"];
+        BlockchainElements [label="Blockchain Elements\nBlockchain interaction"];
+        CustomElements [label="Custom Elements\nUser-defined logic"];
+        
+        // Element subcategories
+        subgraph cluster_flowelement_types {
+            label="Flow Control Types";
+            style="rounded,filled";
+            color="#F7B529";
+            fillcolor="#FEEFC3";
+            fontcolor="#F7B529";
+            fontsize=14;
+            
+            StartElement [label="Start Element\nEntry point"];
+            EndElement [label="End Element\nExit point"];
+            CaseElement [label="Case Element\nBranching logic"];
+            FlowSelectElement [label="Flow Select\nPath selection"];
+        }
+        
+        subgraph cluster_inputelement_types {
+            label="Input Element Types";
+            style="rounded,filled";
+            color="#F7B529";
+            fillcolor="#FEEFC3";
+            fontcolor="#F7B529";
+            fontsize=14;
+            
+            ChatInputElement [label="Chat Input\nUser messages"];
+            ContextHistoryElement [label="Context History\nConversation memory"];
+            RestAPIElement [label="REST API\nExternal data"];
+            MetadataElement [label="Metadata\nConfiguration data"];
+            ConstantsElement [label="Constants\nFixed values"];
+        }
+        
+        subgraph cluster_aielement_types {
+            label="AI Element Types";
+            style="rounded,filled";
+            color="#F7B529";
+            fillcolor="#FEEFC3";
+            fontcolor="#F7B529";
+            fontsize=14;
+            
+            LLMTextElement [label="LLM Text\nText generation"];
+            LLMStructuredElement [label="LLM Structured\nJSON generation"];
+        }
+        
+        // Element subtype connections
+        FlowControl -> StartElement [style="dashed"];
+        FlowControl -> EndElement [style="dashed"];
+        FlowControl -> CaseElement [style="dashed"];
+        FlowControl -> FlowSelectElement [style="dashed"];
+        
+        InputElements -> ChatInputElement [style="dashed"];
+        InputElements -> ContextHistoryElement [style="dashed"];
+        InputElements -> RestAPIElement [style="dashed"];
+        InputElements -> MetadataElement [style="dashed"];
+        InputElements -> ConstantsElement [style="dashed"];
+        
+        AIElements -> LLMTextElement [style="dashed"];
+        AIElements -> LLMStructuredElement [style="dashed"];
+    }
+    
+    // Services
+    subgraph cluster_services {
+        label="Services";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        StreamManager [label="Stream Manager\nWebSocket streaming", fillcolor="#D2E3FC"];
+        ValidationService [label="Validation Service\nInput/output validation", fillcolor="#D2E3FC"];
+        AIServiceConnector [label="AI Service Connector\nExternal AI integration", fillcolor="#D2E3FC"];
+        BlockchainConnector [label="Blockchain Connector\nBlockchain integration", fillcolor="#D2E3FC"];
+        SecurityManager [label="Security Manager\nAccess control enforcement", fillcolor="#D2E3FC"];
+        ErrorHandler [label="Error Handler\nGraceful failure management", fillcolor="#D2E3FC"];
+        MetricsCollector [label="Metrics Collector\nPerformance monitoring", fillcolor="#D2E3FC"];
+        RateLimiter [label="Rate Limiter\nThrottling service", fillcolor="#D2E3FC"];
+    }
+    
+    // Communication
+    subgraph cluster_communication {
+        label="Communication";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        HTTPEndpoints [label="HTTP Endpoints\nREST API endpoints"];
+        WebSocketServer [label="WebSocket Server\nBidirectional comms"];
+        EventSystem [label="Event System\nInternal pub/sub"];
+        MessageQueue [label="Message Queue\nAsync task handling"];
+        DirectStreamManager [label="Direct Stream Manager\nWebSocket client"];
+        SSEManager [label="SSE Manager\nServer-Sent Events"];
+    }
+    
+    // External components
+    BedrockAI [label="AWS Bedrock\n(Claude / Anthropic)", shape="ellipse", style="filled", fillcolor="#232F3E", fontcolor="white"];
+    DeepSeekAI [label="DeepSeek Reasoner\n(Custom AI Model)", shape="ellipse", style="filled", fillcolor="#5A2CA0", fontcolor="white"];
+    MessagePasser [label="Neura Message Passer\n(Backend 2)", shape="box", style="rounded,filled", fillcolor="#E6F4EA", color="#0F9D58", fontcolor="#0F9D58"];
+    AptosBlockchain [label="Aptos Blockchain", shape="box", style="rounded,filled", fillcolor="#FEF7E0", color="#F7B529", fontcolor="#F7B529"];
+    DirectClient [label="Direct Client\n(WebSocket/SSE)", shape="box", style="rounded,filled", fillcolor="#E8F0FE", color="#4285F4", fontcolor="#4285F4"];
+    
+    // Core connections
+    FlowExecutor -> ElementBase [label="Creates"];
+    FlowExecutor -> ExecutionContext [label="Manages"];
+    FlowExecutor -> DependencyResolver [label="Uses"];
+    ElementBase -> DependencyResolver [label="Registers deps"];
+    FlowExecutor -> CacheSystem [label="Caches results"];
+    FlowExecutor -> LoggingService [label="Logs activity"];
+    FlowExecutor -> ConfigManager [label="Reads config"];
+    
+    // Element base connections
+    ElementBase -> FlowControl [label="Extends", style="dashed"];
+    ElementBase -> InputElements [label="Extends", style="dashed"];
+    ElementBase -> AIElements [label="Extends", style="dashed"];
+    ElementBase -> UtilityElements [label="Extends", style="dashed"];
+    ElementBase -> OutputElements [label="Extends", style="dashed"];
+    ElementBase -> BlockchainElements [label="Extends", style="dashed"];
+    ElementBase -> CustomElements [label="Extends", style="dashed"];
+    
+    // Service connections
+    FlowExecutor -> StreamManager [label="Publishes updates"];
+    FlowExecutor -> ValidationService [label="Validates I/O"];
+    FlowExecutor -> ErrorHandler [label="Handles errors"];
+    FlowExecutor -> MetricsCollector [label="Reports metrics"];
+    FlowExecutor -> SecurityManager [label="Enforces access"];
+    FlowExecutor -> RateLimiter [label="Controls rate"];
+    
+    AIElements -> AIServiceConnector [label="Uses"];
+    BlockchainElements -> BlockchainConnector [label="Uses"];
+    
+    // Communication connections
+    HTTPEndpoints -> FlowExecutor [label="Invokes"];
+    WebSocketServer -> StreamManager [label="Provides channel"];
+    StreamManager -> DirectStreamManager [label="Routes msgs"];
+    StreamManager -> SSEManager [label="Routes msgs"];
+    FlowExecutor -> EventSystem [label="Publishes events"];
+    EventSystem -> StreamManager [label="Forwards events"];
+    EventSystem -> MessageQueue [label="Queues tasks"];
+    
+    // External connections
+    AIServiceConnector -> BedrockAI [label="API Calls", color="#4285F4"];
+    AIServiceConnector -> DeepSeekAI [label="API Calls", color="#4285F4"];
+    WebSocketServer -> MessagePasser [label="WebSocket\nStreaming", color="#DB4437", style="bold"];
+    HTTPEndpoints -> MessagePasser [label="HTTP/REST", color="#DB4437"];
+    BlockchainConnector -> AptosBlockchain [label="RPC Calls", color="#DB4437"];
+    DirectStreamManager -> DirectClient [label="WebSocket", color="#DB4437", style="bold"];
+    SSEManager -> DirectClient [label="SSE", color="#DB4437"];
+    
+    // Data flow management subsystem
+    subgraph cluster_dataflow {
+        label="Data Flow Management";
+        style="rounded,filled";
+        color="#7627BB";
+        fillcolor="#F3E8FF";
+        fontcolor="#7627BB";
+        fontsize=16;
+        
+        InputMapping [label="Input Mapping\nConnects element I/O"];
+        OutputRouting [label="Output Routing\nManages data flow"];
+        TypeConversion [label="Type Conversion\nData transformation"];
+        SchemaValidator [label="Schema Validator\nType checking"];
+    }
+    
+    // Data flow connections
+    ElementBase -> InputMapping [label="Uses"];
+    ElementBase -> OutputRouting [label="Uses"];
+    ValidationService -> SchemaValidator [label="Uses"];
+    InputMapping -> TypeConversion [label="Uses"];
+    ValidationService -> TypeConversion [label="Validates"];
+}

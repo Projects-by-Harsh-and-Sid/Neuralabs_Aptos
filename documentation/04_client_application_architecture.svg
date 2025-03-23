@@ -1,0 +1,933 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1558pt" height="2318pt" viewBox="0.00 0.00 1557.93 2318">
+<g id="graph0" class="graph" transform="translate(135.8073220089929,2128.7819594615075) scale(0.7578582832551997)" data-name="Client Application Architecture">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-2314 1553.93,-2314 1553.93,4 -4,4"/>
+<g id="clust1" class="cluster" data-name="cluster_core">
+
+<path fill="#e8f0fe" stroke="#4285f4" d="M20,-128C20,-128 591.23,-128 591.23,-128 597.23,-128 603.23,-134 603.23,-140 603.23,-140 603.23,-446 603.23,-446 603.23,-452 597.23,-458 591.23,-458 591.23,-458 20,-458 20,-458 14,-458 8,-452 8,-446 8,-446 8,-140 8,-140 8,-134 14,-128 20,-128"/>
+<text text-anchor="middle" x="305.62" y="-439.6" font-family="Arial" font-size="16.00" fill="#4285f4">Core Application</text>
+</g>
+<g id="clust2" class="cluster" data-name="cluster_state_management">
+
+<path fill="#bedaff" stroke="#4285f4" d="M430.94,-136C430.94,-136 583.23,-136 583.23,-136 589.23,-136 595.23,-142 595.23,-148 595.23,-148 595.23,-411 595.23,-411 595.23,-417 589.23,-423 583.23,-423 583.23,-423 430.94,-423 430.94,-423 424.94,-423 418.94,-417 418.94,-411 418.94,-411 418.94,-148 418.94,-148 418.94,-142 424.94,-136 430.94,-136"/>
+<text text-anchor="middle" x="507.08" y="-406.4" font-family="Arial" font-size="14.00" fill="#4285f4">State Management</text>
+</g>
+<g id="clust3" class="cluster" data-name="cluster_pages">
+
+<path fill="#fce8e6" stroke="#db4437" d="M197.06,-1650C197.06,-1650 384.38,-1650 384.38,-1650 390.38,-1650 396.38,-1656 396.38,-1662 396.38,-1662 396.38,-2290 396.38,-2290 396.38,-2296 390.38,-2302 384.38,-2302 384.38,-2302 197.06,-2302 197.06,-2302 191.06,-2302 185.06,-2296 185.06,-2290 185.06,-2290 185.06,-1662 185.06,-1662 185.06,-1656 191.06,-1650 197.06,-1650"/>
+<text text-anchor="middle" x="290.72" y="-2283.6" font-family="Arial" font-size="16.00" fill="#db4437">Page Components</text>
+</g>
+<g id="clust4" class="cluster" data-name="cluster_flow_creator_subpages">
+
+<path fill="#fcbdba" stroke="#db4437" d="M216.14,-1914C216.14,-1914 365.3,-1914 365.3,-1914 371.3,-1914 377.3,-1920 377.3,-1926 377.3,-1926 377.3,-2255 377.3,-2255 377.3,-2261 371.3,-2267 365.3,-2267 365.3,-2267 216.14,-2267 216.14,-2267 210.14,-2267 204.14,-2261 204.14,-2255 204.14,-2255 204.14,-1926 204.14,-1926 204.14,-1920 210.14,-1914 216.14,-1914"/>
+<text text-anchor="middle" x="290.72" y="-2250.4" font-family="Arial" font-size="14.00" fill="#db4437">Flow Creator Subpages</text>
+</g>
+<g id="clust5" class="cluster" data-name="cluster_components">
+
+<path fill="#e6f4ea" stroke="#0f9d58" d="M203.3,-885C203.3,-885 915.28,-885 915.28,-885 921.28,-885 927.28,-891 927.28,-897 927.28,-897 927.28,-1630 927.28,-1630 927.28,-1636 921.28,-1642 915.28,-1642 915.28,-1642 203.3,-1642 203.3,-1642 197.3,-1642 191.3,-1636 191.3,-1630 191.3,-1630 191.3,-897 191.3,-897 191.3,-891 197.3,-885 203.3,-885"/>
+<text text-anchor="middle" x="559.29" y="-1623.6" font-family="Arial" font-size="16.00" fill="#0f9d58">UI Components</text>
+</g>
+<g id="clust6" class="cluster" data-name="cluster_canvas_components">
+
+<path fill="#ceead6" stroke="#0f9d58" d="M756.15,-893C756.15,-893 903.01,-893 903.01,-893 909.01,-893 915.01,-899 915.01,-905 915.01,-905 915.01,-1234 915.01,-1234 915.01,-1240 909.01,-1246 903.01,-1246 903.01,-1246 756.15,-1246 756.15,-1246 750.15,-1246 744.15,-1240 744.15,-1234 744.15,-1234 744.15,-905 744.15,-905 744.15,-899 750.15,-893 756.15,-893"/>
+<text text-anchor="middle" x="829.58" y="-1229.4" font-family="Arial" font-size="14.00" fill="#0f9d58">Canvas Components</text>
+</g>
+<g id="clust7" class="cluster" data-name="cluster_chat_components">
+
+<path fill="#ceead6" stroke="#0f9d58" d="M751.88,-1254C751.88,-1254 907.28,-1254 907.28,-1254 913.28,-1254 919.28,-1260 919.28,-1266 919.28,-1266 919.28,-1595 919.28,-1595 919.28,-1601 913.28,-1607 907.28,-1607 907.28,-1607 751.88,-1607 751.88,-1607 745.88,-1607 739.88,-1601 739.88,-1595 739.88,-1595 739.88,-1266 739.88,-1266 739.88,-1260 745.88,-1254 751.88,-1254"/>
+<text text-anchor="middle" x="829.58" y="-1590.4" font-family="Arial" font-size="14.00" fill="#0f9d58">Chat Components</text>
+</g>
+<g id="clust8" class="cluster" data-name="cluster_services">
+
+<path fill="#fef7e0" stroke="#f7b529" d="M740.61,-481C740.61,-481 1529.93,-481 1529.93,-481 1535.93,-481 1541.93,-487 1541.93,-493 1541.93,-493 1541.93,-865 1541.93,-865 1541.93,-871 1535.93,-877 1529.93,-877 1529.93,-877 740.61,-877 740.61,-877 734.61,-877 728.61,-871 728.61,-865 728.61,-865 728.61,-493 728.61,-493 728.61,-487 734.61,-481 740.61,-481"/>
+<text text-anchor="middle" x="1135.27" y="-858.6" font-family="Arial" font-size="16.00" fill="#f7b529">Frontend Services</text>
+</g>
+<g id="clust9" class="cluster" data-name="cluster_api_endpoints">
+
+<path fill="#feefc3" stroke="#f7b529" d="M1363.42,-489C1363.42,-489 1521.93,-489 1521.93,-489 1527.93,-489 1533.93,-495 1533.93,-501 1533.93,-501 1533.93,-830 1533.93,-830 1533.93,-836 1527.93,-842 1521.93,-842 1521.93,-842 1363.42,-842 1363.42,-842 1357.42,-842 1351.42,-836 1351.42,-830 1351.42,-830 1351.42,-501 1351.42,-501 1351.42,-495 1357.42,-489 1363.42,-489"/>
+<text text-anchor="middle" x="1442.68" y="-825.4" font-family="Arial" font-size="14.00" fill="#f7b529">API Endpoint Groups</text>
+</g>
+<g id="clust10" class="cluster" data-name="cluster_utils">
+
+<path fill="#f3e8ff" stroke="#7627bb" d="M1364.99,-8C1364.99,-8 1520.37,-8 1520.37,-8 1526.37,-8 1532.37,-14 1532.37,-20 1532.37,-20 1532.37,-351 1532.37,-351 1532.37,-357 1526.37,-363 1520.37,-363 1520.37,-363 1364.99,-363 1364.99,-363 1358.99,-363 1352.99,-357 1352.99,-351 1352.99,-351 1352.99,-20 1352.99,-20 1352.99,-14 1358.99,-8 1364.99,-8"/>
+<text text-anchor="middle" x="1442.68" y="-344.6" font-family="Arial" font-size="16.00" fill="#7627bb">Utility Components</text>
+</g>
+<g id="clust11" class="cluster" data-name="cluster_security">
+
+<path fill="#d2e3fc" stroke="#0b57d0" d="M759.26,-136C759.26,-136 1200.02,-136 1200.02,-136 1206.02,-136 1212.02,-142 1212.02,-148 1212.02,-148 1212.02,-347 1212.02,-347 1212.02,-353 1206.02,-359 1200.02,-359 1200.02,-359 759.26,-359 759.26,-359 753.26,-359 747.26,-353 747.26,-347 747.26,-347 747.26,-148 747.26,-148 747.26,-142 753.26,-136 759.26,-136"/>
+<text text-anchor="middle" x="979.64" y="-340.6" font-family="Arial" font-size="16.00" fill="#0b57d0">Security</text>
+</g>
+<!-- AppRouter -->
+<g id="node1" class="node" pointer-events="visible" data-name="AppRouter">
+
+<path fill="#d2e3fc" stroke="#333333" d="M144.09,-422.6C144.09,-422.6 27.97,-422.6 27.97,-422.6 21.97,-422.6 15.97,-416.6 15.97,-410.6 15.97,-410.6 15.97,-387.4 15.97,-387.4 15.97,-381.4 21.97,-375.4 27.97,-375.4 27.97,-375.4 144.09,-375.4 144.09,-375.4 150.09,-375.4 156.09,-381.4 156.09,-387.4 156.09,-387.4 156.09,-410.6 156.09,-410.6 156.09,-416.6 150.09,-422.6 144.09,-422.6"/>
+<text text-anchor="middle" x="86.03" y="-403.2" font-family="Arial" font-size="14.00" fill="#333333">App Router</text>
+<text text-anchor="middle" x="86.03" y="-386.4" font-family="Arial" font-size="14.00" fill="#333333">Navigation control</text>
+</g>
+<!-- StateManagement -->
+<g id="node2" class="node" pointer-events="visible" data-name="StateManagement">
+
+<path fill="#d2e3fc" stroke="#333333" d="M361.18,-323.6C361.18,-323.6 220.25,-323.6 220.25,-323.6 214.25,-323.6 208.25,-317.6 208.25,-311.6 208.25,-311.6 208.25,-288.4 208.25,-288.4 208.25,-282.4 214.25,-276.4 220.25,-276.4 220.25,-276.4 361.18,-276.4 361.18,-276.4 367.18,-276.4 373.18,-282.4 373.18,-288.4 373.18,-288.4 373.18,-311.6 373.18,-311.6 373.18,-317.6 367.18,-323.6 361.18,-323.6"/>
+<text text-anchor="middle" x="290.72" y="-304.2" font-family="Arial" font-size="14.00" fill="#333333">State Management</text>
+<text text-anchor="middle" x="290.72" y="-287.4" font-family="Arial" font-size="14.00" fill="#333333">Global state &amp; context</text>
+</g>
+<!-- AppRouter&#45;&gt;StateManagement -->
+<g id="edge5" class="edge" data-name="AppRouter-&gt;StateManagement">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M136.35,-374.91C164.66,-361.08 200.38,-343.63 230.23,-329.05"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="231.44,-332.36 238.89,-324.82 228.37,-326.07 231.44,-332.36"/>
+</g>
+<!-- Dashboard -->
+<g id="node10" class="node" pointer-events="visible" data-name="Dashboard">
+
+<path fill="#f5f5f5" stroke="#333333" d="M345.29,-1837.6C345.29,-1837.6 236.14,-1837.6 236.14,-1837.6 230.14,-1837.6 224.14,-1831.6 224.14,-1825.6 224.14,-1825.6 224.14,-1802.4 224.14,-1802.4 224.14,-1796.4 230.14,-1790.4 236.14,-1790.4 236.14,-1790.4 345.29,-1790.4 345.29,-1790.4 351.29,-1790.4 357.29,-1796.4 357.29,-1802.4 357.29,-1802.4 357.29,-1825.6 357.29,-1825.6 357.29,-1831.6 351.29,-1837.6 345.29,-1837.6"/>
+<text text-anchor="middle" x="290.72" y="-1818.2" font-family="Arial" font-size="14.00" fill="#333333">Dashboard Page</text>
+<text text-anchor="middle" x="290.72" y="-1801.4" font-family="Arial" font-size="14.00" fill="#333333">User overview</text>
+</g>
+<!-- AppRouter&#45;&gt;Dashboard -->
+<g id="edge35" class="edge" data-name="AppRouter-&gt;Dashboard">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M87.96,-422.81C95.03,-601.38 141.17,-1725.39 185.06,-1781 192.32,-1790.2 202.13,-1796.88 212.85,-1801.73"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="211.53,-1804.97 222.12,-1805.33 214.06,-1798.44 211.53,-1804.97"/>
+</g>
+<!-- FlowCreatorPage -->
+<g id="node11" class="node" pointer-events="visible" data-name="FlowCreatorPage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M350.94,-1540.6C350.94,-1540.6 230.5,-1540.6 230.5,-1540.6 224.5,-1540.6 218.5,-1534.6 218.5,-1528.6 218.5,-1528.6 218.5,-1505.4 218.5,-1505.4 218.5,-1499.4 224.5,-1493.4 230.5,-1493.4 230.5,-1493.4 350.94,-1493.4 350.94,-1493.4 356.94,-1493.4 362.94,-1499.4 362.94,-1505.4 362.94,-1505.4 362.94,-1528.6 362.94,-1528.6 362.94,-1534.6 356.94,-1540.6 350.94,-1540.6"/>
+<text text-anchor="middle" x="290.72" y="-1521.2" font-family="Arial" font-size="14.00" fill="#333333">Flow Creator Page</text>
+<text text-anchor="middle" x="290.72" y="-1504.4" font-family="Arial" font-size="14.00" fill="#333333">Workflow editor</text>
+</g>
+<!-- AppRouter&#45;&gt;FlowCreatorPage -->
+<g id="edge36" class="edge" data-name="AppRouter-&gt;FlowCreatorPage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M90.4,-422.89C102.13,-505.39 142.76,-785.85 185.06,-1016 217.33,-1191.58 263.41,-1400.13 281.75,-1481.77"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="278.29,-1482.34 283.9,-1491.32 285.12,-1480.8 278.29,-1482.34"/>
+</g>
+<!-- ChatPage -->
+<g id="node12" class="node" pointer-events="visible" data-name="ChatPage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M348.5,-1606.6C348.5,-1606.6 232.94,-1606.6 232.94,-1606.6 226.94,-1606.6 220.94,-1600.6 220.94,-1594.6 220.94,-1594.6 220.94,-1571.4 220.94,-1571.4 220.94,-1565.4 226.94,-1559.4 232.94,-1559.4 232.94,-1559.4 348.5,-1559.4 348.5,-1559.4 354.5,-1559.4 360.5,-1565.4 360.5,-1571.4 360.5,-1571.4 360.5,-1594.6 360.5,-1594.6 360.5,-1600.6 354.5,-1606.6 348.5,-1606.6"/>
+<text text-anchor="middle" x="290.72" y="-1587.2" font-family="Arial" font-size="14.00" fill="#333333">Chat Page</text>
+<text text-anchor="middle" x="290.72" y="-1570.4" font-family="Arial" font-size="14.00" fill="#333333">Conversational UI</text>
+</g>
+<!-- AppRouter&#45;&gt;ChatPage -->
+<g id="edge37" class="edge" data-name="AppRouter-&gt;ChatPage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M89.08,-423.04C103.16,-588.33 185.06,-1550 185.06,-1550 191.71,-1558.3 200.43,-1564.55 210.01,-1569.25"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="208.43,-1572.38 219.01,-1573.05 211.16,-1565.94 208.43,-1572.38"/>
+</g>
+<!-- MarketplacePage -->
+<g id="node13" class="node" pointer-events="visible" data-name="MarketplacePage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M352.8,-1771.6C352.8,-1771.6 228.64,-1771.6 228.64,-1771.6 222.64,-1771.6 216.64,-1765.6 216.64,-1759.6 216.64,-1759.6 216.64,-1736.4 216.64,-1736.4 216.64,-1730.4 222.64,-1724.4 228.64,-1724.4 228.64,-1724.4 352.8,-1724.4 352.8,-1724.4 358.8,-1724.4 364.8,-1730.4 364.8,-1736.4 364.8,-1736.4 364.8,-1759.6 364.8,-1759.6 364.8,-1765.6 358.8,-1771.6 352.8,-1771.6"/>
+<text text-anchor="middle" x="290.72" y="-1752.2" font-family="Arial" font-size="14.00" fill="#333333">Marketplace Page</text>
+<text text-anchor="middle" x="290.72" y="-1735.4" font-family="Arial" font-size="14.00" fill="#333333">Workflow discovery</text>
+</g>
+<!-- AppRouter&#45;&gt;MarketplacePage -->
+<g id="edge38" class="edge" data-name="AppRouter-&gt;MarketplacePage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M88.8,-422.89C97.81,-544.6 139.54,-1107.92 174.06,-1569 175.28,-1585.22 174.96,-1702.25 185.06,-1715 190.72,-1722.14 197.92,-1727.76 205.88,-1732.19"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="204.14,-1735.24 214.67,-1736.39 207.16,-1728.92 204.14,-1735.24"/>
+</g>
+<!-- AccessManagementPage -->
+<g id="node14" class="node" pointer-events="visible" data-name="AccessManagementPage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M376.54,-1705.6C376.54,-1705.6 204.9,-1705.6 204.9,-1705.6 198.9,-1705.6 192.9,-1699.6 192.9,-1693.6 192.9,-1693.6 192.9,-1670.4 192.9,-1670.4 192.9,-1664.4 198.9,-1658.4 204.9,-1658.4 204.9,-1658.4 376.54,-1658.4 376.54,-1658.4 382.54,-1658.4 388.54,-1664.4 388.54,-1670.4 388.54,-1670.4 388.54,-1693.6 388.54,-1693.6 388.54,-1699.6 382.54,-1705.6 376.54,-1705.6"/>
+<text text-anchor="middle" x="290.72" y="-1686.2" font-family="Arial" font-size="14.00" fill="#333333">Access Management Page</text>
+<text text-anchor="middle" x="290.72" y="-1669.4" font-family="Arial" font-size="14.00" fill="#333333">Permission control</text>
+</g>
+<!-- AppRouter&#45;&gt;AccessManagementPage -->
+<g id="edge39" class="edge" data-name="AppRouter-&gt;AccessManagementPage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M88.74,-423.09C101.01,-595.34 175.31,-1633.4 185.06,-1646 186.16,-1647.42 187.33,-1648.79 188.54,-1650.11"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="186.18,-1652.69 195.94,-1656.8 190.88,-1647.5 186.18,-1652.69"/>
+</g>
+<!-- UserProfilePage -->
+<g id="node15" class="node" pointer-events="visible" data-name="UserProfilePage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M347.44,-1903.6C347.44,-1903.6 234,-1903.6 234,-1903.6 228,-1903.6 222,-1897.6 222,-1891.6 222,-1891.6 222,-1868.4 222,-1868.4 222,-1862.4 228,-1856.4 234,-1856.4 234,-1856.4 347.44,-1856.4 347.44,-1856.4 353.44,-1856.4 359.44,-1862.4 359.44,-1868.4 359.44,-1868.4 359.44,-1891.6 359.44,-1891.6 359.44,-1897.6 353.44,-1903.6 347.44,-1903.6"/>
+<text text-anchor="middle" x="290.72" y="-1884.2" font-family="Arial" font-size="14.00" fill="#333333">User Profile Page</text>
+<text text-anchor="middle" x="290.72" y="-1867.4" font-family="Arial" font-size="14.00" fill="#333333">Account settings</text>
+</g>
+<!-- AppRouter&#45;&gt;UserProfilePage -->
+<g id="edge40" class="edge" data-name="AppRouter-&gt;UserProfilePage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M88.03,-422.74C93.7,-555.4 123.48,-1218.37 174.06,-1758 177.78,-1797.68 159.56,-1816.37 185.06,-1847 191.95,-1855.28 200.91,-1861.51 210.68,-1866.2"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="209.28,-1869.41 219.86,-1870 211.96,-1862.94 209.28,-1869.41"/>
+</g>
+<!-- I18N -->
+<g id="node52" class="node" pointer-events="visible" data-name="I18N">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1504.8,-129.6C1504.8,-129.6 1380.56,-129.6 1380.56,-129.6 1374.56,-129.6 1368.56,-123.6 1368.56,-117.6 1368.56,-117.6 1368.56,-94.4 1368.56,-94.4 1368.56,-88.4 1374.56,-82.4 1380.56,-82.4 1380.56,-82.4 1504.8,-82.4 1504.8,-82.4 1510.8,-82.4 1516.8,-88.4 1516.8,-94.4 1516.8,-94.4 1516.8,-117.6 1516.8,-117.6 1516.8,-123.6 1510.8,-129.6 1504.8,-129.6"/>
+<text text-anchor="middle" x="1442.68" y="-110.2" font-family="Arial" font-size="14.00" fill="#333333">Internationalization</text>
+<text text-anchor="middle" x="1442.68" y="-93.4" font-family="Arial" font-size="14.00" fill="#333333">Multilingual support</text>
+</g>
+<!-- AppRouter&#45;&gt;I18N -->
+<g id="edge65" class="edge" data-name="AppRouter-&gt;I18N">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M90.34,-375.14C102.13,-300.74 149.17,-78 289.72,-78 289.72,-78 289.72,-78 1133.83,-78 1209.33,-78 1294.82,-86.46 1356.52,-94.07"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1355.98,-97.53 1366.34,-95.31 1356.85,-90.59 1355.98,-97.53"/>
+</g>
+<!-- Accessibility -->
+<g id="node53" class="node" pointer-events="visible" data-name="Accessibility">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1512.56,-63.6C1512.56,-63.6 1372.79,-63.6 1372.79,-63.6 1366.79,-63.6 1360.79,-57.6 1360.79,-51.6 1360.79,-51.6 1360.79,-28.4 1360.79,-28.4 1360.79,-22.4 1366.79,-16.4 1372.79,-16.4 1372.79,-16.4 1512.56,-16.4 1512.56,-16.4 1518.56,-16.4 1524.56,-22.4 1524.56,-28.4 1524.56,-28.4 1524.56,-51.6 1524.56,-51.6 1524.56,-57.6 1518.56,-63.6 1512.56,-63.6"/>
+<text text-anchor="middle" x="1442.68" y="-44.2" font-family="Arial" font-size="14.00" fill="#333333">Accessibility Manager</text>
+<text text-anchor="middle" x="1442.68" y="-27.4" font-family="Arial" font-size="14.00" fill="#333333">A11y features</text>
+</g>
+<!-- AppRouter&#45;&gt;Accessibility -->
+<g id="edge66" class="edge" data-name="AppRouter-&gt;Accessibility">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M87.1,-375.29C88.58,-316.04 100.75,-160.12 185.06,-74 219.28,-39.05 240.81,-40 289.72,-40 289.72,-40 289.72,-40 1133.83,-40 1206.01,-40 1287.7,-40 1348.79,-40"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1348.52,-43.5 1358.52,-40 1348.52,-36.5 1348.52,-43.5"/>
+</g>
+<!-- UserState -->
+<g id="node6" class="node" pointer-events="visible" data-name="UserState">
+
+<path fill="#f5f5f5" stroke="#333333" d="M575.07,-389.6C575.07,-389.6 439.09,-389.6 439.09,-389.6 433.09,-389.6 427.09,-383.6 427.09,-377.6 427.09,-377.6 427.09,-354.4 427.09,-354.4 427.09,-348.4 433.09,-342.4 439.09,-342.4 439.09,-342.4 575.07,-342.4 575.07,-342.4 581.07,-342.4 587.07,-348.4 587.07,-354.4 587.07,-354.4 587.07,-377.6 587.07,-377.6 587.07,-383.6 581.07,-389.6 575.07,-389.6"/>
+<text text-anchor="middle" x="507.08" y="-370.2" font-family="Arial" font-size="14.00" fill="#333333">User State</text>
+<text text-anchor="middle" x="507.08" y="-353.4" font-family="Arial" font-size="14.00" fill="#333333">Profile &amp; permissions</text>
+</g>
+<!-- StateManagement&#45;&gt;UserState -->
+<g id="edge1" class="edge" data-name="StateManagement-&gt;UserState">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M369.72,-324.01C385.03,-328.73 401.21,-333.71 416.86,-338.53"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="415.82,-341.87 426.41,-341.47 417.88,-335.18 415.82,-341.87"/>
+</g>
+<!-- WorkflowState -->
+<g id="node7" class="node" pointer-events="visible" data-name="WorkflowState">
+
+<path fill="#f5f5f5" stroke="#333333" d="M565.11,-323.6C565.11,-323.6 449.06,-323.6 449.06,-323.6 443.06,-323.6 437.06,-317.6 437.06,-311.6 437.06,-311.6 437.06,-288.4 437.06,-288.4 437.06,-282.4 443.06,-276.4 449.06,-276.4 449.06,-276.4 565.11,-276.4 565.11,-276.4 571.11,-276.4 577.11,-282.4 577.11,-288.4 577.11,-288.4 577.11,-311.6 577.11,-311.6 577.11,-317.6 571.11,-323.6 565.11,-323.6"/>
+<text text-anchor="middle" x="507.08" y="-304.2" font-family="Arial" font-size="14.00" fill="#333333">Workflow State</text>
+<text text-anchor="middle" x="507.08" y="-287.4" font-family="Arial" font-size="14.00" fill="#333333">Current workflows</text>
+</g>
+<!-- StateManagement&#45;&gt;WorkflowState -->
+<g id="edge2" class="edge" data-name="StateManagement-&gt;WorkflowState">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M373.68,-300C390.58,-300 408.37,-300 425.23,-300"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="424.92,-303.5 434.92,-300 424.92,-296.5 424.92,-303.5"/>
+</g>
+<!-- UIState -->
+<g id="node8" class="node" pointer-events="visible" data-name="UIState">
+
+<path fill="#f5f5f5" stroke="#333333" d="M575.38,-257.6C575.38,-257.6 438.79,-257.6 438.79,-257.6 432.79,-257.6 426.79,-251.6 426.79,-245.6 426.79,-245.6 426.79,-222.4 426.79,-222.4 426.79,-216.4 432.79,-210.4 438.79,-210.4 438.79,-210.4 575.38,-210.4 575.38,-210.4 581.38,-210.4 587.38,-216.4 587.38,-222.4 587.38,-222.4 587.38,-245.6 587.38,-245.6 587.38,-251.6 581.38,-257.6 575.38,-257.6"/>
+<text text-anchor="middle" x="507.08" y="-238.2" font-family="Arial" font-size="14.00" fill="#333333">UI State</text>
+<text text-anchor="middle" x="507.08" y="-221.4" font-family="Arial" font-size="14.00" fill="#333333">Interface preferences</text>
+</g>
+<!-- StateManagement&#45;&gt;UIState -->
+<g id="edge3" class="edge" data-name="StateManagement-&gt;UIState">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M373.42,-278.08C384.85,-274.81 396.43,-271.4 407.38,-268 413.75,-266.02 420.34,-263.91 426.94,-261.74"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="427.92,-265.1 436.31,-258.63 425.72,-258.46 427.92,-265.1"/>
+</g>
+<!-- NotificationState -->
+<g id="node9" class="node" pointer-events="visible" data-name="NotificationState">
+
+<path fill="#f5f5f5" stroke="#333333" d="M567.29,-191.6C567.29,-191.6 446.87,-191.6 446.87,-191.6 440.87,-191.6 434.87,-185.6 434.87,-179.6 434.87,-179.6 434.87,-156.4 434.87,-156.4 434.87,-150.4 440.87,-144.4 446.87,-144.4 446.87,-144.4 567.29,-144.4 567.29,-144.4 573.29,-144.4 579.29,-150.4 579.29,-156.4 579.29,-156.4 579.29,-179.6 579.29,-179.6 579.29,-185.6 573.29,-191.6 567.29,-191.6"/>
+<text text-anchor="middle" x="507.08" y="-172.2" font-family="Arial" font-size="14.00" fill="#333333">Notification State</text>
+<text text-anchor="middle" x="507.08" y="-155.4" font-family="Arial" font-size="14.00" fill="#333333">Alerts &amp; messages</text>
+</g>
+<!-- StateManagement&#45;&gt;NotificationState -->
+<g id="edge4" class="edge" data-name="StateManagement-&gt;NotificationState">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M373.5,-282.83C381.9,-278.65 389.77,-273.46 396.38,-267 418.56,-245.34 397.38,-223.27 418.94,-201 420.95,-198.91 423.12,-196.96 425.4,-195.13"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="427,-198.28 433.2,-189.69 422.99,-192.54 427,-198.28"/>
+</g>
+<!-- AuthProvider -->
+<g id="node3" class="node" pointer-events="visible" data-name="AuthProvider">
+
+<path fill="#d2e3fc" stroke="#333333" d="M361.48,-409.6C361.48,-409.6 219.96,-409.6 219.96,-409.6 213.96,-409.6 207.96,-403.6 207.96,-397.6 207.96,-397.6 207.96,-374.4 207.96,-374.4 207.96,-368.4 213.96,-362.4 219.96,-362.4 219.96,-362.4 361.48,-362.4 361.48,-362.4 367.48,-362.4 373.48,-368.4 373.48,-374.4 373.48,-374.4 373.48,-397.6 373.48,-397.6 373.48,-403.6 367.48,-409.6 361.48,-409.6"/>
+<text text-anchor="middle" x="290.72" y="-390.2" font-family="Arial" font-size="14.00" fill="#333333">Auth Provider</text>
+<text text-anchor="middle" x="290.72" y="-373.4" font-family="Arial" font-size="14.00" fill="#333333">Authentication context</text>
+</g>
+<!-- AuthProvider&#45;&gt;UserState -->
+<g id="edge6" class="edge" data-name="AuthProvider-&gt;UserState">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M373.68,-378.35C387.25,-377.09 401.4,-375.77 415.18,-374.48"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="415.21,-377.99 424.84,-373.58 414.56,-371.02 415.21,-377.99"/>
+</g>
+<!-- AuthManager -->
+<g id="node57" class="node" pointer-events="visible" data-name="AuthManager">
+
+<path fill="#f5f5f5" stroke="#333333" d="M891.72,-257.6C891.72,-257.6 767.44,-257.6 767.44,-257.6 761.44,-257.6 755.44,-251.6 755.44,-245.6 755.44,-245.6 755.44,-222.4 755.44,-222.4 755.44,-216.4 761.44,-210.4 767.44,-210.4 767.44,-210.4 891.72,-210.4 891.72,-210.4 897.72,-210.4 903.72,-216.4 903.72,-222.4 903.72,-222.4 903.72,-245.6 903.72,-245.6 903.72,-251.6 897.72,-257.6 891.72,-257.6"/>
+<text text-anchor="middle" x="829.58" y="-238.2" font-family="Arial" font-size="14.00" fill="#333333">Auth Manager</text>
+<text text-anchor="middle" x="829.58" y="-221.4" font-family="Arial" font-size="14.00" fill="#333333">Credential handling</text>
+</g>
+<!-- AuthProvider&#45;&gt;AuthManager -->
+<g id="edge70" class="edge" data-name="AuthProvider-&gt;AuthManager">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M344.2,-410.05C408.54,-435.8 519.35,-467.8 603.23,-427 677.92,-390.67 667.65,-345.58 718.61,-280 723.08,-274.24 722.67,-271.22 728.61,-267 733.64,-263.43 739.09,-260.23 744.74,-257.36"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="745.87,-260.7 753.47,-253.31 742.92,-254.35 745.87,-260.7"/>
+</g>
+<!-- ThemeProvider -->
+<g id="node4" class="node" pointer-events="visible" data-name="ThemeProvider">
+
+<path fill="#d2e3fc" stroke="#333333" d="M342.31,-257.6C342.31,-257.6 239.13,-257.6 239.13,-257.6 233.13,-257.6 227.13,-251.6 227.13,-245.6 227.13,-245.6 227.13,-222.4 227.13,-222.4 227.13,-216.4 233.13,-210.4 239.13,-210.4 239.13,-210.4 342.31,-210.4 342.31,-210.4 348.31,-210.4 354.31,-216.4 354.31,-222.4 354.31,-222.4 354.31,-245.6 354.31,-245.6 354.31,-251.6 348.31,-257.6 342.31,-257.6"/>
+<text text-anchor="middle" x="290.72" y="-238.2" font-family="Arial" font-size="14.00" fill="#333333">Theme Provider</text>
+<text text-anchor="middle" x="290.72" y="-221.4" font-family="Arial" font-size="14.00" fill="#333333">UI theming</text>
+</g>
+<!-- ThemeProvider&#45;&gt;UIState -->
+<g id="edge7" class="edge" data-name="ThemeProvider-&gt;UIState">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M354.59,-234C373.38,-234 394.39,-234 414.62,-234"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="414.61,-237.5 424.61,-234 414.61,-230.5 414.61,-237.5"/>
+</g>
+<!-- ErrorBoundary -->
+<g id="node5" class="node" pointer-events="visible" data-name="ErrorBoundary">
+
+<path fill="#d2e3fc" stroke="#333333" d="M364.41,-187.6C364.41,-187.6 217.03,-187.6 217.03,-187.6 211.03,-187.6 205.03,-181.6 205.03,-175.6 205.03,-175.6 205.03,-152.4 205.03,-152.4 205.03,-146.4 211.03,-140.4 217.03,-140.4 217.03,-140.4 364.41,-140.4 364.41,-140.4 370.41,-140.4 376.41,-146.4 376.41,-152.4 376.41,-152.4 376.41,-175.6 376.41,-175.6 376.41,-181.6 370.41,-187.6 364.41,-187.6"/>
+<text text-anchor="middle" x="290.72" y="-168.2" font-family="Arial" font-size="14.00" fill="#333333">Error Boundary</text>
+<text text-anchor="middle" x="290.72" y="-151.4" font-family="Arial" font-size="14.00" fill="#333333">Graceful error handling</text>
+</g>
+<!-- ErrorBoundary&#45;&gt;NotificationState -->
+<g id="edge8" class="edge" data-name="ErrorBoundary-&gt;NotificationState">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M376.75,-165.59C392.03,-165.87 407.93,-166.17 423.15,-166.45"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="422.75,-169.95 432.81,-166.63 422.88,-162.95 422.75,-169.95"/>
+</g>
+<!-- ErrorTracker -->
+<g id="node56" class="node" pointer-events="visible" data-name="ErrorTracker">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1486.13,-195.6C1486.13,-195.6 1399.23,-195.6 1399.23,-195.6 1393.23,-195.6 1387.23,-189.6 1387.23,-183.6 1387.23,-183.6 1387.23,-160.4 1387.23,-160.4 1387.23,-154.4 1393.23,-148.4 1399.23,-148.4 1399.23,-148.4 1486.13,-148.4 1486.13,-148.4 1492.13,-148.4 1498.13,-154.4 1498.13,-160.4 1498.13,-160.4 1498.13,-183.6 1498.13,-183.6 1498.13,-189.6 1492.13,-195.6 1486.13,-195.6"/>
+<text text-anchor="middle" x="1442.68" y="-176.2" font-family="Arial" font-size="14.00" fill="#333333">Error Tracker</text>
+<text text-anchor="middle" x="1442.68" y="-159.4" font-family="Arial" font-size="14.00" fill="#333333">Monitoring</text>
+</g>
+<!-- ErrorBoundary&#45;&gt;ErrorTracker -->
+<g id="edge69" class="edge" data-name="ErrorBoundary-&gt;ErrorTracker">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M362.29,-140C403.68,-128 457.27,-116 506.08,-116 506.08,-116 506.08,-116 1133.83,-116 1218.34,-116 1313.82,-136.68 1375.73,-152.91"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1374.57,-156.22 1385.14,-155.41 1376.37,-149.45 1374.57,-156.22"/>
+</g>
+<!-- LocalStorageService -->
+<g id="node41" class="node" pointer-events="visible" data-name="LocalStorageService">
+
+<path fill="#f5f5f5" stroke="#333333" d="M902.2,-740.6C902.2,-740.6 756.96,-740.6 756.96,-740.6 750.96,-740.6 744.96,-734.6 744.96,-728.6 744.96,-728.6 744.96,-705.4 744.96,-705.4 744.96,-699.4 750.96,-693.4 756.96,-693.4 756.96,-693.4 902.2,-693.4 902.2,-693.4 908.2,-693.4 914.2,-699.4 914.2,-705.4 914.2,-705.4 914.2,-728.6 914.2,-728.6 914.2,-734.6 908.2,-740.6 902.2,-740.6"/>
+<text text-anchor="middle" x="829.58" y="-721.2" font-family="Arial" font-size="14.00" fill="#333333">Local Storage Service</text>
+<text text-anchor="middle" x="829.58" y="-704.4" font-family="Arial" font-size="14.00" fill="#333333">Client-side persistence</text>
+</g>
+<!-- UserState&#45;&gt;LocalStorageService -->
+<g id="edge60" class="edge" data-name="UserState-&gt;LocalStorageService">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M514.52,-389.85C527.3,-433.95 559.21,-529.69 611.23,-595 652.02,-646.21 670.66,-653.55 728.61,-684 731.4,-685.46 734.26,-686.88 737.18,-688.25"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="735.72,-691.43 746.28,-692.26 738.54,-685.02 735.72,-691.43"/>
+<text text-anchor="middle" x="664.92" y="-682.2" font-family="Arial" font-size="14.00" fill="#666666">User preferences</text>
+</g>
+<!-- PermissionCache -->
+<g id="node59" class="node" pointer-events="visible" data-name="PermissionCache">
+
+<path fill="#f5f5f5" stroke="#333333" d="M888.18,-191.6C888.18,-191.6 770.98,-191.6 770.98,-191.6 764.98,-191.6 758.98,-185.6 758.98,-179.6 758.98,-179.6 758.98,-156.4 758.98,-156.4 758.98,-150.4 764.98,-144.4 770.98,-144.4 770.98,-144.4 888.18,-144.4 888.18,-144.4 894.18,-144.4 900.18,-150.4 900.18,-156.4 900.18,-156.4 900.18,-179.6 900.18,-179.6 900.18,-185.6 894.18,-191.6 888.18,-191.6"/>
+<text text-anchor="middle" x="829.58" y="-172.2" font-family="Arial" font-size="14.00" fill="#333333">Permission Cache</text>
+<text text-anchor="middle" x="829.58" y="-155.4" font-family="Arial" font-size="14.00" fill="#333333">Access caching</text>
+</g>
+<!-- UserState&#45;&gt;PermissionCache -->
+<g id="edge73" class="edge" data-name="UserState-&gt;PermissionCache">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M586.88,-342.09C592.57,-339.34 598.09,-336.32 603.23,-333 671.24,-289.17 660.27,-244.32 728.61,-201 734.64,-197.18 741.15,-193.76 747.87,-190.7"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="749.02,-194.01 756.86,-186.9 746.29,-187.56 749.02,-194.01"/>
+</g>
+<!-- NavBar -->
+<g id="node21" class="node" pointer-events="visible" data-name="NavBar">
+
+<path fill="#f5f5f5" stroke="#333333" d="M563.27,-1606.6C563.27,-1606.6 450.9,-1606.6 450.9,-1606.6 444.9,-1606.6 438.9,-1600.6 438.9,-1594.6 438.9,-1594.6 438.9,-1571.4 438.9,-1571.4 438.9,-1565.4 444.9,-1559.4 450.9,-1559.4 450.9,-1559.4 563.27,-1559.4 563.27,-1559.4 569.27,-1559.4 575.27,-1565.4 575.27,-1571.4 575.27,-1571.4 575.27,-1594.6 575.27,-1594.6 575.27,-1600.6 569.27,-1606.6 563.27,-1606.6"/>
+<text text-anchor="middle" x="507.08" y="-1587.2" font-family="Arial" font-size="14.00" fill="#333333">Navigation Bar</text>
+<text text-anchor="middle" x="507.08" y="-1570.4" font-family="Arial" font-size="14.00" fill="#333333">Global navigation</text>
+</g>
+<!-- Dashboard&#45;&gt;NavBar -->
+<g id="edge41" class="edge" data-name="Dashboard-&gt;NavBar">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M357.55,-1801.59C371.39,-1796.79 385.17,-1790.16 396.38,-1781 449.17,-1737.86 480.8,-1662.25 495.7,-1618"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="498.97,-1619.25 498.73,-1608.66 492.31,-1617.09 498.97,-1619.25"/>
+</g>
+<!-- FlowEditor -->
+<g id="node16" class="node" pointer-events="visible" data-name="FlowEditor">
+
+<path fill="#f5f5f5" stroke="#333333" d="M331.26,-2167.6C331.26,-2167.6 250.18,-2167.6 250.18,-2167.6 244.18,-2167.6 238.18,-2161.6 238.18,-2155.6 238.18,-2155.6 238.18,-2132.4 238.18,-2132.4 238.18,-2126.4 244.18,-2120.4 250.18,-2120.4 250.18,-2120.4 331.26,-2120.4 331.26,-2120.4 337.26,-2120.4 343.26,-2126.4 343.26,-2132.4 343.26,-2132.4 343.26,-2155.6 343.26,-2155.6 343.26,-2161.6 337.26,-2167.6 331.26,-2167.6"/>
+<text text-anchor="middle" x="290.72" y="-2148.2" font-family="Arial" font-size="14.00" fill="#333333">Flow Editor</text>
+<text text-anchor="middle" x="290.72" y="-2131.4" font-family="Arial" font-size="14.00" fill="#333333">Visual editor</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;FlowEditor -->
+<g id="edge9" class="edge" data-name="FlowCreatorPage-&gt;FlowEditor">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M218.13,-1524.75C198.74,-1530.81 180.44,-1541.23 170.56,-1559 155.9,-1585.36 155.9,-2075.64 170.56,-2102 181.87,-2122.32 204.18,-2133.03 226.54,-2138.6"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="225.54,-2141.97 236.05,-2140.63 226.99,-2135.12 225.54,-2141.97"/>
+</g>
+<!-- FlowSettings -->
+<g id="node17" class="node" pointer-events="visible" data-name="FlowSettings">
+
+<path fill="#f5f5f5" stroke="#333333" d="M334.75,-2101.6C334.75,-2101.6 246.69,-2101.6 246.69,-2101.6 240.69,-2101.6 234.69,-2095.6 234.69,-2089.6 234.69,-2089.6 234.69,-2066.4 234.69,-2066.4 234.69,-2060.4 240.69,-2054.4 246.69,-2054.4 246.69,-2054.4 334.75,-2054.4 334.75,-2054.4 340.75,-2054.4 346.75,-2060.4 346.75,-2066.4 346.75,-2066.4 346.75,-2089.6 346.75,-2089.6 346.75,-2095.6 340.75,-2101.6 334.75,-2101.6"/>
+<text text-anchor="middle" x="290.72" y="-2082.2" font-family="Arial" font-size="14.00" fill="#333333">Flow Settings</text>
+<text text-anchor="middle" x="290.72" y="-2065.4" font-family="Arial" font-size="14.00" fill="#333333">Configuration</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;FlowSettings -->
+<g id="edge10" class="edge" data-name="FlowCreatorPage-&gt;FlowSettings">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M218.13,-1524.75C198.74,-1530.81 180.44,-1541.23 170.56,-1559 157.68,-1582.16 157.68,-2012.84 170.56,-2036 181.26,-2055.23 201.82,-2065.86 222.95,-2071.66"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="222.04,-2075.04 232.58,-2073.93 223.65,-2068.23 222.04,-2075.04"/>
+</g>
+<!-- FlowTesting -->
+<g id="node18" class="node" pointer-events="visible" data-name="FlowTesting">
+
+<path fill="#f5f5f5" stroke="#333333" d="M340.17,-2035.6C340.17,-2035.6 241.27,-2035.6 241.27,-2035.6 235.27,-2035.6 229.27,-2029.6 229.27,-2023.6 229.27,-2023.6 229.27,-2000.4 229.27,-2000.4 229.27,-1994.4 235.27,-1988.4 241.27,-1988.4 241.27,-1988.4 340.17,-1988.4 340.17,-1988.4 346.17,-1988.4 352.17,-1994.4 352.17,-2000.4 352.17,-2000.4 352.17,-2023.6 352.17,-2023.6 352.17,-2029.6 346.17,-2035.6 340.17,-2035.6"/>
+<text text-anchor="middle" x="290.72" y="-2016.2" font-family="Arial" font-size="14.00" fill="#333333">Flow Testing</text>
+<text text-anchor="middle" x="290.72" y="-1999.4" font-family="Arial" font-size="14.00" fill="#333333">Validation tools</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;FlowTesting -->
+<g id="edge11" class="edge" data-name="FlowCreatorPage-&gt;FlowTesting">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M218.13,-1524.75C198.74,-1530.81 180.44,-1541.23 170.56,-1559 159.46,-1578.95 159.46,-1950.05 170.56,-1970 180.35,-1987.6 198.39,-1997.99 217.57,-2004.07"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="216.62,-2007.44 227.19,-2006.7 218.47,-2000.69 216.62,-2007.44"/>
+</g>
+<!-- FlowPublishing -->
+<g id="node19" class="node" pointer-events="visible" data-name="FlowPublishing">
+
+<path fill="#f5f5f5" stroke="#333333" d="M341.77,-1969.6C341.77,-1969.6 239.67,-1969.6 239.67,-1969.6 233.67,-1969.6 227.67,-1963.6 227.67,-1957.6 227.67,-1957.6 227.67,-1934.4 227.67,-1934.4 227.67,-1928.4 233.67,-1922.4 239.67,-1922.4 239.67,-1922.4 341.77,-1922.4 341.77,-1922.4 347.77,-1922.4 353.77,-1928.4 353.77,-1934.4 353.77,-1934.4 353.77,-1957.6 353.77,-1957.6 353.77,-1963.6 347.77,-1969.6 341.77,-1969.6"/>
+<text text-anchor="middle" x="290.72" y="-1950.2" font-family="Arial" font-size="14.00" fill="#333333">Flow Publishing</text>
+<text text-anchor="middle" x="290.72" y="-1933.4" font-family="Arial" font-size="14.00" fill="#333333">Deployment</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;FlowPublishing -->
+<g id="edge12" class="edge" data-name="FlowCreatorPage-&gt;FlowPublishing">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M218.13,-1524.75C198.74,-1530.81 180.44,-1541.23 170.56,-1559 151.66,-1592.98 151.66,-1875.02 170.56,-1909 179.96,-1925.9 197.25,-1935.54 215.84,-1940.91"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="214.9,-1944.28 225.44,-1943.24 216.55,-1937.48 214.9,-1944.28"/>
+</g>
+<!-- FlowVersioning -->
+<g id="node20" class="node" pointer-events="visible" data-name="FlowVersioning">
+
+<path fill="#f5f5f5" stroke="#333333" d="M357.38,-2233.6C357.38,-2233.6 224.05,-2233.6 224.05,-2233.6 218.05,-2233.6 212.05,-2227.6 212.05,-2221.6 212.05,-2221.6 212.05,-2198.4 212.05,-2198.4 212.05,-2192.4 218.05,-2186.4 224.05,-2186.4 224.05,-2186.4 357.38,-2186.4 357.38,-2186.4 363.38,-2186.4 369.38,-2192.4 369.38,-2198.4 369.38,-2198.4 369.38,-2221.6 369.38,-2221.6 369.38,-2227.6 363.38,-2233.6 357.38,-2233.6"/>
+<text text-anchor="middle" x="290.72" y="-2214.2" font-family="Arial" font-size="14.00" fill="#333333">Flow Versioning</text>
+<text text-anchor="middle" x="290.72" y="-2197.4" font-family="Arial" font-size="14.00" fill="#333333">History management</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;FlowVersioning -->
+<g id="edge13" class="edge" data-name="FlowCreatorPage-&gt;FlowVersioning">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M218.13,-1524.75C198.74,-1530.81 180.44,-1541.23 170.56,-1559 154.11,-1588.57 154.11,-2138.43 170.56,-2168 177.51,-2180.5 188.63,-2189.36 201.35,-2195.62"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="199.62,-2198.69 210.19,-2199.4 202.37,-2192.25 199.62,-2198.69"/>
+</g>
+<!-- FlowCreatorPage&#45;&gt;NavBar -->
+<g id="edge42" class="edge" data-name="FlowCreatorPage-&gt;NavBar">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M363.4,-1539.07C383.93,-1545.39 406.42,-1552.31 427.35,-1558.76"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="426.14,-1562.05 436.73,-1561.65 428.2,-1555.36 426.14,-1562.05"/>
+</g>
+<!-- FlowCreatorCanvas -->
+<g id="node22" class="node" pointer-events="visible" data-name="FlowCreatorCanvas">
+
+<path fill="#f5f5f5" stroke="#333333" d="M576.97,-1120.6C576.97,-1120.6 437.2,-1120.6 437.2,-1120.6 431.2,-1120.6 425.2,-1114.6 425.2,-1108.6 425.2,-1108.6 425.2,-1085.4 425.2,-1085.4 425.2,-1079.4 431.2,-1073.4 437.2,-1073.4 437.2,-1073.4 576.97,-1073.4 576.97,-1073.4 582.97,-1073.4 588.97,-1079.4 588.97,-1085.4 588.97,-1085.4 588.97,-1108.6 588.97,-1108.6 588.97,-1114.6 582.97,-1120.6 576.97,-1120.6"/>
+<text text-anchor="middle" x="507.08" y="-1101.2" font-family="Arial" font-size="14.00" fill="#333333">Flow Creator Canvas</text>
+<text text-anchor="middle" x="507.08" y="-1084.4" font-family="Arial" font-size="14.00" fill="#333333">Visual workflow editor</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;FlowCreatorCanvas -->
+<g id="edge24" class="edge" data-name="FlowCreatorPage-&gt;FlowCreatorCanvas">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M304.01,-1492.91C340.2,-1422.01 446.42,-1213.9 488.56,-1131.33"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="491.58,-1133.11 493.01,-1122.61 485.35,-1129.93 491.58,-1133.11"/>
+</g>
+<!-- NodePalette -->
+<g id="node23" class="node" pointer-events="visible" data-name="NodePalette">
+
+<path fill="#f5f5f5" stroke="#333333" d="M564.09,-1017.6C564.09,-1017.6 450.08,-1017.6 450.08,-1017.6 444.08,-1017.6 438.08,-1011.6 438.08,-1005.6 438.08,-1005.6 438.08,-982.4 438.08,-982.4 438.08,-976.4 444.08,-970.4 450.08,-970.4 450.08,-970.4 564.09,-970.4 564.09,-970.4 570.09,-970.4 576.09,-976.4 576.09,-982.4 576.09,-982.4 576.09,-1005.6 576.09,-1005.6 576.09,-1011.6 570.09,-1017.6 564.09,-1017.6"/>
+<text text-anchor="middle" x="507.08" y="-998.2" font-family="Arial" font-size="14.00" fill="#333333">Node Palette</text>
+<text text-anchor="middle" x="507.08" y="-981.4" font-family="Arial" font-size="14.00" fill="#333333">Element selection</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;NodePalette -->
+<g id="edge25" class="edge" data-name="FlowCreatorPage-&gt;NodePalette">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M293.34,-1493.01C299.17,-1421.79 324.02,-1207.63 418.94,-1064 428.85,-1048.99 443.02,-1035.67 457.05,-1024.79"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="458.8,-1027.85 464.74,-1019.08 454.63,-1022.23 458.8,-1027.85"/>
+</g>
+<!-- PropertyPanel -->
+<g id="node24" class="node" pointer-events="visible" data-name="PropertyPanel">
+
+<path fill="#f5f5f5" stroke="#333333" d="M577,-940.6C577,-940.6 437.17,-940.6 437.17,-940.6 431.17,-940.6 425.17,-934.6 425.17,-928.6 425.17,-928.6 425.17,-905.4 425.17,-905.4 425.17,-899.4 431.17,-893.4 437.17,-893.4 437.17,-893.4 577,-893.4 577,-893.4 583,-893.4 589,-899.4 589,-905.4 589,-905.4 589,-928.6 589,-928.6 589,-934.6 583,-940.6 577,-940.6"/>
+<text text-anchor="middle" x="507.08" y="-921.2" font-family="Arial" font-size="14.00" fill="#333333">Property Panel</text>
+<text text-anchor="middle" x="507.08" y="-904.4" font-family="Arial" font-size="14.00" fill="#333333">Element configuration</text>
+</g>
+<!-- FlowCreatorPage&#45;&gt;PropertyPanel -->
+<g id="edge26" class="edge" data-name="FlowCreatorPage-&gt;PropertyPanel">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M295.94,-1493.16C313.95,-1392.36 384.99,-1004.38 418.94,-961 422.79,-956.08 427.34,-951.66 432.31,-947.71"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="434.03,-950.77 440.16,-942.13 429.98,-945.07 434.03,-950.77"/>
+</g>
+<!-- ChatPage&#45;&gt;NavBar -->
+<g id="edge43" class="edge" data-name="ChatPage-&gt;NavBar">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M360.73,-1583C381.89,-1583 405.34,-1583 427.12,-1583"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="426.86,-1586.5 436.86,-1583 426.86,-1579.5 426.86,-1586.5"/>
+</g>
+<!-- ChatInterface -->
+<g id="node25" class="node" pointer-events="visible" data-name="ChatInterface">
+
+<path fill="#f5f5f5" stroke="#333333" d="M570,-1375.6C570,-1375.6 444.17,-1375.6 444.17,-1375.6 438.17,-1375.6 432.17,-1369.6 432.17,-1363.6 432.17,-1363.6 432.17,-1340.4 432.17,-1340.4 432.17,-1334.4 438.17,-1328.4 444.17,-1328.4 444.17,-1328.4 570,-1328.4 570,-1328.4 576,-1328.4 582,-1334.4 582,-1340.4 582,-1340.4 582,-1363.6 582,-1363.6 582,-1369.6 576,-1375.6 570,-1375.6"/>
+<text text-anchor="middle" x="507.08" y="-1356.2" font-family="Arial" font-size="14.00" fill="#333333">Chat Interface</text>
+<text text-anchor="middle" x="507.08" y="-1339.4" font-family="Arial" font-size="14.00" fill="#333333">Message exchange</text>
+</g>
+<!-- ChatPage&#45;&gt;ChatInterface -->
+<g id="edge27" class="edge" data-name="ChatPage-&gt;ChatInterface">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M360.83,-1569.42C373.55,-1564.73 386.05,-1558.44 396.38,-1550 449.17,-1506.86 480.8,-1431.25 495.7,-1387"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="498.97,-1388.25 498.73,-1377.66 492.31,-1386.09 498.97,-1388.25"/>
+</g>
+<!-- MarketplacePage&#45;&gt;NavBar -->
+<g id="edge44" class="edge" data-name="MarketplacePage-&gt;NavBar">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M365.14,-1730.8C376.1,-1726.57 386.89,-1721.37 396.38,-1715 434.6,-1689.33 466.66,-1646.55 486.06,-1616.67"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="488.77,-1618.93 491.17,-1608.61 482.86,-1615.18 488.77,-1618.93"/>
+</g>
+<!-- MarketplaceList -->
+<g id="node26" class="node" pointer-events="visible" data-name="MarketplaceList">
+
+<path fill="#f5f5f5" stroke="#333333" d="M351.7,-940.6C351.7,-940.6 229.74,-940.6 229.74,-940.6 223.74,-940.6 217.74,-934.6 217.74,-928.6 217.74,-928.6 217.74,-905.4 217.74,-905.4 217.74,-899.4 223.74,-893.4 229.74,-893.4 229.74,-893.4 351.7,-893.4 351.7,-893.4 357.7,-893.4 363.7,-899.4 363.7,-905.4 363.7,-905.4 363.7,-928.6 363.7,-928.6 363.7,-934.6 357.7,-940.6 351.7,-940.6"/>
+<text text-anchor="middle" x="290.72" y="-921.2" font-family="Arial" font-size="14.00" fill="#333333">Marketplace List</text>
+<text text-anchor="middle" x="290.72" y="-904.4" font-family="Arial" font-size="14.00" fill="#333333">Workflow browsing</text>
+</g>
+<!-- MarketplacePage&#45;&gt;MarketplaceList -->
+<g id="edge47" class="edge" data-name="MarketplacePage-&gt;MarketplaceList">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M216.24,-1739.64C197.56,-1733.5 180.12,-1723.19 170.56,-1706 160.47,-1687.87 160.47,-977.13 170.56,-959 178.43,-944.86 191.63,-935.37 206.46,-929.03"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="207.63,-932.33 215.8,-925.58 205.2,-925.77 207.63,-932.33"/>
+</g>
+<!-- AccessManagementPage&#45;&gt;NavBar -->
+<g id="edge45" class="edge" data-name="AccessManagementPage-&gt;NavBar">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M367.29,-1657.93C377.19,-1654.22 387.11,-1650.21 396.38,-1646 417.3,-1636.5 439.45,-1624.24 458.32,-1613.07"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="460.11,-1616.07 466.88,-1607.93 456.51,-1610.07 460.11,-1616.07"/>
+</g>
+<!-- AccessControlPanel -->
+<g id="node27" class="node" pointer-events="visible" data-name="AccessControlPanel">
+
+<path fill="#f5f5f5" stroke="#333333" d="M370.07,-1006.6C370.07,-1006.6 211.37,-1006.6 211.37,-1006.6 205.37,-1006.6 199.37,-1000.6 199.37,-994.6 199.37,-994.6 199.37,-971.4 199.37,-971.4 199.37,-965.4 205.37,-959.4 211.37,-959.4 211.37,-959.4 370.07,-959.4 370.07,-959.4 376.07,-959.4 382.07,-965.4 382.07,-971.4 382.07,-971.4 382.07,-994.6 382.07,-994.6 382.07,-1000.6 376.07,-1006.6 370.07,-1006.6"/>
+<text text-anchor="middle" x="290.72" y="-987.2" font-family="Arial" font-size="14.00" fill="#333333">Access Control Panel</text>
+<text text-anchor="middle" x="290.72" y="-970.4" font-family="Arial" font-size="14.00" fill="#333333">Permission management</text>
+</g>
+<!-- AccessManagementPage&#45;&gt;AccessControlPanel -->
+<g id="edge48" class="edge" data-name="AccessManagementPage-&gt;AccessControlPanel">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M192.49,-1660.02C183.54,-1654.07 175.87,-1646.54 170.56,-1637 155.01,-1609.04 166.87,-1524.79 170.56,-1493 191.68,-1311.28 253.77,-1100.33 279.43,-1018.22"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="282.73,-1019.38 282.4,-1008.79 276.06,-1017.28 282.73,-1019.38"/>
+</g>
+<!-- UserProfilePage&#45;&gt;NavBar -->
+<g id="edge46" class="edge" data-name="UserProfilePage-&gt;NavBar">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M359.7,-1868.01C373.02,-1863.2 386.05,-1856.45 396.38,-1847 464.09,-1785.03 491.22,-1674.83 501.07,-1618.41"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="504.5,-1619.13 502.67,-1608.7 497.59,-1617.99 504.5,-1619.13"/>
+</g>
+<!-- CanvasRenderer -->
+<g id="node28" class="node" pointer-events="visible" data-name="CanvasRenderer">
+
+<path fill="#f5f5f5" stroke="#333333" d="M893.61,-1146.6C893.61,-1146.6 765.55,-1146.6 765.55,-1146.6 759.55,-1146.6 753.55,-1140.6 753.55,-1134.6 753.55,-1134.6 753.55,-1111.4 753.55,-1111.4 753.55,-1105.4 759.55,-1099.4 765.55,-1099.4 765.55,-1099.4 893.61,-1099.4 893.61,-1099.4 899.61,-1099.4 905.61,-1105.4 905.61,-1111.4 905.61,-1111.4 905.61,-1134.6 905.61,-1134.6 905.61,-1140.6 899.61,-1146.6 893.61,-1146.6"/>
+<text text-anchor="middle" x="829.58" y="-1127.2" font-family="Arial" font-size="14.00" fill="#333333">Canvas Renderer</text>
+<text text-anchor="middle" x="829.58" y="-1110.4" font-family="Arial" font-size="14.00" fill="#333333">Visualization engine</text>
+</g>
+<!-- FlowCreatorCanvas&#45;&gt;CanvasRenderer -->
+<g id="edge14" class="edge" data-name="FlowCreatorCanvas-&gt;CanvasRenderer">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M589.37,-1103.59C635.89,-1107.37 694.24,-1112.1 741.66,-1115.95"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="741.1,-1119.41 751.35,-1116.73 741.66,-1112.44 741.1,-1119.41"/>
+</g>
+<!-- ElementNodes -->
+<g id="node29" class="node" pointer-events="visible" data-name="ElementNodes">
+
+<path fill="#f5f5f5" stroke="#333333" d="M894.94,-1212.6C894.94,-1212.6 764.22,-1212.6 764.22,-1212.6 758.22,-1212.6 752.22,-1206.6 752.22,-1200.6 752.22,-1200.6 752.22,-1177.4 752.22,-1177.4 752.22,-1171.4 758.22,-1165.4 764.22,-1165.4 764.22,-1165.4 894.94,-1165.4 894.94,-1165.4 900.94,-1165.4 906.94,-1171.4 906.94,-1177.4 906.94,-1177.4 906.94,-1200.6 906.94,-1200.6 906.94,-1206.6 900.94,-1212.6 894.94,-1212.6"/>
+<text text-anchor="middle" x="829.58" y="-1193.2" font-family="Arial" font-size="14.00" fill="#333333">Element Nodes</text>
+<text text-anchor="middle" x="829.58" y="-1176.4" font-family="Arial" font-size="14.00" fill="#333333">Node representation</text>
+</g>
+<!-- FlowCreatorCanvas&#45;&gt;ElementNodes -->
+<g id="edge15" class="edge" data-name="FlowCreatorCanvas-&gt;ElementNodes">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M589.37,-1120.33C635.56,-1133.59 693.41,-1150.2 740.65,-1163.76"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="739.47,-1167.06 750.05,-1166.46 741.4,-1160.33 739.47,-1167.06"/>
+</g>
+<!-- Connections -->
+<g id="node30" class="node" pointer-events="visible" data-name="Connections">
+
+<path fill="#f5f5f5" stroke="#333333" d="M890.89,-948.6C890.89,-948.6 768.28,-948.6 768.28,-948.6 762.28,-948.6 756.28,-942.6 756.28,-936.6 756.28,-936.6 756.28,-913.4 756.28,-913.4 756.28,-907.4 762.28,-901.4 768.28,-901.4 768.28,-901.4 890.89,-901.4 890.89,-901.4 896.89,-901.4 902.89,-907.4 902.89,-913.4 902.89,-913.4 902.89,-936.6 902.89,-936.6 902.89,-942.6 896.89,-948.6 890.89,-948.6"/>
+<text text-anchor="middle" x="829.58" y="-929.2" font-family="Arial" font-size="14.00" fill="#333333">Connections</text>
+<text text-anchor="middle" x="829.58" y="-912.4" font-family="Arial" font-size="14.00" fill="#333333">Edge management</text>
+</g>
+<!-- FlowCreatorCanvas&#45;&gt;Connections -->
+<g id="edge16" class="edge" data-name="FlowCreatorCanvas-&gt;Connections">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M539.26,-1073.06C580.51,-1042.43 656.46,-989.55 728.61,-958 733.92,-955.68 739.44,-953.43 745.05,-951.26"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="746.05,-954.62 754.2,-947.85 743.6,-948.07 746.05,-954.62"/>
+</g>
+<!-- CanvasControls -->
+<g id="node31" class="node" pointer-events="visible" data-name="CanvasControls">
+
+<path fill="#f5f5f5" stroke="#333333" d="M883.57,-1014.6C883.57,-1014.6 775.59,-1014.6 775.59,-1014.6 769.59,-1014.6 763.59,-1008.6 763.59,-1002.6 763.59,-1002.6 763.59,-979.4 763.59,-979.4 763.59,-973.4 769.59,-967.4 775.59,-967.4 775.59,-967.4 883.57,-967.4 883.57,-967.4 889.57,-967.4 895.57,-973.4 895.57,-979.4 895.57,-979.4 895.57,-1002.6 895.57,-1002.6 895.57,-1008.6 889.57,-1014.6 883.57,-1014.6"/>
+<text text-anchor="middle" x="829.58" y="-995.2" font-family="Arial" font-size="14.00" fill="#333333">Canvas Controls</text>
+<text text-anchor="middle" x="829.58" y="-978.4" font-family="Arial" font-size="14.00" fill="#333333">Navigation tools</text>
+</g>
+<!-- FlowCreatorCanvas&#45;&gt;CanvasControls -->
+<g id="edge17" class="edge" data-name="FlowCreatorCanvas-&gt;CanvasControls">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M580.59,-1072.98C623.61,-1058.74 679.22,-1040.33 728.61,-1024 736.22,-1021.49 744.15,-1018.86 752.08,-1016.25"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="753.12,-1019.59 761.52,-1013.13 750.92,-1012.94 753.12,-1019.59"/>
+</g>
+<!-- SelectionManager -->
+<g id="node32" class="node" pointer-events="visible" data-name="SelectionManager">
+
+<path fill="#f5f5f5" stroke="#333333" d="M889.82,-1080.6C889.82,-1080.6 769.35,-1080.6 769.35,-1080.6 763.35,-1080.6 757.35,-1074.6 757.35,-1068.6 757.35,-1068.6 757.35,-1045.4 757.35,-1045.4 757.35,-1039.4 763.35,-1033.4 769.35,-1033.4 769.35,-1033.4 889.82,-1033.4 889.82,-1033.4 895.82,-1033.4 901.82,-1039.4 901.82,-1045.4 901.82,-1045.4 901.82,-1068.6 901.82,-1068.6 901.82,-1074.6 895.82,-1080.6 889.82,-1080.6"/>
+<text text-anchor="middle" x="829.58" y="-1061.2" font-family="Arial" font-size="14.00" fill="#333333">Selection Manager</text>
+<text text-anchor="middle" x="829.58" y="-1044.4" font-family="Arial" font-size="14.00" fill="#333333">Item selection</text>
+</g>
+<!-- FlowCreatorCanvas&#45;&gt;SelectionManager -->
+<g id="edge18" class="edge" data-name="FlowCreatorCanvas-&gt;SelectionManager">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M589.37,-1086.85C637.09,-1080.9 697.25,-1073.39 745.31,-1067.39"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="745.64,-1070.88 755.13,-1066.17 744.77,-1063.93 745.64,-1070.88"/>
+</g>
+<!-- APIClient -->
+<g id="node38" class="node" pointer-events="visible" data-name="APIClient">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1201.39,-612.6C1201.39,-612.6 1064.27,-612.6 1064.27,-612.6 1058.27,-612.6 1052.27,-606.6 1052.27,-600.6 1052.27,-600.6 1052.27,-577.4 1052.27,-577.4 1052.27,-571.4 1058.27,-565.4 1064.27,-565.4 1064.27,-565.4 1201.39,-565.4 1201.39,-565.4 1207.39,-565.4 1213.39,-571.4 1213.39,-577.4 1213.39,-577.4 1213.39,-600.6 1213.39,-600.6 1213.39,-606.6 1207.39,-612.6 1201.39,-612.6"/>
+<text text-anchor="middle" x="1132.83" y="-593.2" font-family="Arial" font-size="14.00" fill="#333333">API Client</text>
+<text text-anchor="middle" x="1132.83" y="-576.4" font-family="Arial" font-size="14.00" fill="#333333">REST API integration</text>
+</g>
+<!-- FlowCreatorCanvas&#45;&gt;APIClient -->
+<g id="edge49" class="edge" data-name="FlowCreatorCanvas-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M518.41,-1121.09C561.93,-1222.66 728.26,-1610.77 728.61,-1611 802.34,-1659.59 861.46,-1669.85 927.28,-1611 999.05,-1546.84 990.79,-840.39 1023.91,-750 1041.79,-701.18 1077.4,-652.64 1102.83,-621.83"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1105.44,-624.15 1109.19,-614.24 1100.08,-619.65 1105.44,-624.15"/>
+</g>
+<!-- FlowCreatorCanvas&#45;&gt;LocalStorageService -->
+<g id="edge58" class="edge" data-name="FlowCreatorCanvas-&gt;LocalStorageService">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M557.16,-1073.06C574.92,-1061.71 593.09,-1046.34 603.23,-1027 617.36,-1000.04 591.22,-776.13 611.23,-753.2 640.9,-719.2 689.38,-708.85 733.03,-707.57"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="732.82,-711.07 742.78,-707.45 732.74,-704.07 732.82,-711.07"/>
+<text text-anchor="middle" x="664.92" y="-757.2" font-family="Arial" font-size="14.00" fill="#666666">Auto-save</text>
+</g>
+<!-- NodePalette&#45;&gt;APIClient -->
+<g id="edge50" class="edge" data-name="NodePalette-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M576.48,-973.16C586.85,-967.21 596.37,-959.63 603.23,-950 613.47,-935.63 599.21,-883.91 611.23,-871 708.39,-766.65 802.49,-884.96 927.28,-816 1011.99,-769.19 1079.84,-673.82 1111.85,-622.87"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1114.71,-624.89 1116.99,-614.55 1108.76,-621.21 1114.71,-624.89"/>
+</g>
+<!-- PropertyPanel&#45;&gt;APIClient -->
+<g id="edge51" class="edge" data-name="PropertyPanel-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M513.01,-892.96C523.31,-848.87 551.29,-754.97 611.23,-704 649.17,-671.74 687.22,-710.65 718.61,-672 735.48,-651.23 709.13,-570.35 728.61,-552 773.47,-509.74 945.07,-537.12 1005.91,-547 1024.46,-550.01 1043.98,-555.37 1061.96,-561.27"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1060.62,-564.51 1071.21,-564.42 1062.87,-557.88 1060.62,-564.51"/>
+</g>
+<!-- FormBuilder -->
+<g id="node54" class="node" pointer-events="visible" data-name="FormBuilder">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1491.52,-261.6C1491.52,-261.6 1393.83,-261.6 1393.83,-261.6 1387.83,-261.6 1381.83,-255.6 1381.83,-249.6 1381.83,-249.6 1381.83,-226.4 1381.83,-226.4 1381.83,-220.4 1387.83,-214.4 1393.83,-214.4 1393.83,-214.4 1491.52,-214.4 1491.52,-214.4 1497.52,-214.4 1503.52,-220.4 1503.52,-226.4 1503.52,-226.4 1503.52,-249.6 1503.52,-249.6 1503.52,-255.6 1497.52,-261.6 1491.52,-261.6"/>
+<text text-anchor="middle" x="1442.68" y="-242.2" font-family="Arial" font-size="14.00" fill="#333333">Form Builder</text>
+<text text-anchor="middle" x="1442.68" y="-225.4" font-family="Arial" font-size="14.00" fill="#333333">Dynamic forms</text>
+</g>
+<!-- PropertyPanel&#45;&gt;FormBuilder -->
+<g id="edge67" class="edge" data-name="PropertyPanel-&gt;FormBuilder">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M510.28,-893.1C516.72,-833.8 539.81,-677.07 611.23,-571 648.56,-515.56 669.07,-507.36 728.61,-477 849.85,-415.19 890.78,-424.24 1023.91,-396 1119.7,-375.68 1152.51,-403.3 1241.75,-363 1299.74,-336.82 1296.35,-302.85 1351.42,-271 1357.58,-267.44 1364.2,-264.15 1370.94,-261.13"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1372.08,-264.45 1379.93,-257.34 1369.35,-258.01 1372.08,-264.45"/>
+</g>
+<!-- MessageList -->
+<g id="node33" class="node" pointer-events="visible" data-name="MessageList">
+
+<path fill="#f5f5f5" stroke="#333333" d="M873.07,-1507.6C873.07,-1507.6 786.1,-1507.6 786.1,-1507.6 780.1,-1507.6 774.1,-1501.6 774.1,-1495.6 774.1,-1495.6 774.1,-1472.4 774.1,-1472.4 774.1,-1466.4 780.1,-1460.4 786.1,-1460.4 786.1,-1460.4 873.07,-1460.4 873.07,-1460.4 879.07,-1460.4 885.07,-1466.4 885.07,-1472.4 885.07,-1472.4 885.07,-1495.6 885.07,-1495.6 885.07,-1501.6 879.07,-1507.6 873.07,-1507.6"/>
+<text text-anchor="middle" x="829.58" y="-1488.2" font-family="Arial" font-size="14.00" fill="#333333">Message List</text>
+<text text-anchor="middle" x="829.58" y="-1471.4" font-family="Arial" font-size="14.00" fill="#333333">Chat history</text>
+</g>
+<!-- ChatInterface&#45;&gt;MessageList -->
+<g id="edge19" class="edge" data-name="ChatInterface-&gt;MessageList">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M557.39,-1375.89C601.68,-1396.93 668.76,-1427.76 728.61,-1451 739.59,-1455.26 751.37,-1459.47 762.85,-1463.38"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="761.43,-1466.59 772.02,-1466.45 763.65,-1459.95 761.43,-1466.59"/>
+</g>
+<!-- InputArea -->
+<g id="node34" class="node" pointer-events="visible" data-name="InputArea">
+
+<path fill="#f5f5f5" stroke="#333333" d="M899.48,-1573.6C899.48,-1573.6 759.68,-1573.6 759.68,-1573.6 753.68,-1573.6 747.68,-1567.6 747.68,-1561.6 747.68,-1561.6 747.68,-1538.4 747.68,-1538.4 747.68,-1532.4 753.68,-1526.4 759.68,-1526.4 759.68,-1526.4 899.48,-1526.4 899.48,-1526.4 905.48,-1526.4 911.48,-1532.4 911.48,-1538.4 911.48,-1538.4 911.48,-1561.6 911.48,-1561.6 911.48,-1567.6 905.48,-1573.6 899.48,-1573.6"/>
+<text text-anchor="middle" x="829.58" y="-1554.2" font-family="Arial" font-size="14.00" fill="#333333">Input Area</text>
+<text text-anchor="middle" x="829.58" y="-1537.4" font-family="Arial" font-size="14.00" fill="#333333">Message composition</text>
+</g>
+<!-- ChatInterface&#45;&gt;InputArea -->
+<g id="edge20" class="edge" data-name="ChatInterface-&gt;InputArea">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M534.02,-1375.89C573.4,-1411.07 651.87,-1476.99 728.61,-1517 731.4,-1518.45 734.27,-1519.86 737.19,-1521.23"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="735.74,-1524.41 746.3,-1525.22 738.55,-1518 735.74,-1524.41"/>
+</g>
+<!-- FileUploader -->
+<g id="node35" class="node" pointer-events="visible" data-name="FileUploader">
+
+<path fill="#f5f5f5" stroke="#333333" d="M895.22,-1309.6C895.22,-1309.6 763.94,-1309.6 763.94,-1309.6 757.94,-1309.6 751.94,-1303.6 751.94,-1297.6 751.94,-1297.6 751.94,-1274.4 751.94,-1274.4 751.94,-1268.4 757.94,-1262.4 763.94,-1262.4 763.94,-1262.4 895.22,-1262.4 895.22,-1262.4 901.22,-1262.4 907.22,-1268.4 907.22,-1274.4 907.22,-1274.4 907.22,-1297.6 907.22,-1297.6 907.22,-1303.6 901.22,-1309.6 895.22,-1309.6"/>
+<text text-anchor="middle" x="829.58" y="-1290.2" font-family="Arial" font-size="14.00" fill="#333333">File Uploader</text>
+<text text-anchor="middle" x="829.58" y="-1273.4" font-family="Arial" font-size="14.00" fill="#333333">Attachment handling</text>
+</g>
+<!-- ChatInterface&#45;&gt;FileUploader -->
+<g id="edge21" class="edge" data-name="ChatInterface-&gt;FileUploader">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M582.42,-1336.69C629.51,-1326.99 690.66,-1314.4 740.23,-1304.2"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="740.72,-1307.67 749.81,-1302.22 739.31,-1300.81 740.72,-1307.67"/>
+</g>
+<!-- TypingIndicator -->
+<g id="node36" class="node" pointer-events="visible" data-name="TypingIndicator">
+
+<path fill="#f5f5f5" stroke="#333333" d="M881.19,-1375.6C881.19,-1375.6 777.98,-1375.6 777.98,-1375.6 771.98,-1375.6 765.98,-1369.6 765.98,-1363.6 765.98,-1363.6 765.98,-1340.4 765.98,-1340.4 765.98,-1334.4 771.98,-1328.4 777.98,-1328.4 777.98,-1328.4 881.19,-1328.4 881.19,-1328.4 887.19,-1328.4 893.19,-1334.4 893.19,-1340.4 893.19,-1340.4 893.19,-1363.6 893.19,-1363.6 893.19,-1369.6 887.19,-1375.6 881.19,-1375.6"/>
+<text text-anchor="middle" x="829.58" y="-1356.2" font-family="Arial" font-size="14.00" fill="#333333">Typing Indicator</text>
+<text text-anchor="middle" x="829.58" y="-1339.4" font-family="Arial" font-size="14.00" fill="#333333">Status display</text>
+</g>
+<!-- ChatInterface&#45;&gt;TypingIndicator -->
+<g id="edge22" class="edge" data-name="ChatInterface-&gt;TypingIndicator">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M582.42,-1352C633.97,-1352 702.37,-1352 753.98,-1352"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="753.9,-1355.5 763.9,-1352 753.9,-1348.5 753.9,-1355.5"/>
+</g>
+<!-- ResponseRenderer -->
+<g id="node37" class="node" pointer-events="visible" data-name="ResponseRenderer">
+
+<path fill="#f5f5f5" stroke="#333333" d="M894.38,-1441.6C894.38,-1441.6 764.79,-1441.6 764.79,-1441.6 758.79,-1441.6 752.79,-1435.6 752.79,-1429.6 752.79,-1429.6 752.79,-1406.4 752.79,-1406.4 752.79,-1400.4 758.79,-1394.4 764.79,-1394.4 764.79,-1394.4 894.38,-1394.4 894.38,-1394.4 900.38,-1394.4 906.38,-1400.4 906.38,-1406.4 906.38,-1406.4 906.38,-1429.6 906.38,-1429.6 906.38,-1435.6 900.38,-1441.6 894.38,-1441.6"/>
+<text text-anchor="middle" x="829.58" y="-1422.2" font-family="Arial" font-size="14.00" fill="#333333">Response Renderer</text>
+<text text-anchor="middle" x="829.58" y="-1405.4" font-family="Arial" font-size="14.00" fill="#333333">Output formatting</text>
+</g>
+<!-- ChatInterface&#45;&gt;ResponseRenderer -->
+<g id="edge23" class="edge" data-name="ChatInterface-&gt;ResponseRenderer">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M582.42,-1367.31C629.77,-1377.06 691.33,-1389.73 741.04,-1399.97"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="740.15,-1403.36 750.65,-1401.95 741.56,-1396.51 740.15,-1403.36"/>
+</g>
+<!-- ChatInterface&#45;&gt;APIClient -->
+<g id="edge53" class="edge" data-name="ChatInterface-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M518.07,-1328.02C555.98,-1237.44 690.72,-919.75 728.61,-889 829.55,-807.09 920.98,-894.41 1005.91,-796 1020.25,-779.38 1013.74,-769.46 1023.91,-750 1048.21,-703.52 1082.93,-653.95 1106.37,-622.29"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1109,-624.62 1112.17,-614.52 1103.39,-620.44 1109,-624.62"/>
+</g>
+<!-- WebSocketClient -->
+<g id="node39" class="node" pointer-events="visible" data-name="WebSocketClient">
+
+<path fill="#f5f5f5" stroke="#333333" d="M910.53,-806.6C910.53,-806.6 748.64,-806.6 748.64,-806.6 742.64,-806.6 736.64,-800.6 736.64,-794.6 736.64,-794.6 736.64,-771.4 736.64,-771.4 736.64,-765.4 742.64,-759.4 748.64,-759.4 748.64,-759.4 910.53,-759.4 910.53,-759.4 916.53,-759.4 922.53,-765.4 922.53,-771.4 922.53,-771.4 922.53,-794.6 922.53,-794.6 922.53,-800.6 916.53,-806.6 910.53,-806.6"/>
+<text text-anchor="middle" x="829.58" y="-787.2" font-family="Arial" font-size="14.00" fill="#333333">WebSocket Client</text>
+<text text-anchor="middle" x="829.58" y="-770.4" font-family="Arial" font-size="14.00" fill="#333333">Real-time communication</text>
+</g>
+<!-- ChatInterface&#45;&gt;WebSocketClient -->
+<g id="edge52" class="edge" data-name="ChatInterface-&gt;WebSocketClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M521.93,-1328.04C544.01,-1288.39 586.4,-1205.94 603.23,-1130 606.31,-1116.11 603.17,-885.72 611.23,-874 626.55,-851.74 683.94,-828.22 735.9,-810.67"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="736.78,-814.07 745.16,-807.59 734.57,-807.43 736.78,-814.07"/>
+</g>
+<!-- ChatInterface&#45;&gt;LocalStorageService -->
+<g id="edge59" class="edge" data-name="ChatInterface-&gt;LocalStorageService">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M521.99,-1328.06C544.16,-1288.42 586.68,-1206 603.23,-1130 607.17,-1111.93 599.7,-811.66 611.23,-797.2 641.93,-758.71 680.26,-800.87 718.61,-770 726.35,-763.77 721.09,-756.5 728.61,-750 730.58,-748.3 732.63,-746.69 734.76,-745.16"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="736.42,-748.25 742.99,-739.94 732.67,-742.34 736.42,-748.25"/>
+<text text-anchor="middle" x="664.92" y="-801.2" font-family="Arial" font-size="14.00" fill="#666666">Draft messages</text>
+</g>
+<!-- MarketplaceList&#45;&gt;APIClient -->
+<g id="edge54" class="edge" data-name="MarketplaceList-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M291.34,-893.01C291.64,-822.8 302.8,-616.27 418.94,-515 468.17,-472.06 944.64,-458.33 1005.91,-481 1046.26,-495.93 1082.4,-530.21 1105.5,-556.18"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1102.73,-558.33 1111.92,-563.6 1108.02,-553.75 1102.73,-558.33"/>
+</g>
+<!-- BlockchainClient -->
+<g id="node40" class="node" pointer-events="visible" data-name="BlockchainClient">
+
+<path fill="#f5f5f5" stroke="#333333" d="M885.75,-674.6C885.75,-674.6 773.42,-674.6 773.42,-674.6 767.42,-674.6 761.42,-668.6 761.42,-662.6 761.42,-662.6 761.42,-639.4 761.42,-639.4 761.42,-633.4 767.42,-627.4 773.42,-627.4 773.42,-627.4 885.75,-627.4 885.75,-627.4 891.75,-627.4 897.75,-633.4 897.75,-639.4 897.75,-639.4 897.75,-662.6 897.75,-662.6 897.75,-668.6 891.75,-674.6 885.75,-674.6"/>
+<text text-anchor="middle" x="829.58" y="-655.2" font-family="Arial" font-size="14.00" fill="#333333">Blockchain Client</text>
+<text text-anchor="middle" x="829.58" y="-638.4" font-family="Arial" font-size="14.00" fill="#333333">Wallet integration</text>
+</g>
+<!-- MarketplaceList&#45;&gt;BlockchainClient -->
+<g id="edge55" class="edge" data-name="MarketplaceList-&gt;BlockchainClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M292.86,-893.11C297.05,-834.32 316.49,-681.99 406.38,-607 513.65,-517.52 610.04,-483.1 718.61,-571 735.21,-584.44 714.36,-602.1 728.61,-618 734.7,-624.79 742.22,-630.19 750.37,-634.48"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="748.79,-637.61 759.33,-638.59 751.7,-631.24 748.79,-637.61"/>
+</g>
+<!-- AccessControlPanel&#45;&gt;APIClient -->
+<g id="edge56" class="edge" data-name="AccessControlPanel-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M382.27,-963.06C387.57,-959.4 392.36,-955.08 396.38,-950 439.87,-894.92 376.44,-690.85 418.94,-635 558.92,-451.05 696.42,-513.29 927.28,-525 962.36,-526.78 971.96,-523.97 1005.91,-533 1029.84,-539.37 1055.01,-549.74 1076.5,-559.84"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1074.88,-562.95 1085.41,-564.13 1077.92,-556.64 1074.88,-562.95"/>
+</g>
+<!-- AccessControlPanel&#45;&gt;BlockchainClient -->
+<g id="edge57" class="edge" data-name="AccessControlPanel-&gt;BlockchainClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M382.35,-960.9C387.42,-957.74 392.15,-954.13 396.38,-950 418.56,-928.34 404.25,-911.3 418.94,-884 485.17,-760.86 485.73,-696.65 611.23,-635 653.79,-614.1 706.75,-617.49 749.75,-626.4"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="748.73,-629.76 759.25,-628.52 750.25,-622.93 748.73,-629.76"/>
+</g>
+<!-- UserAPI -->
+<g id="node44" class="node" pointer-events="visible" data-name="UserAPI">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1504.53,-676.6C1504.53,-676.6 1380.82,-676.6 1380.82,-676.6 1374.82,-676.6 1368.82,-670.6 1368.82,-664.6 1368.82,-664.6 1368.82,-641.4 1368.82,-641.4 1368.82,-635.4 1374.82,-629.4 1380.82,-629.4 1380.82,-629.4 1504.53,-629.4 1504.53,-629.4 1510.53,-629.4 1516.53,-635.4 1516.53,-641.4 1516.53,-641.4 1516.53,-664.6 1516.53,-664.6 1516.53,-670.6 1510.53,-676.6 1504.53,-676.6"/>
+<text text-anchor="middle" x="1442.68" y="-657.2" font-family="Arial" font-size="14.00" fill="#333333">User API</text>
+<text text-anchor="middle" x="1442.68" y="-640.4" font-family="Arial" font-size="14.00" fill="#333333">Account operations</text>
+</g>
+<!-- APIClient&#45;&gt;UserAPI -->
+<g id="edge28" class="edge" data-name="APIClient-&gt;UserAPI">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1213.51,-605.56C1257.51,-614.71 1312.16,-626.07 1356.94,-635.38"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1356.12,-638.79 1366.62,-637.4 1357.54,-631.93 1356.12,-638.79"/>
+</g>
+<!-- FlowAPI -->
+<g id="node45" class="node" pointer-events="visible" data-name="FlowAPI">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1508.01,-742.6C1508.01,-742.6 1377.35,-742.6 1377.35,-742.6 1371.35,-742.6 1365.35,-736.6 1365.35,-730.6 1365.35,-730.6 1365.35,-707.4 1365.35,-707.4 1365.35,-701.4 1371.35,-695.4 1377.35,-695.4 1377.35,-695.4 1508.01,-695.4 1508.01,-695.4 1514.01,-695.4 1520.01,-701.4 1520.01,-707.4 1520.01,-707.4 1520.01,-730.6 1520.01,-730.6 1520.01,-736.6 1514.01,-742.6 1508.01,-742.6"/>
+<text text-anchor="middle" x="1442.68" y="-723.2" font-family="Arial" font-size="14.00" fill="#333333">Flow API</text>
+<text text-anchor="middle" x="1442.68" y="-706.4" font-family="Arial" font-size="14.00" fill="#333333">Workflow operations</text>
+</g>
+<!-- APIClient&#45;&gt;FlowAPI -->
+<g id="edge29" class="edge" data-name="APIClient-&gt;FlowAPI">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1184.84,-612.93C1228.67,-633.21 1293.73,-662.63 1351.42,-686 1355.37,-687.6 1359.42,-689.2 1363.52,-690.8"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1362.17,-694.03 1372.76,-694.35 1364.68,-687.5 1362.17,-694.03"/>
+</g>
+<!-- ChatAPI -->
+<g id="node46" class="node" pointer-events="visible" data-name="ChatAPI">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1508.29,-808.6C1508.29,-808.6 1377.06,-808.6 1377.06,-808.6 1371.06,-808.6 1365.06,-802.6 1365.06,-796.6 1365.06,-796.6 1365.06,-773.4 1365.06,-773.4 1365.06,-767.4 1371.06,-761.4 1377.06,-761.4 1377.06,-761.4 1508.29,-761.4 1508.29,-761.4 1514.29,-761.4 1520.29,-767.4 1520.29,-773.4 1520.29,-773.4 1520.29,-796.6 1520.29,-796.6 1520.29,-802.6 1514.29,-808.6 1508.29,-808.6"/>
+<text text-anchor="middle" x="1442.68" y="-789.2" font-family="Arial" font-size="14.00" fill="#333333">Chat API</text>
+<text text-anchor="middle" x="1442.68" y="-772.4" font-family="Arial" font-size="14.00" fill="#333333">Conversation history</text>
+</g>
+<!-- APIClient&#45;&gt;ChatAPI -->
+<g id="edge30" class="edge" data-name="APIClient-&gt;ChatAPI">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1160.23,-612.86C1199.5,-647.38 1276.73,-711.51 1351.42,-752 1353.99,-753.39 1356.63,-754.75 1359.31,-756.06"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1357.68,-759.17 1368.23,-760.19 1360.63,-752.81 1357.68,-759.17"/>
+</g>
+<!-- MarketplaceAPI -->
+<g id="node47" class="node" pointer-events="visible" data-name="MarketplaceAPI">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1502.92,-544.6C1502.92,-544.6 1382.44,-544.6 1382.44,-544.6 1376.44,-544.6 1370.44,-538.6 1370.44,-532.6 1370.44,-532.6 1370.44,-509.4 1370.44,-509.4 1370.44,-503.4 1376.44,-497.4 1382.44,-497.4 1382.44,-497.4 1502.92,-497.4 1502.92,-497.4 1508.92,-497.4 1514.92,-503.4 1514.92,-509.4 1514.92,-509.4 1514.92,-532.6 1514.92,-532.6 1514.92,-538.6 1508.92,-544.6 1502.92,-544.6"/>
+<text text-anchor="middle" x="1442.68" y="-525.2" font-family="Arial" font-size="14.00" fill="#333333">Marketplace API</text>
+<text text-anchor="middle" x="1442.68" y="-508.4" font-family="Arial" font-size="14.00" fill="#333333">Trading operations</text>
+</g>
+<!-- APIClient&#45;&gt;MarketplaceAPI -->
+<g id="edge31" class="edge" data-name="APIClient-&gt;MarketplaceAPI">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1213.51,-571.4C1258,-561.57 1313.38,-549.34 1358.44,-539.39"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1359.18,-542.81 1368.19,-537.23 1357.67,-535.97 1359.18,-542.81"/>
+</g>
+<!-- AccessAPI -->
+<g id="node48" class="node" pointer-events="visible" data-name="AccessAPI">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1513.69,-610.6C1513.69,-610.6 1371.67,-610.6 1371.67,-610.6 1365.67,-610.6 1359.67,-604.6 1359.67,-598.6 1359.67,-598.6 1359.67,-575.4 1359.67,-575.4 1359.67,-569.4 1365.67,-563.4 1371.67,-563.4 1371.67,-563.4 1513.69,-563.4 1513.69,-563.4 1519.69,-563.4 1525.69,-569.4 1525.69,-575.4 1525.69,-575.4 1525.69,-598.6 1525.69,-598.6 1525.69,-604.6 1519.69,-610.6 1513.69,-610.6"/>
+<text text-anchor="middle" x="1442.68" y="-591.2" font-family="Arial" font-size="14.00" fill="#333333">Access API</text>
+<text text-anchor="middle" x="1442.68" y="-574.4" font-family="Arial" font-size="14.00" fill="#333333">Permission operations</text>
+</g>
+<!-- APIClient&#45;&gt;AccessAPI -->
+<g id="edge32" class="edge" data-name="APIClient-&gt;AccessAPI">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1213.51,-588.48C1254.55,-588.22 1304.85,-587.89 1347.78,-587.61"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1347.59,-591.11 1357.57,-587.55 1347.54,-584.11 1347.59,-591.11"/>
+</g>
+<!-- MessagePasser -->
+<g id="node49" class="node" pointer-events="visible" data-name="MessagePasser">
+
+<path fill="#e6f4ea" stroke="#0f9d58" d="M1517.97,-956.6C1517.97,-956.6 1367.39,-956.6 1367.39,-956.6 1361.39,-956.6 1355.39,-950.6 1355.39,-944.6 1355.39,-944.6 1355.39,-921.4 1355.39,-921.4 1355.39,-915.4 1361.39,-909.4 1367.39,-909.4 1367.39,-909.4 1517.97,-909.4 1517.97,-909.4 1523.97,-909.4 1529.97,-915.4 1529.97,-921.4 1529.97,-921.4 1529.97,-944.6 1529.97,-944.6 1529.97,-950.6 1523.97,-956.6 1517.97,-956.6"/>
+<text text-anchor="middle" x="1442.68" y="-937.2" font-family="Arial" font-size="14.00" fill="#0f9d58">Neura Message Passer</text>
+<text text-anchor="middle" x="1442.68" y="-920.4" font-family="Arial" font-size="14.00" fill="#0f9d58">(Backend 2)</text>
+</g>
+<!-- APIClient&#45;&gt;MessagePasser -->
+<g id="edge61" class="edge" data-name="APIClient-&gt;MessagePasser">
+
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M1152.86,-613.08C1189.77,-659.41 1274.25,-763.69 1351.42,-846 1369.04,-864.79 1389.66,-884.81 1406.74,-900.9"/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1404.3,-903.4 1413.99,-907.68 1409.08,-898.29 1404.3,-903.4"/>
+<text text-anchor="middle" x="1298.64" y="-829.2" font-family="Arial" font-size="14.00" fill="#666666">HTTP/REST</text>
+</g>
+<!-- QueryCache -->
+<g id="node55" class="node" pointer-events="visible" data-name="QueryCache">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1496.97,-327.6C1496.97,-327.6 1388.39,-327.6 1388.39,-327.6 1382.39,-327.6 1376.39,-321.6 1376.39,-315.6 1376.39,-315.6 1376.39,-292.4 1376.39,-292.4 1376.39,-286.4 1382.39,-280.4 1388.39,-280.4 1388.39,-280.4 1496.97,-280.4 1496.97,-280.4 1502.97,-280.4 1508.97,-286.4 1508.97,-292.4 1508.97,-292.4 1508.97,-315.6 1508.97,-315.6 1508.97,-321.6 1502.97,-327.6 1496.97,-327.6"/>
+<text text-anchor="middle" x="1442.68" y="-308.2" font-family="Arial" font-size="14.00" fill="#333333">Query Cache</text>
+<text text-anchor="middle" x="1442.68" y="-291.4" font-family="Arial" font-size="14.00" fill="#333333">Request caching</text>
+</g>
+<!-- APIClient&#45;&gt;QueryCache -->
+<g id="edge68" class="edge" data-name="APIClient-&gt;QueryCache">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1159.81,-564.95C1215.33,-513.55 1345.5,-393.04 1407.58,-335.57"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1409.58,-338.48 1414.54,-329.12 1404.83,-333.35 1409.58,-338.48"/>
+</g>
+<!-- NotificationService -->
+<g id="node42" class="node" pointer-events="visible" data-name="NotificationService">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1194.66,-806.6C1194.66,-806.6 1071,-806.6 1071,-806.6 1065,-806.6 1059,-800.6 1059,-794.6 1059,-794.6 1059,-771.4 1059,-771.4 1059,-765.4 1065,-759.4 1071,-759.4 1071,-759.4 1194.66,-759.4 1194.66,-759.4 1200.66,-759.4 1206.66,-765.4 1206.66,-771.4 1206.66,-771.4 1206.66,-794.6 1206.66,-794.6 1206.66,-800.6 1200.66,-806.6 1194.66,-806.6"/>
+<text text-anchor="middle" x="1132.83" y="-787.2" font-family="Arial" font-size="14.00" fill="#333333">Notification Service</text>
+<text text-anchor="middle" x="1132.83" y="-770.4" font-family="Arial" font-size="14.00" fill="#333333">User alerts</text>
+</g>
+<!-- WebSocketClient&#45;&gt;NotificationService -->
+<g id="edge33" class="edge" data-name="WebSocketClient-&gt;NotificationService">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M923.01,-783C962.51,-783 1008.32,-783 1046.95,-783"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1046.88,-786.5 1056.88,-783 1046.88,-779.5 1046.88,-786.5"/>
+</g>
+<!-- WebSocketClient&#45;&gt;MessagePasser -->
+<g id="edge62" class="edge" data-name="WebSocketClient-&gt;MessagePasser">
+
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M850.3,-807.02C882.16,-843.51 949.02,-910.79 1023.91,-931 1130.35,-959.73 1257.69,-955.05 1343.57,-946.5"/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1343.76,-950 1353.34,-945.49 1343.03,-943.04 1343.76,-950"/>
+<text text-anchor="middle" x="1132.83" y="-957.2" font-family="Arial" font-size="14.00" fill="#666666">WebSocket</text>
+</g>
+<!-- AptosBlockchain -->
+<g id="node50" class="node" pointer-events="visible" data-name="AptosBlockchain">
+
+<path fill="#fef7e0" stroke="#f7b529" d="M1188.72,-922C1188.72,-922 1076.94,-922 1076.94,-922 1070.94,-922 1064.94,-916 1064.94,-910 1064.94,-910 1064.94,-898 1064.94,-898 1064.94,-892 1070.94,-886 1076.94,-886 1076.94,-886 1188.72,-886 1188.72,-886 1194.72,-886 1200.72,-892 1200.72,-898 1200.72,-898 1200.72,-910 1200.72,-910 1200.72,-916 1194.72,-922 1188.72,-922"/>
+<text text-anchor="middle" x="1132.83" y="-899.8" font-family="Arial" font-size="14.00" fill="#f7b529">Aptos Blockchain</text>
+</g>
+<!-- BlockchainClient&#45;&gt;AptosBlockchain -->
+<g id="edge63" class="edge" data-name="BlockchainClient-&gt;AptosBlockchain">
+
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M897.79,-666.18C908.46,-670.69 918.76,-676.5 927.28,-684 1000.48,-748.44 947.01,-821.03 1023.91,-881 1032.6,-887.78 1042.83,-892.67 1053.47,-896.18"/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1052.34,-899.5 1062.92,-898.87 1054.26,-892.77 1052.34,-899.5"/>
+<text text-anchor="middle" x="973.23" y="-866.2" font-family="Arial" font-size="14.00" fill="#666666">RPC</text>
+</g>
+<!-- WalletProvider -->
+<g id="node51" class="node" pointer-events="visible" data-name="WalletProvider">
+
+<ellipse fill="#5a2ca0" stroke="#333333" cx="1132.83" cy="-439" rx="108.85" ry="33.82"/>
+<text text-anchor="middle" x="1132.83" y="-443.2" font-family="Arial" font-size="14.00" fill="white">Wallet Provider</text>
+<text text-anchor="middle" x="1132.83" y="-426.4" font-family="Arial" font-size="14.00" fill="white">(Browser Extension)</text>
+</g>
+<!-- BlockchainClient&#45;&gt;WalletProvider -->
+<g id="edge64" class="edge" data-name="BlockchainClient-&gt;WalletProvider">
+
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M898.18,-634.22C908.5,-629.93 918.59,-624.6 927.28,-618 987.79,-572.06 963.63,-523.23 1023.91,-477 1028.88,-473.18 1034.27,-469.73 1039.9,-466.61"/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="1041.3,-469.83 1048.62,-462.17 1038.12,-463.59 1041.3,-469.83"/>
+<text text-anchor="middle" x="973.23" y="-608.2" font-family="Arial" font-size="14.00" fill="#666666">Wallet API</text>
+</g>
+<!-- SecureStorage -->
+<g id="node60" class="node" pointer-events="visible" data-name="SecureStorage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M888.2,-323.6C888.2,-323.6 770.96,-323.6 770.96,-323.6 764.96,-323.6 758.96,-317.6 758.96,-311.6 758.96,-311.6 758.96,-288.4 758.96,-288.4 758.96,-282.4 764.96,-276.4 770.96,-276.4 770.96,-276.4 888.2,-276.4 888.2,-276.4 894.2,-276.4 900.2,-282.4 900.2,-288.4 900.2,-288.4 900.2,-311.6 900.2,-311.6 900.2,-317.6 894.2,-323.6 888.2,-323.6"/>
+<text text-anchor="middle" x="829.58" y="-304.2" font-family="Arial" font-size="14.00" fill="#333333">Secure Storage</text>
+<text text-anchor="middle" x="829.58" y="-287.4" font-family="Arial" font-size="14.00" fill="#333333">Encrypted storage</text>
+</g>
+<!-- LocalStorageService&#45;&gt;SecureStorage -->
+<g id="edge74" class="edge" data-name="LocalStorageService-&gt;SecureStorage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M744.48,-693.06C738.95,-690.34 733.6,-687.33 728.61,-684 714.26,-674.43 631.69,-632.22 648.94,-574.6 678.37,-476.31 755.58,-380.62 798.93,-332.37"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="801.25,-335.02 805.38,-325.27 796.07,-330.31 801.25,-335.02"/>
+<text text-anchor="middle" x="664.92" y="-578.8" font-family="Arial" font-size="14.00" fill="#666666">Sensitive data</text>
+</g>
+<!-- AnalyticsService -->
+<g id="node43" class="node" pointer-events="visible" data-name="AnalyticsService">
+
+<path fill="#f5f5f5" stroke="#333333" d="M884.68,-608.6C884.68,-608.6 774.49,-608.6 774.49,-608.6 768.49,-608.6 762.49,-602.6 762.49,-596.6 762.49,-596.6 762.49,-573.4 762.49,-573.4 762.49,-567.4 768.49,-561.4 774.49,-561.4 774.49,-561.4 884.68,-561.4 884.68,-561.4 890.68,-561.4 896.68,-567.4 896.68,-573.4 896.68,-573.4 896.68,-596.6 896.68,-596.6 896.68,-602.6 890.68,-608.6 884.68,-608.6"/>
+<text text-anchor="middle" x="829.58" y="-589.2" font-family="Arial" font-size="14.00" fill="#333333">Analytics Service</text>
+<text text-anchor="middle" x="829.58" y="-572.4" font-family="Arial" font-size="14.00" fill="#333333">Usage tracking</text>
+</g>
+<!-- AnalyticsService&#45;&gt;APIClient -->
+<g id="edge34" class="edge" data-name="AnalyticsService-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M897.07,-585.88C939.16,-586.44 994.15,-587.17 1040.33,-587.79"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1040.01,-591.28 1050.05,-587.91 1040.1,-584.28 1040.01,-591.28"/>
+</g>
+<!-- AuthManager&#45;&gt;APIClient -->
+<g id="edge72" class="edge" data-name="AuthManager-&gt;APIClient">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M904.07,-252.29C912.43,-256.28 920.41,-261.12 927.28,-267 984.21,-315.64 978.42,-346.35 1005.91,-416 1017.07,-444.28 1008.59,-455.74 1023.91,-482 1041.04,-511.38 1068.28,-538.3 1091.1,-557.79"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1088.61,-560.26 1098.53,-563.98 1093.09,-554.89 1088.61,-560.26"/>
+</g>
+<!-- TokenStorage -->
+<g id="node58" class="node" pointer-events="visible" data-name="TokenStorage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1192.2,-257.6C1192.2,-257.6 1073.46,-257.6 1073.46,-257.6 1067.46,-257.6 1061.46,-251.6 1061.46,-245.6 1061.46,-245.6 1061.46,-222.4 1061.46,-222.4 1061.46,-216.4 1067.46,-210.4 1073.46,-210.4 1073.46,-210.4 1192.2,-210.4 1192.2,-210.4 1198.2,-210.4 1204.2,-216.4 1204.2,-222.4 1204.2,-222.4 1204.2,-245.6 1204.2,-245.6 1204.2,-251.6 1198.2,-257.6 1192.2,-257.6"/>
+<text text-anchor="middle" x="1132.83" y="-238.2" font-family="Arial" font-size="14.00" fill="#333333">Token Storage</text>
+<text text-anchor="middle" x="1132.83" y="-221.4" font-family="Arial" font-size="14.00" fill="#333333">JWT management</text>
+</g>
+<!-- AuthManager&#45;&gt;TokenStorage -->
+<g id="edge71" class="edge" data-name="AuthManager-&gt;TokenStorage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M903.89,-234C947.87,-234 1003.91,-234 1049.42,-234"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1049.24,-237.5 1059.24,-234 1049.24,-230.5 1049.24,-237.5"/>
+</g>
+</g>
+</svg>

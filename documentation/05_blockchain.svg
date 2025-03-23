@@ -1,0 +1,1008 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2148pt" height="2089pt" viewBox="0.00 0.00 2147.73 2088.8">
+<g id="graph0" class="graph" transform="translate(129.84176488361516,2006.3043754702608) scale(0.8705505632961268)" data-name="Blockchain / Smart Contract Architecture">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-2084.8 2143.73,-2084.8 2143.73,4 -4,4"/>
+<g id="clust1" class="cluster" data-name="cluster_contract">
+
+<path fill="#fef7e0" stroke="#f7b529" d="M376.58,-360C376.58,-360 838.91,-360 838.91,-360 844.91,-360 850.91,-366 850.91,-372 850.91,-372 850.91,-744 850.91,-744 850.91,-750 844.91,-756 838.91,-756 838.91,-756 376.58,-756 376.58,-756 370.58,-756 364.58,-750 364.58,-744 364.58,-744 364.58,-372 364.58,-372 364.58,-366 370.58,-360 376.58,-360"/>
+<text text-anchor="middle" x="607.75" y="-737.6" font-family="Arial" font-size="16.00" fill="#f7b529">NFT Smart Contract</text>
+</g>
+<g id="clust2" class="cluster" data-name="cluster_contract_functions">
+
+<path fill="#ffe8a6" stroke="#f7b529" d="M694.16,-368C694.16,-368 830.91,-368 830.91,-368 836.91,-368 842.91,-374 842.91,-380 842.91,-380 842.91,-709 842.91,-709 842.91,-715 836.91,-721 830.91,-721 830.91,-721 694.16,-721 694.16,-721 688.16,-721 682.16,-715 682.16,-709 682.16,-709 682.16,-380 682.16,-380 682.16,-374 688.16,-368 694.16,-368"/>
+<text text-anchor="middle" x="762.53" y="-704.4" font-family="Arial" font-size="14.00" fill="#f7b529">Core Functions</text>
+</g>
+<g id="clust3" class="cluster" data-name="cluster_access">
+
+<path fill="#fce8e6" stroke="#db4437" d="M20,-1511C20,-1511 2119.73,-1511 2119.73,-1511 2125.73,-1511 2131.73,-1517 2131.73,-1523 2131.73,-1523 2131.73,-2051 2131.73,-2051 2131.73,-2057 2125.73,-2063 2119.73,-2063 2119.73,-2063 20,-2063 20,-2063 14,-2063 8,-2057 8,-2051 8,-2051 8,-1523 8,-1523 8,-1517 14,-1511 20,-1511"/>
+<text text-anchor="middle" x="1069.86" y="-2044.6" font-family="Arial" font-size="16.00" fill="#db4437">Access Control</text>
+</g>
+<g id="clust4" class="cluster" data-name="cluster_access_levels">
+
+<path fill="#fcbdba" stroke="#db4437" d="M692.61,-1932C692.61,-1932 2111.73,-1932 2111.73,-1932 2117.73,-1932 2123.73,-1938 2123.73,-1944 2123.73,-1944 2123.73,-2009 2123.73,-2009 2123.73,-2015 2117.73,-2021 2111.73,-2021 2111.73,-2021 692.61,-2021 692.61,-2021 686.61,-2021 680.61,-2015 680.61,-2009 680.61,-2009 680.61,-1944 680.61,-1944 680.61,-1938 686.61,-1932 692.61,-1932"/>
+<text text-anchor="middle" x="1402.17" y="-2004.4" font-family="Arial" font-size="14.00" fill="#db4437">Access Level Definitions</text>
+</g>
+<g id="clust5" class="cluster" data-name="cluster_access_functions">
+
+<path fill="#fcbdba" stroke="#db4437" d="M687.68,-1519C687.68,-1519 838.39,-1519 838.39,-1519 844.39,-1519 850.39,-1525 850.39,-1531 850.39,-1531 850.39,-1860 850.39,-1860 850.39,-1866 844.39,-1872 838.39,-1872 838.39,-1872 687.68,-1872 687.68,-1872 681.68,-1872 675.68,-1866 675.68,-1860 675.68,-1860 675.68,-1531 675.68,-1531 675.68,-1525 681.68,-1519 687.68,-1519"/>
+<text text-anchor="middle" x="763.03" y="-1855.4" font-family="Arial" font-size="14.00" fill="#db4437">Access Control Functions</text>
+</g>
+<g id="clust6" class="cluster" data-name="cluster_events">
+
+<path fill="#e6f4ea" stroke="#0f9d58" d="M1238.4,-8C1238.4,-8 1388,-8 1388,-8 1394,-8 1400,-14 1400,-20 1400,-20 1400,-326 1400,-326 1400,-332 1394,-338 1388,-338 1388,-338 1238.4,-338 1238.4,-338 1232.4,-338 1226.4,-332 1226.4,-326 1226.4,-326 1226.4,-20 1226.4,-20 1226.4,-14 1232.4,-8 1238.4,-8"/>
+<text text-anchor="middle" x="1313.2" y="-319.6" font-family="Arial" font-size="16.00" fill="#0f9d58">Blockchain Events</text>
+</g>
+<g id="clust7" class="cluster" data-name="cluster_event_fields">
+
+<path fill="#ceead6" stroke="#0f9d58" d="M1246.4,-16C1246.4,-16 1380,-16 1380,-16 1386,-16 1392,-22 1392,-28 1392,-28 1392,-291 1392,-291 1392,-297 1386,-303 1380,-303 1380,-303 1246.4,-303 1246.4,-303 1240.4,-303 1234.4,-297 1234.4,-291 1234.4,-291 1234.4,-28 1234.4,-28 1234.4,-22 1240.4,-16 1246.4,-16"/>
+<text text-anchor="middle" x="1313.2" y="-286.4" font-family="Arial" font-size="14.00" fill="#0f9d58">Event Fields</text>
+</g>
+<g id="clust8" class="cluster" data-name="cluster_storage">
+
+<path fill="#e8f0fe" stroke="#4285f4" d="M954.78,-346C954.78,-346 1397.34,-346 1397.34,-346 1403.34,-346 1409.34,-352 1409.34,-358 1409.34,-358 1409.34,-887 1409.34,-887 1409.34,-893 1403.34,-899 1397.34,-899 1397.34,-899 954.78,-899 954.78,-899 948.78,-899 942.78,-893 942.78,-887 942.78,-887 942.78,-358 942.78,-358 942.78,-352 948.78,-346 954.78,-346"/>
+<text text-anchor="middle" x="1176.06" y="-880.6" font-family="Arial" font-size="16.00" fill="#4285f4">Blockchain Storage</text>
+</g>
+<g id="clust9" class="cluster" data-name="cluster_tables">
+
+<path fill="#d2e3fc" stroke="#4285f4" d="M1237.06,-521C1237.06,-521 1389.34,-521 1389.34,-521 1395.34,-521 1401.34,-527 1401.34,-533 1401.34,-533 1401.34,-796 1401.34,-796 1401.34,-802 1395.34,-808 1389.34,-808 1389.34,-808 1237.06,-808 1237.06,-808 1231.06,-808 1225.06,-802 1225.06,-796 1225.06,-796 1225.06,-533 1225.06,-533 1225.06,-527 1231.06,-521 1237.06,-521"/>
+<text text-anchor="middle" x="1313.2" y="-791.4" font-family="Arial" font-size="14.00" fill="#4285f4">Storage Tables</text>
+</g>
+<g id="clust10" class="cluster" data-name="cluster_utils">
+
+<path fill="#f3e8ff" stroke="#7627bb" d="M691.05,-827C691.05,-827 834.02,-827 834.02,-827 840.02,-827 846.02,-833 846.02,-839 846.02,-839 846.02,-1104 846.02,-1104 846.02,-1110 840.02,-1116 834.02,-1116 834.02,-1116 691.05,-1116 691.05,-1116 685.05,-1116 679.05,-1110 679.05,-1104 679.05,-1104 679.05,-839 679.05,-839 679.05,-833 685.05,-827 691.05,-827"/>
+<text text-anchor="middle" x="762.53" y="-1097.6" font-family="Arial" font-size="16.00" fill="#7627bb">Utility Functions</text>
+</g>
+<g id="clust11" class="cluster" data-name="cluster_blockchain_internals">
+
+<path fill="#f4e9fd" stroke="#a142f4" d="M672.33,-1154C672.33,-1154 852.74,-1154 852.74,-1154 858.74,-1154 864.74,-1160 864.74,-1166 864.74,-1166 864.74,-1431 864.74,-1431 864.74,-1437 858.74,-1443 852.74,-1443 852.74,-1443 672.33,-1443 672.33,-1443 666.33,-1443 660.33,-1437 660.33,-1431 660.33,-1431 660.33,-1166 660.33,-1166 660.33,-1160 666.33,-1154 672.33,-1154"/>
+<text text-anchor="middle" x="762.53" y="-1424.6" font-family="Arial" font-size="16.00" fill="#a142f4">Aptos Blockchain Internals</text>
+</g>
+<!-- NFTContract -->
+<g id="node1" class="node" pointer-events="visible" data-name="NFTContract">
+
+<path fill="#feefc3" stroke="#333333" d="M542.03,-720.6C542.03,-720.6 384.44,-720.6 384.44,-720.6 378.44,-720.6 372.44,-714.6 372.44,-708.6 372.44,-708.6 372.44,-685.4 372.44,-685.4 372.44,-679.4 378.44,-673.4 384.44,-673.4 384.44,-673.4 542.03,-673.4 542.03,-673.4 548.03,-673.4 554.03,-679.4 554.03,-685.4 554.03,-685.4 554.03,-708.6 554.03,-708.6 554.03,-714.6 548.03,-720.6 542.03,-720.6"/>
+<text text-anchor="middle" x="463.23" y="-701.2" font-family="Arial" font-size="14.00" fill="#333333">NFT Contract Module</text>
+<text text-anchor="middle" x="463.23" y="-684.4" font-family="Arial" font-size="14.00" fill="#333333">Main contract entry point</text>
+</g>
+<!-- NFTInfo -->
+<g id="node2" class="node" pointer-events="visible" data-name="NFTInfo">
+
+<path fill="#feefc3" stroke="#333333" d="M1092.51,-797.6C1092.51,-797.6 973.22,-797.6 973.22,-797.6 967.22,-797.6 961.22,-791.6 961.22,-785.6 961.22,-785.6 961.22,-762.4 961.22,-762.4 961.22,-756.4 967.22,-750.4 973.22,-750.4 973.22,-750.4 1092.51,-750.4 1092.51,-750.4 1098.51,-750.4 1104.51,-756.4 1104.51,-762.4 1104.51,-762.4 1104.51,-785.6 1104.51,-785.6 1104.51,-791.6 1098.51,-797.6 1092.51,-797.6"/>
+<text text-anchor="middle" x="1032.86" y="-778.2" font-family="Arial" font-size="14.00" fill="#333333">NFT Info Structure</text>
+<text text-anchor="middle" x="1032.86" y="-761.4" font-family="Arial" font-size="14.00" fill="#333333">Token metadata</text>
+</g>
+<!-- NFTContract&#45;&gt;NFTInfo -->
+<g id="edge6" class="edge" data-name="NFTContract-&gt;NFTInfo">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M537.3,-721.02C550.5,-725.35 564.14,-729.82 576.97,-734 613.99,-746.07 622.75,-750.78 660.33,-761 750.11,-785.41 784.76,-758.66 864.74,-806.2 871.73,-810.35 869.34,-816.63 876.74,-820 899.4,-830.33 910.43,-831 932.78,-820 939.31,-816.78 936.91,-811.32 942.78,-807 945.3,-805.14 947.95,-803.37 950.68,-801.69"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="952.25,-804.82 959.29,-796.9 948.85,-798.71 952.25,-804.82"/>
+<text text-anchor="middle" x="762.53" y="-810.2" font-family="Arial" font-size="14.00" fill="#666666">Contains</text>
+</g>
+<!-- NFTOwnership -->
+<g id="node3" class="node" pointer-events="visible" data-name="NFTOwnership">
+
+<path fill="#feefc3" stroke="#333333" d="M1093.85,-731.6C1093.85,-731.6 971.87,-731.6 971.87,-731.6 965.87,-731.6 959.87,-725.6 959.87,-719.6 959.87,-719.6 959.87,-696.4 959.87,-696.4 959.87,-690.4 965.87,-684.4 971.87,-684.4 971.87,-684.4 1093.85,-684.4 1093.85,-684.4 1099.85,-684.4 1105.85,-690.4 1105.85,-696.4 1105.85,-696.4 1105.85,-719.6 1105.85,-719.6 1105.85,-725.6 1099.85,-731.6 1093.85,-731.6"/>
+<text text-anchor="middle" x="1032.86" y="-712.2" font-family="Arial" font-size="14.00" fill="#333333">NFT Ownership</text>
+<text text-anchor="middle" x="1032.86" y="-695.4" font-family="Arial" font-size="14.00" fill="#333333">Ownership records</text>
+</g>
+<!-- NFTContract&#45;&gt;NFTOwnership -->
+<g id="edge7" class="edge" data-name="NFTContract-&gt;NFTOwnership">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M554.25,-712.58C587.48,-717.61 625.51,-722.53 660.33,-725 750.95,-731.44 779.32,-755.93 864.74,-725 871.27,-722.64 870.27,-717.51 876.74,-715 898.89,-706.41 924.17,-702.91 947.8,-702"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="947.87,-705.5 957.79,-701.79 947.72,-698.5 947.87,-705.5"/>
+<text text-anchor="middle" x="762.53" y="-744.2" font-family="Arial" font-size="14.00" fill="#666666">Manages</text>
+</g>
+<!-- NFTAccess -->
+<g id="node4" class="node" pointer-events="visible" data-name="NFTAccess">
+
+<path fill="#feefc3" stroke="#333333" d="M157.37,-1713.6C157.37,-1713.6 27.88,-1713.6 27.88,-1713.6 21.88,-1713.6 15.88,-1707.6 15.88,-1701.6 15.88,-1701.6 15.88,-1678.4 15.88,-1678.4 15.88,-1672.4 21.88,-1666.4 27.88,-1666.4 27.88,-1666.4 157.37,-1666.4 157.37,-1666.4 163.37,-1666.4 169.37,-1672.4 169.37,-1678.4 169.37,-1678.4 169.37,-1701.6 169.37,-1701.6 169.37,-1707.6 163.37,-1713.6 157.37,-1713.6"/>
+<text text-anchor="middle" x="92.62" y="-1694.2" font-family="Arial" font-size="14.00" fill="#333333">NFT Access Control</text>
+<text text-anchor="middle" x="92.62" y="-1677.4" font-family="Arial" font-size="14.00" fill="#333333">Permission system</text>
+</g>
+<!-- NFTContract&#45;&gt;NFTAccess -->
+<g id="edge8" class="edge" data-name="NFTContract-&gt;NFTAccess">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M457.33,-721.01C441.56,-799.16 391.53,-1053.46 364.58,-1266 359.45,-1306.48 368.04,-1412.66 349.5,-1449 309.72,-1526.93 263.43,-1516.82 200.12,-1577.2 172.93,-1603.13 143.76,-1634.29 122.83,-1657.28"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="120.29,-1654.87 116.17,-1664.63 125.48,-1659.57 120.29,-1654.87"/>
+<text text-anchor="middle" x="274.81" y="-1581.2" font-family="Arial" font-size="14.00" fill="#666666">Controls</text>
+</g>
+<!-- Initialize -->
+<g id="node5" class="node" pointer-events="visible" data-name="Initialize">
+
+<path fill="#f5f5f5" stroke="#333333" d="M809.81,-687.6C809.81,-687.6 715.26,-687.6 715.26,-687.6 709.26,-687.6 703.26,-681.6 703.26,-675.6 703.26,-675.6 703.26,-652.4 703.26,-652.4 703.26,-646.4 709.26,-640.4 715.26,-640.4 715.26,-640.4 809.81,-640.4 809.81,-640.4 815.81,-640.4 821.81,-646.4 821.81,-652.4 821.81,-652.4 821.81,-675.6 821.81,-675.6 821.81,-681.6 815.81,-687.6 809.81,-687.6"/>
+<text text-anchor="middle" x="762.53" y="-668.2" font-family="Arial" font-size="14.00" fill="#333333">Initialize</text>
+<text text-anchor="middle" x="762.53" y="-651.4" font-family="Arial" font-size="14.00" fill="#333333">Setup contract</text>
+</g>
+<!-- NFTContract&#45;&gt;Initialize -->
+<g id="edge1" class="edge" data-name="NFTContract-&gt;Initialize">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M554.24,-687.01C598.2,-682.13 650.31,-676.35 691.28,-671.8"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="691.44,-675.3 700.99,-670.72 690.67,-668.34 691.44,-675.3"/>
+</g>
+<!-- CreateNFT -->
+<g id="node6" class="node" pointer-events="visible" data-name="CreateNFT">
+
+<path fill="#f5f5f5" stroke="#333333" d="M811.69,-555.6C811.69,-555.6 713.38,-555.6 713.38,-555.6 707.38,-555.6 701.38,-549.6 701.38,-543.6 701.38,-543.6 701.38,-520.4 701.38,-520.4 701.38,-514.4 707.38,-508.4 713.38,-508.4 713.38,-508.4 811.69,-508.4 811.69,-508.4 817.69,-508.4 823.69,-514.4 823.69,-520.4 823.69,-520.4 823.69,-543.6 823.69,-543.6 823.69,-549.6 817.69,-555.6 811.69,-555.6"/>
+<text text-anchor="middle" x="762.53" y="-536.2" font-family="Arial" font-size="14.00" fill="#333333">Create NFT</text>
+<text text-anchor="middle" x="762.53" y="-519.4" font-family="Arial" font-size="14.00" fill="#333333">Mint new token</text>
+</g>
+<!-- NFTContract&#45;&gt;CreateNFT -->
+<g id="edge2" class="edge" data-name="NFTContract-&gt;CreateNFT">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M494.2,-672.93C531.34,-644.04 597.44,-595.68 660.33,-565 669.72,-560.42 679.9,-556.25 690.06,-552.54"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="691.05,-555.9 699.33,-549.29 688.74,-549.29 691.05,-555.9"/>
+</g>
+<!-- TransferNFT -->
+<g id="node7" class="node" pointer-events="visible" data-name="TransferNFT">
+
+<path fill="#f5f5f5" stroke="#333333" d="M822.78,-423.6C822.78,-423.6 702.29,-423.6 702.29,-423.6 696.29,-423.6 690.29,-417.6 690.29,-411.6 690.29,-411.6 690.29,-388.4 690.29,-388.4 690.29,-382.4 696.29,-376.4 702.29,-376.4 702.29,-376.4 822.78,-376.4 822.78,-376.4 828.78,-376.4 834.78,-382.4 834.78,-388.4 834.78,-388.4 834.78,-411.6 834.78,-411.6 834.78,-417.6 828.78,-423.6 822.78,-423.6"/>
+<text text-anchor="middle" x="762.53" y="-404.2" font-family="Arial" font-size="14.00" fill="#333333">Transfer NFT</text>
+<text text-anchor="middle" x="762.53" y="-387.4" font-family="Arial" font-size="14.00" fill="#333333">Change ownership</text>
+</g>
+<!-- NFTContract&#45;&gt;TransferNFT -->
+<g id="edge3" class="edge" data-name="NFTContract-&gt;TransferNFT">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M474.66,-673.07C492.19,-634.48 530.27,-557.25 576.97,-502 608.02,-465.27 618.2,-456.2 660.33,-433 666.24,-429.74 672.52,-426.75 678.95,-424"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="680.22,-427.26 688.19,-420.29 677.6,-420.77 680.22,-427.26"/>
+</g>
+<!-- BurnNFT -->
+<g id="node8" class="node" pointer-events="visible" data-name="BurnNFT">
+
+<path fill="#f5f5f5" stroke="#333333" d="M807.91,-489.6C807.91,-489.6 717.16,-489.6 717.16,-489.6 711.16,-489.6 705.16,-483.6 705.16,-477.6 705.16,-477.6 705.16,-454.4 705.16,-454.4 705.16,-448.4 711.16,-442.4 717.16,-442.4 717.16,-442.4 807.91,-442.4 807.91,-442.4 813.91,-442.4 819.91,-448.4 819.91,-454.4 819.91,-454.4 819.91,-477.6 819.91,-477.6 819.91,-483.6 813.91,-489.6 807.91,-489.6"/>
+<text text-anchor="middle" x="762.53" y="-470.2" font-family="Arial" font-size="14.00" fill="#333333">Burn NFT</text>
+<text text-anchor="middle" x="762.53" y="-453.4" font-family="Arial" font-size="14.00" fill="#333333">Destroy token</text>
+</g>
+<!-- NFTContract&#45;&gt;BurnNFT -->
+<g id="edge4" class="edge" data-name="NFTContract-&gt;BurnNFT">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M480.49,-673.03C510.63,-630.63 579.49,-542.76 660.33,-499 670.8,-493.33 682.41,-488.43 693.92,-484.26"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="694.85,-487.64 703.17,-481.08 692.57,-481.02 694.85,-487.64"/>
+</g>
+<!-- GetNFTInfo -->
+<g id="node9" class="node" pointer-events="visible" data-name="GetNFTInfo">
+
+<path fill="#f5f5f5" stroke="#333333" d="M812.27,-621.6C812.27,-621.6 712.8,-621.6 712.8,-621.6 706.8,-621.6 700.8,-615.6 700.8,-609.6 700.8,-609.6 700.8,-586.4 700.8,-586.4 700.8,-580.4 706.8,-574.4 712.8,-574.4 712.8,-574.4 812.27,-574.4 812.27,-574.4 818.27,-574.4 824.27,-580.4 824.27,-586.4 824.27,-586.4 824.27,-609.6 824.27,-609.6 824.27,-615.6 818.27,-621.6 812.27,-621.6"/>
+<text text-anchor="middle" x="762.53" y="-602.2" font-family="Arial" font-size="14.00" fill="#333333">Get NFT Info</text>
+<text text-anchor="middle" x="762.53" y="-585.4" font-family="Arial" font-size="14.00" fill="#333333">Read metadata</text>
+</g>
+<!-- NFTContract&#45;&gt;GetNFTInfo -->
+<g id="edge5" class="edge" data-name="NFTContract-&gt;GetNFTInfo">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M534.98,-673.01C572.24,-660.42 618.73,-644.78 660.33,-631 669.76,-627.88 679.69,-624.61 689.5,-621.39"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="690.35,-624.8 698.77,-618.36 688.17,-618.15 690.35,-624.8"/>
+</g>
+<!-- AptosBlockchain -->
+<g id="node41" class="node" pointer-events="visible" data-name="AptosBlockchain">
+
+<ellipse fill="#5a2ca0" stroke="#333333" cx="463.23" cy="-1309" rx="95.97" ry="33.82"/>
+<text text-anchor="middle" x="463.23" y="-1313.2" font-family="Arial" font-size="14.00" fill="white">Aptos Blockchain</text>
+<text text-anchor="middle" x="463.23" y="-1296.4" font-family="Arial" font-size="14.00" fill="white">L1 Network</text>
+</g>
+<!-- NFTContract&#45;&gt;AptosBlockchain -->
+<g id="edge71" class="edge" data-name="NFTContract-&gt;AptosBlockchain">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M463.23,-720.99C463.23,-812.64 463.23,-1141.57 463.23,-1263.29"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="459.73,-1262.92 463.23,-1272.92 466.73,-1262.92 459.73,-1262.92"/>
+<text text-anchor="middle" x="451.83" y="-993.87" font-family="Arial" font-size="14.00" fill="#666666">Deployed on</text>
+</g>
+<!-- HashGenerator -->
+<g id="node45" class="node" pointer-events="visible" data-name="HashGenerator">
+
+<path fill="#e9d7fe" stroke="#333333" d="M821.95,-948.6C821.95,-948.6 703.12,-948.6 703.12,-948.6 697.12,-948.6 691.12,-942.6 691.12,-936.6 691.12,-936.6 691.12,-913.4 691.12,-913.4 691.12,-907.4 697.12,-901.4 703.12,-901.4 703.12,-901.4 821.95,-901.4 821.95,-901.4 827.95,-901.4 833.95,-907.4 833.95,-913.4 833.95,-913.4 833.95,-936.6 833.95,-936.6 833.95,-942.6 827.95,-948.6 821.95,-948.6"/>
+<text text-anchor="middle" x="762.53" y="-929.2" font-family="Arial" font-size="14.00" fill="#333333">Hash Generator</text>
+<text text-anchor="middle" x="762.53" y="-912.4" font-family="Arial" font-size="14.00" fill="#333333">Token uniqueness</text>
+</g>
+<!-- NFTContract&#45;&gt;HashGenerator -->
+<g id="edge79" class="edge" data-name="NFTContract-&gt;HashGenerator">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M474.44,-720.92C490.91,-756.78 526.67,-824.4 576.97,-863 606.72,-885.83 645.36,-900.52 679.59,-909.83"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="678.69,-913.22 689.25,-912.33 680.44,-906.44 678.69,-913.22"/>
+<text text-anchor="middle" x="613.15" y="-903.2" font-family="Arial" font-size="14.00" fill="#666666">Uses</text>
+</g>
+<!-- ErrorHandler -->
+<g id="node47" class="node" pointer-events="visible" data-name="ErrorHandler">
+
+<path fill="#e9d7fe" stroke="#333333" d="M811.96,-882.6C811.96,-882.6 713.11,-882.6 713.11,-882.6 707.11,-882.6 701.11,-876.6 701.11,-870.6 701.11,-870.6 701.11,-847.4 701.11,-847.4 701.11,-841.4 707.11,-835.4 713.11,-835.4 713.11,-835.4 811.96,-835.4 811.96,-835.4 817.96,-835.4 823.96,-841.4 823.96,-847.4 823.96,-847.4 823.96,-870.6 823.96,-870.6 823.96,-876.6 817.96,-882.6 811.96,-882.6"/>
+<text text-anchor="middle" x="762.53" y="-863.2" font-family="Arial" font-size="14.00" fill="#333333">Error Handler</text>
+<text text-anchor="middle" x="762.53" y="-846.4" font-family="Arial" font-size="14.00" fill="#333333">Error constants</text>
+</g>
+<!-- NFTContract&#45;&gt;ErrorHandler -->
+<g id="edge81" class="edge" data-name="NFTContract-&gt;ErrorHandler">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M480.83,-721.08C500.59,-747.89 536.13,-790.53 576.97,-814 611.29,-833.72 653.99,-844.84 689.68,-851.09"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="688.77,-854.49 699.2,-852.66 689.91,-847.58 688.77,-854.49"/>
+<text text-anchor="middle" x="613.15" y="-846.2" font-family="Arial" font-size="14.00" fill="#666666">Uses</text>
+</g>
+<!-- Validator -->
+<g id="node48" class="node" pointer-events="visible" data-name="Validator">
+
+<path fill="#e9d7fe" stroke="#333333" d="M811.71,-1014.6C811.71,-1014.6 713.36,-1014.6 713.36,-1014.6 707.36,-1014.6 701.36,-1008.6 701.36,-1002.6 701.36,-1002.6 701.36,-979.4 701.36,-979.4 701.36,-973.4 707.36,-967.4 713.36,-967.4 713.36,-967.4 811.71,-967.4 811.71,-967.4 817.71,-967.4 823.71,-973.4 823.71,-979.4 823.71,-979.4 823.71,-1002.6 823.71,-1002.6 823.71,-1008.6 817.71,-1014.6 811.71,-1014.6"/>
+<text text-anchor="middle" x="762.53" y="-995.2" font-family="Arial" font-size="14.00" fill="#333333">Validator</text>
+<text text-anchor="middle" x="762.53" y="-978.4" font-family="Arial" font-size="14.00" fill="#333333">Input validation</text>
+</g>
+<!-- NFTContract&#45;&gt;Validator -->
+<g id="edge82" class="edge" data-name="NFTContract-&gt;Validator">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M470.58,-721.03C483.52,-765.71 516.9,-862.3 576.97,-920 607.71,-949.53 652.05,-967.11 689.56,-977.4"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="688.64,-980.77 699.2,-979.9 690.4,-974 688.64,-980.77"/>
+<text text-anchor="middle" x="613.15" y="-966.2" font-family="Arial" font-size="14.00" fill="#666666">Uses</text>
+</g>
+<!-- NFTTable -->
+<g id="node37" class="node" pointer-events="visible" data-name="NFTTable">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1360.18,-642.6C1360.18,-642.6 1266.21,-642.6 1266.21,-642.6 1260.21,-642.6 1254.21,-636.6 1254.21,-630.6 1254.21,-630.6 1254.21,-607.4 1254.21,-607.4 1254.21,-601.4 1260.21,-595.4 1266.21,-595.4 1266.21,-595.4 1360.18,-595.4 1360.18,-595.4 1366.18,-595.4 1372.18,-601.4 1372.18,-607.4 1372.18,-607.4 1372.18,-630.6 1372.18,-630.6 1372.18,-636.6 1366.18,-642.6 1360.18,-642.6"/>
+<text text-anchor="middle" x="1313.2" y="-623.2" font-family="Arial" font-size="14.00" fill="#333333">NFT Table</text>
+<text text-anchor="middle" x="1313.2" y="-606.4" font-family="Arial" font-size="14.00" fill="#333333">Token records</text>
+</g>
+<!-- NFTInfo&#45;&gt;NFTTable -->
+<g id="edge63" class="edge" data-name="NFTInfo-&gt;NFTTable">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1104.89,-765.01C1140.49,-756.97 1181.62,-741.77 1208.44,-713 1227.6,-692.45 1206.16,-672.8 1225.06,-652 1230.32,-646.21 1236.7,-641.43 1243.6,-637.48"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1245,-640.69 1252.37,-633.09 1241.86,-634.43 1245,-640.69"/>
+<text text-anchor="middle" x="1170.69" y="-760.2" font-family="Arial" font-size="14.00" fill="#666666">Stored in</text>
+</g>
+<!-- OwnershipTable -->
+<g id="node38" class="node" pointer-events="visible" data-name="OwnershipTable">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1368.03,-576.6C1368.03,-576.6 1258.37,-576.6 1258.37,-576.6 1252.37,-576.6 1246.37,-570.6 1246.37,-564.6 1246.37,-564.6 1246.37,-541.4 1246.37,-541.4 1246.37,-535.4 1252.37,-529.4 1258.37,-529.4 1258.37,-529.4 1368.03,-529.4 1368.03,-529.4 1374.03,-529.4 1380.03,-535.4 1380.03,-541.4 1380.03,-541.4 1380.03,-564.6 1380.03,-564.6 1380.03,-570.6 1374.03,-576.6 1368.03,-576.6"/>
+<text text-anchor="middle" x="1313.2" y="-557.2" font-family="Arial" font-size="14.00" fill="#333333">Ownership Table</text>
+<text text-anchor="middle" x="1313.2" y="-540.4" font-family="Arial" font-size="14.00" fill="#333333">Owner mapping</text>
+</g>
+<!-- NFTOwnership&#45;&gt;OwnershipTable -->
+<g id="edge62" class="edge" data-name="NFTOwnership-&gt;OwnershipTable">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.28,-700.17C1141.59,-692.72 1182.04,-678.22 1208.44,-650 1228.51,-628.54 1205.43,-607.87 1225.06,-586 1228.34,-582.34 1232.07,-579.09 1236.09,-576.19"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1237.76,-579.28 1244.41,-571.03 1234.07,-573.33 1237.76,-579.28"/>
+<text text-anchor="middle" x="1170.69" y="-696.2" font-family="Arial" font-size="14.00" fill="#666666">Stored in</text>
+</g>
+<!-- AccessLevels -->
+<g id="node10" class="node" pointer-events="visible" data-name="AccessLevels">
+
+<path fill="#f5f5f5" stroke="#333333" d="M530.44,-1944.6C530.44,-1944.6 396.02,-1944.6 396.02,-1944.6 390.02,-1944.6 384.02,-1938.6 384.02,-1932.6 384.02,-1932.6 384.02,-1909.4 384.02,-1909.4 384.02,-1903.4 390.02,-1897.4 396.02,-1897.4 396.02,-1897.4 530.44,-1897.4 530.44,-1897.4 536.44,-1897.4 542.44,-1903.4 542.44,-1909.4 542.44,-1909.4 542.44,-1932.6 542.44,-1932.6 542.44,-1938.6 536.44,-1944.6 530.44,-1944.6"/>
+<text text-anchor="middle" x="463.23" y="-1925.2" font-family="Arial" font-size="14.00" fill="#333333">Access Levels</text>
+<text text-anchor="middle" x="463.23" y="-1908.4" font-family="Arial" font-size="14.00" fill="#333333">Permission hierarchy</text>
+</g>
+<!-- NFTAccess&#45;&gt;AccessLevels -->
+<g id="edge31" class="edge" data-name="NFTAccess-&gt;AccessLevels">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M132.03,-1714.07C199.66,-1756.45 339.83,-1844.29 413.91,-1890.72"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="412.04,-1893.68 422.38,-1896.02 415.76,-1887.75 412.04,-1893.68"/>
+<text text-anchor="middle" x="274.81" y="-1850.2" font-family="Arial" font-size="14.00" fill="#666666">Defines</text>
+</g>
+<!-- PermissionManager -->
+<g id="node11" class="node" pointer-events="visible" data-name="PermissionManager">
+
+<path fill="#f5f5f5" stroke="#333333" d="M529.62,-1669.6C529.62,-1669.6 396.85,-1669.6 396.85,-1669.6 390.85,-1669.6 384.85,-1663.6 384.85,-1657.6 384.85,-1657.6 384.85,-1634.4 384.85,-1634.4 384.85,-1628.4 390.85,-1622.4 396.85,-1622.4 396.85,-1622.4 529.62,-1622.4 529.62,-1622.4 535.62,-1622.4 541.62,-1628.4 541.62,-1634.4 541.62,-1634.4 541.62,-1657.6 541.62,-1657.6 541.62,-1663.6 535.62,-1669.6 529.62,-1669.6"/>
+<text text-anchor="middle" x="463.23" y="-1650.2" font-family="Arial" font-size="14.00" fill="#333333">Permission Manager</text>
+<text text-anchor="middle" x="463.23" y="-1633.4" font-family="Arial" font-size="14.00" fill="#333333">Access operations</text>
+</g>
+<!-- NFTAccess&#45;&gt;PermissionManager -->
+<g id="edge32" class="edge" data-name="NFTAccess-&gt;PermissionManager">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M169.55,-1680.94C228.68,-1673.88 310.88,-1664.07 373.12,-1656.64"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="373.18,-1660.15 382.69,-1655.49 372.35,-1653.2 373.18,-1660.15"/>
+<text text-anchor="middle" x="274.81" y="-1680.2" font-family="Arial" font-size="14.00" fill="#666666">Implements</text>
+</g>
+<!-- VerificationLogic -->
+<g id="node12" class="node" pointer-events="visible" data-name="VerificationLogic">
+
+<path fill="#f5f5f5" stroke="#333333" d="M518.35,-1758.6C518.35,-1758.6 408.12,-1758.6 408.12,-1758.6 402.12,-1758.6 396.12,-1752.6 396.12,-1746.6 396.12,-1746.6 396.12,-1723.4 396.12,-1723.4 396.12,-1717.4 402.12,-1711.4 408.12,-1711.4 408.12,-1711.4 518.35,-1711.4 518.35,-1711.4 524.35,-1711.4 530.35,-1717.4 530.35,-1723.4 530.35,-1723.4 530.35,-1746.6 530.35,-1746.6 530.35,-1752.6 524.35,-1758.6 518.35,-1758.6"/>
+<text text-anchor="middle" x="463.23" y="-1739.2" font-family="Arial" font-size="14.00" fill="#333333">Verification Logic</text>
+<text text-anchor="middle" x="463.23" y="-1722.4" font-family="Arial" font-size="14.00" fill="#333333">Access checking</text>
+</g>
+<!-- NFTAccess&#45;&gt;VerificationLogic -->
+<g id="edge33" class="edge" data-name="NFTAccess-&gt;VerificationLogic">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M169.55,-1699.27C232.25,-1706.92 320.89,-1717.75 384.17,-1725.47"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="383.52,-1728.92 393.87,-1726.65 384.37,-1721.97 383.52,-1728.92"/>
+<text text-anchor="middle" x="274.81" y="-1724.2" font-family="Arial" font-size="14.00" fill="#666666">Uses</text>
+</g>
+<!-- DefaultAccessTable -->
+<g id="node13" class="node" pointer-events="visible" data-name="DefaultAccessTable">
+
+<path fill="#f5f5f5" stroke="#333333" d="M531.52,-1599.6C531.52,-1599.6 394.95,-1599.6 394.95,-1599.6 388.95,-1599.6 382.95,-1593.6 382.95,-1587.6 382.95,-1587.6 382.95,-1564.4 382.95,-1564.4 382.95,-1558.4 388.95,-1552.4 394.95,-1552.4 394.95,-1552.4 531.52,-1552.4 531.52,-1552.4 537.52,-1552.4 543.52,-1558.4 543.52,-1564.4 543.52,-1564.4 543.52,-1587.6 543.52,-1587.6 543.52,-1593.6 537.52,-1599.6 531.52,-1599.6"/>
+<text text-anchor="middle" x="463.23" y="-1580.2" font-family="Arial" font-size="14.00" fill="#333333">Default Access Table</text>
+<text text-anchor="middle" x="463.23" y="-1563.4" font-family="Arial" font-size="14.00" fill="#333333">Fallback permissions</text>
+</g>
+<!-- NFTAccess&#45;&gt;DefaultAccessTable -->
+<g id="edge34" class="edge" data-name="NFTAccess-&gt;DefaultAccessTable">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M138.6,-1665.98C157.26,-1656.7 179.36,-1646.56 200.12,-1639.2 255.8,-1619.45 320.28,-1603.81 371.36,-1593.03"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="371.85,-1596.51 380.93,-1591.04 370.42,-1589.65 371.85,-1596.51"/>
+<text text-anchor="middle" x="274.81" y="-1643.2" font-family="Arial" font-size="14.00" fill="#666666">Maintains</text>
+</g>
+<!-- AccessTable -->
+<g id="node39" class="node" pointer-events="visible" data-name="AccessTable">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1378.53,-774.6C1378.53,-774.6 1247.86,-774.6 1247.86,-774.6 1241.86,-774.6 1235.86,-768.6 1235.86,-762.6 1235.86,-762.6 1235.86,-739.4 1235.86,-739.4 1235.86,-733.4 1241.86,-727.4 1247.86,-727.4 1247.86,-727.4 1378.53,-727.4 1378.53,-727.4 1384.53,-727.4 1390.53,-733.4 1390.53,-739.4 1390.53,-739.4 1390.53,-762.6 1390.53,-762.6 1390.53,-768.6 1384.53,-774.6 1378.53,-774.6"/>
+<text text-anchor="middle" x="1313.2" y="-755.2" font-family="Arial" font-size="14.00" fill="#333333">Access Table</text>
+<text text-anchor="middle" x="1313.2" y="-738.4" font-family="Arial" font-size="14.00" fill="#333333">Permission mapping</text>
+</g>
+<!-- NFTAccess&#45;&gt;AccessTable -->
+<g id="edge64" class="edge" data-name="NFTAccess-&gt;AccessTable">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M103.15,-1713.96C137.69,-1796.51 264.86,-2064 462.23,-2064 462.23,-2064 462.23,-2064 1033.86,-2064 1113.36,-2064 1158.31,-2086.71 1208.44,-2025 1252.08,-1971.26 1183.9,-834.67 1225.06,-779 1225.7,-778.13 1226.37,-777.29 1227.06,-776.48"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1229.14,-779.32 1234.04,-769.93 1224.35,-774.22 1229.14,-779.32"/>
+<text text-anchor="middle" x="762.53" y="-2068.2" font-family="Arial" font-size="14.00" fill="#666666">Stored in</text>
+</g>
+<!-- CreateNFT&#45;&gt;NFTInfo -->
+<g id="edge9" class="edge" data-name="CreateNFT-&gt;NFTInfo">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M823.94,-539.3C839.53,-544.15 854.72,-552.08 864.74,-565 890.27,-597.9 848.45,-721.45 876.74,-752 887.07,-763.15 917.95,-768.76 949.47,-771.54"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="949.02,-775.02 959.26,-772.3 949.56,-768.04 949.02,-775.02"/>
+<text text-anchor="middle" x="904.76" y="-773.2" font-family="Arial" font-size="14.00" fill="#666666">Creates</text>
+</g>
+<!-- CreateNFT&#45;&gt;NFTOwnership -->
+<g id="edge10" class="edge" data-name="CreateNFT-&gt;NFTOwnership">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M824.07,-540.08C839.37,-544.96 854.38,-552.71 864.74,-565 888.48,-593.16 854.11,-617.94 876.74,-647 893.31,-668.26 908.16,-659.21 932.78,-670.2 937.28,-672.21 938.24,-673.08 942.78,-675 946.46,-676.56 950.24,-678.12 954.07,-679.67"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="952.68,-682.88 963.26,-683.31 955.25,-676.37 952.68,-682.88"/>
+<text text-anchor="middle" x="904.76" y="-674.2" font-family="Arial" font-size="14.00" fill="#666666">Updates</text>
+</g>
+<!-- CreateEvent -->
+<g id="node25" class="node" pointer-events="visible" data-name="CreateEvent">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1092.81,-599.6C1092.81,-599.6 972.91,-599.6 972.91,-599.6 966.91,-599.6 960.91,-593.6 960.91,-587.6 960.91,-587.6 960.91,-564.4 960.91,-564.4 960.91,-558.4 966.91,-552.4 972.91,-552.4 972.91,-552.4 1092.81,-552.4 1092.81,-552.4 1098.81,-552.4 1104.81,-558.4 1104.81,-564.4 1104.81,-564.4 1104.81,-587.6 1104.81,-587.6 1104.81,-593.6 1098.81,-599.6 1092.81,-599.6"/>
+<text text-anchor="middle" x="1032.86" y="-580.2" font-family="Arial" font-size="14.00" fill="#333333">Create Event</text>
+<text text-anchor="middle" x="1032.86" y="-563.4" font-family="Arial" font-size="14.00" fill="#333333">Minting notification</text>
+</g>
+<!-- CreateNFT&#45;&gt;CreateEvent -->
+<g id="edge52" class="edge" data-name="CreateNFT-&gt;CreateEvent">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M824.16,-536.34C856.55,-539.2 897.02,-543.66 932.78,-550.2 938.12,-551.18 943.61,-552.29 949.12,-553.49"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="948.13,-556.86 958.66,-555.66 949.69,-550.03 948.13,-556.86"/>
+<text text-anchor="middle" x="904.76" y="-554.2" font-family="Arial" font-size="14.00" fill="#666666">Emits</text>
+</g>
+<!-- TransferNFT&#45;&gt;NFTOwnership -->
+<g id="edge11" class="edge" data-name="TransferNFT-&gt;NFTOwnership">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M835.15,-414.91C845.91,-419.43 856.23,-425.32 864.74,-433 920.06,-482.91 913.26,-514.3 932.78,-586.2 937.98,-605.36 930.54,-659.36 942.78,-675 944.99,-677.83 947.48,-680.42 950.17,-682.79"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="947.81,-685.39 957.93,-688.53 951.97,-679.77 947.81,-685.39"/>
+<text text-anchor="middle" x="904.76" y="-590.2" font-family="Arial" font-size="14.00" fill="#666666">Updates</text>
+</g>
+<!-- TransferEvent -->
+<g id="node26" class="node" pointer-events="visible" data-name="TransferEvent">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1093.1,-467.6C1093.1,-467.6 972.62,-467.6 972.62,-467.6 966.62,-467.6 960.62,-461.6 960.62,-455.6 960.62,-455.6 960.62,-432.4 960.62,-432.4 960.62,-426.4 966.62,-420.4 972.62,-420.4 972.62,-420.4 1093.1,-420.4 1093.1,-420.4 1099.1,-420.4 1105.1,-426.4 1105.1,-432.4 1105.1,-432.4 1105.1,-455.6 1105.1,-455.6 1105.1,-461.6 1099.1,-467.6 1093.1,-467.6"/>
+<text text-anchor="middle" x="1032.86" y="-448.2" font-family="Arial" font-size="14.00" fill="#333333">Transfer Event</text>
+<text text-anchor="middle" x="1032.86" y="-431.4" font-family="Arial" font-size="14.00" fill="#333333">Ownership change</text>
+</g>
+<!-- TransferNFT&#45;&gt;TransferEvent -->
+<g id="edge53" class="edge" data-name="TransferNFT-&gt;TransferEvent">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M778.62,-376.09C809.55,-329.88 881.53,-236.84 932.78,-284.2 953.53,-303.38 925.73,-388.45 942.78,-411 945.24,-414.26 948.06,-417.19 951.14,-419.84"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="948.82,-422.48 958.98,-425.49 952.91,-416.8 948.82,-422.48"/>
+<text text-anchor="middle" x="904.76" y="-288.2" font-family="Arial" font-size="14.00" fill="#666666">Emits</text>
+</g>
+<!-- BurnNFT&#45;&gt;NFTInfo -->
+<g id="edge13" class="edge" data-name="BurnNFT-&gt;NFTInfo">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M820.25,-472.19C837.11,-476.91 853.93,-485.05 864.74,-499 890.92,-532.8 856.04,-653.6 876.74,-691 891.58,-717.82 909.31,-711.48 932.78,-731.2 937.54,-735.2 937.52,-737.67 942.78,-741 945.27,-742.58 947.86,-744.11 950.51,-745.57"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="948.87,-748.67 959.37,-750.1 952.06,-742.43 948.87,-748.67"/>
+<text text-anchor="middle" x="904.76" y="-735.2" font-family="Arial" font-size="14.00" fill="#666666">Deletes</text>
+</g>
+<!-- BurnNFT&#45;&gt;NFTOwnership -->
+<g id="edge12" class="edge" data-name="BurnNFT-&gt;NFTOwnership">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M820.39,-472.66C837.04,-477.41 853.72,-485.45 864.74,-499 895.23,-536.46 846.54,-569.32 876.74,-607 893.21,-627.54 915.39,-606.43 932.78,-626.2 947.4,-642.82 928.36,-658.2 942.78,-675 944.99,-677.58 947.43,-679.96 950.03,-682.16"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="947.84,-684.89 958.01,-687.86 951.92,-679.2 947.84,-684.89"/>
+<text text-anchor="middle" x="904.76" y="-630.2" font-family="Arial" font-size="14.00" fill="#666666">Updates</text>
+</g>
+<!-- BurnEvent -->
+<g id="node27" class="node" pointer-events="visible" data-name="BurnEvent">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1090.64,-401.6C1090.64,-401.6 975.08,-401.6 975.08,-401.6 969.08,-401.6 963.08,-395.6 963.08,-389.6 963.08,-389.6 963.08,-366.4 963.08,-366.4 963.08,-360.4 969.08,-354.4 975.08,-354.4 975.08,-354.4 1090.64,-354.4 1090.64,-354.4 1096.64,-354.4 1102.64,-360.4 1102.64,-366.4 1102.64,-366.4 1102.64,-389.6 1102.64,-389.6 1102.64,-395.6 1096.64,-401.6 1090.64,-401.6"/>
+<text text-anchor="middle" x="1032.86" y="-382.2" font-family="Arial" font-size="14.00" fill="#333333">Burn Event</text>
+<text text-anchor="middle" x="1032.86" y="-365.4" font-family="Arial" font-size="14.00" fill="#333333">Token destruction</text>
+</g>
+<!-- BurnNFT&#45;&gt;BurnEvent -->
+<g id="edge54" class="edge" data-name="BurnNFT-&gt;BurnEvent">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M820.28,-447.53C834.78,-442.8 850.34,-437.72 864.74,-433 893.06,-423.72 924.06,-413.53 951.6,-404.46"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="952.63,-407.81 961.04,-401.36 950.44,-401.16 952.63,-407.81"/>
+<text text-anchor="middle" x="904.76" y="-432.2" font-family="Arial" font-size="14.00" fill="#666666">Emits</text>
+</g>
+<!-- GetNFTInfo&#45;&gt;NFTInfo -->
+<g id="edge14" class="edge" data-name="GetNFTInfo-&gt;NFTInfo">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M824.65,-605.61C839.95,-610.48 854.82,-618.35 864.74,-631 886.88,-659.23 850.45,-767.59 876.74,-792 887.76,-802.23 918.33,-800.22 949.46,-794.65"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="949.97,-798.12 959.13,-792.8 948.65,-791.24 949.97,-798.12"/>
+<text text-anchor="middle" x="904.76" y="-803.2" font-family="Arial" font-size="14.00" fill="#666666">Reads</text>
+</g>
+<!-- Level1 -->
+<g id="node14" class="node" pointer-events="visible" data-name="Level1">
+
+<path fill="#f5f5f5" stroke="#333333" d="M824.38,-1987.6C824.38,-1987.6 700.69,-1987.6 700.69,-1987.6 694.69,-1987.6 688.69,-1981.6 688.69,-1975.6 688.69,-1975.6 688.69,-1952.4 688.69,-1952.4 688.69,-1946.4 694.69,-1940.4 700.69,-1940.4 700.69,-1940.4 824.38,-1940.4 824.38,-1940.4 830.38,-1940.4 836.38,-1946.4 836.38,-1952.4 836.38,-1952.4 836.38,-1975.6 836.38,-1975.6 836.38,-1981.6 830.38,-1987.6 824.38,-1987.6"/>
+<text text-anchor="middle" x="762.53" y="-1968.2" font-family="Arial" font-size="14.00" fill="#333333">Level 1: Use Model</text>
+<text text-anchor="middle" x="762.53" y="-1951.4" font-family="Arial" font-size="14.00" fill="#333333">Execution only</text>
+</g>
+<!-- AccessLevels&#45;&gt;Level1 -->
+<g id="edge20" class="edge" data-name="AccessLevels-&gt;Level1">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M542.73,-1932.35C583.93,-1938.31 634.46,-1945.62 676.58,-1951.71"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="676.02,-1955.17 686.42,-1953.14 677.03,-1948.24 676.02,-1955.17"/>
+</g>
+<!-- Level2 -->
+<g id="node15" class="node" pointer-events="visible" data-name="Level2">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1085.8,-1987.6C1085.8,-1987.6 979.92,-1987.6 979.92,-1987.6 973.92,-1987.6 967.92,-1981.6 967.92,-1975.6 967.92,-1975.6 967.92,-1952.4 967.92,-1952.4 967.92,-1946.4 973.92,-1940.4 979.92,-1940.4 979.92,-1940.4 1085.8,-1940.4 1085.8,-1940.4 1091.8,-1940.4 1097.8,-1946.4 1097.8,-1952.4 1097.8,-1952.4 1097.8,-1975.6 1097.8,-1975.6 1097.8,-1981.6 1091.8,-1987.6 1085.8,-1987.6"/>
+<text text-anchor="middle" x="1032.86" y="-1968.2" font-family="Arial" font-size="14.00" fill="#333333">Level 2: Resale</text>
+<text text-anchor="middle" x="1032.86" y="-1951.4" font-family="Arial" font-size="14.00" fill="#333333">Grant L1 access</text>
+</g>
+<!-- AccessLevels&#45;&gt;Level2 -->
+<g id="edge21" class="edge" data-name="AccessLevels-&gt;Level2">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M511.52,-1945.05C550.36,-1963.38 607.39,-1987.1 660.33,-1997 761.74,-2015.96 880.83,-1998.54 956.31,-1982.68"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="956.77,-1986.16 965.81,-1980.64 955.29,-1979.32 956.77,-1986.16"/>
+</g>
+<!-- Level3 -->
+<g id="node16" class="node" pointer-events="visible" data-name="Level3">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1387.72,-1987.6C1387.72,-1987.6 1238.67,-1987.6 1238.67,-1987.6 1232.67,-1987.6 1226.67,-1981.6 1226.67,-1975.6 1226.67,-1975.6 1226.67,-1952.4 1226.67,-1952.4 1226.67,-1946.4 1232.67,-1940.4 1238.67,-1940.4 1238.67,-1940.4 1387.72,-1940.4 1387.72,-1940.4 1393.72,-1940.4 1399.72,-1946.4 1399.72,-1952.4 1399.72,-1952.4 1399.72,-1975.6 1399.72,-1975.6 1399.72,-1981.6 1393.72,-1987.6 1387.72,-1987.6"/>
+<text text-anchor="middle" x="1313.2" y="-1968.2" font-family="Arial" font-size="14.00" fill="#333333">Level 3: Create Replica</text>
+<text text-anchor="middle" x="1313.2" y="-1951.4" font-family="Arial" font-size="14.00" fill="#333333">Derivative works</text>
+</g>
+<!-- AccessLevels&#45;&gt;Level3 -->
+<g id="edge22" class="edge" data-name="AccessLevels-&gt;Level3">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M542.81,-1918.41C665.33,-1915.22 909.17,-1912.31 1114.95,-1931 1147.75,-1933.98 1183.32,-1939.28 1215.11,-1944.77"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1214.39,-1948.2 1224.85,-1946.49 1215.6,-1941.31 1214.39,-1948.2"/>
+</g>
+<!-- Level4 -->
+<g id="node17" class="node" pointer-events="visible" data-name="Level4">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1653.73,-1987.6C1653.73,-1987.6 1499.89,-1987.6 1499.89,-1987.6 1493.89,-1987.6 1487.89,-1981.6 1487.89,-1975.6 1487.89,-1975.6 1487.89,-1952.4 1487.89,-1952.4 1487.89,-1946.4 1493.89,-1940.4 1499.89,-1940.4 1499.89,-1940.4 1653.73,-1940.4 1653.73,-1940.4 1659.73,-1940.4 1665.73,-1946.4 1665.73,-1952.4 1665.73,-1952.4 1665.73,-1975.6 1665.73,-1975.6 1665.73,-1981.6 1659.73,-1987.6 1653.73,-1987.6"/>
+<text text-anchor="middle" x="1576.81" y="-1968.2" font-family="Arial" font-size="14.00" fill="#333333">Level 4: View Download</text>
+<text text-anchor="middle" x="1576.81" y="-1951.4" font-family="Arial" font-size="14.00" fill="#333333">See internals</text>
+</g>
+<!-- AccessLevels&#45;&gt;Level4 -->
+<g id="edge23" class="edge" data-name="AccessLevels-&gt;Level4">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M497.78,-1944.87C519.46,-1959.27 548.79,-1976.92 576.97,-1988 587.76,-1992.24 757.53,-2027 761.53,-2027 761.53,-2027 761.53,-2027 1314.2,-2027 1378.72,-2027 1449.77,-2008.66 1501.53,-1991.77"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1502.49,-1995.14 1510.87,-1988.66 1500.28,-1988.5 1502.49,-1995.14"/>
+</g>
+<!-- Level5 -->
+<g id="node18" class="node" pointer-events="visible" data-name="Level5">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1879.93,-1987.6C1879.93,-1987.6 1765.91,-1987.6 1765.91,-1987.6 1759.91,-1987.6 1753.91,-1981.6 1753.91,-1975.6 1753.91,-1975.6 1753.91,-1952.4 1753.91,-1952.4 1753.91,-1946.4 1759.91,-1940.4 1765.91,-1940.4 1765.91,-1940.4 1879.93,-1940.4 1879.93,-1940.4 1885.93,-1940.4 1891.93,-1946.4 1891.93,-1952.4 1891.93,-1952.4 1891.93,-1975.6 1891.93,-1975.6 1891.93,-1981.6 1885.93,-1987.6 1879.93,-1987.6"/>
+<text text-anchor="middle" x="1822.92" y="-1968.2" font-family="Arial" font-size="14.00" fill="#333333">Level 5: Edit Data</text>
+<text text-anchor="middle" x="1822.92" y="-1951.4" font-family="Arial" font-size="14.00" fill="#333333">Modify workflow</text>
+</g>
+<!-- AccessLevels&#45;&gt;Level5 -->
+<g id="edge24" class="edge" data-name="AccessLevels-&gt;Level5">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M542.69,-1912.84C602.58,-1907.31 687.17,-1901 761.53,-1901 761.53,-1901 761.53,-1901 1577.81,-1901 1638.11,-1901 1704.21,-1919.25 1752.4,-1936.1"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1751.02,-1939.32 1761.61,-1939.39 1753.37,-1932.73 1751.02,-1939.32"/>
+</g>
+<!-- Level6 -->
+<g id="node19" class="node" pointer-events="visible" data-name="Level6">
+
+<path fill="#f5f5f5" stroke="#333333" d="M2103.93,-1987.6C2103.93,-1987.6 1992.12,-1987.6 1992.12,-1987.6 1986.12,-1987.6 1980.12,-1981.6 1980.12,-1975.6 1980.12,-1975.6 1980.12,-1952.4 1980.12,-1952.4 1980.12,-1946.4 1986.12,-1940.4 1992.12,-1940.4 1992.12,-1940.4 2103.93,-1940.4 2103.93,-1940.4 2109.93,-1940.4 2115.93,-1946.4 2115.93,-1952.4 2115.93,-1952.4 2115.93,-1975.6 2115.93,-1975.6 2115.93,-1981.6 2109.93,-1987.6 2103.93,-1987.6"/>
+<text text-anchor="middle" x="2048.03" y="-1968.2" font-family="Arial" font-size="14.00" fill="#333333">Level 6: Absolute</text>
+<text text-anchor="middle" x="2048.03" y="-1951.4" font-family="Arial" font-size="14.00" fill="#333333">Complete control</text>
+</g>
+<!-- AccessLevels&#45;&gt;Level6 -->
+<g id="edge25" class="edge" data-name="AccessLevels-&gt;Level6">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M542.72,-1904.62C602.43,-1893.57 686.8,-1881 761.53,-1881 761.53,-1881 761.53,-1881 1823.92,-1881 1887.05,-1881 1954.28,-1910.55 1998.24,-1934.39"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1996.31,-1937.32 2006.76,-1939.11 1999.71,-1931.2 1996.31,-1937.32"/>
+</g>
+<!-- GrantAccess -->
+<g id="node20" class="node" pointer-events="visible" data-name="GrantAccess">
+
+<path fill="#f5f5f5" stroke="#333333" d="M821.13,-1706.6C821.13,-1706.6 703.93,-1706.6 703.93,-1706.6 697.93,-1706.6 691.93,-1700.6 691.93,-1694.6 691.93,-1694.6 691.93,-1671.4 691.93,-1671.4 691.93,-1665.4 697.93,-1659.4 703.93,-1659.4 703.93,-1659.4 821.13,-1659.4 821.13,-1659.4 827.13,-1659.4 833.13,-1665.4 833.13,-1671.4 833.13,-1671.4 833.13,-1694.6 833.13,-1694.6 833.13,-1700.6 827.13,-1706.6 821.13,-1706.6"/>
+<text text-anchor="middle" x="762.53" y="-1687.2" font-family="Arial" font-size="14.00" fill="#333333">Grant Access</text>
+<text text-anchor="middle" x="762.53" y="-1670.4" font-family="Arial" font-size="14.00" fill="#333333">Assign permission</text>
+</g>
+<!-- PermissionManager&#45;&gt;GrantAccess -->
+<g id="edge26" class="edge" data-name="PermissionManager-&gt;GrantAccess">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M541.96,-1655.67C584.51,-1660.97 637.19,-1667.52 680.28,-1672.89"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="679.72,-1676.34 690.07,-1674.11 680.58,-1669.4 679.72,-1676.34"/>
+</g>
+<!-- RevokeAccess -->
+<g id="node21" class="node" pointer-events="visible" data-name="RevokeAccess">
+
+<path fill="#f5f5f5" stroke="#333333" d="M826.24,-1640.6C826.24,-1640.6 698.82,-1640.6 698.82,-1640.6 692.82,-1640.6 686.82,-1634.6 686.82,-1628.6 686.82,-1628.6 686.82,-1605.4 686.82,-1605.4 686.82,-1599.4 692.82,-1593.4 698.82,-1593.4 698.82,-1593.4 826.24,-1593.4 826.24,-1593.4 832.24,-1593.4 838.24,-1599.4 838.24,-1605.4 838.24,-1605.4 838.24,-1628.6 838.24,-1628.6 838.24,-1634.6 832.24,-1640.6 826.24,-1640.6"/>
+<text text-anchor="middle" x="762.53" y="-1621.2" font-family="Arial" font-size="14.00" fill="#333333">Revoke Access</text>
+<text text-anchor="middle" x="762.53" y="-1604.4" font-family="Arial" font-size="14.00" fill="#333333">Remove permission</text>
+</g>
+<!-- PermissionManager&#45;&gt;RevokeAccess -->
+<g id="edge27" class="edge" data-name="PermissionManager-&gt;RevokeAccess">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M541.96,-1638.42C582.77,-1634.44 632.89,-1629.55 674.94,-1625.45"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="675.15,-1628.94 684.76,-1624.49 674.47,-1621.98 675.15,-1628.94"/>
+</g>
+<!-- SetDefaultAccess -->
+<g id="node23" class="node" pointer-events="visible" data-name="SetDefaultAccess">
+
+<path fill="#f5f5f5" stroke="#333333" d="M823.81,-1574.6C823.81,-1574.6 701.26,-1574.6 701.26,-1574.6 695.26,-1574.6 689.26,-1568.6 689.26,-1562.6 689.26,-1562.6 689.26,-1539.4 689.26,-1539.4 689.26,-1533.4 695.26,-1527.4 701.26,-1527.4 701.26,-1527.4 823.81,-1527.4 823.81,-1527.4 829.81,-1527.4 835.81,-1533.4 835.81,-1539.4 835.81,-1539.4 835.81,-1562.6 835.81,-1562.6 835.81,-1568.6 829.81,-1574.6 823.81,-1574.6"/>
+<text text-anchor="middle" x="762.53" y="-1555.2" font-family="Arial" font-size="14.00" fill="#333333">Set Default Access</text>
+<text text-anchor="middle" x="762.53" y="-1538.4" font-family="Arial" font-size="14.00" fill="#333333">Default permission</text>
+</g>
+<!-- PermissionManager&#45;&gt;SetDefaultAccess -->
+<g id="edge28" class="edge" data-name="PermissionManager-&gt;SetDefaultAccess">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M539.64,-1621.9C581.73,-1608.45 634.28,-1591.66 677.67,-1577.8"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="678.58,-1581.18 687.05,-1574.8 676.45,-1574.51 678.58,-1581.18"/>
+</g>
+<!-- CheckAccess -->
+<g id="node22" class="node" pointer-events="visible" data-name="CheckAccess">
+
+<path fill="#f5f5f5" stroke="#333333" d="M818.4,-1838.6C818.4,-1838.6 706.67,-1838.6 706.67,-1838.6 700.67,-1838.6 694.67,-1832.6 694.67,-1826.6 694.67,-1826.6 694.67,-1803.4 694.67,-1803.4 694.67,-1797.4 700.67,-1791.4 706.67,-1791.4 706.67,-1791.4 818.4,-1791.4 818.4,-1791.4 824.4,-1791.4 830.4,-1797.4 830.4,-1803.4 830.4,-1803.4 830.4,-1826.6 830.4,-1826.6 830.4,-1832.6 824.4,-1838.6 818.4,-1838.6"/>
+<text text-anchor="middle" x="762.53" y="-1819.2" font-family="Arial" font-size="14.00" fill="#333333">Check Access</text>
+<text text-anchor="middle" x="762.53" y="-1802.4" font-family="Arial" font-size="14.00" fill="#333333">Verify permission</text>
+</g>
+<!-- VerificationLogic&#45;&gt;CheckAccess -->
+<g id="edge29" class="edge" data-name="VerificationLogic-&gt;CheckAccess">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M530.58,-1752.85C575.74,-1765 635.68,-1781.14 683.19,-1793.92"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="682.04,-1797.23 692.6,-1796.45 683.86,-1790.47 682.04,-1797.23"/>
+</g>
+<!-- GetAccessLevel -->
+<g id="node24" class="node" pointer-events="visible" data-name="GetAccessLevel">
+
+<path fill="#f5f5f5" stroke="#333333" d="M818.97,-1772.6C818.97,-1772.6 706.1,-1772.6 706.1,-1772.6 700.1,-1772.6 694.1,-1766.6 694.1,-1760.6 694.1,-1760.6 694.1,-1737.4 694.1,-1737.4 694.1,-1731.4 700.1,-1725.4 706.1,-1725.4 706.1,-1725.4 818.97,-1725.4 818.97,-1725.4 824.97,-1725.4 830.97,-1731.4 830.97,-1737.4 830.97,-1737.4 830.97,-1760.6 830.97,-1760.6 830.97,-1766.6 824.97,-1772.6 818.97,-1772.6"/>
+<text text-anchor="middle" x="762.53" y="-1753.2" font-family="Arial" font-size="14.00" fill="#333333">Get Access Level</text>
+<text text-anchor="middle" x="762.53" y="-1736.4" font-family="Arial" font-size="14.00" fill="#333333">Read permission</text>
+</g>
+<!-- VerificationLogic&#45;&gt;GetAccessLevel -->
+<g id="edge30" class="edge" data-name="VerificationLogic-&gt;GetAccessLevel">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M530.58,-1738.12C575.39,-1740.23 634.76,-1743.03 682.09,-1745.26"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="681.87,-1748.75 692.03,-1745.73 682.2,-1741.76 681.87,-1748.75"/>
+</g>
+<!-- AccessVerifier -->
+<g id="node46" class="node" pointer-events="visible" data-name="AccessVerifier">
+
+<path fill="#e9d7fe" stroke="#333333" d="M826,-1080.6C826,-1080.6 699.07,-1080.6 699.07,-1080.6 693.07,-1080.6 687.07,-1074.6 687.07,-1068.6 687.07,-1068.6 687.07,-1045.4 687.07,-1045.4 687.07,-1039.4 693.07,-1033.4 699.07,-1033.4 699.07,-1033.4 826,-1033.4 826,-1033.4 832,-1033.4 838,-1039.4 838,-1045.4 838,-1045.4 838,-1068.6 838,-1068.6 838,-1074.6 832,-1080.6 826,-1080.6"/>
+<text text-anchor="middle" x="762.53" y="-1061.2" font-family="Arial" font-size="14.00" fill="#333333">Access Verifier</text>
+<text text-anchor="middle" x="762.53" y="-1044.4" font-family="Arial" font-size="14.00" fill="#333333">Checkpoint function</text>
+</g>
+<!-- VerificationLogic&#45;&gt;AccessVerifier -->
+<g id="edge80" class="edge" data-name="VerificationLogic-&gt;AccessVerifier">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M524.65,-1711.05C538.08,-1702.88 550.76,-1692.34 558.97,-1679 590.36,-1628.02 564.77,-1468.81 576.97,-1410.2 596.42,-1316.76 624.28,-1300.1 649.33,-1208 656.21,-1182.68 647.58,-1172.93 660.33,-1150 673.91,-1125.59 696.23,-1104.05 716.46,-1087.87"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="718.37,-1090.82 724.14,-1081.93 714.08,-1085.28 718.37,-1090.82"/>
+<text text-anchor="middle" x="613.15" y="-1414.2" font-family="Arial" font-size="14.00" fill="#666666">Implements</text>
+</g>
+<!-- DefaultAccessTable2 -->
+<g id="node40" class="node" pointer-events="visible" data-name="DefaultAccessTable2">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1381.48,-708.6C1381.48,-708.6 1244.92,-708.6 1244.92,-708.6 1238.92,-708.6 1232.92,-702.6 1232.92,-696.6 1232.92,-696.6 1232.92,-673.4 1232.92,-673.4 1232.92,-667.4 1238.92,-661.4 1244.92,-661.4 1244.92,-661.4 1381.48,-661.4 1381.48,-661.4 1387.48,-661.4 1393.48,-667.4 1393.48,-673.4 1393.48,-673.4 1393.48,-696.6 1393.48,-696.6 1393.48,-702.6 1387.48,-708.6 1381.48,-708.6"/>
+<text text-anchor="middle" x="1313.2" y="-689.2" font-family="Arial" font-size="14.00" fill="#333333">Default Access Table</text>
+<text text-anchor="middle" x="1313.2" y="-672.4" font-family="Arial" font-size="14.00" fill="#333333">Default settings</text>
+</g>
+<!-- DefaultAccessTable&#45;&gt;DefaultAccessTable2 -->
+<g id="edge65" class="edge" data-name="DefaultAccessTable-&gt;DefaultAccessTable2">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M532.01,-1551.92C569.45,-1539.38 617.01,-1524.69 660.33,-1515 719.98,-1501.65 882.67,-1512.02 932.78,-1477 1154.94,-1321.73 1139.99,-1195.26 1208.44,-933 1220.54,-886.63 1196.33,-756.35 1225.06,-718 1225.21,-717.79 1225.37,-717.58 1225.53,-717.37"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1228.02,-719.84 1232.42,-710.21 1222.97,-714.99 1228.02,-719.84"/>
+<text text-anchor="middle" x="904.76" y="-1499.2" font-family="Arial" font-size="14.00" fill="#666666">Stored in</text>
+</g>
+<!-- Level1&#45;&gt;Level2 -->
+<g id="edge15" class="edge" data-name="Level1-&gt;Level2">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M848.58,-1958.11C875.5,-1956.91 905.38,-1956.26 932.78,-1957.2 944.06,-1957.59 956.06,-1958.22 967.67,-1958.95"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="848.47,-1954.61 838.65,-1958.59 848.81,-1961.6 848.47,-1954.61"/>
+<text text-anchor="middle" x="904.76" y="-1961.2" font-family="Arial" font-size="14.00" fill="#666666">Includes</text>
+</g>
+<!-- Level2&#45;&gt;Level3 -->
+<g id="edge16" class="edge" data-name="Level2-&gt;Level3">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1109.84,-1958.25C1117.64,-1957.82 1125.45,-1957.46 1132.95,-1957.2 1166.48,-1956.05 1174.9,-1956.1 1208.44,-1957.2 1214.3,-1957.39 1220.35,-1957.64 1226.44,-1957.94"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1109.64,-1954.76 1099.87,-1958.84 1110.06,-1961.75 1109.64,-1954.76"/>
+<text text-anchor="middle" x="1170.69" y="-1961.2" font-family="Arial" font-size="14.00" fill="#666666">Includes</text>
+</g>
+<!-- Level3&#45;&gt;Level4 -->
+<g id="edge17" class="edge" data-name="Level3-&gt;Level4">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1411.57,-1957.43C1413.72,-1957.35 1415.85,-1957.27 1417.96,-1957.2 1441.12,-1956.44 1446.94,-1956.46 1470.1,-1957.2 1475.8,-1957.38 1481.67,-1957.62 1487.58,-1957.9"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1411.61,-1953.92 1401.77,-1957.86 1411.92,-1960.92 1411.61,-1953.92"/>
+<text text-anchor="middle" x="1444.03" y="-1961.2" font-family="Arial" font-size="14.00" fill="#666666">Includes</text>
+</g>
+<!-- Level4&#45;&gt;Level5 -->
+<g id="edge18" class="edge" data-name="Level4-&gt;Level5">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1677.55,-1964C1703.06,-1964 1729.92,-1964 1753.46,-1964"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1677.76,-1960.5 1667.76,-1964 1677.76,-1967.5 1677.76,-1960.5"/>
+<text text-anchor="middle" x="1709.6" y="-1968.2" font-family="Arial" font-size="14.00" fill="#666666">Includes</text>
+</g>
+<!-- Level5&#45;&gt;Level6 -->
+<g id="edge19" class="edge" data-name="Level5-&gt;Level6">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1903.99,-1964C1928.85,-1964 1955.97,-1964 1979.85,-1964"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1904.19,-1960.5 1894.19,-1964 1904.19,-1967.5 1904.19,-1960.5"/>
+<text text-anchor="middle" x="1936.25" y="-1968.2" font-family="Arial" font-size="14.00" fill="#666666">Includes</text>
+</g>
+<!-- AccessGrantEvent -->
+<g id="node28" class="node" pointer-events="visible" data-name="AccessGrantEvent">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1096.58,-665.6C1096.58,-665.6 969.14,-665.6 969.14,-665.6 963.14,-665.6 957.14,-659.6 957.14,-653.6 957.14,-653.6 957.14,-630.4 957.14,-630.4 957.14,-624.4 963.14,-618.4 969.14,-618.4 969.14,-618.4 1096.58,-618.4 1096.58,-618.4 1102.58,-618.4 1108.58,-624.4 1108.58,-630.4 1108.58,-630.4 1108.58,-653.6 1108.58,-653.6 1108.58,-659.6 1102.58,-665.6 1096.58,-665.6"/>
+<text text-anchor="middle" x="1032.86" y="-646.2" font-family="Arial" font-size="14.00" fill="#333333">Access Grant Event</text>
+<text text-anchor="middle" x="1032.86" y="-629.4" font-family="Arial" font-size="14.00" fill="#333333">Permission granted</text>
+</g>
+<!-- GrantAccess&#45;&gt;AccessGrantEvent -->
+<g id="edge55" class="edge" data-name="GrantAccess-&gt;AccessGrantEvent">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M833.42,-1670.44C845.1,-1665.66 856.18,-1659.08 864.74,-1650 879.18,-1634.69 868.13,-1623.4 876.74,-1604.2 895.14,-1563.19 919.51,-1562.95 932.78,-1520 939.7,-1497.57 929.25,-694.19 942.78,-675 944.32,-672.81 946.03,-670.76 947.87,-668.85"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="950,-671.64 955.35,-662.49 945.47,-666.3 950,-671.64"/>
+<text text-anchor="middle" x="904.76" y="-1608.2" font-family="Arial" font-size="14.00" fill="#666666">Emits</text>
+</g>
+<!-- AccessRevokeEvent -->
+<g id="node29" class="node" pointer-events="visible" data-name="AccessRevokeEvent">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1103.03,-533.6C1103.03,-533.6 962.69,-533.6 962.69,-533.6 956.69,-533.6 950.69,-527.6 950.69,-521.6 950.69,-521.6 950.69,-498.4 950.69,-498.4 950.69,-492.4 956.69,-486.4 962.69,-486.4 962.69,-486.4 1103.03,-486.4 1103.03,-486.4 1109.03,-486.4 1115.03,-492.4 1115.03,-498.4 1115.03,-498.4 1115.03,-521.6 1115.03,-521.6 1115.03,-527.6 1109.03,-533.6 1103.03,-533.6"/>
+<text text-anchor="middle" x="1032.86" y="-514.2" font-family="Arial" font-size="14.00" fill="#333333">Access Revoke Event</text>
+<text text-anchor="middle" x="1032.86" y="-497.4" font-family="Arial" font-size="14.00" fill="#333333">Permission removed</text>
+</g>
+<!-- RevokeAccess&#45;&gt;AccessRevokeEvent -->
+<g id="edge56" class="edge" data-name="RevokeAccess-&gt;AccessRevokeEvent">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M838.72,-1603.68C848.71,-1598.95 857.86,-1592.58 864.74,-1584 882.04,-1562.44 873.11,-1487.6 876.74,-1460.2 896.43,-1311.77 919,-1277.1 932.78,-1128 934.27,-1111.82 933.38,-556.26 942.78,-543 942.92,-542.79 943.07,-542.58 943.23,-542.37"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="945.59,-544.98 949.76,-535.24 940.42,-540.25 945.59,-544.98"/>
+<text text-anchor="middle" x="904.76" y="-1464.2" font-family="Arial" font-size="14.00" fill="#666666">Emits</text>
+</g>
+<!-- TokenFields -->
+<g id="node30" class="node" pointer-events="visible" data-name="TokenFields">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1355.35,-203.6C1355.35,-203.6 1271.05,-203.6 1271.05,-203.6 1265.05,-203.6 1259.05,-197.6 1259.05,-191.6 1259.05,-191.6 1259.05,-168.4 1259.05,-168.4 1259.05,-162.4 1265.05,-156.4 1271.05,-156.4 1271.05,-156.4 1355.35,-156.4 1355.35,-156.4 1361.35,-156.4 1367.35,-162.4 1367.35,-168.4 1367.35,-168.4 1367.35,-191.6 1367.35,-191.6 1367.35,-197.6 1361.35,-203.6 1355.35,-203.6"/>
+<text text-anchor="middle" x="1313.2" y="-184.2" font-family="Arial" font-size="14.00" fill="#333333">Token Fields</text>
+<text text-anchor="middle" x="1313.2" y="-167.4" font-family="Arial" font-size="14.00" fill="#333333">ID, metadata</text>
+</g>
+<!-- CreateEvent&#45;&gt;TokenFields -->
+<g id="edge35" class="edge" data-name="CreateEvent-&gt;TokenFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1105.04,-553.01C1108.73,-550.07 1112.09,-546.75 1114.95,-543 1155.68,-489.62 1103.5,-453.34 1132.95,-393 1153.69,-350.5 1186.9,-360.11 1208.44,-318 1229.95,-275.94 1195.24,-249.65 1225.06,-213 1231.22,-205.42 1239.32,-199.58 1248.11,-195.09"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1249.28,-198.39 1257,-191.13 1246.44,-192 1249.28,-198.39"/>
+</g>
+<!-- AddressFields -->
+<g id="node31" class="node" pointer-events="visible" data-name="AddressFields">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1366.42,-71.6C1366.42,-71.6 1259.98,-71.6 1259.98,-71.6 1253.98,-71.6 1247.98,-65.6 1247.98,-59.6 1247.98,-59.6 1247.98,-36.4 1247.98,-36.4 1247.98,-30.4 1253.98,-24.4 1259.98,-24.4 1259.98,-24.4 1366.42,-24.4 1366.42,-24.4 1372.42,-24.4 1378.42,-30.4 1378.42,-36.4 1378.42,-36.4 1378.42,-59.6 1378.42,-59.6 1378.42,-65.6 1372.42,-71.6 1366.42,-71.6"/>
+<text text-anchor="middle" x="1313.2" y="-52.2" font-family="Arial" font-size="14.00" fill="#333333">Address Fields</text>
+<text text-anchor="middle" x="1313.2" y="-35.4" font-family="Arial" font-size="14.00" fill="#333333">Sender, receiver</text>
+</g>
+<!-- CreateEvent&#45;&gt;AddressFields -->
+<g id="edge36" class="edge" data-name="CreateEvent-&gt;AddressFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1105.28,-553.19C1108.92,-550.2 1112.19,-546.82 1114.95,-543 1151.14,-492.78 1114.42,-324.07 1132.95,-265 1152.37,-203.07 1182.63,-199.55 1208.44,-140 1219.27,-115 1206.65,-101.09 1225.06,-81 1228.82,-76.89 1233.15,-73.29 1237.82,-70.14"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1239.4,-73.27 1246.26,-65.19 1235.86,-67.23 1239.4,-73.27"/>
+</g>
+<!-- TimestampFields -->
+<g id="node32" class="node" pointer-events="visible" data-name="TimestampFields">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1370.67,-137.6C1370.67,-137.6 1255.73,-137.6 1255.73,-137.6 1249.73,-137.6 1243.73,-131.6 1243.73,-125.6 1243.73,-125.6 1243.73,-102.4 1243.73,-102.4 1243.73,-96.4 1249.73,-90.4 1255.73,-90.4 1255.73,-90.4 1370.67,-90.4 1370.67,-90.4 1376.67,-90.4 1382.67,-96.4 1382.67,-102.4 1382.67,-102.4 1382.67,-125.6 1382.67,-125.6 1382.67,-131.6 1376.67,-137.6 1370.67,-137.6"/>
+<text text-anchor="middle" x="1313.2" y="-118.2" font-family="Arial" font-size="14.00" fill="#333333">Timestamp Fields</text>
+<text text-anchor="middle" x="1313.2" y="-101.4" font-family="Arial" font-size="14.00" fill="#333333">Event time</text>
+</g>
+<!-- CreateEvent&#45;&gt;TimestampFields -->
+<g id="edge37" class="edge" data-name="CreateEvent-&gt;TimestampFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1105.18,-553.12C1108.84,-550.14 1112.15,-546.79 1114.95,-543 1141.86,-506.58 1119.1,-383.12 1132.95,-340 1153.14,-277.12 1183.23,-273.05 1208.44,-212 1219.82,-184.44 1205.18,-169.23 1225.06,-147 1227.64,-144.11 1230.51,-141.46 1233.59,-139.05"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1235.5,-141.99 1241.84,-133.5 1231.59,-136.18 1235.5,-141.99"/>
+</g>
+<!-- EventStore -->
+<g id="node36" class="node" pointer-events="visible" data-name="EventStore">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1355.62,-510.6C1355.62,-510.6 1270.77,-510.6 1270.77,-510.6 1264.77,-510.6 1258.77,-504.6 1258.77,-498.6 1258.77,-498.6 1258.77,-475.4 1258.77,-475.4 1258.77,-469.4 1264.77,-463.4 1270.77,-463.4 1270.77,-463.4 1355.62,-463.4 1355.62,-463.4 1361.62,-463.4 1367.62,-469.4 1367.62,-475.4 1367.62,-475.4 1367.62,-498.6 1367.62,-498.6 1367.62,-504.6 1361.62,-510.6 1355.62,-510.6"/>
+<text text-anchor="middle" x="1313.2" y="-491.2" font-family="Arial" font-size="14.00" fill="#333333">Event Store</text>
+<text text-anchor="middle" x="1313.2" y="-474.4" font-family="Arial" font-size="14.00" fill="#333333">Event history</text>
+</g>
+<!-- CreateEvent&#45;&gt;EventStore -->
+<g id="edge66" class="edge" data-name="CreateEvent-&gt;EventStore">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1105.2,-576.03C1139,-572.94 1178.43,-564.53 1208.44,-544 1220.07,-536.04 1214.06,-525.81 1225.06,-517 1231.83,-511.58 1239.64,-507.1 1247.75,-503.42"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1248.91,-506.73 1256.84,-499.71 1246.26,-500.25 1248.91,-506.73"/>
+<text text-anchor="middle" x="1170.69" y="-575.2" font-family="Arial" font-size="14.00" fill="#666666">Recorded in</text>
+</g>
+<!-- TransferEvent&#45;&gt;TokenFields -->
+<g id="edge38" class="edge" data-name="TransferEvent-&gt;TokenFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1105.45,-420.77C1108.99,-417.88 1112.2,-414.64 1114.95,-411 1160.12,-351.02 1086.33,-301.87 1132.95,-243 1134.88,-240.55 1197.22,-218.97 1247.84,-201.74"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1248.7,-205.14 1257.04,-198.61 1246.45,-198.51 1248.7,-205.14"/>
+</g>
+<!-- TransferEvent&#45;&gt;AddressFields -->
+<g id="edge39" class="edge" data-name="TransferEvent-&gt;AddressFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1105.3,-421.2C1108.93,-418.21 1112.2,-414.83 1114.95,-411 1152.88,-358.2 1095.14,-171.89 1132.95,-119 1156.76,-85.68 1198.75,-68 1236.11,-58.61"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1236.81,-62.04 1245.76,-56.36 1235.23,-55.22 1236.81,-62.04"/>
+</g>
+<!-- TransferEvent&#45;&gt;TimestampFields -->
+<g id="edge40" class="edge" data-name="TransferEvent-&gt;TimestampFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1105.25,-421.17C1108.89,-418.18 1112.18,-414.81 1114.95,-411 1147.18,-366.67 1098.34,-207.51 1132.95,-165 1156.82,-135.68 1196.24,-122.5 1232.05,-116.84"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1232.3,-120.34 1241.73,-115.5 1231.34,-113.4 1232.3,-120.34"/>
+</g>
+<!-- TransferEvent&#45;&gt;EventStore -->
+<g id="edge67" class="edge" data-name="TransferEvent-&gt;EventStore">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1090.64,-468.02C1104.27,-472.84 1118.94,-477.25 1132.95,-480 1170.13,-487.3 1212.45,-489.24 1246.63,-489.27"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1246.56,-492.77 1256.55,-489.21 1246.53,-485.77 1246.56,-492.77"/>
+<text text-anchor="middle" x="1170.69" y="-492.2" font-family="Arial" font-size="14.00" fill="#666666">Recorded in</text>
+</g>
+<!-- BurnEvent&#45;&gt;TokenFields -->
+<g id="edge41" class="edge" data-name="BurnEvent-&gt;TokenFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1041.72,-354.19C1054.74,-318.64 1084.3,-252.19 1132.95,-218 1166.18,-194.64 1210.85,-185.13 1247.29,-181.47"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1247.33,-184.98 1256.99,-180.63 1246.73,-178 1247.33,-184.98"/>
+</g>
+<!-- BurnEvent&#45;&gt;AddressFields -->
+<g id="edge42" class="edge" data-name="BurnEvent-&gt;AddressFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1037.22,-354.14C1047.61,-284.04 1081.69,-81.29 1132.95,-43 1161.97,-21.32 1201.63,-20.38 1236.27,-25.81"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1235.56,-29.23 1246.02,-27.55 1236.79,-22.34 1235.56,-29.23"/>
+</g>
+<!-- BurnEvent&#45;&gt;TimestampFields -->
+<g id="edge43" class="edge" data-name="BurnEvent-&gt;TimestampFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1033.71,-353.92C1034.81,-297.02 1046.5,-154.47 1132.95,-93 1148.9,-81.66 1191.99,-86.39 1231.92,-94.21"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1231.07,-97.61 1241.57,-96.18 1232.47,-90.75 1231.07,-97.61"/>
+</g>
+<!-- BurnEvent&#45;&gt;EventStore -->
+<g id="edge68" class="edge" data-name="BurnEvent-&gt;EventStore">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1095.29,-402.06C1140.49,-419.76 1201.81,-443.77 1247.72,-461.75"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1246.17,-464.9 1256.75,-465.29 1248.72,-458.38 1246.17,-464.9"/>
+<text text-anchor="middle" x="1170.69" y="-449.2" font-family="Arial" font-size="14.00" fill="#666666">Recorded in</text>
+</g>
+<!-- AccessGrantEvent&#45;&gt;TokenFields -->
+<g id="edge44" class="edge" data-name="AccessGrantEvent-&gt;TokenFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.56,-617.93C1109.67,-615.26 1112.5,-612.29 1114.95,-609 1140.38,-574.78 1110.86,-454.47 1132.95,-418 1153.67,-383.79 1187.51,-403.09 1208.44,-369 1244.92,-309.58 1182.45,-268.19 1225.06,-213 1231.1,-205.18 1239.22,-199.21 1248.08,-194.65"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1249.36,-197.92 1257.09,-190.67 1246.52,-191.52 1249.36,-197.92"/>
+</g>
+<!-- AccessGrantEvent&#45;&gt;AddressFields -->
+<g id="edge45" class="edge" data-name="AccessGrantEvent-&gt;AddressFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.7,-618.04C1109.78,-615.34 1112.56,-612.34 1114.95,-609 1155.85,-551.78 1104.3,-357.24 1132.95,-293 1152.34,-249.52 1187.65,-259.83 1208.44,-217 1235.02,-162.22 1187.47,-128.91 1225.06,-81 1228.71,-76.35 1233.09,-72.35 1237.93,-68.91"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1239.42,-72.1 1246.16,-63.92 1235.79,-66.12 1239.42,-72.1"/>
+</g>
+<!-- AccessGrantEvent&#45;&gt;TimestampFields -->
+<g id="edge46" class="edge" data-name="AccessGrantEvent-&gt;TimestampFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.63,-617.99C1109.72,-615.3 1112.53,-612.32 1114.95,-609 1146.56,-565.59 1110.96,-417 1132.95,-368 1152.7,-323.98 1187.78,-333.6 1208.44,-290 1235.83,-232.18 1185.71,-197.46 1225.06,-147 1227.62,-143.71 1230.55,-140.75 1233.75,-138.08"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1235.73,-140.97 1241.91,-132.37 1231.71,-135.24 1235.73,-140.97"/>
+</g>
+<!-- AccessFields -->
+<g id="node33" class="node" pointer-events="visible" data-name="AccessFields">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1371.8,-269.6C1371.8,-269.6 1254.6,-269.6 1254.6,-269.6 1248.6,-269.6 1242.6,-263.6 1242.6,-257.6 1242.6,-257.6 1242.6,-234.4 1242.6,-234.4 1242.6,-228.4 1248.6,-222.4 1254.6,-222.4 1254.6,-222.4 1371.8,-222.4 1371.8,-222.4 1377.8,-222.4 1383.8,-228.4 1383.8,-234.4 1383.8,-234.4 1383.8,-257.6 1383.8,-257.6 1383.8,-263.6 1377.8,-269.6 1371.8,-269.6"/>
+<text text-anchor="middle" x="1313.2" y="-250.2" font-family="Arial" font-size="14.00" fill="#333333">Access Fields</text>
+<text text-anchor="middle" x="1313.2" y="-233.4" font-family="Arial" font-size="14.00" fill="#333333">Permission details</text>
+</g>
+<!-- AccessGrantEvent&#45;&gt;AccessFields -->
+<g id="edge47" class="edge" data-name="AccessGrantEvent-&gt;AccessFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.15,-618.18C1109.41,-615.45 1112.38,-612.4 1114.95,-609 1159.63,-549.75 1087.34,-501.54 1132.95,-443 1154.94,-414.77 1184.85,-441.91 1208.44,-415 1230.37,-389.98 1209.68,-371.51 1225.06,-342 1237.57,-317.98 1257.57,-295.34 1275.26,-278.08"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1277.55,-280.73 1282.39,-271.31 1272.73,-275.65 1277.55,-280.73"/>
+</g>
+<!-- AccessGrantEvent&#45;&gt;EventStore -->
+<g id="edge69" class="edge" data-name="AccessGrantEvent-&gt;EventStore">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1108.9,-628.43C1149.59,-619.58 1194.39,-606.92 1208.44,-592 1231.83,-567.13 1202.32,-542.47 1225.06,-517 1231.34,-509.96 1239.36,-504.57 1247.98,-500.44"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1249.13,-503.75 1257.03,-496.7 1246.45,-497.28 1249.13,-503.75"/>
+<text text-anchor="middle" x="1170.69" y="-626.2" font-family="Arial" font-size="14.00" fill="#666666">Recorded in</text>
+</g>
+<!-- AccessRevokeEvent&#45;&gt;TokenFields -->
+<g id="edge48" class="edge" data-name="AccessRevokeEvent-&gt;TokenFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.12,-486.16C1109.39,-483.43 1112.37,-480.39 1114.95,-477 1156.42,-422.52 1104.74,-386.39 1132.95,-324 1153.62,-278.26 1178.38,-280.2 1208.44,-240 1216.87,-228.71 1214.19,-221.98 1225.06,-213 1231.98,-207.28 1240.01,-202.48 1248.33,-198.49"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1249.53,-201.78 1257.3,-194.57 1246.73,-195.36 1249.53,-201.78"/>
+</g>
+<!-- AccessRevokeEvent&#45;&gt;AddressFields -->
+<g id="edge49" class="edge" data-name="AccessRevokeEvent-&gt;AddressFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.72,-486.05C1109.79,-483.35 1112.57,-480.34 1114.95,-477 1158.08,-416.46 1091.27,-204.55 1132.95,-143 1153.68,-112.38 1180.79,-132.57 1208.44,-108 1218.97,-98.64 1214.19,-89.98 1225.06,-81 1228.85,-77.87 1232.96,-75.02 1237.27,-72.42"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1238.9,-75.52 1246.03,-67.69 1235.57,-69.36 1238.9,-75.52"/>
+</g>
+<!-- AccessRevokeEvent&#45;&gt;TimestampFields -->
+<g id="edge50" class="edge" data-name="AccessRevokeEvent-&gt;TimestampFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1106.63,-485.99C1109.72,-483.3 1112.53,-480.32 1114.95,-477 1146.56,-433.59 1110.14,-284.62 1132.95,-236 1157.12,-184.46 1176.98,-177.48 1225.06,-147 1227.66,-145.35 1230.35,-143.77 1233.11,-142.24"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1234.43,-145.5 1241.74,-137.83 1231.24,-139.27 1234.43,-145.5"/>
+</g>
+<!-- AccessRevokeEvent&#45;&gt;AccessFields -->
+<g id="edge51" class="edge" data-name="AccessRevokeEvent-&gt;AccessFields">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1104.73,-486.17C1108.44,-483.43 1111.89,-480.39 1114.95,-477 1134.15,-455.68 1117.98,-439.48 1132.95,-415 1167.85,-357.91 1227.04,-307.47 1267.8,-276.89"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1269.8,-279.76 1275.76,-271 1265.64,-274.13 1269.8,-279.76"/>
+</g>
+<!-- AccessRevokeEvent&#45;&gt;EventStore -->
+<g id="edge70" class="edge" data-name="AccessRevokeEvent-&gt;EventStore">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1115.47,-521.77C1144.91,-524.14 1178.29,-524.68 1208.44,-520 1221.22,-518.02 1234.59,-514.73 1247.31,-510.99"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1248.04,-514.43 1256.56,-508.14 1245.97,-507.74 1248.04,-514.43"/>
+<text text-anchor="middle" x="1170.69" y="-527.2" font-family="Arial" font-size="14.00" fill="#666666">Recorded in</text>
+</g>
+<!-- ResourcesTables -->
+<g id="node34" class="node" pointer-events="visible" data-name="ResourcesTables">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1091.19,-863.6C1091.19,-863.6 974.53,-863.6 974.53,-863.6 968.53,-863.6 962.53,-857.6 962.53,-851.6 962.53,-851.6 962.53,-828.4 962.53,-828.4 962.53,-822.4 968.53,-816.4 974.53,-816.4 974.53,-816.4 1091.19,-816.4 1091.19,-816.4 1097.19,-816.4 1103.19,-822.4 1103.19,-828.4 1103.19,-828.4 1103.19,-851.6 1103.19,-851.6 1103.19,-857.6 1097.19,-863.6 1091.19,-863.6"/>
+<text text-anchor="middle" x="1032.86" y="-844.2" font-family="Arial" font-size="14.00" fill="#333333">Resources Tables</text>
+<text text-anchor="middle" x="1032.86" y="-827.4" font-family="Arial" font-size="14.00" fill="#333333">On-chain storage</text>
+</g>
+<!-- TableStructure -->
+<g id="node35" class="node" pointer-events="visible" data-name="TableStructure">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1363.97,-863.6C1363.97,-863.6 1262.43,-863.6 1262.43,-863.6 1256.43,-863.6 1250.43,-857.6 1250.43,-851.6 1250.43,-851.6 1250.43,-828.4 1250.43,-828.4 1250.43,-822.4 1256.43,-816.4 1262.43,-816.4 1262.43,-816.4 1363.97,-816.4 1363.97,-816.4 1369.97,-816.4 1375.97,-822.4 1375.97,-828.4 1375.97,-828.4 1375.97,-851.6 1375.97,-851.6 1375.97,-857.6 1369.97,-863.6 1363.97,-863.6"/>
+<text text-anchor="middle" x="1313.2" y="-844.2" font-family="Arial" font-size="14.00" fill="#333333">Table Structure</text>
+<text text-anchor="middle" x="1313.2" y="-827.4" font-family="Arial" font-size="14.00" fill="#333333">Key-value store</text>
+</g>
+<!-- ResourcesTables&#45;&gt;TableStructure -->
+<g id="edge57" class="edge" data-name="ResourcesTables-&gt;TableStructure">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1103.38,-840C1144.5,-840 1196.56,-840 1238.4,-840"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1238.38,-843.5 1248.38,-840 1238.38,-836.5 1238.38,-843.5"/>
+<text text-anchor="middle" x="1170.69" y="-844.2" font-family="Arial" font-size="14.00" fill="#666666">Uses</text>
+</g>
+<!-- ResourcesTables&#45;&gt;NFTTable -->
+<g id="edge58" class="edge" data-name="ResourcesTables-&gt;NFTTable">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1093.29,-816.07C1100.6,-813.05 1107.95,-809.98 1114.95,-807 1123,-803.57 1124.62,-801.7 1132.95,-799 1165.57,-788.42 1185.21,-808.23 1208.44,-783 1248.19,-739.82 1188.73,-698.09 1225.06,-652 1230.15,-645.54 1236.66,-640.34 1243.83,-636.16"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1244.95,-639.51 1252.31,-631.88 1241.8,-633.26 1244.95,-639.51"/>
+</g>
+<!-- ResourcesTables&#45;&gt;OwnershipTable -->
+<g id="edge59" class="edge" data-name="ResourcesTables-&gt;OwnershipTable">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1101.4,-815.94C1106.16,-813.23 1110.73,-810.25 1114.95,-807 1125.51,-798.86 1121.44,-789.73 1132.95,-783 1162.16,-765.91 1185.03,-797.44 1208.44,-773 1237.29,-742.87 1199.85,-619.24 1225.06,-586 1228.28,-581.75 1232.11,-578.05 1236.35,-574.83"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1238.15,-577.83 1244.66,-569.48 1234.36,-571.95 1238.15,-577.83"/>
+</g>
+<!-- ResourcesTables&#45;&gt;AccessTable -->
+<g id="edge60" class="edge" data-name="ResourcesTables-&gt;AccessTable">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1103.63,-834.26C1144.67,-829.7 1191.72,-822.05 1208.44,-810 1221.12,-800.86 1213.05,-789.01 1225.06,-779 1225.37,-778.74 1225.68,-778.49 1225.99,-778.23"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1227.95,-781.14 1234.18,-772.57 1223.96,-775.38 1227.95,-781.14"/>
+</g>
+<!-- ResourcesTables&#45;&gt;DefaultAccessTable2 -->
+<g id="edge61" class="edge" data-name="ResourcesTables-&gt;DefaultAccessTable2">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1103.67,-818.37C1113.45,-815.69 1123.42,-813.14 1132.95,-811 1149.52,-807.27 1196.16,-810.74 1208.44,-799 1235,-773.6 1201.23,-745.98 1225.06,-718 1225.41,-717.58 1225.77,-717.17 1226.14,-716.77"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1228.25,-719.58 1233.23,-710.23 1223.5,-714.44 1228.25,-719.58"/>
+</g>
+<!-- MoveVM -->
+<g id="node49" class="node" pointer-events="visible" data-name="MoveVM">
+
+<path fill="#f5f5f5" stroke="#333333" d="M835.95,-1209.6C835.95,-1209.6 689.12,-1209.6 689.12,-1209.6 683.12,-1209.6 677.12,-1203.6 677.12,-1197.6 677.12,-1197.6 677.12,-1174.4 677.12,-1174.4 677.12,-1168.4 683.12,-1162.4 689.12,-1162.4 689.12,-1162.4 835.95,-1162.4 835.95,-1162.4 841.95,-1162.4 847.95,-1168.4 847.95,-1174.4 847.95,-1174.4 847.95,-1197.6 847.95,-1197.6 847.95,-1203.6 841.95,-1209.6 835.95,-1209.6"/>
+<text text-anchor="middle" x="762.53" y="-1190.2" font-family="Arial" font-size="14.00" fill="#333333">Move VM</text>
+<text text-anchor="middle" x="762.53" y="-1173.4" font-family="Arial" font-size="14.00" fill="#333333">Execution environment</text>
+</g>
+<!-- AptosBlockchain&#45;&gt;MoveVM -->
+<g id="edge83" class="edge" data-name="AptosBlockchain-&gt;MoveVM">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M519.71,-1281.47C558.58,-1262.69 612.01,-1237.89 660.33,-1219 664.73,-1217.28 669.27,-1215.57 673.87,-1213.89"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="674.72,-1217.3 682.96,-1210.64 672.36,-1210.71 674.72,-1217.3"/>
+</g>
+<!-- Consensus -->
+<g id="node50" class="node" pointer-events="visible" data-name="Consensus">
+
+<path fill="#f5f5f5" stroke="#333333" d="M804.67,-1407.6C804.67,-1407.6 720.4,-1407.6 720.4,-1407.6 714.4,-1407.6 708.4,-1401.6 708.4,-1395.6 708.4,-1395.6 708.4,-1372.4 708.4,-1372.4 708.4,-1366.4 714.4,-1360.4 720.4,-1360.4 720.4,-1360.4 804.67,-1360.4 804.67,-1360.4 810.67,-1360.4 816.67,-1366.4 816.67,-1372.4 816.67,-1372.4 816.67,-1395.6 816.67,-1395.6 816.67,-1401.6 810.67,-1407.6 804.67,-1407.6"/>
+<text text-anchor="middle" x="762.53" y="-1388.2" font-family="Arial" font-size="14.00" fill="#333333">Consensus</text>
+<text text-anchor="middle" x="762.53" y="-1371.4" font-family="Arial" font-size="14.00" fill="#333333">BFT protocol</text>
+</g>
+<!-- AptosBlockchain&#45;&gt;Consensus -->
+<g id="edge84" class="edge" data-name="AptosBlockchain-&gt;Consensus">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M541.96,-1328.61C590.17,-1340.77 651.39,-1356.21 696.93,-1367.7"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="695.84,-1371.04 706.4,-1370.09 697.56,-1364.25 695.84,-1371.04"/>
+</g>
+<!-- Storage -->
+<g id="node51" class="node" pointer-events="visible" data-name="Storage">
+
+<path fill="#f5f5f5" stroke="#333333" d="M819.26,-1341.6C819.26,-1341.6 705.81,-1341.6 705.81,-1341.6 699.81,-1341.6 693.81,-1335.6 693.81,-1329.6 693.81,-1329.6 693.81,-1306.4 693.81,-1306.4 693.81,-1300.4 699.81,-1294.4 705.81,-1294.4 705.81,-1294.4 819.26,-1294.4 819.26,-1294.4 825.26,-1294.4 831.26,-1300.4 831.26,-1306.4 831.26,-1306.4 831.26,-1329.6 831.26,-1329.6 831.26,-1335.6 825.26,-1341.6 819.26,-1341.6"/>
+<text text-anchor="middle" x="762.53" y="-1322.2" font-family="Arial" font-size="14.00" fill="#333333">Storage</text>
+<text text-anchor="middle" x="762.53" y="-1305.4" font-family="Arial" font-size="14.00" fill="#333333">Distributed ledger</text>
+</g>
+<!-- AptosBlockchain&#45;&gt;Storage -->
+<g id="edge85" class="edge" data-name="AptosBlockchain-&gt;Storage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M559.12,-1311.87C598.7,-1313.07 644.15,-1314.45 681.95,-1315.59"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="681.5,-1319.08 691.6,-1315.88 681.71,-1312.08 681.5,-1319.08"/>
+</g>
+<!-- Network -->
+<g id="node52" class="node" pointer-events="visible" data-name="Network">
+
+<path fill="#f5f5f5" stroke="#333333" d="M826.54,-1275.6C826.54,-1275.6 698.53,-1275.6 698.53,-1275.6 692.53,-1275.6 686.53,-1269.6 686.53,-1263.6 686.53,-1263.6 686.53,-1240.4 686.53,-1240.4 686.53,-1234.4 692.53,-1228.4 698.53,-1228.4 698.53,-1228.4 826.54,-1228.4 826.54,-1228.4 832.54,-1228.4 838.54,-1234.4 838.54,-1240.4 838.54,-1240.4 838.54,-1263.6 838.54,-1263.6 838.54,-1269.6 832.54,-1275.6 826.54,-1275.6"/>
+<text text-anchor="middle" x="762.53" y="-1256.2" font-family="Arial" font-size="14.00" fill="#333333">Network</text>
+<text text-anchor="middle" x="762.53" y="-1239.4" font-family="Arial" font-size="14.00" fill="#333333">P2P communication</text>
+</g>
+<!-- AptosBlockchain&#45;&gt;Network -->
+<g id="edge86" class="edge" data-name="AptosBlockchain-&gt;Network">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M548.24,-1292.89C587.77,-1285.31 634.89,-1276.28 674.78,-1268.63"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="675.41,-1272.08 684.58,-1266.75 674.1,-1265.2 675.41,-1272.08"/>
+</g>
+<!-- MessagePasser -->
+<g id="node42" class="node" pointer-events="visible" data-name="MessagePasser">
+
+<path fill="#e6f4ea" stroke="#0f9d58" d="M167.91,-720.6C167.91,-720.6 17.33,-720.6 17.33,-720.6 11.33,-720.6 5.33,-714.6 5.33,-708.6 5.33,-708.6 5.33,-685.4 5.33,-685.4 5.33,-679.4 11.33,-673.4 17.33,-673.4 17.33,-673.4 167.91,-673.4 167.91,-673.4 173.91,-673.4 179.91,-679.4 179.91,-685.4 179.91,-685.4 179.91,-708.6 179.91,-708.6 179.91,-714.6 173.91,-720.6 167.91,-720.6"/>
+<text text-anchor="middle" x="92.62" y="-701.2" font-family="Arial" font-size="14.00" fill="#0f9d58">Neura Message Passer</text>
+<text text-anchor="middle" x="92.62" y="-684.4" font-family="Arial" font-size="14.00" fill="#0f9d58">(Backend 2)</text>
+</g>
+<!-- MessagePasser&#45;&gt;NFTContract -->
+<g id="edge72" class="edge" data-name="MessagePasser-&gt;NFTContract">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M180.05,-697C234.1,-697 303.97,-697 360.66,-697"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="360.36,-700.5 370.36,-697 360.36,-693.5 360.36,-700.5"/>
+<text text-anchor="middle" x="274.81" y="-701.2" font-family="Arial" font-size="14.00" fill="#666666">Interacts via RPC</text>
+</g>
+<!-- MessagePasser&#45;&gt;CreateEvent -->
+<g id="edge75" class="edge" data-name="MessagePasser-&gt;CreateEvent">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M95.53,-721C101.82,-790.47 125.93,-996.44 200.12,-1148 251.32,-1252.6 269.52,-1284.72 364.58,-1352 456.93,-1417.35 776.8,-1518.17 864.74,-1447 977.43,-1355.81 916.18,-1272.01 932.78,-1128 934.43,-1113.68 934.42,-620.76 942.78,-609 945.19,-605.6 947.99,-602.55 951.09,-599.82"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="953.04,-602.73 959.03,-593.99 948.9,-597.08 953.04,-602.73"/>
+<text text-anchor="middle" x="613.15" y="-1461.2" font-family="Arial" font-size="14.00" fill="#666666">Listens for</text>
+</g>
+<!-- MessagePasser&#45;&gt;TransferEvent -->
+<g id="edge76" class="edge" data-name="MessagePasser-&gt;TransferEvent">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M114.49,-721C183.04,-797.8 411.28,-1037.3 660.33,-1120 703.44,-1134.32 832.27,-1151.77 864.74,-1120 886.59,-1098.63 860.39,-595.82 876.74,-570 891.64,-546.48 916.37,-564.5 932.78,-542 950,-518.38 924.3,-499.65 942.78,-477 945.23,-474 947.98,-471.27 950.95,-468.79"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="952.84,-471.73 959,-463.11 948.81,-466.02 952.84,-471.73"/>
+<text text-anchor="middle" x="613.15" y="-1119.2" font-family="Arial" font-size="14.00" fill="#666666">Listens for</text>
+</g>
+<!-- MessagePasser&#45;&gt;AccessGrantEvent -->
+<g id="edge77" class="edge" data-name="MessagePasser-&gt;AccessGrantEvent">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M103.99,-673.33C133.64,-608.83 225.75,-429.9 364.58,-356 448.17,-311.51 482.36,-342.94 576.97,-339.2 705.24,-334.13 766.85,-280.95 864.74,-364 879.54,-376.56 864.96,-390.57 876.74,-406 894.41,-429.16 917.74,-415.05 932.78,-440 952.19,-472.22 920.38,-578.77 942.78,-609 944.37,-611.15 946.12,-613.17 948,-615.05"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="945.67,-617.66 955.61,-621.33 950.13,-612.26 945.67,-617.66"/>
+<text text-anchor="middle" x="613.15" y="-343.2" font-family="Arial" font-size="14.00" fill="#666666">Listens for</text>
+</g>
+<!-- MessagePasser&#45;&gt;AccessRevokeEvent -->
+<g id="edge78" class="edge" data-name="MessagePasser-&gt;AccessRevokeEvent">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M93.46,-673.12C94.41,-611.19 106.04,-444.42 200.12,-360 255.6,-310.21 290.74,-337.29 364.58,-327 584.83,-296.3 679.89,-189.38 864.74,-313 876,-320.53 871.12,-328.68 876.74,-341 904.66,-402.12 893.01,-431.85 942.78,-477 943.58,-477.73 944.4,-478.44 945.23,-479.14"/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="943.11,-481.92 953.26,-484.96 947.22,-476.25 943.11,-481.92"/>
+<text text-anchor="middle" x="613.15" y="-278.2" font-family="Arial" font-size="14.00" fill="#666666">Listens for</text>
+</g>
+<!-- FrontendClient -->
+<g id="node43" class="node" pointer-events="visible" data-name="FrontendClient">
+
+<path fill="#e8f0fe" stroke="#4285f4" d="M148.8,-1502.6C148.8,-1502.6 36.45,-1502.6 36.45,-1502.6 30.45,-1502.6 24.45,-1496.6 24.45,-1490.6 24.45,-1490.6 24.45,-1467.4 24.45,-1467.4 24.45,-1461.4 30.45,-1455.4 36.45,-1455.4 36.45,-1455.4 148.8,-1455.4 148.8,-1455.4 154.8,-1455.4 160.8,-1461.4 160.8,-1467.4 160.8,-1467.4 160.8,-1490.6 160.8,-1490.6 160.8,-1496.6 154.8,-1502.6 148.8,-1502.6"/>
+<text text-anchor="middle" x="92.62" y="-1483.2" font-family="Arial" font-size="14.00" fill="#4285f4">Client Application</text>
+<text text-anchor="middle" x="92.62" y="-1466.4" font-family="Arial" font-size="14.00" fill="#4285f4">(Frontend)</text>
+</g>
+<!-- FrontendClient&#45;&gt;NFTContract -->
+<g id="edge73" class="edge" data-name="FrontendClient-&gt;NFTContract">
+
+<path fill="none" stroke="#4285f4" stroke-width="1.2" stroke-dasharray="5,2" d="M161.02,-1458.61C168.48,-1455 175.69,-1450.82 182.12,-1446 281.58,-1371.48 298.07,-1335.14 349.5,-1222 427.98,-1049.33 452.92,-819.5 459.85,-732.44"/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="463.33,-732.94 460.6,-722.7 456.35,-732.41 463.33,-732.94"/>
+<text text-anchor="middle" x="274.81" y="-1432.2" font-family="Arial" font-size="14.00" fill="#666666">Submits txns via wallet</text>
+</g>
+<!-- ExecutionEngine -->
+<g id="node44" class="node" pointer-events="visible" data-name="ExecutionEngine">
+
+<path fill="#fce8e6" stroke="#db4437" d="M170.11,-1436.6C170.11,-1436.6 15.14,-1436.6 15.14,-1436.6 9.14,-1436.6 3.14,-1430.6 3.14,-1424.6 3.14,-1424.6 3.14,-1401.4 3.14,-1401.4 3.14,-1395.4 9.14,-1389.4 15.14,-1389.4 15.14,-1389.4 170.11,-1389.4 170.11,-1389.4 176.11,-1389.4 182.11,-1395.4 182.11,-1401.4 182.11,-1401.4 182.11,-1424.6 182.11,-1424.6 182.11,-1430.6 176.11,-1436.6 170.11,-1436.6"/>
+<text text-anchor="middle" x="92.62" y="-1417.2" font-family="Arial" font-size="14.00" fill="#db4437">Neura Execution Engine</text>
+<text text-anchor="middle" x="92.62" y="-1400.4" font-family="Arial" font-size="14.00" fill="#db4437">(Backend 1)</text>
+</g>
+<!-- ExecutionEngine&#45;&gt;NFTContract -->
+<g id="edge74" class="edge" data-name="ExecutionEngine-&gt;NFTContract">
+
+<path fill="none" stroke="#db4437" stroke-width="1.2" stroke-dasharray="5,2" d="M105.89,-1389.18C160.33,-1283.42 380.31,-856.13 444.54,-731.37"/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="447.63,-733.02 449.09,-722.53 441.4,-729.82 447.63,-733.02"/>
+<text text-anchor="middle" x="274.81" y="-1205.2" font-family="Arial" font-size="14.00" fill="#666666">Verifies access via RPC</text>
+</g>
+<!-- MoveVM&#45;&gt;NFTContract -->
+<g id="edge87" class="edge" data-name="MoveVM-&gt;NFTContract">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M676.89,-1191.07C641.96,-1188.7 603.53,-1179.64 576.97,-1155 514.36,-1096.92 478.94,-829.44 467.96,-732.35"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="471.47,-732.21 466.89,-722.66 464.51,-732.98 471.47,-732.21"/>
+<text text-anchor="middle" x="613.15" y="-1191.2" font-family="Arial" font-size="14.00" fill="#666666">Executes</text>
+</g>
+<!-- Storage&#45;&gt;ResourcesTables -->
+<g id="edge88" class="edge" data-name="Storage-&gt;ResourcesTables">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M831.52,-1308.04C844.34,-1303.1 856.34,-1295.79 864.74,-1285 889.07,-1253.75 865.16,-1145.07 876.74,-1107.2 904.76,-1015.54 969.24,-921.66 1005.63,-873.31"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1008.36,-875.5 1011.63,-865.43 1002.79,-871.26 1008.36,-875.5"/>
+<text text-anchor="middle" x="904.76" y="-1111.2" font-family="Arial" font-size="14.00" fill="#666666">Stores</text>
+</g>
+<!-- Storage&#45;&gt;EventStore -->
+<g id="edge89" class="edge" data-name="Storage-&gt;EventStore">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M831.6,-1307.8C844.33,-1302.87 856.28,-1295.62 864.74,-1285 883.23,-1261.79 860.02,-1176.51 876.74,-1152 892.43,-1129 910,-1140.01 932.78,-1124 1071.31,-1026.63 1138.06,-1015.02 1208.44,-861 1224.34,-826.19 1202.09,-547.61 1225.06,-517 1230.92,-509.18 1238.95,-503.39 1247.78,-499.09"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1248.83,-502.45 1256.74,-495.4 1246.17,-495.97 1248.83,-502.45"/>
+<text text-anchor="middle" x="1032.86" y="-1118.2" font-family="Arial" font-size="14.00" fill="#666666">Records</text>
+</g>
+</g>
+</svg>

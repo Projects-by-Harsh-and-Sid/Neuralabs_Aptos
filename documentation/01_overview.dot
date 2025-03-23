@@ -1,0 +1,219 @@
+digraph "NeuraLabs System Architecture" {
+    // Modern styling with white theme
+    bgcolor="white";
+    fontname="Arial";
+    node [fontname="Arial", shape="box", style="rounded,filled", fillcolor="#f5f5f5", color="#333333", fontcolor="#333333", margin="0.2,0.1"];
+    edge [fontname="Arial", color="#666666", fontcolor="#666666", penwidth=1.2];
+    
+    // Make it more vertical than horizontal
+    rankdir="TB";
+    
+    // Client Application (Frontend)
+    subgraph cluster_frontend {
+        label="Client Application (Frontend)";
+        style="rounded,filled";
+        color="#4285F4";
+        fillcolor="#E8F0FE";
+        fontcolor="#4285F4";
+        fontsize=16;
+        
+        FlowCreator [label="Flow Creator Canvas\n(React + Canvas)"];
+        ChatInterface [label="Chat Interface\n(React + WebSockets)"];
+        Marketplace [label="Marketplace\n(React + Blockchain API)"];
+        AccessManagement [label="Access Management\n(React + Blockchain API)"];
+        UserDashboard [label="User Dashboard\n(React)"];
+        
+        // Frontend internal connections
+        UserDashboard -> FlowCreator [style="dashed"];
+        UserDashboard -> ChatInterface [style="dashed"];
+        UserDashboard -> Marketplace [style="dashed"];
+        UserDashboard -> AccessManagement [style="dashed"];
+        
+        // Frontend internal components
+        FrontendRouter [label="Router\n(React Router)"];
+        StateManager [label="State Manager\n(Context API)"];
+        WebSocketManager [label="WebSocket Manager\n(Frontend)"];
+        WalletConnector [label="Wallet Connector\n(Aptos Web3)"];
+        
+        // More internal connections
+        FrontendRouter -> UserDashboard;
+        StateManager -> UserDashboard;
+        StateManager -> FlowCreator;
+        StateManager -> ChatInterface;
+        WebSocketManager -> ChatInterface;
+        WalletConnector -> Marketplace;
+        WalletConnector -> AccessManagement;
+    }
+    
+    // Neura Message Passer (Backend 2)
+    subgraph cluster_backend2 {
+        label="Neura Message Passer (Backend 2)";
+        style="rounded,filled";
+        color="#0F9D58";
+        fillcolor="#E6F4EA";
+        fontcolor="#0F9D58";
+        fontsize=16;
+        
+        AuthService [label="Authentication Service\n(JWT + Blockchain)"];
+        DataPersistence [label="Data Persistence\n(FastAPI + ORM)"];
+        WebSocketManager2 [label="WebSocket Manager\n(FastAPI + AsyncIO)"];
+        BlockchainInterface [label="Blockchain Interface\n(Aptos SDK)"];
+        CacheManager [label="Cache Manager\n(Redis)"];
+        APIGateway [label="API Gateway\n(FastAPI)"];
+        
+        // Message Passer internal connections
+        APIGateway -> AuthService;
+        APIGateway -> DataPersistence;
+        APIGateway -> WebSocketManager2;
+        AuthService -> BlockchainInterface;
+        WebSocketManager2 -> DataPersistence;
+        DataPersistence -> CacheManager;
+        
+        // More internal components
+        UserManager [label="User Manager\n(Account Services)"];
+        FlowRegistry [label="Flow Registry\n(Workflow Database)"];
+        AccessValidator [label="Access Validator\n(Permission Checker)"];
+        ChatHistoryStore [label="Chat History Store\n(Message Database)"];
+        
+        // More internal connections
+        APIGateway -> UserManager;
+        APIGateway -> FlowRegistry;
+        AuthService -> AccessValidator;
+        AccessValidator -> BlockchainInterface;
+        DataPersistence -> ChatHistoryStore;
+        WebSocketManager2 -> ChatHistoryStore;
+    }
+    
+    // Neura Execution Engine (Backend 1)
+    subgraph cluster_backend1 {
+        label="Neura Execution Engine (Backend 1)";
+        style="rounded,filled";
+        color="#DB4437";
+        fillcolor="#FCE8E6";
+        fontcolor="#DB4437";
+        fontsize=16;
+        
+        FlowExecutor [label="Flow Executor\n(Python + AsyncIO)"];
+        ElementRegistry [label="Element Registry\n(Python)"];
+        StreamManager [label="Stream Manager\n(WebSockets)"];
+        AIConnector [label="AI Service Connector\n(AWS SDK)"];
+        ValidationService [label="Validation Service\n(JSON Schema)"];
+        SecurityManager [label="Security Manager\n(Python)"];
+        
+        // Execution Engine internal connections
+        FlowExecutor -> ElementRegistry;
+        FlowExecutor -> StreamManager;
+        FlowExecutor -> ValidationService;
+        FlowExecutor -> AIConnector;
+        FlowExecutor -> SecurityManager;
+        
+        // Element types
+        FlowControlElements [label="Flow Control Elements\n(Conditional Logic)"];
+        InputElements [label="Input Elements\n(Data Ingestion)"];
+        AIElements [label="AI Elements\n(Model Integration)"];
+        DataElements [label="Data Elements\n(Transformation)"];
+        BlockchainElements [label="Blockchain Elements\n(Chain Interaction)"];
+        OutputElements [label="Output Elements\n(Response Formatting)"];
+        
+        // Element connections
+        ElementRegistry -> FlowControlElements [style="dashed"];
+        ElementRegistry -> InputElements [style="dashed"];
+        ElementRegistry -> AIElements [style="dashed"];
+        ElementRegistry -> DataElements [style="dashed"];
+        ElementRegistry -> BlockchainElements [style="dashed"];
+        ElementRegistry -> OutputElements [style="dashed"];
+        
+        AIElements -> AIConnector;
+        BlockchainElements -> BlockchainInterface2 [label="RPC Calls"];
+        BlockchainInterface2 [label="Blockchain Interface\n(Backend 1)"];
+    }
+    
+    // Aptos Blockchain
+    subgraph cluster_blockchain {
+        label="Aptos Blockchain";
+        style="rounded,filled";
+        color="#F7B529";
+        fillcolor="#FEF7E0";
+        fontcolor="#F7B529";
+        fontsize=16;
+        
+        NFTContract [label="NFT Smart Contract\n(Move)"];
+        AccessControl [label="Access Control\n(Move)"];
+        TokenRegistry [label="Token Registry\n(Blockchain Storage)"];
+        TransactionProcessor [label="Transaction Processor\n(Aptos)"];
+        EventEmitter [label="Event Emitter\n(Blockchain Events)"];
+        
+        // Blockchain internal connections
+        NFTContract -> AccessControl;
+        NFTContract -> TokenRegistry;
+        AccessControl -> TokenRegistry;
+        NFTContract -> EventEmitter;
+        AccessControl -> EventEmitter;
+        TransactionProcessor -> NFTContract;
+        
+        // Access level components
+        AccessLevels [label="Access Levels\n(6 Privilege Tiers)"];
+        AccessValidator [label="Access Validator\n(Permission Checker)"];
+        AccessModifier [label="Access Modifier\n(Permission Granter)"];
+        
+        // Access connections
+        AccessControl -> AccessLevels;
+        AccessControl -> AccessValidator;
+        AccessControl -> AccessModifier;
+    }
+    
+    // External services
+    BedrockAI [label="AWS Bedrock\n(Claude / Anthropic)", shape="ellipse", style="filled", fillcolor="#232F3E", fontcolor="white"];
+    DeepSeekAI [label="DeepSeek Reasoner\n(Custom AI Model)", shape="ellipse", style="filled", fillcolor="#5A2CA0", fontcolor="white"];
+    Database [label="Database\n(PostgreSQL)", shape="cylinder", style="filled", fillcolor="#336791", fontcolor="white"];
+    CacheStore [label="Cache\n(Redis)", shape="cylinder", style="filled", fillcolor="#DC382D", fontcolor="white"];
+    FileStorage [label="Object Storage\n(S3-compatible)", shape="cylinder", style="filled", fillcolor="#FF9900", fontcolor="white"];
+    WalletProvider [label="Wallet Provider\n(Browser Extension)", shape="ellipse", style="filled", fillcolor="#AAAAAA", fontcolor="white"];
+    
+    // Cross-component connections - Frontend to Message Passer
+    FlowCreator -> APIGateway [label="HTTP/REST", color="#4285F4"];
+    ChatInterface -> WebSocketManager2 [label="WebSocket", color="#4285F4", style="bold"];
+    Marketplace -> APIGateway [label="HTTP/REST", color="#4285F4"];
+    AccessManagement -> APIGateway [label="HTTP/REST", color="#4285F4"];
+    UserDashboard -> APIGateway [label="HTTP/REST", color="#4285F4"];
+    WalletConnector -> WalletProvider [label="Web3 API", color="#4285F4"];
+    
+    // Message Passer to Execution Engine
+    WebSocketManager2 -> StreamManager [label="WebSocket", color="#0F9D58", style="bold"];
+    APIGateway -> FlowExecutor [label="HTTP/REST", color="#0F9D58"];
+    
+    // Message Passer to Blockchain
+    BlockchainInterface -> TransactionProcessor [label="RPC", color="#0F9D58"];
+    BlockchainInterface -> EventEmitter [label="Event Listener", color="#0F9D58", style="dashed"];
+    
+    // Execution Engine to External Services
+    AIConnector -> BedrockAI [label="API", color="#DB4437"];
+    AIConnector -> DeepSeekAI [label="API", color="#DB4437"];
+    BlockchainInterface2 -> TransactionProcessor [label="RPC", color="#DB4437"];
+    
+    // Database connections
+    DataPersistence -> Database [label="SQL", color="#0F9D58"];
+    CacheManager -> CacheStore [label="Redis Protocol", color="#0F9D58"];
+    DataPersistence -> FileStorage [label="S3 API", color="#0F9D58"];
+    ChatHistoryStore -> Database [label="SQL", color="#0F9D58"];
+    FlowRegistry -> Database [label="SQL", color="#0F9D58"];
+    UserManager -> Database [label="SQL", color="#0F9D58"];
+    
+    // Blockchain to External World
+    ExternalUsers [label="External Users\n(Wallet Owners)", shape="ellipse", style="filled", fillcolor="#AAAAAA", fontcolor="white"];
+    ExternalUsers -> TransactionProcessor [label="Transactions", color="#F7B529"];
+    WalletProvider -> TransactionProcessor [label="Transactions", color="#F7B529"];
+    
+    // Additional components
+    MessageQueue [label="Message Queue\n(Redis/Kafka)", shape="cylinder", style="filled", fillcolor="#6929C4", fontcolor="white"];
+    MonitoringSystem [label="Monitoring System\n(Prometheus/Grafana)", shape="ellipse", style="filled", fillcolor="#00539A", fontcolor="white"];
+    LoggingService [label="Logging Service\n(ELK Stack)", shape="ellipse", style="filled", fillcolor="#00797B", fontcolor="white"];
+    
+    // Additional connections
+    WebSocketManager2 -> MessageQueue [label="Async Processing", color="#0F9D58"];
+    FlowExecutor -> MessageQueue [label="Task Queuing", color="#DB4437"];
+    APIGateway -> LoggingService [label="Logs", color="#0F9D58", style="dashed"];
+    FlowExecutor -> LoggingService [label="Logs", color="#DB4437", style="dashed"];
+    APIGateway -> MonitoringSystem [label="Metrics", color="#0F9D58", style="dashed"];
+    FlowExecutor -> MonitoringSystem [label="Metrics", color="#DB4437", style="dashed"];
+}

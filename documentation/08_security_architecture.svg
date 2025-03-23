@@ -1,0 +1,771 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3858pt" height="1574pt" viewBox="0.00 0.00 3858.25 1574.44">
+<g id="graph0" class="graph" transform="translate(492.87600011469954,1685.8062432487131) scale(0.7578582832552002)" data-name="NeuraLabs Security Architecture">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-1570.44 3854.25,-1570.44 3854.25,4 -4,4" style=""/>
+<g id="clust1" class="cluster" data-name="cluster_perimeter">
+
+<path fill="#fce8e6" stroke="#db4437" d="M2485,-999.06C2485,-999.06 2759,-999.06 2759,-999.06 2765,-999.06 2771,-1005.06 2771,-1011.06 2771,-1011.06 2771,-1406.26 2771,-1406.26 2771,-1412.26 2765,-1418.26 2759,-1418.26 2759,-1418.26 2485,-1418.26 2485,-1418.26 2479,-1418.26 2473,-1412.26 2473,-1406.26 2473,-1406.26 2473,-1011.06 2473,-1011.06 2473,-1005.06 2479,-999.06 2485,-999.06" style=""/>
+<text text-anchor="middle" x="2622" y="-1399.86" font-family="Arial" font-size="16.00" fill="#db4437" style="">Security Perimeter</text>
+</g>
+<g id="clust2" class="cluster" data-name="cluster_authentication">
+
+<path fill="#e8f0fe" stroke="#4285f4" d="M20,-287.46C20,-287.46 391,-287.46 391,-287.46 397,-287.46 403,-293.46 403,-299.46 403,-299.46 403,-699.06 403,-699.06 403,-705.06 397,-711.06 391,-711.06 391,-711.06 20,-711.06 20,-711.06 14,-711.06 8,-705.06 8,-699.06 8,-699.06 8,-299.46 8,-299.46 8,-293.46 14,-287.46 20,-287.46" style=""/>
+<text text-anchor="middle" x="205.5" y="-692.66" font-family="Arial" font-size="16.00" fill="#4285f4" style="">Authentication &amp; Authorization</text>
+</g>
+<g id="clust3" class="cluster" data-name="cluster_data_security">
+
+<path fill="#e6f4ea" stroke="#0f9d58" d="M2372,-287.46C2372,-287.46 2650,-287.46 2650,-287.46 2656,-287.46 2662,-293.46 2662,-299.46 2662,-299.46 2662,-851.86 2662,-851.86 2662,-857.86 2656,-863.86 2650,-863.86 2650,-863.86 2372,-863.86 2372,-863.86 2366,-863.86 2360,-857.86 2360,-851.86 2360,-851.86 2360,-299.46 2360,-299.46 2360,-293.46 2366,-287.46 2372,-287.46" style=""/>
+<text text-anchor="middle" x="2511" y="-845.46" font-family="Arial" font-size="16.00" fill="#0f9d58" style="">Data Security</text>
+</g>
+<g id="clust4" class="cluster" data-name="cluster_execution_security">
+
+<path fill="#fef7e0" stroke="#f7b529" d="M1245,-287.46C1245,-287.46 2057,-287.46 2057,-287.46 2063,-287.46 2069,-293.46 2069,-299.46 2069,-299.46 2069,-699.06 2069,-699.06 2069,-705.06 2063,-711.06 2057,-711.06 2057,-711.06 1245,-711.06 1245,-711.06 1239,-711.06 1233,-705.06 1233,-699.06 1233,-699.06 1233,-299.46 1233,-299.46 1233,-293.46 1239,-287.46 1245,-287.46" style=""/>
+<text text-anchor="middle" x="1651" y="-692.66" font-family="Arial" font-size="16.00" fill="#f7b529" style="">Execution Security</text>
+</g>
+<g id="clust5" class="cluster" data-name="cluster_monitoring">
+
+<path fill="#f3e8ff" stroke="#7627bb" d="M2682,-177.2C2682,-177.2 3132,-177.2 3132,-177.2 3138,-177.2 3144,-183.2 3144,-189.2 3144,-189.2 3144,-546.26 3144,-546.26 3144,-552.26 3138,-558.26 3132,-558.26 3132,-558.26 2682,-558.26 2682,-558.26 2676,-558.26 2670,-552.26 2670,-546.26 2670,-546.26 2670,-189.2 2670,-189.2 2670,-183.2 2676,-177.2 2682,-177.2" style=""/>
+<text text-anchor="middle" x="2907" y="-539.86" font-family="Arial" font-size="16.00" fill="#7627bb" style="">Security Monitoring</text>
+</g>
+<g id="clust6" class="cluster" data-name="cluster_controls">
+
+<path fill="#f4e9fd" stroke="#a142f4" d="M3582,-177.2C3582,-177.2 3800,-177.2 3800,-177.2 3806,-177.2 3812,-183.2 3812,-189.2 3812,-189.2 3812,-851.86 3812,-851.86 3812,-857.86 3806,-863.86 3800,-863.86 3800,-863.86 3582,-863.86 3582,-863.86 3576,-863.86 3570,-857.86 3570,-851.86 3570,-851.86 3570,-189.2 3570,-189.2 3570,-183.2 3576,-177.2 3582,-177.2" style=""/>
+<text text-anchor="middle" x="3691" y="-845.46" font-family="Arial" font-size="16.00" fill="#a142f4" style="">Security Controls</text>
+</g>
+<g id="clust7" class="cluster" data-name="cluster_blockchain_security">
+
+<path fill="#fff3e0" stroke="#f57c00" d="M847,-8C847,-8 1039,-8 1039,-8 1045,-8 1051,-14 1051,-20 1051,-20 1051,-393.46 1051,-393.46 1051,-399.46 1045,-405.46 1039,-405.46 1039,-405.46 847,-405.46 847,-405.46 841,-405.46 835,-399.46 835,-393.46 835,-393.46 835,-20 835,-20 835,-14 841,-8 847,-8" style=""/>
+<text text-anchor="middle" x="943" y="-387.06" font-family="Arial" font-size="16.00" fill="#f57c00" style="">Blockchain Security</text>
+</g>
+<g id="clust8" class="cluster" data-name="cluster_legend">
+
+<path fill="#f5f5f5" stroke="#333333" d="M2822,-1306.06C2822,-1306.06 3798,-1306.06 3798,-1306.06 3804,-1306.06 3810,-1312.06 3810,-1318.06 3810,-1318.06 3810,-1546.44 3810,-1546.44 3810,-1552.44 3804,-1558.44 3798,-1558.44 3798,-1558.44 2822,-1558.44 2822,-1558.44 2816,-1558.44 2810,-1552.44 2810,-1546.44 2810,-1546.44 2810,-1318.06 2810,-1318.06 2810,-1312.06 2816,-1306.06 2822,-1306.06" style=""/>
+<text text-anchor="middle" x="3310" y="-1541.84" font-family="Arial" font-size="14.00" fill="#333333" style="">Security Legend</text>
+</g>
+<!-- Firewall -->
+<g id="node1" class="node" pointer-events="visible" data-name="Firewall">
+
+<path fill="#fcd0cd" stroke="#333333" d="M2750.96,-1355.66C2750.96,-1355.66 2643.04,-1355.66 2643.04,-1355.66 2637.04,-1355.66 2631.04,-1349.66 2631.04,-1343.66 2631.04,-1343.66 2631.04,-1320.46 2631.04,-1320.46 2631.04,-1314.46 2637.04,-1308.46 2643.04,-1308.46 2643.04,-1308.46 2750.96,-1308.46 2750.96,-1308.46 2756.96,-1308.46 2762.96,-1314.46 2762.96,-1320.46 2762.96,-1320.46 2762.96,-1343.66 2762.96,-1343.66 2762.96,-1349.66 2756.96,-1355.66 2750.96,-1355.66" style=""/>
+<text text-anchor="middle" x="2697" y="-1336.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Network Firewall</text>
+<text text-anchor="middle" x="2697" y="-1319.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Traffic Filtering</text>
+</g>
+<!-- WAF -->
+<g id="node2" class="node" pointer-events="visible" data-name="WAF">
+
+<path fill="#fcd0cd" stroke="#333333" d="M2740.32,-1255.26C2740.32,-1255.26 2561.68,-1255.26 2561.68,-1255.26 2555.68,-1255.26 2549.68,-1249.26 2549.68,-1243.26 2549.68,-1243.26 2549.68,-1220.06 2549.68,-1220.06 2549.68,-1214.06 2555.68,-1208.06 2561.68,-1208.06 2561.68,-1208.06 2740.32,-1208.06 2740.32,-1208.06 2746.32,-1208.06 2752.32,-1214.06 2752.32,-1220.06 2752.32,-1220.06 2752.32,-1243.26 2752.32,-1243.26 2752.32,-1249.26 2746.32,-1255.26 2740.32,-1255.26" style=""/>
+<text text-anchor="middle" x="2651" y="-1235.86" font-family="Arial" font-size="14.00" fill="#333333" style="">Web Application Firewall</text>
+<text text-anchor="middle" x="2651" y="-1219.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Application Layer Protection</text>
+</g>
+<!-- Firewall&#45;&gt;WAF -->
+<g id="edge18" class="edge" data-name="Firewall-&gt;WAF">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2686.22,-1307.99C2680.39,-1295.53 2673.09,-1279.92 2666.65,-1266.14" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2669.89,-1264.81 2662.49,-1257.23 2663.55,-1267.77 2669.89,-1264.81" style=""/>
+<text text-anchor="middle" x="2720.73" y="-1277.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Filtered Traffic</text>
+</g>
+<!-- RateLimiter -->
+<g id="node4" class="node" pointer-events="visible" data-name="RateLimiter">
+
+<path fill="#fcd0cd" stroke="#333333" d="M2700.39,-1154.86C2700.39,-1154.86 2581.61,-1154.86 2581.61,-1154.86 2575.61,-1154.86 2569.61,-1148.86 2569.61,-1142.86 2569.61,-1142.86 2569.61,-1119.66 2569.61,-1119.66 2569.61,-1113.66 2575.61,-1107.66 2581.61,-1107.66 2581.61,-1107.66 2700.39,-1107.66 2700.39,-1107.66 2706.39,-1107.66 2712.39,-1113.66 2712.39,-1119.66 2712.39,-1119.66 2712.39,-1142.86 2712.39,-1142.86 2712.39,-1148.86 2706.39,-1154.86 2700.39,-1154.86" style=""/>
+<text text-anchor="middle" x="2641" y="-1135.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Rate Limiter</text>
+<text text-anchor="middle" x="2641" y="-1118.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Request Throttling</text>
+</g>
+<!-- WAF&#45;&gt;RateLimiter -->
+<g id="edge19" class="edge" data-name="WAF-&gt;RateLimiter">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2648.66,-1207.59C2647.41,-1195.37 2645.87,-1180.13 2644.49,-1166.56" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2648.01,-1166.59 2643.51,-1156.99 2641.04,-1167.29 2648.01,-1166.59" style=""/>
+<text text-anchor="middle" x="2706.71" y="-1177.26" font-family="Arial" font-size="14.00" fill="#666666" style="">Validated Requests</text>
+</g>
+<!-- DDoSProtection -->
+<g id="node3" class="node" pointer-events="visible" data-name="DDoSProtection">
+
+<path fill="#fcd0cd" stroke="#333333" d="M2601.27,-1355.66C2601.27,-1355.66 2492.73,-1355.66 2492.73,-1355.66 2486.73,-1355.66 2480.73,-1349.66 2480.73,-1343.66 2480.73,-1343.66 2480.73,-1320.46 2480.73,-1320.46 2480.73,-1314.46 2486.73,-1308.46 2492.73,-1308.46 2492.73,-1308.46 2601.27,-1308.46 2601.27,-1308.46 2607.27,-1308.46 2613.27,-1314.46 2613.27,-1320.46 2613.27,-1320.46 2613.27,-1343.66 2613.27,-1343.66 2613.27,-1349.66 2607.27,-1355.66 2601.27,-1355.66" style=""/>
+<text text-anchor="middle" x="2547" y="-1336.26" font-family="Arial" font-size="14.00" fill="#333333" style="">DDoS Protection</text>
+<text text-anchor="middle" x="2547" y="-1319.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Attack Mitigation</text>
+</g>
+<!-- TLS -->
+<g id="node5" class="node" pointer-events="visible" data-name="TLS">
+
+<path fill="#fcd0cd" stroke="#333333" d="M2733.75,-1054.46C2733.75,-1054.46 2578.25,-1054.46 2578.25,-1054.46 2572.25,-1054.46 2566.25,-1048.46 2566.25,-1042.46 2566.25,-1042.46 2566.25,-1019.26 2566.25,-1019.26 2566.25,-1013.26 2572.25,-1007.26 2578.25,-1007.26 2578.25,-1007.26 2733.75,-1007.26 2733.75,-1007.26 2739.75,-1007.26 2745.75,-1013.26 2745.75,-1019.26 2745.75,-1019.26 2745.75,-1042.46 2745.75,-1042.46 2745.75,-1048.46 2739.75,-1054.46 2733.75,-1054.46" style=""/>
+<text text-anchor="middle" x="2656" y="-1035.06" font-family="Arial" font-size="14.00" fill="#333333" style="">TLS Termination</text>
+<text text-anchor="middle" x="2656" y="-1018.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Encryption Management</text>
+</g>
+<!-- RateLimiter&#45;&gt;TLS -->
+<g id="edge20" class="edge" data-name="RateLimiter-&gt;TLS">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2644.52,-1107.19C2646.38,-1094.97 2648.7,-1079.73 2650.77,-1066.16" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2654.18,-1066.99 2652.23,-1056.58 2647.26,-1065.94 2654.18,-1066.99" style=""/>
+<text text-anchor="middle" x="2710.07" y="-1076.86" font-family="Arial" font-size="14.00" fill="#666666" style="">Rate-Limited Traffic</text>
+</g>
+<!-- Client -->
+<g id="node26" class="node" pointer-events="visible" data-name="Client">
+
+<path fill="#e8f0fe" stroke="#4285f4" d="M2891.17,-954.06C2891.17,-954.06 2778.83,-954.06 2778.83,-954.06 2772.83,-954.06 2766.83,-948.06 2766.83,-942.06 2766.83,-942.06 2766.83,-918.86 2766.83,-918.86 2766.83,-912.86 2772.83,-906.86 2778.83,-906.86 2778.83,-906.86 2891.17,-906.86 2891.17,-906.86 2897.17,-906.86 2903.17,-912.86 2903.17,-918.86 2903.17,-918.86 2903.17,-942.06 2903.17,-942.06 2903.17,-948.06 2897.17,-954.06 2891.17,-954.06" style=""/>
+<text text-anchor="middle" x="2835" y="-934.66" font-family="Arial" font-size="14.00" fill="#4285f4" style="">Client Application</text>
+<text text-anchor="middle" x="2835" y="-917.86" font-family="Arial" font-size="14.00" fill="#4285f4" style="">(Frontend)</text>
+</g>
+<!-- TLS&#45;&gt;Client -->
+<g id="edge21" class="edge" data-name="TLS-&gt;Client">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2666.7,-1007.03C2673.37,-995.09 2683.01,-981.15 2695.25,-972.26 2712.84,-959.48 2734.39,-950.68 2755.26,-944.63" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2755.91,-948.08 2764.66,-942.1 2754.09,-941.32 2755.91,-948.08" style=""/>
+<text text-anchor="middle" x="2763.88" y="-976.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Encrypted Connection</text>
+</g>
+<!-- WalletAuth -->
+<g id="node6" class="node" pointer-events="visible" data-name="WalletAuth">
+
+<path fill="#d2e3fc" stroke="#333333" d="M383.18,-648.46C383.18,-648.46 242.82,-648.46 242.82,-648.46 236.82,-648.46 230.82,-642.46 230.82,-636.46 230.82,-636.46 230.82,-613.26 230.82,-613.26 230.82,-607.26 236.82,-601.26 242.82,-601.26 242.82,-601.26 383.18,-601.26 383.18,-601.26 389.18,-601.26 395.18,-607.26 395.18,-613.26 395.18,-613.26 395.18,-636.46 395.18,-636.46 395.18,-642.46 389.18,-648.46 383.18,-648.46" style=""/>
+<text text-anchor="middle" x="313" y="-629.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Wallet Authentication</text>
+<text text-anchor="middle" x="313" y="-612.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Cryptographic Identity</text>
+</g>
+<!-- JWTProvider -->
+<g id="node7" class="node" pointer-events="visible" data-name="JWTProvider">
+
+<path fill="#d2e3fc" stroke="#333333" d="M370.07,-495.66C370.07,-495.66 253.93,-495.66 253.93,-495.66 247.93,-495.66 241.93,-489.66 241.93,-483.66 241.93,-483.66 241.93,-460.46 241.93,-460.46 241.93,-454.46 247.93,-448.46 253.93,-448.46 253.93,-448.46 370.07,-448.46 370.07,-448.46 376.07,-448.46 382.07,-454.46 382.07,-460.46 382.07,-460.46 382.07,-483.66 382.07,-483.66 382.07,-489.66 376.07,-495.66 370.07,-495.66" style=""/>
+<text text-anchor="middle" x="312" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">JWT Provider</text>
+<text text-anchor="middle" x="312" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Token Generation</text>
+</g>
+<!-- WalletAuth&#45;&gt;JWTProvider -->
+<g id="edge1" class="edge" data-name="WalletAuth-&gt;JWTProvider">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M300.87,-601.12C298.38,-595.39 296.12,-589.13 294.83,-583.06 289.47,-557.85 294.35,-529.07 300.26,-507.27" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="303.61,-508.27 303.07,-497.69 296.89,-506.29 303.61,-508.27" style=""/>
+<text text-anchor="middle" x="345.59" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Generate Token</text>
+</g>
+<!-- WalletAuth&#45;&gt;Client -->
+<g id="edge25" class="edge" data-name="WalletAuth-&gt;Client">
+
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M379.9,-648.87C528.23,-698.7 896.84,-815.93 1215.83,-863.86 1517.71,-909.21 2471.28,-924.81 2754.76,-928.51" style=""/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="2754.7,-932.01 2764.74,-928.64 2754.79,-925.01 2754.7,-932.01" style=""/>
+<text text-anchor="middle" x="1258.58" y="-773.46" font-family="Arial" font-size="14.00" fill="#666666" style="">4. Auth Token</text>
+</g>
+<!-- Blockchain -->
+<g id="node29" class="node" pointer-events="visible" data-name="Blockchain">
+
+<path fill="#fef7e0" stroke="#f7b529" d="M1143.89,-495.66C1143.89,-495.66 1032.11,-495.66 1032.11,-495.66 1026.11,-495.66 1020.11,-489.66 1020.11,-483.66 1020.11,-483.66 1020.11,-460.46 1020.11,-460.46 1020.11,-454.46 1026.11,-448.46 1032.11,-448.46 1032.11,-448.46 1143.89,-448.46 1143.89,-448.46 1149.89,-448.46 1155.89,-454.46 1155.89,-460.46 1155.89,-460.46 1155.89,-483.66 1155.89,-483.66 1155.89,-489.66 1149.89,-495.66 1143.89,-495.66" style=""/>
+<text text-anchor="middle" x="1088" y="-476.26" font-family="Arial" font-size="14.00" fill="#f7b529" style="">Aptos Blockchain</text>
+<text text-anchor="middle" x="1088" y="-459.46" font-family="Arial" font-size="14.00" fill="#f7b529" style="">Smart Contracts</text>
+</g>
+<!-- WalletAuth&#45;&gt;Blockchain -->
+<g id="edge23" class="edge" data-name="WalletAuth-&gt;Blockchain">
+
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M395.58,-620.87C449.21,-616.61 519.71,-606.55 578,-583.06 590.03,-578.21 589.92,-571.33 601.86,-566.26 737.36,-508.74 909.17,-486.47 1008.04,-478.03" style=""/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="1008.24,-481.52 1017.92,-477.21 1007.67,-474.55 1008.24,-481.52" style=""/>
+<text text-anchor="middle" x="648.07" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">2. Verify Wallet</text>
+</g>
+<!-- SessionManager -->
+<g id="node10" class="node" pointer-events="visible" data-name="SessionManager">
+
+<path fill="#d2e3fc" stroke="#333333" d="M340.45,-342.86C340.45,-342.86 227.55,-342.86 227.55,-342.86 221.55,-342.86 215.55,-336.86 215.55,-330.86 215.55,-330.86 215.55,-307.66 215.55,-307.66 215.55,-301.66 221.55,-295.66 227.55,-295.66 227.55,-295.66 340.45,-295.66 340.45,-295.66 346.45,-295.66 352.45,-301.66 352.45,-307.66 352.45,-307.66 352.45,-330.86 352.45,-330.86 352.45,-336.86 346.45,-342.86 340.45,-342.86" style=""/>
+<text text-anchor="middle" x="284" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Session Manager</text>
+<text text-anchor="middle" x="284" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Session Lifecycle</text>
+</g>
+<!-- JWTProvider&#45;&gt;SessionManager -->
+<g id="edge2" class="edge" data-name="JWTProvider-&gt;SessionManager">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M307.75,-448.16C303.12,-423.21 295.66,-383.05 290.34,-354.38" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="293.8,-353.86 288.53,-344.67 286.92,-355.14 293.8,-353.86" style=""/>
+<text text-anchor="middle" x="359.25" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Establish Session</text>
+</g>
+<!-- AccessManager -->
+<g id="node8" class="node" pointer-events="visible" data-name="AccessManager">
+
+<path fill="#d2e3fc" stroke="#333333" d="M201.39,-648.46C201.39,-648.46 54.61,-648.46 54.61,-648.46 48.61,-648.46 42.61,-642.46 42.61,-636.46 42.61,-636.46 42.61,-613.26 42.61,-613.26 42.61,-607.26 48.61,-601.26 54.61,-601.26 54.61,-601.26 201.39,-601.26 201.39,-601.26 207.39,-601.26 213.39,-607.26 213.39,-613.26 213.39,-613.26 213.39,-636.46 213.39,-636.46 213.39,-642.46 207.39,-648.46 201.39,-648.46" style=""/>
+<text text-anchor="middle" x="128" y="-629.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Manager</text>
+<text text-anchor="middle" x="128" y="-612.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Permission Verification</text>
+</g>
+<!-- BlockchainVerifier -->
+<g id="node9" class="node" pointer-events="visible" data-name="BlockchainVerifier">
+
+<path fill="#d2e3fc" stroke="#333333" d="M212.19,-495.66C212.19,-495.66 85.81,-495.66 85.81,-495.66 79.81,-495.66 73.81,-489.66 73.81,-483.66 73.81,-483.66 73.81,-460.46 73.81,-460.46 73.81,-454.46 79.81,-448.46 85.81,-448.46 85.81,-448.46 212.19,-448.46 212.19,-448.46 218.19,-448.46 224.19,-454.46 224.19,-460.46 224.19,-460.46 224.19,-483.66 224.19,-483.66 224.19,-489.66 218.19,-495.66 212.19,-495.66" style=""/>
+<text text-anchor="middle" x="149" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Blockchain Verifier</text>
+<text text-anchor="middle" x="149" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">On-chain Validation</text>
+</g>
+<!-- AccessManager&#45;&gt;BlockchainVerifier -->
+<g id="edge3" class="edge" data-name="AccessManager-&gt;BlockchainVerifier">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M49.87,-600.96C35.84,-592.41 27.61,-581.05 34.64,-566.26 47.34,-539.54 71.85,-517.96 94.94,-502.32" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="96.7,-505.35 103.19,-496.97 92.89,-499.47 96.7,-505.35" style=""/>
+<text text-anchor="middle" x="74.68" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Verify Rights</text>
+</g>
+<!-- AccessManager&#45;&gt;BlockchainVerifier -->
+<g id="edge28" class="edge" data-name="AccessManager-&gt;BlockchainVerifier">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M131.19,-600.96C134.66,-576.01 140.26,-535.85 144.25,-507.18" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="147.69,-507.87 145.6,-497.48 140.75,-506.9 147.69,-507.87" style=""/>
+<text text-anchor="middle" x="204.69" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">7. Check Permissions</text>
+</g>
+<!-- BlockchainVerifier&#45;&gt;Blockchain -->
+<g id="edge29" class="edge" data-name="BlockchainVerifier-&gt;Blockchain">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M164.73,-495.91C179.59,-516.08 203.92,-543.56 233,-555.56 304.49,-585.05 329.81,-560.27 407,-555.56 625.48,-542.21 881.2,-505 1008.12,-485.06" style=""/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="1008.5,-488.55 1017.83,-483.53 1007.41,-481.63 1008.5,-488.55" style=""/>
+<text text-anchor="middle" x="936" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">8. NFT Access Query</text>
+</g>
+<!-- Encryption -->
+<g id="node11" class="node" pointer-events="visible" data-name="Encryption">
+
+<path fill="#ceead6" stroke="#333333" d="M2574.15,-648.46C2574.15,-648.46 2461.85,-648.46 2461.85,-648.46 2455.85,-648.46 2449.85,-642.46 2449.85,-636.46 2449.85,-636.46 2449.85,-613.26 2449.85,-613.26 2449.85,-607.26 2455.85,-601.26 2461.85,-601.26 2461.85,-601.26 2574.15,-601.26 2574.15,-601.26 2580.15,-601.26 2586.15,-607.26 2586.15,-613.26 2586.15,-613.26 2586.15,-636.46 2586.15,-636.46 2586.15,-642.46 2580.15,-648.46 2574.15,-648.46" style=""/>
+<text text-anchor="middle" x="2518" y="-629.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Data Encryption</text>
+<text text-anchor="middle" x="2518" y="-612.26" font-family="Arial" font-size="14.00" fill="#333333" style="">At-rest Protection</text>
+</g>
+<!-- SecureStorage -->
+<g id="node12" class="node" pointer-events="visible" data-name="SecureStorage">
+
+<path fill="#ceead6" stroke="#333333" d="M2563.92,-495.66C2563.92,-495.66 2410.08,-495.66 2410.08,-495.66 2404.08,-495.66 2398.08,-489.66 2398.08,-483.66 2398.08,-483.66 2398.08,-460.46 2398.08,-460.46 2398.08,-454.46 2404.08,-448.46 2410.08,-448.46 2410.08,-448.46 2563.92,-448.46 2563.92,-448.46 2569.92,-448.46 2575.92,-454.46 2575.92,-460.46 2575.92,-460.46 2575.92,-483.66 2575.92,-483.66 2575.92,-489.66 2569.92,-495.66 2563.92,-495.66" style=""/>
+<text text-anchor="middle" x="2487" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Secure Storage</text>
+<text text-anchor="middle" x="2487" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Sensitive Data Handling</text>
+</g>
+<!-- Encryption&#45;&gt;SecureStorage -->
+<g id="edge5" class="edge" data-name="Encryption-&gt;SecureStorage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2449.39,-616.5C2428.75,-610.7 2408.25,-600.59 2395.61,-583.06 2375.16,-554.67 2404.91,-524.21 2435.8,-502.55" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2437.51,-505.62 2443.86,-497.14 2433.61,-499.81 2437.51,-505.62" style=""/>
+<text text-anchor="middle" x="2445.19" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Store Encrypted</text>
+</g>
+<!-- Encryption&#45;&gt;SecureStorage -->
+<g id="edge40" class="edge" data-name="Encryption-&gt;SecureStorage">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2513.29,-600.96C2508.16,-576.01 2499.91,-535.85 2494.02,-507.18" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2497.46,-506.55 2492.02,-497.46 2490.6,-507.96 2497.46,-506.55" style=""/>
+<text text-anchor="middle" x="2576.1" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">19. Protected Storage</text>
+</g>
+<!-- DataMasking -->
+<g id="node13" class="node" pointer-events="visible" data-name="DataMasking">
+
+<path fill="#ceead6" stroke="#333333" d="M2469.59,-342.86C2469.59,-342.86 2380.41,-342.86 2380.41,-342.86 2374.41,-342.86 2368.41,-336.86 2368.41,-330.86 2368.41,-330.86 2368.41,-307.66 2368.41,-307.66 2368.41,-301.66 2374.41,-295.66 2380.41,-295.66 2380.41,-295.66 2469.59,-295.66 2469.59,-295.66 2475.59,-295.66 2481.59,-301.66 2481.59,-307.66 2481.59,-307.66 2481.59,-330.86 2481.59,-330.86 2481.59,-336.86 2475.59,-342.86 2469.59,-342.86" style=""/>
+<text text-anchor="middle" x="2425" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Data Masking</text>
+<text text-anchor="middle" x="2425" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">PII Protection</text>
+</g>
+<!-- SecureStorage&#45;&gt;DataMasking -->
+<g id="edge6" class="edge" data-name="SecureStorage-&gt;DataMasking">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2455.03,-448.16C2449.56,-442.87 2444.51,-436.84 2440.96,-430.26 2428.51,-407.19 2424.78,-377.63 2424.02,-354.96" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2427.52,-354.93 2423.89,-344.98 2420.52,-355.03 2427.52,-354.93" style=""/>
+<text text-anchor="middle" x="2485.52" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Apply Masking</text>
+</g>
+<!-- BackupSecurity -->
+<g id="node15" class="node" pointer-events="visible" data-name="BackupSecurity">
+
+<path fill="#ceead6" stroke="#333333" d="M2642.05,-342.86C2642.05,-342.86 2511.95,-342.86 2511.95,-342.86 2505.95,-342.86 2499.95,-336.86 2499.95,-330.86 2499.95,-330.86 2499.95,-307.66 2499.95,-307.66 2499.95,-301.66 2505.95,-295.66 2511.95,-295.66 2511.95,-295.66 2642.05,-295.66 2642.05,-295.66 2648.05,-295.66 2654.05,-301.66 2654.05,-307.66 2654.05,-307.66 2654.05,-330.86 2654.05,-330.86 2654.05,-336.86 2648.05,-342.86 2642.05,-342.86" style=""/>
+<text text-anchor="middle" x="2577" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Backup Security</text>
+<text text-anchor="middle" x="2577" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Recovery Protection</text>
+</g>
+<!-- SecureStorage&#45;&gt;BackupSecurity -->
+<g id="edge7" class="edge" data-name="SecureStorage-&gt;BackupSecurity">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2516.1,-448.2C2521.87,-442.75 2527.52,-436.65 2532,-430.26 2548.24,-407.09 2559.99,-377.19 2567.4,-354.41" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2570.72,-355.54 2570.35,-344.96 2564.03,-353.46 2570.72,-355.54" style=""/>
+<text text-anchor="middle" x="2589.47" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Secure Backup</text>
+</g>
+<!-- KeyManagement -->
+<g id="node14" class="node" pointer-events="visible" data-name="KeyManagement">
+
+<path fill="#ceead6" stroke="#333333" d="M2590.33,-801.26C2590.33,-801.26 2445.67,-801.26 2445.67,-801.26 2439.67,-801.26 2433.67,-795.26 2433.67,-789.26 2433.67,-789.26 2433.67,-766.06 2433.67,-766.06 2433.67,-760.06 2439.67,-754.06 2445.67,-754.06 2445.67,-754.06 2590.33,-754.06 2590.33,-754.06 2596.33,-754.06 2602.33,-760.06 2602.33,-766.06 2602.33,-766.06 2602.33,-789.26 2602.33,-789.26 2602.33,-795.26 2596.33,-801.26 2590.33,-801.26" style=""/>
+<text text-anchor="middle" x="2518" y="-781.86" font-family="Arial" font-size="14.00" fill="#333333" style="">Key Management</text>
+<text text-anchor="middle" x="2518" y="-765.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Cryptographic Material</text>
+</g>
+<!-- KeyManagement&#45;&gt;Encryption -->
+<g id="edge4" class="edge" data-name="KeyManagement-&gt;Encryption">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2518,-753.76C2518,-728.81 2518,-688.65 2518,-659.98" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2521.5,-660.3 2518,-650.3 2514.5,-660.3 2521.5,-660.3" style=""/>
+<text text-anchor="middle" x="2559.24" y="-723.26" font-family="Arial" font-size="14.00" fill="#666666" style="">Provide Keys</text>
+</g>
+<!-- Sandbox -->
+<g id="node16" class="node" pointer-events="visible" data-name="Sandbox">
+
+<path fill="#feefc3" stroke="#333333" d="M1867.13,-495.66C1867.13,-495.66 1728.87,-495.66 1728.87,-495.66 1722.87,-495.66 1716.87,-489.66 1716.87,-483.66 1716.87,-483.66 1716.87,-460.46 1716.87,-460.46 1716.87,-454.46 1722.87,-448.46 1728.87,-448.46 1728.87,-448.46 1867.13,-448.46 1867.13,-448.46 1873.13,-448.46 1879.13,-454.46 1879.13,-460.46 1879.13,-460.46 1879.13,-483.66 1879.13,-483.66 1879.13,-489.66 1873.13,-495.66 1867.13,-495.66" style=""/>
+<text text-anchor="middle" x="1798" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Execution Sandbox</text>
+<text text-anchor="middle" x="1798" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Isolation Environment</text>
+</g>
+<!-- ResourceLimits -->
+<g id="node17" class="node" pointer-events="visible" data-name="ResourceLimits">
+
+<path fill="#feefc3" stroke="#333333" d="M1672.1,-342.86C1672.1,-342.86 1513.9,-342.86 1513.9,-342.86 1507.9,-342.86 1501.9,-336.86 1501.9,-330.86 1501.9,-330.86 1501.9,-307.66 1501.9,-307.66 1501.9,-301.66 1507.9,-295.66 1513.9,-295.66 1513.9,-295.66 1672.1,-295.66 1672.1,-295.66 1678.1,-295.66 1684.1,-301.66 1684.1,-307.66 1684.1,-307.66 1684.1,-330.86 1684.1,-330.86 1684.1,-336.86 1678.1,-342.86 1672.1,-342.86" style=""/>
+<text text-anchor="middle" x="1593" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Resource Limits</text>
+<text text-anchor="middle" x="1593" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Computation Boundaries</text>
+</g>
+<!-- Sandbox&#45;&gt;ResourceLimits -->
+<g id="edge9" class="edge" data-name="Sandbox-&gt;ResourceLimits">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1716.4,-469.04C1650.9,-465.5 1566.39,-455.92 1544.53,-430.26 1525.06,-407.4 1542.79,-375.48 1562.05,-351.91" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1564.66,-354.25 1568.54,-344.39 1559.36,-349.68 1564.66,-354.25" style=""/>
+<text text-anchor="middle" x="1581.73" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Apply Limits</text>
+</g>
+<!-- Sandbox&#45;&gt;ResourceLimits -->
+<g id="edge36" class="edge" data-name="Sandbox-&gt;ResourceLimits">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1716.49,-458.72C1695.55,-452.68 1674.11,-443.67 1656.93,-430.26 1631.98,-410.78 1614.93,-378.64 1604.76,-354.12" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1608.01,-352.84 1601.1,-344.81 1601.5,-355.4 1608.01,-352.84" style=""/>
+<text text-anchor="middle" x="1722.53" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">15. Apply Constraints</text>
+</g>
+<!-- AccessVerification -->
+<g id="node19" class="node" pointer-events="visible" data-name="AccessVerification">
+
+<path fill="#feefc3" stroke="#333333" d="M1389,-342.86C1389,-342.86 1253,-342.86 1253,-342.86 1247,-342.86 1241,-336.86 1241,-330.86 1241,-330.86 1241,-307.66 1241,-307.66 1241,-301.66 1247,-295.66 1253,-295.66 1253,-295.66 1389,-295.66 1389,-295.66 1395,-295.66 1401,-301.66 1401,-307.66 1401,-307.66 1401,-330.86 1401,-330.86 1401,-336.86 1395,-342.86 1389,-342.86" style=""/>
+<text text-anchor="middle" x="1321" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Verification</text>
+<text text-anchor="middle" x="1321" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Permission Checking</text>
+</g>
+<!-- Sandbox&#45;&gt;AccessVerification -->
+<g id="edge10" class="edge" data-name="Sandbox-&gt;AccessVerification">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1716.41,-466.21C1569.35,-457.28 1274.29,-438.4 1266.75,-430.26 1245.74,-407.58 1266.01,-375.25 1287.49,-351.5" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1289.79,-354.16 1294.13,-344.5 1284.71,-349.34 1289.79,-354.16" style=""/>
+<text text-anchor="middle" x="1307.63" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Check Rights</text>
+</g>
+<!-- AnomalyDetection -->
+<g id="node20" class="node" pointer-events="visible" data-name="AnomalyDetection">
+
+<path fill="#feefc3" stroke="#333333" d="M1987.5,-342.86C1987.5,-342.86 1866.5,-342.86 1866.5,-342.86 1860.5,-342.86 1854.5,-336.86 1854.5,-330.86 1854.5,-330.86 1854.5,-307.66 1854.5,-307.66 1854.5,-301.66 1860.5,-295.66 1866.5,-295.66 1866.5,-295.66 1987.5,-295.66 1987.5,-295.66 1993.5,-295.66 1999.5,-301.66 1999.5,-307.66 1999.5,-307.66 1999.5,-330.86 1999.5,-330.86 1999.5,-336.86 1993.5,-342.86 1987.5,-342.86" style=""/>
+<text text-anchor="middle" x="1927" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Anomaly Detection</text>
+<text text-anchor="middle" x="1927" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Unusual Behavior</text>
+</g>
+<!-- Sandbox&#45;&gt;AnomalyDetection -->
+<g id="edge11" class="edge" data-name="Sandbox-&gt;AnomalyDetection">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1793.9,-448.01C1793.04,-436.98 1793.72,-423.92 1799.17,-413.46 1813.58,-385.83 1840.32,-364.39 1865.63,-349.07" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1867.13,-352.25 1874.03,-344.21 1863.62,-346.19 1867.13,-352.25" style=""/>
+<text text-anchor="middle" x="1851.91" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Monitor Behavior</text>
+</g>
+<!-- Sandbox&#45;&gt;AnomalyDetection -->
+<g id="edge44" class="edge" data-name="Sandbox-&gt;AnomalyDetection">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1879.51,-450.4C1889.14,-445.13 1898,-438.53 1905,-430.26 1922.56,-409.49 1927.51,-378.64 1928.38,-354.9" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1931.88,-355.07 1928.49,-345.03 1924.88,-354.99 1931.88,-355.07" style=""/>
+<text text-anchor="middle" x="1980.92" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">23. Execution Metrics</text>
+</g>
+<!-- AIServices -->
+<g id="node31" class="node" pointer-events="visible" data-name="AIServices">
+
+<ellipse fill="#5a2ca0" stroke="#333333" cx="2198" cy="-319.26" rx="108.86" ry="33.82" style=""/>
+<text text-anchor="middle" x="2198" y="-323.46" font-family="Arial" font-size="14.00" fill="white" style="">External AI Services</text>
+<text text-anchor="middle" x="2198" y="-306.66" font-family="Arial" font-size="14.00" fill="white" style="">Bedrock/DeepSeek</text>
+</g>
+<!-- Sandbox&#45;&gt;AIServices -->
+<g id="edge37" class="edge" data-name="Sandbox-&gt;AIServices">
+
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1879.32,-468.03C1987.53,-463.18 2167.8,-451.94 2189,-430.26 2205.41,-413.48 2208.18,-387.57 2206.6,-365.12" style=""/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="2210.09,-364.81 2205.57,-355.22 2203.12,-365.53 2210.09,-364.81" style=""/>
+<text text-anchor="middle" x="2270.43" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">16. Secure AI Request</text>
+</g>
+<!-- CodeSecurity -->
+<g id="node18" class="node" pointer-events="visible" data-name="CodeSecurity">
+
+<path fill="#feefc3" stroke="#333333" d="M2002.36,-648.46C2002.36,-648.46 1871.64,-648.46 1871.64,-648.46 1865.64,-648.46 1859.64,-642.46 1859.64,-636.46 1859.64,-636.46 1859.64,-613.26 1859.64,-613.26 1859.64,-607.26 1865.64,-601.26 1871.64,-601.26 1871.64,-601.26 2002.36,-601.26 2002.36,-601.26 2008.36,-601.26 2014.36,-607.26 2014.36,-613.26 2014.36,-613.26 2014.36,-636.46 2014.36,-636.46 2014.36,-642.46 2008.36,-648.46 2002.36,-648.46" style=""/>
+<text text-anchor="middle" x="1937" y="-629.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Code Security</text>
+<text text-anchor="middle" x="1937" y="-612.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Execution Validation</text>
+</g>
+<!-- CodeSecurity&#45;&gt;Sandbox -->
+<g id="edge8" class="edge" data-name="CodeSecurity-&gt;Sandbox">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1915.89,-600.96C1892.07,-575.12 1853.21,-532.96 1826.67,-504.16" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1829.44,-502 1820.09,-497.02 1824.29,-506.74 1829.44,-502" style=""/>
+<text text-anchor="middle" x="1938.98" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Validate Code</text>
+</g>
+<!-- CodeSecurity&#45;&gt;AccessVerification -->
+<g id="edge33" class="edge" data-name="CodeSecurity-&gt;AccessVerification">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1859.3,-614.4C1694.88,-592.54 1321.32,-532.39 1254,-430.26 1236.68,-403.99 1258.65,-373.36 1281.94,-351.1" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1284.13,-353.85 1289.17,-344.53 1279.42,-348.67 1284.13,-353.85" style=""/>
+<text text-anchor="middle" x="1619.81" y="-467.86" font-family="Arial" font-size="14.00" fill="#666666" style="">12. Check Access Rights</text>
+</g>
+<!-- AccessVerification&#45;&gt;Sandbox -->
+<g id="edge35" class="edge" data-name="AccessVerification-&gt;Sandbox">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1327.08,-343.19C1335.24,-369.06 1352.43,-410.15 1383.35,-430.26 1434.63,-463.61 1599.19,-470.7 1704.93,-471.67" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1704.73,-475.17 1714.75,-471.74 1704.78,-468.17 1704.73,-475.17" style=""/>
+<text text-anchor="middle" x="1457.33" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">14. Approved Execution</text>
+</g>
+<!-- AccessVerification&#45;&gt;Blockchain -->
+<g id="edge34" class="edge" data-name="AccessVerification-&gt;Blockchain">
+
+<path fill="none" stroke="#db4437" stroke-width="1.2" d="M1240.7,-336.89C1194.92,-350.29 1139.84,-373.69 1104.73,-413.46 1098.95,-420.01 1095.16,-428.45 1092.68,-436.84" style=""/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="1089.34,-435.76 1090.46,-446.29 1096.15,-437.36 1089.34,-435.76" style=""/>
+<text text-anchor="middle" x="1170.13" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">13. Verify Permission</text>
+</g>
+<!-- AlertingSystem -->
+<g id="node25" class="node" pointer-events="visible" data-name="AlertingSystem">
+
+<path fill="#e9d7fe" stroke="#333333" d="M2861.18,-232.6C2861.18,-232.6 2734.82,-232.6 2734.82,-232.6 2728.82,-232.6 2722.82,-226.6 2722.82,-220.6 2722.82,-220.6 2722.82,-197.4 2722.82,-197.4 2722.82,-191.4 2728.82,-185.4 2734.82,-185.4 2734.82,-185.4 2861.18,-185.4 2861.18,-185.4 2867.18,-185.4 2873.18,-191.4 2873.18,-197.4 2873.18,-197.4 2873.18,-220.6 2873.18,-220.6 2873.18,-226.6 2867.18,-232.6 2861.18,-232.6" style=""/>
+<text text-anchor="middle" x="2798" y="-213.2" font-family="Arial" font-size="14.00" fill="#333333" style="">Alerting System</text>
+<text text-anchor="middle" x="2798" y="-196.4" font-family="Arial" font-size="14.00" fill="#333333" style="">Incident Notification</text>
+</g>
+<!-- AnomalyDetection&#45;&gt;AlertingSystem -->
+<g id="edge45" class="edge" data-name="AnomalyDetection-&gt;AlertingSystem">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M1999.86,-301.07C2025.13,-295.54 2053.71,-289.78 2080,-285.6 2306.28,-249.64 2575.5,-226.49 2710.96,-216.19" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2710.94,-219.7 2720.64,-215.46 2710.41,-212.72 2710.94,-219.7" style=""/>
+<text text-anchor="middle" x="2404.64" y="-255" font-family="Arial" font-size="14.00" fill="#666666" style="">24. Suspicious Activity</text>
+</g>
+<!-- LogCollection -->
+<g id="node21" class="node" pointer-events="visible" data-name="LogCollection">
+
+<path fill="#e9d7fe" stroke="#333333" d="M3124.22,-495.66C3124.22,-495.66 3031.78,-495.66 3031.78,-495.66 3025.78,-495.66 3019.78,-489.66 3019.78,-483.66 3019.78,-483.66 3019.78,-460.46 3019.78,-460.46 3019.78,-454.46 3025.78,-448.46 3031.78,-448.46 3031.78,-448.46 3124.22,-448.46 3124.22,-448.46 3130.22,-448.46 3136.22,-454.46 3136.22,-460.46 3136.22,-460.46 3136.22,-483.66 3136.22,-483.66 3136.22,-489.66 3130.22,-495.66 3124.22,-495.66" style=""/>
+<text text-anchor="middle" x="3078" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Log Collection</text>
+<text text-anchor="middle" x="3078" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Audit Trail</text>
+</g>
+<!-- SIEM -->
+<g id="node22" class="node" pointer-events="visible" data-name="SIEM">
+
+<path fill="#e9d7fe" stroke="#333333" d="M2921.74,-342.86C2921.74,-342.86 2766.26,-342.86 2766.26,-342.86 2760.26,-342.86 2754.26,-336.86 2754.26,-330.86 2754.26,-330.86 2754.26,-307.66 2754.26,-307.66 2754.26,-301.66 2760.26,-295.66 2766.26,-295.66 2766.26,-295.66 2921.74,-295.66 2921.74,-295.66 2927.74,-295.66 2933.74,-301.66 2933.74,-307.66 2933.74,-307.66 2933.74,-330.86 2933.74,-330.86 2933.74,-336.86 2927.74,-342.86 2921.74,-342.86" style=""/>
+<text text-anchor="middle" x="2844" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Security Information and</text>
+<text text-anchor="middle" x="2844" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Event Management</text>
+</g>
+<!-- LogCollection&#45;&gt;SIEM -->
+<g id="edge12" class="edge" data-name="LogCollection-&gt;SIEM">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M3050.2,-447.99C3036.59,-437.07 3019.78,-424.13 3004,-413.46 2969.39,-390.06 2928.7,-366.41 2897.01,-348.78" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2899.09,-345.93 2888.65,-344.16 2895.7,-352.06 2899.09,-345.93" style=""/>
+<text text-anchor="middle" x="3060.08" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Feed Logs</text>
+</g>
+<!-- SIEM&#45;&gt;AlertingSystem -->
+<g id="edge15" class="edge" data-name="SIEM-&gt;AlertingSystem">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2834.24,-295.3C2827.84,-280.23 2819.36,-260.27 2812.21,-243.44" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2815.58,-242.43 2808.45,-234.6 2809.14,-245.17 2815.58,-242.43" style=""/>
+<text text-anchor="middle" x="2864.01" y="-255" font-family="Arial" font-size="14.00" fill="#666666" style="">Trigger Alerts</text>
+</g>
+<!-- IntrusionDetection -->
+<g id="node23" class="node" pointer-events="visible" data-name="IntrusionDetection">
+
+<path fill="#e9d7fe" stroke="#333333" d="M2989.23,-495.66C2989.23,-495.66 2868.77,-495.66 2868.77,-495.66 2862.77,-495.66 2856.77,-489.66 2856.77,-483.66 2856.77,-483.66 2856.77,-460.46 2856.77,-460.46 2856.77,-454.46 2862.77,-448.46 2868.77,-448.46 2868.77,-448.46 2989.23,-448.46 2989.23,-448.46 2995.23,-448.46 3001.23,-454.46 3001.23,-460.46 3001.23,-460.46 3001.23,-483.66 3001.23,-483.66 3001.23,-489.66 2995.23,-495.66 2989.23,-495.66" style=""/>
+<text text-anchor="middle" x="2929" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Intrusion Detection</text>
+<text text-anchor="middle" x="2929" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Threat Monitoring</text>
+</g>
+<!-- IntrusionDetection&#45;&gt;SIEM -->
+<g id="edge13" class="edge" data-name="IntrusionDetection-&gt;SIEM">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2917.45,-448.2C2911.98,-437.57 2905.29,-424.8 2899,-413.46 2887.72,-393.13 2874.5,-370.69 2863.84,-352.92" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2866.99,-351.36 2858.84,-344.6 2861,-354.97 2866.99,-351.36" style=""/>
+<text text-anchor="middle" x="2953.69" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Report Threats</text>
+</g>
+<!-- VulnerabilityScanner -->
+<g id="node24" class="node" pointer-events="visible" data-name="VulnerabilityScanner">
+
+<path fill="#e9d7fe" stroke="#333333" d="M2826.3,-495.66C2826.3,-495.66 2689.7,-495.66 2689.7,-495.66 2683.7,-495.66 2677.7,-489.66 2677.7,-483.66 2677.7,-483.66 2677.7,-460.46 2677.7,-460.46 2677.7,-454.46 2683.7,-448.46 2689.7,-448.46 2689.7,-448.46 2826.3,-448.46 2826.3,-448.46 2832.3,-448.46 2838.3,-454.46 2838.3,-460.46 2838.3,-460.46 2838.3,-483.66 2838.3,-483.66 2838.3,-489.66 2832.3,-495.66 2826.3,-495.66" style=""/>
+<text text-anchor="middle" x="2758" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Vulnerability Scanner</text>
+<text text-anchor="middle" x="2758" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Security Testing</text>
+</g>
+<!-- VulnerabilityScanner&#45;&gt;SIEM -->
+<g id="edge14" class="edge" data-name="VulnerabilityScanner-&gt;SIEM">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2756.23,-448.13C2756.21,-437.24 2757.42,-424.28 2761.93,-413.46 2771.91,-389.52 2790.64,-367.49 2807.69,-350.87" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2809.67,-353.81 2814.55,-344.41 2804.87,-348.72 2809.67,-353.81" style=""/>
+<text text-anchor="middle" x="2827.53" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Report Vulnerabilities</text>
+</g>
+<!-- Client&#45;&gt;WalletAuth -->
+<g id="edge22" class="edge" data-name="Client-&gt;WalletAuth">
+
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M2766.35,-922.95C2649.21,-911.72 2403.24,-887.62 2195.67,-863.86 1508.36,-785.16 681.9,-675.44 407,-638.54" style=""/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="407.67,-635.09 397.3,-637.23 406.74,-642.03 407.67,-635.09" style=""/>
+<text text-anchor="middle" x="2275.17" y="-773.46" font-family="Arial" font-size="14.00" fill="#666666" style="">1. Authentication Request</text>
+</g>
+<!-- Client&#45;&gt;LogCollection -->
+<g id="edge41" class="edge" data-name="Client-&gt;LogCollection">
+
+<path fill="none" stroke="#4285f4" stroke-width="1.2" stroke-dasharray="5,2" d="M2828.96,-906.43C2819.7,-866.35 2805.8,-782.05 2833.61,-719.06 2876.46,-622.02 2937.49,-635.69 3010,-558.26 3025.68,-541.51 3041.76,-521.53 3054.34,-505.12" style=""/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="3056.96,-507.45 3060.22,-497.37 3051.38,-503.22 3056.96,-507.45" style=""/>
+<text text-anchor="middle" x="2900.69" y="-723.26" font-family="Arial" font-size="14.00" fill="#666666" style="">20. User Activity Logs</text>
+</g>
+<!-- MessagePasser -->
+<g id="node27" class="node" pointer-events="visible" data-name="MessagePasser">
+
+<path fill="#e6f4ea" stroke="#0f9d58" d="M3324.29,-801.26C3324.29,-801.26 3173.71,-801.26 3173.71,-801.26 3167.71,-801.26 3161.71,-795.26 3161.71,-789.26 3161.71,-789.26 3161.71,-766.06 3161.71,-766.06 3161.71,-760.06 3167.71,-754.06 3173.71,-754.06 3173.71,-754.06 3324.29,-754.06 3324.29,-754.06 3330.29,-754.06 3336.29,-760.06 3336.29,-766.06 3336.29,-766.06 3336.29,-789.26 3336.29,-789.26 3336.29,-795.26 3330.29,-801.26 3324.29,-801.26" style=""/>
+<text text-anchor="middle" x="3249" y="-781.86" font-family="Arial" font-size="14.00" fill="#0f9d58" style="">Neura Message Passer</text>
+<text text-anchor="middle" x="3249" y="-765.06" font-family="Arial" font-size="14.00" fill="#0f9d58" style="">(Backend 2)</text>
+</g>
+<!-- Client&#45;&gt;MessagePasser -->
+<g id="edge26" class="edge" data-name="Client-&gt;MessagePasser">
+
+<path fill="none" stroke="#4285f4" stroke-width="1.2" d="M2898.33,-906.39C2972.75,-879.28 3096.05,-834.37 3174.86,-805.66" style=""/>
+<polygon fill="#4285f4" stroke="#4285f4" stroke-width="1.2" points="3175.77,-809.06 3183.97,-802.34 3173.38,-802.48 3175.77,-809.06" style=""/>
+<text text-anchor="middle" x="3061.65" y="-876.06" font-family="Arial" font-size="14.00" fill="#666666" style="">5. Request with Token</text>
+</g>
+<!-- CORS -->
+<g id="node33" class="node" pointer-events="visible" data-name="CORS">
+
+<path fill="#f5f5f5" stroke="#333333" d="M3727.53,-801.26C3727.53,-801.26 3590.47,-801.26 3590.47,-801.26 3584.47,-801.26 3578.47,-795.26 3578.47,-789.26 3578.47,-789.26 3578.47,-766.06 3578.47,-766.06 3578.47,-760.06 3584.47,-754.06 3590.47,-754.06 3590.47,-754.06 3727.53,-754.06 3727.53,-754.06 3733.53,-754.06 3739.53,-760.06 3739.53,-766.06 3739.53,-766.06 3739.53,-789.26 3739.53,-789.26 3739.53,-795.26 3733.53,-801.26 3727.53,-801.26" style=""/>
+<text text-anchor="middle" x="3659" y="-781.86" font-family="Arial" font-size="14.00" fill="#333333" style="">CORS Policy</text>
+<text text-anchor="middle" x="3659" y="-765.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Cross-Origin Security</text>
+</g>
+<!-- Client&#45;&gt;CORS -->
+<g id="edge51" class="edge" data-name="Client-&gt;CORS">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M2903.54,-923.65C3001.9,-914.64 3188.5,-895 3345,-863.86 3423.65,-848.21 3511.64,-823.71 3574.42,-804.99" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="3575.14,-808.43 3583.71,-802.21 3573.13,-801.73 3575.14,-808.43" style=""/>
+<text text-anchor="middle" x="3338.24" y="-876.06" font-family="Arial" font-size="14.00" fill="#666666" style="">Enforce Origins</text>
+</g>
+<!-- CSP -->
+<g id="node34" class="node" pointer-events="visible" data-name="CSP">
+
+<path fill="#f5f5f5" stroke="#333333" d="M3792.23,-648.46C3792.23,-648.46 3643.77,-648.46 3643.77,-648.46 3637.77,-648.46 3631.77,-642.46 3631.77,-636.46 3631.77,-636.46 3631.77,-613.26 3631.77,-613.26 3631.77,-607.26 3637.77,-601.26 3643.77,-601.26 3643.77,-601.26 3792.23,-601.26 3792.23,-601.26 3798.23,-601.26 3804.23,-607.26 3804.23,-613.26 3804.23,-613.26 3804.23,-636.46 3804.23,-636.46 3804.23,-642.46 3798.23,-648.46 3792.23,-648.46" style=""/>
+<text text-anchor="middle" x="3718" y="-629.06" font-family="Arial" font-size="14.00" fill="#333333" style="">Content Security Policy</text>
+<text text-anchor="middle" x="3718" y="-612.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Resource Control</text>
+</g>
+<!-- Client&#45;&gt;CSP -->
+<g id="edge50" class="edge" data-name="Client-&gt;CSP">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M2903.42,-929.78C3105.91,-930.03 3691.72,-925.39 3749,-863.86 3801.08,-807.9 3762.6,-709.93 3736.61,-658.89" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="3739.87,-657.58 3732.13,-650.35 3733.67,-660.83 3739.87,-657.58" style=""/>
+<text text-anchor="middle" x="3812.13" y="-773.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Apply Policy</text>
+</g>
+<!-- MessagePasser&#45;&gt;AccessManager -->
+<g id="edge27" class="edge" data-name="MessagePasser-&gt;AccessManager">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M3161.24,-776.17C3025.88,-774.43 2773.02,-766.96 2688.81,-735.86 2677,-731.5 2677.95,-723.01 2666,-719.06 2633.77,-708.41 253.65,-723.33 222,-711.06 194.17,-700.27 169.46,-677.02 152.36,-657.53" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="155.13,-655.39 146.01,-650.01 149.79,-659.91 155.13,-655.39" style=""/>
+<text text-anchor="middle" x="2749.1" y="-723.26" font-family="Arial" font-size="14.00" fill="#666666" style="">6. Validate Request</text>
+</g>
+<!-- MessagePasser&#45;&gt;Encryption -->
+<g id="edge39" class="edge" data-name="MessagePasser-&gt;Encryption">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M3161.39,-756.99C3142.46,-751.32 3122.89,-744.31 3105.38,-735.86 3093.86,-730.29 3093.82,-723.96 3082,-719.06 3038.02,-700.8 2742.97,-657.54 2598.04,-637.02" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2598.79,-633.59 2588.4,-635.66 2597.81,-640.52 2598.79,-633.59" style=""/>
+<text text-anchor="middle" x="3161.81" y="-723.26" font-family="Arial" font-size="14.00" fill="#666666" style="">18. Sensitive Data</text>
+</g>
+<!-- MessagePasser&#45;&gt;LogCollection -->
+<g id="edge42" class="edge" data-name="MessagePasser-&gt;LogCollection">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" stroke-dasharray="5,2" d="M3243.08,-753.75C3238.61,-741.32 3231.11,-726.92 3219,-719.06 3194.52,-703.17 3108.35,-731.89 3087.92,-711.06 3034.99,-657.1 3052.58,-558.88 3066.98,-507.1" style=""/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="3070.3,-508.21 3069.74,-497.63 3063.58,-506.25 3070.3,-508.21" style=""/>
+<text text-anchor="middle" x="3143.04" y="-620.66" font-family="Arial" font-size="14.00" fill="#666666" style="">21. Backend Logs</text>
+</g>
+<!-- ExecutionEngine -->
+<g id="node28" class="node" pointer-events="visible" data-name="ExecutionEngine">
+
+<path fill="#fce8e6" stroke="#db4437" d="M3375.49,-648.46C3375.49,-648.46 3220.51,-648.46 3220.51,-648.46 3214.51,-648.46 3208.51,-642.46 3208.51,-636.46 3208.51,-636.46 3208.51,-613.26 3208.51,-613.26 3208.51,-607.26 3214.51,-601.26 3220.51,-601.26 3220.51,-601.26 3375.49,-601.26 3375.49,-601.26 3381.49,-601.26 3387.49,-607.26 3387.49,-613.26 3387.49,-613.26 3387.49,-636.46 3387.49,-636.46 3387.49,-642.46 3381.49,-648.46 3375.49,-648.46" style=""/>
+<text text-anchor="middle" x="3298" y="-629.06" font-family="Arial" font-size="14.00" fill="#db4437" style="">Neura Execution Engine</text>
+<text text-anchor="middle" x="3298" y="-612.26" font-family="Arial" font-size="14.00" fill="#db4437" style="">(Backend 1)</text>
+</g>
+<!-- MessagePasser&#45;&gt;ExecutionEngine -->
+<g id="edge31" class="edge" data-name="MessagePasser-&gt;ExecutionEngine">
+
+<path fill="none" stroke="#0f9d58" stroke-width="1.2" d="M3256.16,-753.65C3259.46,-743.1 3263.46,-730.43 3267.13,-719.06 3273.46,-699.46 3280.69,-677.6 3286.56,-659.98" style=""/>
+<polygon fill="#0f9d58" stroke="#0f9d58" stroke-width="1.2" points="3289.87,-661.12 3289.72,-650.53 3283.23,-658.91 3289.87,-661.12" style=""/>
+<text text-anchor="middle" x="3337.43" y="-723.26" font-family="Arial" font-size="14.00" fill="#666666" style="">10. Execution Request</text>
+</g>
+<!-- InputValidation -->
+<g id="node35" class="node" pointer-events="visible" data-name="InputValidation">
+
+<path fill="#f5f5f5" stroke="#333333" d="M3754.46,-495.66C3754.46,-495.66 3627.54,-495.66 3627.54,-495.66 3621.54,-495.66 3615.54,-489.66 3615.54,-483.66 3615.54,-483.66 3615.54,-460.46 3615.54,-460.46 3615.54,-454.46 3621.54,-448.46 3627.54,-448.46 3627.54,-448.46 3754.46,-448.46 3754.46,-448.46 3760.46,-448.46 3766.46,-454.46 3766.46,-460.46 3766.46,-460.46 3766.46,-483.66 3766.46,-483.66 3766.46,-489.66 3760.46,-495.66 3754.46,-495.66" style=""/>
+<text text-anchor="middle" x="3691" y="-476.26" font-family="Arial" font-size="14.00" fill="#333333" style="">Input Validation</text>
+<text text-anchor="middle" x="3691" y="-459.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Injection Prevention</text>
+</g>
+<!-- MessagePasser&#45;&gt;InputValidation -->
+<g id="edge52" class="edge" data-name="MessagePasser-&gt;InputValidation">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M3336.7,-769.76C3389.53,-763.87 3450.29,-753.47 3470,-735.86 3516.69,-694.14 3470.03,-648.46 3510.93,-601.06 3523.16,-586.89 3533.05,-592.85 3549,-583.06 3587.69,-559.32 3628.28,-527.02 3656.11,-503.56" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="3658.3,-506.29 3663.66,-497.15 3653.77,-500.96 3658.3,-506.29" style=""/>
+<text text-anchor="middle" x="3566.03" y="-620.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Validate All Inputs</text>
+</g>
+<!-- ErrorHandling -->
+<g id="node36" class="node" pointer-events="visible" data-name="ErrorHandling">
+
+<path fill="#f5f5f5" stroke="#333333" d="M3792.46,-342.86C3792.46,-342.86 3589.54,-342.86 3589.54,-342.86 3583.54,-342.86 3577.54,-336.86 3577.54,-330.86 3577.54,-330.86 3577.54,-307.66 3577.54,-307.66 3577.54,-301.66 3583.54,-295.66 3589.54,-295.66 3589.54,-295.66 3792.46,-295.66 3792.46,-295.66 3798.46,-295.66 3804.46,-301.66 3804.46,-307.66 3804.46,-307.66 3804.46,-330.86 3804.46,-330.86 3804.46,-336.86 3798.46,-342.86 3792.46,-342.86" style=""/>
+<text text-anchor="middle" x="3691" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Secure Error Handling</text>
+<text text-anchor="middle" x="3691" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Information Leakage Prevention</text>
+</g>
+<!-- MessagePasser&#45;&gt;ErrorHandling -->
+<g id="edge53" class="edge" data-name="MessagePasser-&gt;ErrorHandling">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M3336.7,-767.45C3378.52,-761.16 3422.37,-751.14 3436,-735.86 3486.44,-679.33 3400.81,-620.99 3453.19,-566.26 3470.21,-548.47 3486.76,-570.71 3508,-558.26 3551.15,-532.97 3632.44,-411.86 3670.44,-352.8" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="3673.16,-355.04 3675.61,-344.73 3667.27,-351.26 3673.16,-355.04" style=""/>
+<text text-anchor="middle" x="3498.9" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Sanitize Errors</text>
+</g>
+<!-- CSRF -->
+<g id="node37" class="node" pointer-events="visible" data-name="CSRF">
+
+<path fill="#f5f5f5" stroke="#333333" d="M3774.59,-232.6C3774.59,-232.6 3595.41,-232.6 3595.41,-232.6 3589.41,-232.6 3583.41,-226.6 3583.41,-220.6 3583.41,-220.6 3583.41,-197.4 3583.41,-197.4 3583.41,-191.4 3589.41,-185.4 3595.41,-185.4 3595.41,-185.4 3774.59,-185.4 3774.59,-185.4 3780.59,-185.4 3786.59,-191.4 3786.59,-197.4 3786.59,-197.4 3786.59,-220.6 3786.59,-220.6 3786.59,-226.6 3780.59,-232.6 3774.59,-232.6" style=""/>
+<text text-anchor="middle" x="3685" y="-213.2" font-family="Arial" font-size="14.00" fill="#333333" style="">CSRF Protection</text>
+<text text-anchor="middle" x="3685" y="-196.4" font-family="Arial" font-size="14.00" fill="#333333" style="">Request Forgery Prevention</text>
+</g>
+<!-- MessagePasser&#45;&gt;CSRF -->
+<g id="edge54" class="edge" data-name="MessagePasser-&gt;CSRF">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M3336.71,-763.5C3368.08,-756.92 3398.15,-747.77 3408,-735.86 3453.46,-680.88 3418,-647 3418,-575.66 3418,-575.66 3418,-575.66 3418,-318.26 3418,-282.99 3499.01,-253.73 3571.79,-234.56" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="3572.35,-238.03 3581.16,-232.14 3570.6,-231.25 3572.35,-238.03" style=""/>
+<text text-anchor="middle" x="3460.79" y="-467.86" font-family="Arial" font-size="14.00" fill="#666666" style="">Verify Tokens</text>
+</g>
+<!-- ExecutionEngine&#45;&gt;CodeSecurity -->
+<g id="edge32" class="edge" data-name="ExecutionEngine-&gt;CodeSecurity">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M3277.27,-648.82C3258.04,-669.07 3227.42,-696.6 3194,-708.36 3106.16,-739.26 2448.66,-717.5 2356,-708.36 2240.79,-696.99 2110.32,-668.45 2026.02,-647.9" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2027,-644.53 2016.46,-645.55 2025.33,-651.33 2027,-644.53" style=""/>
+<text text-anchor="middle" x="3027" y="-723.26" font-family="Arial" font-size="14.00" fill="#666666" style="">11. Validate Flow</text>
+</g>
+<!-- ExecutionEngine&#45;&gt;LogCollection -->
+<g id="edge43" class="edge" data-name="ExecutionEngine-&gt;LogCollection">
+
+<path fill="none" stroke="#db4437" stroke-width="1.2" stroke-dasharray="5,2" d="M3264.59,-600.96C3226.19,-574.64 3163.09,-531.38 3121.05,-502.57" style=""/>
+<polygon fill="#db4437" stroke="#db4437" stroke-width="1.2" points="3123.09,-499.72 3112.86,-496.96 3119.13,-505.5 3123.09,-499.72" style=""/>
+<text text-anchor="middle" x="3291.54" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">22. Execution Logs</text>
+</g>
+<!-- Blockchain&#45;&gt;WalletAuth -->
+<g id="edge24" class="edge" data-name="Blockchain-&gt;WalletAuth">
+
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M1019.8,-477.55C871.06,-488.13 522.28,-517.48 415.25,-566.26 404.92,-570.97 405.45,-576.77 396,-583.06 389.53,-587.36 382.55,-591.5 375.47,-595.37" style=""/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="373.9,-592.24 366.69,-600 377.17,-598.43 373.9,-592.24" style=""/>
+<text text-anchor="middle" x="494.38" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">3. Signature Confirmation</text>
+</g>
+<!-- Blockchain&#45;&gt;BlockchainVerifier -->
+<g id="edge30" class="edge" data-name="Blockchain-&gt;BlockchainVerifier">
+
+<path fill="none" stroke="#f7b529" stroke-width="1.2" d="M1019.62,-483.25C897.2,-502.66 632.3,-541.8 407,-555.56 329.81,-560.27 304.49,-585.05 233,-555.56 208.12,-545.3 186.72,-523.7 171.75,-505.04" style=""/>
+<polygon fill="#f7b529" stroke="#f7b529" stroke-width="1.2" points="174.7,-503.14 165.83,-497.35 169.15,-507.41 174.7,-503.14" style=""/>
+<text text-anchor="middle" x="782" y="-570.46" font-family="Arial" font-size="14.00" fill="#666666" style="">9. Access Level Response</text>
+</g>
+<!-- MoveVerifier -->
+<g id="node38" class="node" pointer-events="visible" data-name="MoveVerifier">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1031.2,-342.86C1031.2,-342.86 910.8,-342.86 910.8,-342.86 904.8,-342.86 898.8,-336.86 898.8,-330.86 898.8,-330.86 898.8,-307.66 898.8,-307.66 898.8,-301.66 904.8,-295.66 910.8,-295.66 910.8,-295.66 1031.2,-295.66 1031.2,-295.66 1037.2,-295.66 1043.2,-301.66 1043.2,-307.66 1043.2,-307.66 1043.2,-330.86 1043.2,-330.86 1043.2,-336.86 1037.2,-342.86 1031.2,-342.86" style=""/>
+<text text-anchor="middle" x="971" y="-323.46" font-family="Arial" font-size="14.00" fill="#333333" style="">Move Verifier</text>
+<text text-anchor="middle" x="971" y="-306.66" font-family="Arial" font-size="14.00" fill="#333333" style="">Formal Verification</text>
+</g>
+<!-- Blockchain&#45;&gt;MoveVerifier -->
+<g id="edge58" class="edge" data-name="Blockchain-&gt;MoveVerifier">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1019.71,-464.12C998.54,-458.39 977.39,-448.2 964.41,-430.26 948.78,-408.64 952.14,-377.94 958.43,-354.46" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="961.74,-355.58 961.27,-345 955.04,-353.57 961.74,-355.58" style=""/>
+<text text-anchor="middle" x="1010.29" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">Verify Contract</text>
+</g>
+<!-- AccessModel -->
+<g id="node39" class="node" pointer-events="visible" data-name="AccessModel">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1012.1,-232.6C1012.1,-232.6 873.9,-232.6 873.9,-232.6 867.9,-232.6 861.9,-226.6 861.9,-220.6 861.9,-220.6 861.9,-197.4 861.9,-197.4 861.9,-191.4 867.9,-185.4 873.9,-185.4 873.9,-185.4 1012.1,-185.4 1012.1,-185.4 1018.1,-185.4 1024.1,-191.4 1024.1,-197.4 1024.1,-197.4 1024.1,-220.6 1024.1,-220.6 1024.1,-226.6 1018.1,-232.6 1012.1,-232.6" style=""/>
+<text text-anchor="middle" x="943" y="-213.2" font-family="Arial" font-size="14.00" fill="#333333" style="">Access Model</text>
+<text text-anchor="middle" x="943" y="-196.4" font-family="Arial" font-size="14.00" fill="#333333" style="">Granular Permissions</text>
+</g>
+<!-- Blockchain&#45;&gt;AccessModel -->
+<g id="edge59" class="edge" data-name="Blockchain-&gt;AccessModel">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1019.95,-466.55C937.49,-459.5 805.8,-442.62 775.63,-405.46 742.05,-364.1 746.74,-330.35 775.63,-285.6 792.73,-259.12 821.58,-241.81 850.56,-230.55" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="851.74,-233.84 859.95,-227.14 849.35,-227.26 851.74,-233.84" style=""/>
+<text text-anchor="middle" x="832.19" y="-315.06" font-family="Arial" font-size="14.00" fill="#666666" style="">Implement Access</text>
+</g>
+<!-- TransactionSigning -->
+<g id="node40" class="node" pointer-events="visible" data-name="TransactionSigning">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1031.26,-148C1031.26,-148 854.74,-148 854.74,-148 848.74,-148 842.74,-142 842.74,-136 842.74,-136 842.74,-112.8 842.74,-112.8 842.74,-106.8 848.74,-100.8 854.74,-100.8 854.74,-100.8 1031.26,-100.8 1031.26,-100.8 1037.26,-100.8 1043.26,-106.8 1043.26,-112.8 1043.26,-112.8 1043.26,-136 1043.26,-136 1043.26,-142 1037.26,-148 1031.26,-148" style=""/>
+<text text-anchor="middle" x="943" y="-128.6" font-family="Arial" font-size="14.00" fill="#333333" style="">Transaction Signing</text>
+<text text-anchor="middle" x="943" y="-111.8" font-family="Arial" font-size="14.00" fill="#333333" style="">Cryptographic Authorization</text>
+</g>
+<!-- Blockchain&#45;&gt;TransactionSigning -->
+<g id="edge60" class="edge" data-name="Blockchain-&gt;TransactionSigning">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1019.62,-466.03C942.66,-459.66 822.93,-447.41 781,-430.26 699.33,-396.85 690.28,-352.76 667.15,-267.6 645.83,-189.1 745.59,-153.73 831.04,-137.93" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="831.42,-141.41 840.66,-136.23 830.21,-134.52 831.42,-141.41" style=""/>
+<text text-anchor="middle" x="726.92" y="-255" font-family="Arial" font-size="14.00" fill="#666666" style="">Require Signatures</text>
+</g>
+<!-- EventSecurity -->
+<g id="node41" class="node" pointer-events="visible" data-name="EventSecurity">
+
+<path fill="#f5f5f5" stroke="#333333" d="M1026.61,-63.4C1026.61,-63.4 867.39,-63.4 867.39,-63.4 861.39,-63.4 855.39,-57.4 855.39,-51.4 855.39,-51.4 855.39,-28.2 855.39,-28.2 855.39,-22.2 861.39,-16.2 867.39,-16.2 867.39,-16.2 1026.61,-16.2 1026.61,-16.2 1032.61,-16.2 1038.61,-22.2 1038.61,-28.2 1038.61,-28.2 1038.61,-51.4 1038.61,-51.4 1038.61,-57.4 1032.61,-63.4 1026.61,-63.4" style=""/>
+<text text-anchor="middle" x="947" y="-44" font-family="Arial" font-size="14.00" fill="#333333" style="">Event Security</text>
+<text text-anchor="middle" x="947" y="-27.2" font-family="Arial" font-size="14.00" fill="#333333" style="">Tamper-Evident Records</text>
+</g>
+<!-- Blockchain&#45;&gt;EventSecurity -->
+<g id="edge61" class="edge" data-name="Blockchain-&gt;EventSecurity">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" stroke-dasharray="5,2" d="M1083.8,-448.16C1078.76,-418.68 1071,-365.84 1071,-320.26 1071,-320.26 1071,-320.26 1071,-123.4 1071,-99.39 1054.7,-81.94 1033.93,-69.44" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="1035.81,-66.48 1025.36,-64.74 1032.44,-72.62 1035.81,-66.48" style=""/>
+<text text-anchor="middle" x="1116.91" y="-204.8" font-family="Arial" font-size="14.00" fill="#666666" style="">Record Events</text>
+</g>
+<!-- User -->
+<g id="node30" class="node" pointer-events="visible" data-name="User">
+
+<ellipse fill="#aaaaaa" stroke="#333333" cx="2840" cy="-1030.86" rx="61.13" ry="21.56" style=""/>
+<text text-anchor="middle" x="2840" y="-1026.66" font-family="Arial" font-size="14.00" fill="white" style="">End User</text>
+</g>
+<!-- User&#45;&gt;Client -->
+<g id="edge16" class="edge" data-name="User-&gt;Client">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M2838.94,-1008.99C2838.3,-996.47 2837.48,-980.24 2836.75,-965.87" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2840.26,-965.98 2836.26,-956.17 2833.27,-966.34 2840.26,-965.98" style=""/>
+<text text-anchor="middle" x="2876.29" y="-976.46" font-family="Arial" font-size="14.00" fill="#666666" style="">User Access</text>
+</g>
+<!-- AIServices&#45;&gt;Sandbox -->
+<g id="edge38" class="edge" data-name="AIServices-&gt;Sandbox">
+
+<path fill="none" stroke="#5a2ca0" stroke-width="1.2" d="M2161,-351.41C2125.91,-380.34 2075.21,-420.38 2052,-430.26 2001.31,-451.84 1940.49,-462.1 1891.08,-466.93" style=""/>
+<polygon fill="#5a2ca0" stroke="#5a2ca0" stroke-width="1.2" points="1890.87,-463.43 1881.23,-467.83 1891.51,-470.41 1890.87,-463.43" style=""/>
+<text text-anchor="middle" x="2129.75" y="-417.66" font-family="Arial" font-size="14.00" fill="#666666" style="">17. AI Response</text>
+</g>
+<!-- AttackVector -->
+<g id="node32" class="node" pointer-events="visible" data-name="AttackVector">
+
+<ellipse fill="#ea4335" stroke="#333333" cx="2697" cy="-1482.84" rx="102.17" ry="21.56" style=""/>
+<text text-anchor="middle" x="2697" y="-1478.64" font-family="Arial" font-size="14.00" fill="white" style="">Potential Attackers</text>
+</g>
+<!-- AttackVector&#45;&gt;Firewall -->
+<g id="edge17" class="edge" data-name="AttackVector-&gt;Firewall">
+
+<path fill="none" stroke="#ea4335" stroke-width="1.2" stroke-dasharray="5,2" d="M2697,-1460.84C2697,-1436.59 2697,-1396.34 2697,-1367.49" style=""/>
+<polygon fill="#ea4335" stroke="#ea4335" stroke-width="1.2" points="2700.5,-1367.72 2697,-1357.72 2693.5,-1367.72 2700.5,-1367.72" style=""/>
+<text text-anchor="middle" x="2742.52" y="-1430.46" font-family="Arial" font-size="14.00" fill="#666666" style="">Attack Attempt</text>
+</g>
+<!-- CORS&#45;&gt;CSP -->
+<!-- CSP&#45;&gt;InputValidation -->
+<!-- InputValidation&#45;&gt;ErrorHandling -->
+<!-- ErrorHandling&#45;&gt;CSRF -->
+<!-- MoveVerifier&#45;&gt;AccessModel -->
+<!-- AccessModel&#45;&gt;TransactionSigning -->
+<!-- TransactionSigning&#45;&gt;EventSecurity -->
+<!-- AuthenticationLegend -->
+<g id="node42" class="node" pointer-events="visible" data-name="AuthenticationLegend">
+
+<path fill="#d2e3fc" stroke="#4285f4" d="M3790.25,-1500.84C3790.25,-1500.84 3641.75,-1500.84 3641.75,-1500.84 3635.75,-1500.84 3629.75,-1494.84 3629.75,-1488.84 3629.75,-1488.84 3629.75,-1476.84 3629.75,-1476.84 3629.75,-1470.84 3635.75,-1464.84 3641.75,-1464.84 3641.75,-1464.84 3790.25,-1464.84 3790.25,-1464.84 3796.25,-1464.84 3802.25,-1470.84 3802.25,-1476.84 3802.25,-1476.84 3802.25,-1488.84 3802.25,-1488.84 3802.25,-1494.84 3796.25,-1500.84 3790.25,-1500.84" style=""/>
+<text text-anchor="middle" x="3716" y="-1478.64" font-family="Arial" font-size="14.00" fill="#4285f4" style="">Authentication Controls</text>
+</g>
+<!-- AuthorizationLegend -->
+<g id="node43" class="node" pointer-events="visible" data-name="AuthorizationLegend">
+
+<path fill="#ceead6" stroke="#0f9d58" d="M3599.74,-1500.84C3599.74,-1500.84 3458.26,-1500.84 3458.26,-1500.84 3452.26,-1500.84 3446.26,-1494.84 3446.26,-1488.84 3446.26,-1488.84 3446.26,-1476.84 3446.26,-1476.84 3446.26,-1470.84 3452.26,-1464.84 3458.26,-1464.84 3458.26,-1464.84 3599.74,-1464.84 3599.74,-1464.84 3605.74,-1464.84 3611.74,-1470.84 3611.74,-1476.84 3611.74,-1476.84 3611.74,-1488.84 3611.74,-1488.84 3611.74,-1494.84 3605.74,-1500.84 3599.74,-1500.84" style=""/>
+<text text-anchor="middle" x="3529" y="-1478.64" font-family="Arial" font-size="14.00" fill="#0f9d58" style="">Authorization Controls</text>
+</g>
+<!-- IsolationLegend -->
+<g id="node44" class="node" pointer-events="visible" data-name="IsolationLegend">
+
+<path fill="#feefc3" stroke="#f7b529" d="M3416.17,-1500.84C3416.17,-1500.84 3303.83,-1500.84 3303.83,-1500.84 3297.83,-1500.84 3291.83,-1494.84 3291.83,-1488.84 3291.83,-1488.84 3291.83,-1476.84 3291.83,-1476.84 3291.83,-1470.84 3297.83,-1464.84 3303.83,-1464.84 3303.83,-1464.84 3416.17,-1464.84 3416.17,-1464.84 3422.17,-1464.84 3428.17,-1470.84 3428.17,-1476.84 3428.17,-1476.84 3428.17,-1488.84 3428.17,-1488.84 3428.17,-1494.84 3422.17,-1500.84 3416.17,-1500.84" style=""/>
+<text text-anchor="middle" x="3360" y="-1478.64" font-family="Arial" font-size="14.00" fill="#f7b529" style="">Isolation Controls</text>
+</g>
+<!-- PerimeterLegend -->
+<g id="node45" class="node" pointer-events="visible" data-name="PerimeterLegend">
+
+<path fill="#fcd0cd" stroke="#db4437" d="M3018.2,-1350.06C3018.2,-1350.06 2897.8,-1350.06 2897.8,-1350.06 2891.8,-1350.06 2885.8,-1344.06 2885.8,-1338.06 2885.8,-1338.06 2885.8,-1326.06 2885.8,-1326.06 2885.8,-1320.06 2891.8,-1314.06 2897.8,-1314.06 2897.8,-1314.06 3018.2,-1314.06 3018.2,-1314.06 3024.2,-1314.06 3030.2,-1320.06 3030.2,-1326.06 3030.2,-1326.06 3030.2,-1338.06 3030.2,-1338.06 3030.2,-1344.06 3024.2,-1350.06 3018.2,-1350.06" style=""/>
+<text text-anchor="middle" x="2958" y="-1327.86" font-family="Arial" font-size="14.00" fill="#db4437" style="">Perimeter Controls</text>
+</g>
+<!-- MonitoringLegend -->
+<g id="node46" class="node" pointer-events="visible" data-name="MonitoringLegend">
+
+<path fill="#e9d7fe" stroke="#7627bb" d="M3261.89,-1500.84C3261.89,-1500.84 3136.11,-1500.84 3136.11,-1500.84 3130.11,-1500.84 3124.11,-1494.84 3124.11,-1488.84 3124.11,-1488.84 3124.11,-1476.84 3124.11,-1476.84 3124.11,-1470.84 3130.11,-1464.84 3136.11,-1464.84 3136.11,-1464.84 3261.89,-1464.84 3261.89,-1464.84 3267.89,-1464.84 3273.89,-1470.84 3273.89,-1476.84 3273.89,-1476.84 3273.89,-1488.84 3273.89,-1488.84 3273.89,-1494.84 3267.89,-1500.84 3261.89,-1500.84" style=""/>
+<text text-anchor="middle" x="3199" y="-1478.64" font-family="Arial" font-size="14.00" fill="#7627bb" style="">Monitoring Controls</text>
+</g>
+<!-- DataFlowLegend -->
+<g id="node47" class="node" pointer-events="visible" data-name="DataFlowLegend">
+
+<path fill="#f5f5f5" stroke="none" d="M3093.94,-1500.84C3093.94,-1500.84 2960.06,-1500.84 2960.06,-1500.84 2954.06,-1500.84 2948.06,-1494.84 2948.06,-1488.84 2948.06,-1488.84 2948.06,-1476.84 2948.06,-1476.84 2948.06,-1470.84 2954.06,-1464.84 2960.06,-1464.84 2960.06,-1464.84 3093.94,-1464.84 3093.94,-1464.84 3099.94,-1464.84 3105.94,-1470.84 3105.94,-1476.84 3105.94,-1476.84 3105.94,-1488.84 3105.94,-1488.84 3105.94,-1494.84 3099.94,-1500.84 3093.94,-1500.84" style=""/>
+<text text-anchor="middle" x="3027" y="-1478.64" font-family="Arial" font-size="14.00" fill="#333333" style="">Encrypted Data Flow</text>
+</g>
+<!-- DataFlowLegend&#45;&gt;PerimeterLegend -->
+<g id="edge62" class="edge" data-name="DataFlowLegend-&gt;PerimeterLegend">
+
+<path fill="none" stroke="#666666" stroke-width="1.2" d="M3019.22,-1465.06C3007.48,-1439.75 2985.1,-1391.5 2970.9,-1360.87" style=""/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.2" points="2974.22,-1359.71 2966.84,-1352.11 2967.87,-1362.66 2974.22,-1359.71" style=""/>
+</g>
+<!-- AttackLegend -->
+<g id="node48" class="node" pointer-events="visible" data-name="AttackLegend">
+
+<path fill="#f5f5f5" stroke="none" d="M2917.76,-1500.84C2917.76,-1500.84 2830.24,-1500.84 2830.24,-1500.84 2824.24,-1500.84 2818.24,-1494.84 2818.24,-1488.84 2818.24,-1488.84 2818.24,-1476.84 2818.24,-1476.84 2818.24,-1470.84 2824.24,-1464.84 2830.24,-1464.84 2830.24,-1464.84 2917.76,-1464.84 2917.76,-1464.84 2923.76,-1464.84 2929.76,-1470.84 2929.76,-1476.84 2929.76,-1476.84 2929.76,-1488.84 2929.76,-1488.84 2929.76,-1494.84 2923.76,-1500.84 2917.76,-1500.84" style=""/>
+<text text-anchor="middle" x="2874" y="-1478.64" font-family="Arial" font-size="14.00" fill="#333333" style="">Attack Vector</text>
+</g>
+<!-- AttackLegend&#45;&gt;PerimeterLegend -->
+<g id="edge63" class="edge" data-name="AttackLegend-&gt;PerimeterLegend">
+
+<path fill="none" stroke="#ea4335" stroke-width="1.2" stroke-dasharray="5,2" d="M2883.47,-1465.06C2897.83,-1439.64 2925.24,-1391.08 2942.52,-1360.47" style=""/>
+<polygon fill="#ea4335" stroke="#ea4335" stroke-width="1.2" points="2945.41,-1362.47 2947.28,-1352.04 2939.32,-1359.03 2945.41,-1362.47" style=""/>
+</g>
+</g>
+</svg>
