@@ -555,13 +555,17 @@ const handleSendMessage = () => {
                   bg={bgSecondary}
                   borderColor={borderColor}
                   p={0}
-                  
+                  marginTop={isLanding ? "10px" : "0"}
+                  borderRadius={"md"}
+                //   position={"absolute"}
+                //   left={isLanding ? "20%" : "0"}
                 //   width="10px"
                 >
                   <MenuItem
                     icon={<FiSearch />}
                     onClick={() => setToolSelectionMode("deepSearch")}
                     _hover={{ bg: bgHover }}
+                    bg={bgSecondary}
                     
                   >
                     DeepSearch
@@ -570,6 +574,7 @@ const handleSendMessage = () => {
                     icon={<FiCode />}
                     onClick={() => setToolSelectionMode("think")}
                     _hover={{ bg: bgHover }}
+                    bg={bgSecondary}
                   >
                     Think
                   </MenuItem>
@@ -592,12 +597,15 @@ const handleSendMessage = () => {
                   bg={bgSecondary}
                   borderColor={borderColor}
                   p={0}
+                  marginTop={isLanding ? "10px" : "0"} 
                 >
                   {AI_MODELS.map((model) => (
                     <MenuItem
                       key={model.id}
                       onClick={() => setSelectedModel(model)}
                       _hover={{ bg: bgHover }}
+                    bg={bgSecondary}
+
                     >
                       {model.name}
                     </MenuItem>
