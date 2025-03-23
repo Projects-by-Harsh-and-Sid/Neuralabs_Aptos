@@ -8,11 +8,24 @@ import MarketplacePage from './pages/marketplace_page';
 import ChatInterfacePage from './pages/chat_interface_page';
 import AccessManagementPage from './pages/access_management_page';
 import theme from './theme';
+import { WalletContextProvider } from './contexts/WalletContext';
+import api_key from './api_key.json';
+import { Buffer } from 'buffer';
+window.Buffer = window.Buffer || Buffer;
+
+
+const API_URL = api_key.api_key;
+
 
 function App() {
+
+  const aptosRpcUrl = API_URL;
+  // console.log("API_URL", aptosRpcUrl);
+
   return (
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <WalletContextProvider rpcUrl={aptosRpcUrl}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
@@ -44,6 +57,7 @@ function App() {
           {/* Add more routes as needed */}
         </Routes>
       </BrowserRouter>
+      </WalletContextProvider>
     </ChakraProvider>
   );
 }
