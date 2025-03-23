@@ -5,12 +5,15 @@
   - [Start block](#start-block)
   - [End block](#end-block)
   - [Case Block](#case-block)
+  - [flow\_select\_block](#flow_select_block)
 - [Inputs and Data](#inputs-and-data)
   - [Chat Input block](#chat-input-block)
   - [Context History block](#context-history-block)
   - [Datablocks block](#datablocks-block)
   - [SQL Database block](#sql-database-block)
   - [Rest API block](#rest-api-block)
+  - [metadata block](#metadata-block)
+  - [Constants block](#constants-block)
 - [Onchain](#onchain)
   - [read blockchain data block](#read-blockchain-data-block)
   - [build transaction json block](#build-transaction-json-block)
@@ -31,7 +34,8 @@ input schemas and output schemas are the input and output of the block that are 
 
 1. Start 
 2. End
-3. IF else block
+3. flow_switch
+4. flow_select_block
 
 
 ## Start block
@@ -83,56 +87,99 @@ End:
 
 End block is the exit point of the flow. and the output will be returned
 
+user can change None
 
 ## Case Block
 
 ```yaml
 
-Case:
+flow_switch:
 
-    name: "name of the case block"
-    type: "case"
+    name: "name of the flow_switch block"
+    type: "flow_switch"
 
     element-description: "This is the case block. It will take the input and check if it matches any of the cases"
 
     description: "This is the case block. It will take the input and check if it matches any of the cases"
 
     input_schema:
-        variable1:
-            type: "int|string|bool|float|json|list"
+        variables:
+            type: "json"
             description: "This is the variable that will be checked against a case"
-            default: (value)
-            required: true|flase
-        variable2: ..
+            default: None
+            required: true
+            example: {....}
         ....
-    output_schema: None
-
+    output_schema:
+        result:
+            type: "json"
+            description: "This is the result of the case block. It will be the output of the case block"
+            default: None
+            required: true
+            example: 
+             - case1: true
+             - case2: false
+             ....
     cases:
         - case1:
             type: "case"
             description: "This is the first case. It will check if the variable1 is equal to 1"
             default: None
             compare: "== , !=, >, <, >=, <=, in"
-            variable1: "variable1"
-            variable2: "variable2"
+            variable1: "variable1_name"
+            variable2: "variable2_name"
         - case2:
             type: "case"
             description: "This is the second case. It will check if the variable1 is equal to 2"
             default: None
             compare: "== , !=, >, <, >=, <=, in"
-            variable1: "variable1"
-            variable2: "variable2"
+            variable1: "variable1_name"
+            variable2: "variable2_name"
 ```
 
 
 user will be able to set
 - description
 - name
-- input schema
-- output schema
 - cases
 
 based on the case the flow will be directed to the next block
+
+
+## flow_select_block
+
+```yaml
+
+flow_select_block:
+    
+        name: "name of the flow_select block"
+        type: "flow_select"
+    
+        element-description: "This is the flow_select block. It will take the input and check if it matches any of the cases"
+    
+        description: "This is the flow_select block. It will take the input and check if it matches any of the cases"
+
+
+        # order matters as first flow with execute != None will have its value passed downwards
+        flows_to_switch:
+            - flow1
+            - flow2
+            - flow3
+            - flow4
+
+
+        input_schema: None
+
+        output_schema: None
+                
+        # flow switch block just forwards the output of the previous block to the next block
+
+```
+
+user will be able to set
+- description
+- name
+- flows to switch
 
 
 # Inputs and Data
@@ -144,6 +191,8 @@ based on the case the flow will be directed to the next block
 4. SQL Database Connecter
 5. Rest API
 6. Env Variable block [to be implemented later]
+7. metadata
+8. Constants
 
 
 ## Chat Input block
@@ -210,7 +259,7 @@ user will be able to set None
 
 ## Datablocks block
 
-the datablock basically stores the data in a json or csv object format in the backend. The data is actually stored in tinydb for jsons directly or is converted to dict using pandas for csvs. 
+the datablock basically stores the data in a json or csv object format in the backend. The data is actually stored in postgres for jsons directly or is converted to dict using pandas for csvs. 
 
 
 ```yaml
@@ -238,10 +287,19 @@ Datablocks:
             example: {....} 
 ```
 
+
+The user will be able to set
+- name
+- description
+- data type
+- data
+- outputschema[data][type]
+
 ## SQL Database block
 
 
-.... to be implemented later
+.... to be implemented later, Not required for now
+
 
 
 
@@ -265,6 +323,8 @@ RestAPI:
 
     headers: {....}
 
+    api_key: "...."
+
 
 
     input_schema:
@@ -283,6 +343,104 @@ RestAPI:
             required: true
             example: {....} 
 ```
+
+
+user will be able to change
+- name
+- description
+- url
+- method
+- headers
+- api_key
+  
+
+
+## metadata block
+
+```yaml
+
+metadata:
+
+    element-description: "This is the metadata block. It is used to get the metadata from the blockchain"
+
+    data:
+        type: "json"
+        description: "This is the metadata block. It is used to get the metadata from the blockchain and user context"
+        default: None
+        required: true
+        example: {....}
+
+
+    output_schema:
+       command:
+           type: "string"
+           option: ["",""] #user input
+           description: "This is the command that will be used to get the metadata from the blockchain"
+        user_id:
+            type: "string"
+            description: "This is the user id that will be used to get the metadata from the blockchain"
+            default: None
+            required: false
+            example: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        user_name:
+            type: "string"
+            description: "This is the user name that will be used to get the metadata from the blockchain"
+            default: None
+            required: false
+            example: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        user_email:
+            type: "string"
+            description: "This is the user email that will be used to get the metadata from the blockchain"
+            default: None
+            required: false
+            example: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        wallet_address:
+            type: "string"
+            description: "This is the wallet address that will be used to get the metadata from the blockchain"
+            default: None
+            required: false
+            example: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+
+
+```
+
+user will be able to change none
+
+
+## Constants block
+
+```yaml
+
+constants:
+
+    name: "block1"
+    element-description: "This is the constants block. It is used to get the constants from the blockchain"
+
+    description: "User provided description of the block"
+
+    type: "constants"
+
+    data-type: string|int|bool|float|json|list
+
+    data: "...."
+
+    input_schema: None
+
+    output_schema:
+        data: 
+            type: "string|int|bool|float|json|list"
+            description: "This is the constants block. It is used to get the constants from the blockchain"
+            default: None
+            required: true
+            example: {....}
+
+```
+
+user will be able to set
+- name
+- description
+- data type
+- data
 
 
 
@@ -338,7 +496,6 @@ user will be able to set
 - description
 - name
 - input schema
-- output schema
 - node url
 - contract address
 - function name
@@ -387,12 +544,13 @@ user will be able to set
 - description
 - name
 - input schema
-- output schema
 - node url
 - contract address
 - function name
 - function args
 - input_schema
+
+
 
 
 # Util
@@ -402,6 +560,7 @@ user will be able to set
 3. Merger Block
 4. Random generator block (string or number)
 5. time block
+6. similarly implement concatenate block, split block, type cast block, etc
 
 
 ## Selector Block
@@ -417,7 +576,7 @@ Selector:
 
     description: "This is the selector block. It will take the input and check if it matches any of the cases"
 
-    key: "value"
+    key: "value" # or can be a list of values
     
     input_schema:
         data:
@@ -426,10 +585,19 @@ Selector:
             default: None
             required: true
     output_schema: 
-        value: "example value"
+        value:
+            type: "json|string|float|int|bool"
+            description: "This is the value that will be returned based on the key"
+            default: None
+            required: true
 
  
 ```
+
+user will be able to set
+- description
+- name
+- key
 
 ## Merger Block
 
@@ -465,6 +633,13 @@ Merger:
 ```
 
 
+user will be able to set
+
+- description
+- name
+- input schema
+  
+
 ## Random generator block
 
 ```yaml
@@ -479,8 +654,6 @@ random_generator:
     description: "This is the random generator block. It will take the input and generate a random number or string"
 
     type: "string|int|float"
-    
-    
     
     floating-point: true|false
     min: 0
@@ -502,10 +675,9 @@ random_generator:
 user will be able to set
 - description
 - name
-- input schema
-- output schema
 - type
 - floating-point
+- min max decimal length
 
 
 ## Time block
@@ -525,7 +697,6 @@ time:
     
     format: "YYYY-MM-DD HH:MM:SS"
     timezone: "UTC+0"
-    timestamp: 1672531199
 
     input_schema: None
     output_schema:
@@ -537,6 +708,12 @@ time:
 
 ```
 
+user will be able to set
+- description
+- name
+- type
+- format
+- timezone
 
 # AI blocks
 
@@ -559,7 +736,6 @@ LLM_Text
     model: "DeepSeek R1 AWS"
     temperature: 0.7
     max_tokens: 100
-    top_p: 1
     
     wrapper-prompt: "This is the wrapper prompt for the LLM. It will take the input and generate a random number or string"
 
@@ -576,6 +752,12 @@ LLM_Text
             default: None
             required: true
             example: "This is the context for the LLM"
+        additional_data:
+            type: "json"
+            description: "This is the additional data for the LLM"
+            default: None
+            required: true
+            example: {....}
         
     output_schema:
         llm_output:
@@ -586,6 +768,15 @@ LLM_Text
 
 
 ```
+
+
+user will be able to set
+- description
+- name
+- temperature
+- max_tokens
+- wrapper prompt
+
 
 ##  LLM structured block
 
@@ -603,10 +794,10 @@ LLM_Structured
     model: "DeepSeek R1 AWS"
     temperature: 0.7
     max_tokens: 100
-    top_p: 1
     
     wrapper-prompt: "This is the wrapper prompt for the LLM. It will take the input and generate a random number or string"
 
+    llm_hidden_prompt: "This is the hidden prompt for the LLM. It will take the input and generate a random number or string"
 
     input_schema:
         prompt:
@@ -621,6 +812,12 @@ LLM_Structured
             default: None
             required: true
             example: "This is the context for the LLM"
+        additional_data:
+            type: "json"
+            description: "This is the additional data for the LLM"
+            default: None
+            required: true
+            example: {....}
 
     output_schema:
         variable1:
@@ -631,6 +828,18 @@ LLM_Structured
         variable2:
 
 ```
+
+user will be able to set
+- description
+- name
+- temperature
+- max_tokens
+- wrapper prompt
+- output schema
+
+here the wrapper prompt, prompt and context, output schema and llm hidden prompt will be the input for the llm and the llm will output the output schema.
+
+
 
 # Custom block
 
@@ -689,6 +898,15 @@ custom:
 
 ```
 
+user will be able to set
+- description
+- name
+- hyperparameters
+- constants
+- code
+- input schema
+- output schema
+- 
 
 
 How to code
