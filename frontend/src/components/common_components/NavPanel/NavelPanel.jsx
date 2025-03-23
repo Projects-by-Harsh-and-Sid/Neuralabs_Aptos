@@ -21,7 +21,8 @@ import {
 
 import neura_icon_white from '../../../assets/icons/neura-black.svg'; // Adjust the path as necessary
 import neura_icon_dark from '../../../assets/icons/neura-white.svg'; // Adjust the path as necessary
-
+import aptos_apt_logo_black from '../../../assets/icons/Aptos_mark_BLK.svg'; // Adjust the path as necessary
+import aptos_apt_logo_white from '../../../assets/icons/Aptos_mark_WHT.svg'; // Adjust the path as necessary
 const NavPanel = ({ 
   onNavigate,
   currentPath,
@@ -239,6 +240,29 @@ const NavPanel = ({
           </Tooltip>
         </Box>
         
+        <Box as="li" position="relative" w="100%" mb={3}>
+          <Tooltip 
+            label={"Settings"} 
+            placement="right" 
+            bg={useColorModeValue("gray.900", "gray.900")} 
+            hasArrow
+          >
+            <Button 
+              {...getButtonStyles('settings')}
+              onClick={() => handleButtonClick('settings', null, '/settings')}
+              aria-label="Settings"
+              disabled={viewOnlyMode}
+            >
+                         {
+              colorMode === 'light' ? (
+                <img src={aptos_apt_logo_black} alt="Neura Icon" width={25}/>
+              ) : (
+                <img src={aptos_apt_logo_white} alt="Neura Icon" width={25} />
+              )
+            }
+            </Button>
+          </Tooltip>
+        </Box>
         <Box as="li" position="relative" w="100%" mb={3}>
           <Tooltip 
             label={"Settings"} 
