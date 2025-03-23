@@ -502,6 +502,7 @@ const handleSendMessage = () => {
                     <Flex
                       key={model.id}
                       px={2}
+                      py={0.5}
                       _hover={{ bg: bgHover }}
                       cursor="pointer"
                       onClick={() => handleMentionSelect(model)}
