@@ -2,5 +2,5 @@
 **/__pycache__/
 build/
 .env
-frontend/src/api_key.json
+
 backend/code_executor/logs
