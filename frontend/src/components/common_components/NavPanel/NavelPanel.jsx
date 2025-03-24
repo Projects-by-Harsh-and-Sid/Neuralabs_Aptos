@@ -30,8 +30,7 @@ import neura_icon_dark from '../../../assets/icons/neura-white.svg';
 import aptos_apt_logo_black from '../../../assets/icons/Aptos_mark_BLK.svg';
 import aptos_apt_logo_white from '../../../assets/icons/Aptos_mark_WHT.svg';
 // Import these or create placeholder SVGs if they don't exist yet
-import wallet_connect_light from '../../../assets/icons/wallet-connect-light.svg';
-import wallet_connect_dark from '../../../assets/icons/wallet-connect-dark.svg';
+import wallet_connect from '../../../assets/icons/wallet-connect-no-bg.svg';
 
 const NavPanel = ({ 
   onNavigate,
@@ -49,6 +48,7 @@ const NavPanel = ({
     connecting,
     disconnecting,
     walletAddress,
+    
   } = useWallet();
 
   const bgColor = useColorModeValue('navbar.body.light', 'navbar.body.dark');
@@ -128,7 +128,7 @@ const NavPanel = ({
 
   // Determine wallet icon based on connection status
   const walletIcon = connected 
-    ? (colorMode === 'light' ? wallet_connect_light : wallet_connect_dark)
+    ? wallet_connect
     : (colorMode === 'light' ? aptos_apt_logo_black : aptos_apt_logo_white);
   
   // Set wallet tooltip text
