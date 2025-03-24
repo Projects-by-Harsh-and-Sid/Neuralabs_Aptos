@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Box, 
   Flex,
@@ -7,8 +7,14 @@ import {
   SimpleGrid, 
   Spinner, 
   Center,
-  useColorModeValue 
+  useColorModeValue,
+  InputGroup,
+  Input,
+  InputRightElement,
+  IconButton,
+  FormControl
 } from '@chakra-ui/react';
+import { FiSearch, FiX } from 'react-icons/fi';
 import MarketplaceDetailPanel from './MarketplaceDetailPanel';
 
 // MarketplaceCard component - extracted from marketplace.jsx
@@ -104,38 +110,192 @@ const MarketplaceContent = ({
   handleCloseDetailPanel
 }) => {
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   const loading_color = useColorModeValue('black', 'white');
   const main_bg_color = useColorModeValue('marketplace.body.light', 'marketplace.body.dark');
   const headingColor = useColorModeValue('marketplace.heading.light', 'marketplace.heading.dark');
 
-  return (
-    <Box 
-      flex="1" 
-      bg={main_bg_color} 
-      overflow="auto"
-      position="relative"
-      paddingTop={"5%"}
-    >
-      {loading ? (
-        <Center h="100%">
-          <Spinner size="xl" color={loading_color} />
-        </Center>
-      ) : error ? (
-        <Center h="100%" p={8}>
-          <Text color="red.500" fontSize="xl" textAlign="center">
-            {error}. Please try refreshing the page.
-          </Text>
-        </Center>
-      ) : (
-        !selectedItem && (
-          <Box p={8} maxW="1200px" mx="auto">
-            <Heading as="h1" size="xl" color={headingColor} marginTop={"50px"} marginBottom={"40px"} textAlign={"center"}>Explore AI Agents</Heading>
-            
-            <Box mb={10}>
 
+  const inputBgColor = useColorModeValue('white', 'gray.800');
+  const inputBorderColor = useColorModeValue('gray.200', 'gray.600');
+  const inputTextColor = useColorModeValue('gray.800', 'white');
+
+  // Handle search input changes
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    
+    if (query.trim() === '') {
+      setIsSearching(false);
+      setFilteredItems([]);
+      return;
+    }
+    
+    setIsSearching(true);
+    // Filter items based on search query
+    const filtered = featuredItems.filter(item => 
+      item.name.toLowerCase().includes(query.toLowerCase()) || 
+      item.description.toLowerCase().includes(query.toLowerCase()) ||
+      item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+    );
+    
+    setFilteredItems(filtered);
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery('');
+    setIsSearching(false);
+    setFilteredItems([]);
+  };
+
+  const displayedItems = isSearching ? filteredItems : featuredItems;
+
+
+//   return (
+//     <Box 
+//       flex="1" 
+//       bg={main_bg_color} 
+//       overflow="auto"
+//       position="relative"
+//       paddingTop={"5%"}
+//     >
+//       {loading ? (
+//         <Center h="100%">
+//           <Spinner size="xl" color={loading_color} />
+//         </Center>
+//       ) : error ? (
+//         <Center h="100%" p={8}>
+//           <Text color="red.500" fontSize="xl" textAlign="center">
+//             {error}. Please try refreshing the page.
+//           </Text>
+//         </Center>
+//       ) : (
+//         !selectedItem && (
+//           <Box p={8} maxW="1200px" mx="auto">
+//             <Heading as="h1" size="xl" color={headingColor} marginTop={"50px"} marginBottom={"40px"} textAlign={"center"}>Explore AI Agents</Heading>
+            
+//             <Box mb={10}>
+
+//               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
+//                 {featuredItems.map(item => (
+//                   <MarketplaceCard 
+//                     key={item.id} 
+//                     item={item} 
+//                     onClick={handleSelectItem}
+//                   />
+//                 ))}
+//               </SimpleGrid>
+//             </Box>
+            
+//             {/* {ownedItems.length > 0 && (
+//               <Box>
+//                 <Heading as="h2" size="lg" color="white" mb={6}>
+//                   Owned :
+//                 </Heading>
+//                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
+//                   {ownedItems.map(item => (
+//                     <MarketplaceCard 
+//                       key={item.id} 
+//                       item={item} 
+//                       onClick={handleSelectItem}
+//                     />
+//                   ))}
+//                 </SimpleGrid>
+//               </Box>
+//             )} */}
+//           </Box>
+//         )
+//       )}
+      
+//       {/* Show marketplace detail panel when an item is selected */}
+//       {selectedItem && (
+//         <MarketplaceDetailPanel 
+//           item={selectedItem} 
+//           onClose={handleCloseDetailPanel}
+//         />
+//       )}
+//     </Box>
+//   );
+// };
+
+// export default MarketplaceContent;
+
+return (
+  <Box 
+    flex="1" 
+    bg={main_bg_color} 
+    overflow="auto"
+    position="relative"
+    paddingTop={"5%"}
+  >
+    {loading ? (
+      <Center h="100%">
+        <Spinner size="xl" color={loading_color} />
+      </Center>
+    ) : error ? (
+      <Center h="100%" p={8}>
+        <Text color="red.500" fontSize="xl" textAlign="center">
+          {error}. Please try refreshing the page.
+        </Text>
+      </Center>
+    ) : (
+      !selectedItem && (
+        <Box p={8} maxW="1200px" mx="auto">
+          <Heading as="h1" size="xl" color={headingColor} marginTop={"50px"} marginBottom={"40px"} textAlign={"center"}>Explore AI Agents</Heading>
+          
+          {/* Search bar */}
+          <Box mb={8} maxW="600px" mx="auto">
+            <FormControl>
+              <InputGroup size="lg">
+                <Input
+                  placeholder="Search by name, description or tags..."
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  bg={inputBgColor}
+                  color={inputTextColor}
+                  borderColor={inputBorderColor}
+                  _hover={{ borderColor: 'blue.300' }}
+                  _focus={{ borderColor: 'blue.500', boxShadow: '0 0 0 1px var(--chakra-colors-blue-500)' }}
+                  pr="4.5rem"
+                />
+                <InputRightElement width="4.5rem">
+                  {searchQuery ? (
+                    <IconButton
+                      h="1.75rem"
+                      size="sm"
+                      icon={<FiX />}
+                      onClick={handleClearSearch}
+                      aria-label="Clear search"
+                      variant="ghost"
+                    />
+                  ) : (
+                    <IconButton
+                      h="1.75rem"
+                      size="sm"
+                      icon={<FiSearch />}
+                      aria-label="Search"
+                      variant="ghost"
+                      cursor="default"
+                    />
+                  )}
+                </InputRightElement>
+              </InputGroup>
+            </FormControl>
+          </Box>
+          
+          <Box mb={10}>
+            {isSearching && filteredItems.length === 0 ? (
+              <Center p={8}>
+                <Text color={headingColor}>
+                  No results found for "{searchQuery}". Try a different search term.
+                </Text>
+              </Center>
+            ) : (
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
-                {featuredItems.map(item => (
+                {displayedItems.map(item => (
                   <MarketplaceCard 
                     key={item.id} 
                     item={item} 
@@ -143,37 +303,26 @@ const MarketplaceContent = ({
                   />
                 ))}
               </SimpleGrid>
-            </Box>
-            
-            {/* {ownedItems.length > 0 && (
-              <Box>
-                <Heading as="h2" size="lg" color="white" mb={6}>
-                  Owned :
-                </Heading>
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
-                  {ownedItems.map(item => (
-                    <MarketplaceCard 
-                      key={item.id} 
-                      item={item} 
-                      onClick={handleSelectItem}
-                    />
-                  ))}
-                </SimpleGrid>
-              </Box>
-            )} */}
+            )}
           </Box>
-        )
-      )}
-      
-      {/* Show marketplace detail panel when an item is selected */}
-      {selectedItem && (
-        <MarketplaceDetailPanel 
-          item={selectedItem} 
-          onClose={handleCloseDetailPanel}
-        />
-      )}
-    </Box>
-  );
+          
+          {/* Owned items section remains unchanged */}
+          {/* {ownedItems.length > 0 && (
+            // ... existing code for owned items
+          )} */}
+        </Box>
+      )
+    )}
+    
+    {/* Show marketplace detail panel when an item is selected */}
+    {selectedItem && (
+      <MarketplaceDetailPanel 
+        item={selectedItem} 
+        onClose={handleCloseDetailPanel}
+      />
+    )}
+  </Box>
+);
 };
 
 export default MarketplaceContent;

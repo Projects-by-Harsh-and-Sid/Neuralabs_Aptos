@@ -59,6 +59,8 @@ const NavPanel = ({
 
   // Add state to track the active button
   const [activeButton, setActiveButton] = useState(null);
+
+  console.log("NavPanel - Connected:", connected);
   
   // Update active button based on current path
   useEffect(() => {
@@ -81,10 +83,11 @@ const NavPanel = ({
   
   // Handle wallet connection
   const handleConnectWallet = async () => {
+    console.log("Button clicked");
     if (connected) {
       await disconnect();
     } else {
-      onOpen(); // Open wallet selection modal
+      onOpen();
     }
   };
 

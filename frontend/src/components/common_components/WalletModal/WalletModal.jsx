@@ -18,7 +18,7 @@ import {
 import { useWallet } from '../../../contexts/WalletContext';
 
 const WalletModal = ({ isOpen, onClose }) => {
-const { connect, wallets, connecting, connected, account } = useWallet();
+const { connect, wallets, connecting, connected, account,disconnect } = useWallet();
   const [connectingWalletName, setConnectingWalletName] = useState(null);
   const toast = useToast();
   
@@ -26,18 +26,29 @@ const { connect, wallets, connecting, connected, account } = useWallet();
   const textColor = useColorModeValue('gray.800', 'white');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
 
+  
+
   const handleConnectWallet = async (walletName) => {
+    console.log("WalletModal - Connected:", connected);
     setConnectingWalletName(walletName);
     
     try {
       // Clear any previous connection state first
-      localStorage.removeItem(`${walletName.toLowerCase()}-autoconnect`);
-      
+      // localStorage.removeItem(`${walletName.toLowerCase()}-autoconnect`);
+      console.log("Connecting to wallet:", walletName);
+      console.log("Connected:", connected);
+      if(connected) {
+        // Disconnect from the current wallet if connected
+        await disconnect();
+        console.log("Disconnected from wallet:", walletName);
+      }
       // Add a small delay to ensure previous state is cleared
       await new Promise(resolve => setTimeout(resolve, 200));
       
       // Attempt to connect
       await connect(walletName);
+
+      console.log("Connected to wallet:", walletName);
       
       // Close modal - we do this in the effect as well, but better to be safe
       if (isOpen) onClose();

@@ -183,7 +183,7 @@ module.exports = processData;`;
 if (nodeType === 'custom-script') {
   setSelectedNode(newNode);
   setDetailsOpen(true); // Open details panel 
-  setCodeOpen(true); // Open code panel
+  setCodeOpen(false); // Open code panel
   setIsCustomScriptNode(true);
 } else {
   // For all other node types, open details panel
@@ -247,7 +247,7 @@ if (nodeType === 'custom-script') {
     // Special handling for custom script nodes
     if (node.type === 'custom-script') {
       setDetailsOpen(true); // Don't show details panel for custom script
-      setCodeOpen(true); // Show code panel instead
+      // setCodeOpen(true); // Show code panel instead
       setIsCustomScriptNode(true);
     } else {
       // For all other node types, show details panel

@@ -1,5 +1,5 @@
 // src/components/chat_interface/ThinkingUI/ThinkingUI.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Box, 
   Flex, 
@@ -17,10 +17,12 @@ import {
   FiCheck, 
   FiList 
 } from 'react-icons/fi';
+import thinkresponse from '../../../utils/thinkresponse.json';
 
-const ThinkingUI = ({ thinkingState }) => {
+const ThinkingUI = ({ thinkingState, query = "", shouldPersist = true }) => {
   const { isThinking, steps, currentStep, searchResults, timeElapsed } = thinkingState;
-  
+  const [responseData, setResponseData] = useState(null);
+
   // Define color variables
   const borderColor = useColorModeValue("gray.200", "gray.700");
   const bgColor = useColorModeValue("white", "#1E1E1E");
@@ -31,8 +33,54 @@ const ThinkingUI = ({ thinkingState }) => {
   const spinnerBgColor = useColorModeValue("gray.200", "gray.700");
   const spinnerColor = useColorModeValue("gray.500", "gray.300");
   const linkColor = useColorModeValue("blue.500", "blue.300");
+
+  const [wasThinking, setWasThinking] = useState(false);
+
+  useEffect(() => {
+    if (isThinking) {
+      setWasThinking(true);
+    }
+  }, [isThinking]);
+
+  // Process the JSON data to find matching response
+  useEffect(() => {
+    console.log("ThinkingUI - Processing JSON data for query:", query);
+    if (!query) return;
+    
+    // Look for a matching response from the thinkresponse.json
+    const lowerQuery = query.toLowerCase();
+    let matchedResponse = null;
+    console.log("lowerQuery:", lowerQuery);
+    // First try to find keyword matches
+    for (const response of thinkresponse.responses) {
+      if (response.keywords.some(keyword => lowerQuery.includes(keyword.toLowerCase()))) {
+        matchedResponse = response;
+        break;
+      }
+    }
+    
+    // If no match found, use the default response (the one with empty keywords array)
+    if (!matchedResponse) {
+      matchedResponse = thinkresponse.responses.find(r => r.keywords.length === 0) || {
+        response: "I'm thinking about how to respond to your query."
+      };
+    }
+    
+    // Replace placeholders in the response text
+    let responseText = matchedResponse.response;
+    responseText = responseText.replace("{{query}}", query);
+    responseText = responseText.replace("{{modelId}}", "Claude 3.7 Sonnet");
+    
+    setResponseData({
+      ...matchedResponse,
+      response: responseText
+    });
+  }, [query]);
   
-  if (!isThinking) return null;
+  if (!isThinking && !wasThinking) return null;
+
+  // Optional additional check for shouldPersist prop
+  if (!isThinking && !shouldPersist) return null;
   
   return (
     <Box 
@@ -69,9 +117,9 @@ const ThinkingUI = ({ thinkingState }) => {
               <ListItem key={index} display="flex" alignItems="center">
                 <Box 
                   borderRadius="full" 
-                  width="24px"       // Add fixed width
-                  height="24px"      // Add fixed height
-                  display="flex"     // Use flex to center the icon
+                  width="24px"
+                  height="24px"
+                  display="flex"
                   bg={step.completed ? checkmarkBgColor : spinnerBgColor}
                   p={1}
                   mr={3}
@@ -90,18 +138,37 @@ const ThinkingUI = ({ thinkingState }) => {
           </List>
         </Box>
         
-        {/* Right column with thinking details */}
+        {/* Right column with thinking details - Now using data from JSON */}
         <Box flex="1" p={4} color={textColor}>
-          <Text fontSize="lg" fontWeight="medium" mb={4}>
+          {/* <Text fontSize="lg" fontWeight="medium" mb={4}>
             {currentStep?.name || "Thinking"}
+          </Text> */}
+          <Text fontSize="lg" fontWeight="medium" mb={4}>
+            {(!isThinking && wasThinking) ? "Analysis Complete" : (currentStep?.name || "Thinking")}
           </Text>
-          
-          {/* Show step-specific content */}
+          {/* Show step-specific content based on current step */}
+
+          {(!isThinking && wasThinking) ? (
+            <VStack align="start" spacing={4}>
+              <Text>Analysis completed for: "{query}"</Text>
+              {responseData && (
+                <Box 
+                  bg={sourceBgColor} 
+                  p={3} 
+                  borderRadius="md" 
+                  w="100%"
+                >
+                  <Text fontSize="sm">{responseData.response}</Text>
+                </Box>
+              )}
+            </VStack>
+          ) : (
+            <>
           {currentStep?.name === "Clarifying the request" && (
             <VStack align="start" spacing={4}>
               <Box>
-                <Text fontSize="md" mb={2}>• The request is about finding out "who is the president of us." I'm thinking "us" probably means the United States here, given it's a standard abbreviation.</Text>
-                <Text fontSize="md">• Now, the question is clear: "Who is the president of the United States?" Let's check the current date, March 22, 2025</Text>
+                <Text fontSize="md" mb={2}>• Analyzing your query: "{query}"</Text>
+                <Text fontSize="md">• Identifying key information needed to provide an accurate answer</Text>
               </Box>
             </VStack>
           )}
@@ -110,11 +177,11 @@ const ThinkingUI = ({ thinkingState }) => {
             <VStack align="start" spacing={3}>
               <Flex align="center">
                 <SearchIcon mr={2} />
-                <Text fontWeight="medium">Searching for "who is the president of the United States on March 22, 2025"</Text>
+                <Text fontWeight="medium">Searching for information related to: "{query}"</Text>
               </Flex>
-              <Text>10 results found</Text>
+              <Text>{searchResults?.length || 0} results found</Text>
               
-              {searchResults.map((result, idx) => (
+              {searchResults && searchResults.map((result, idx) => (
                 <Box key={idx} w="100%" py={2}>
                   <Flex align="center">
                     <Box as="span" mr={2} fontSize="sm" p={1} borderRadius="md" bg={sourceBgColor}>
@@ -126,7 +193,7 @@ const ThinkingUI = ({ thinkingState }) => {
                 </Box>
               ))}
               
-              {searchResults.length > 5 && (
+              {searchResults && searchResults.length > 5 && (
                 <Text color={linkColor} cursor="pointer">
                   See more ({searchResults.length - 5})
                 </Text>
@@ -136,33 +203,24 @@ const ThinkingUI = ({ thinkingState }) => {
           
           {currentStep?.name === "Analyzing results" && (
             <VStack align="start" spacing={4}>
-              <Text>Analyzing information from multiple sources to determine the current president...</Text>
-              <Box 
-                bg={sourceBgColor} 
-                p={3} 
-                borderRadius="md" 
-                w="100%"
-              >
-                <Text fontSize="sm">Based on multiple sources including official government websites and news articles, Donald Trump is the current president of the United States as of March 22, 2025. He was inaugurated on January 20, 2025 after winning the 2024 presidential election.</Text>
-              </Box>
+              <Text>Analyzing information to provide you with an accurate response...</Text>
+              {responseData && (
+                <Box 
+                  bg={sourceBgColor} 
+                  p={3} 
+                  borderRadius="md" 
+                  w="100%"
+                >
+                  <Text fontSize="sm">{responseData.response}</Text>
+                </Box>
+              )}
             </VStack>
+          )}
+          </>
+
           )}
         </Box>
       </Flex>
-      
-      {/* Footer with sources count */}
-      {/* <Flex 
-        p={3} 
-        borderTop="1px solid" 
-        borderColor={borderColor}
-        bg={sourceBgColor}
-        align="center"
-      >
-        <Flex align="center" justify="center" p={1} borderRadius="md" mr={2}>
-          <FiList size={14} />
-          <Text ml={1} fontWeight="medium" fontSize="sm">12 web pages</Text>
-        </Flex>
-      </Flex> */}
     </Box> 
   );
 };

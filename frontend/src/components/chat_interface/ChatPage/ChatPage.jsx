@@ -4,6 +4,7 @@ import { Box, Flex, useDisclosure, useColorMode } from '@chakra-ui/react';
 import ChatHistoryPanel from '../ChatHistoryPanel/ChatHistoryPanel';
 import ChatInterface from '../ChatInterface';
 import useUiColors from '../../../utils/uiColors';
+import thinkingdata from '../../../utils/thinkingdata.json'; // Assuming you have a JSON file with thinking data
 
 const ChatPage = () => {
   const colors = useUiColors();
@@ -13,6 +14,7 @@ const ChatPage = () => {
   const [editingChatId, setEditingChatId] = useState(null);
   const [newTitle, setNewTitle] = useState('');
   const [isLanding, setIsLanding] = useState(true);
+  
   const [thinkingState, setThinkingState] = useState({
     isThinking: false,
     steps: [],
@@ -20,6 +22,8 @@ const ChatPage = () => {
     searchResults: [],
     timeElapsed: 0
   });
+
+  // const [messageThinking, setMessageThinking] = useState({});
   
   const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: false });
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,52 +40,15 @@ const ChatPage = () => {
   }, []);
   
   // Sample search results to show in thinking UI
-  const sampleSearchResults = [
-    { 
-      icon: '🇺🇸', 
-      title: 'Department Press Briefing - March 6, 2025 - United States...',
-      url: 'state.gov'
-    },
-    { 
-      icon: 'W', 
-      title: 'List of presidents of the United States - Wikipedia',
-      url: 'en.wikipedia.org'
-    },
-    { 
-      icon: '🇺🇸', 
-      title: 'President in 2025',
-      url: 'whowaspresident.com'
-    },
-    { 
-      icon: 'NY', 
-      title: 'Tickets to the 60th Inauguration of the President o...',
-      url: 'jeffries.house.gov'
-    },
-    { 
-      icon: '🇺🇸', 
-      title: 'Department Press Briefing – March 19, 2025 - United State...',
-      url: 'state.gov'
-    },
-    { 
-      icon: 'CNN', 
-      title: 'President Trump addresses nation on border security',
-      url: 'cnn.com'
-    },
-    { 
-      icon: 'NYT', 
-      title: 'First 100 Days: President\'s Economic Plan Faces Challenges',
-      url: 'nytimes.com'
-    }
-  ];
+  const sampleSearchResults = thinkingdata.searchResults
+
+  // console.log(sampleSearchResults);
   
   // Simulates the thinking process with steps and timing
   const simulateThinking = (query, modelId) => {
-    const steps = [
-      { name: "Thinking", completed: false },
-      { name: "Clarifying the request", completed: false },
-      { name: "Searching", completed: false },
-      { name: "Analyzing results", completed: false }
-    ];
+    const steps = thinkingdata.steps;
+
+    // console.log("thinkingdata", steps);
     
     setThinkingState({
       isThinking: true,
