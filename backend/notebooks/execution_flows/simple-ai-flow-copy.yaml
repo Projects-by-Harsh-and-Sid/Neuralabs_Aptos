@@ -113,7 +113,7 @@ flow_definition:
     description: A simple flow that takes user input and generates a response using an LLM
 initial_inputs:
   chat_input:
-    chat_input: What is the capital of France? Think Carefully and tell me its significance
+    chat_input: What is the capital of France?
   context_history:
     context_history:
       - Hello, I'm a geography enthusiast.

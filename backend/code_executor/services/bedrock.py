@@ -1,8 +1,10 @@
-# services/bedrock.py
 import boto3
-import json
-from typing import Dict, Any, List, AsyncGenerator, Optional
-import asyncio
+from typing import Any, AsyncGenerator, Dict, Optional
+
+from .llm.anthropic import AnthropicModel
+from .llm.deepseek import DeepSeekModel
+from .llm.general import GeneralModel
+
 
 class BedrockService:
     """Service for interacting with AWS Bedrock."""
@@ -18,7 +20,7 @@ class BedrockService:
             region_name: AWS region name
             aws_access_key_id: AWS access key ID
             aws_secret_access_key: AWS secret access key
-            model_id: AWS Bedrock model ID (default is DeepSeek R1)
+            model_id: AWS Bedrock model ID (default is Claude 3 Haiku)
         """
         session = boto3.Session(
             region_name=region_name,
@@ -27,151 +29,40 @@ class BedrockService:
         )
         self.client = session.client('bedrock-runtime')
         self.model_id = model_id
+        
+        # Initialize the appropriate model based on the model ID
+        if "anthropic" in self.model_id:
+            self.model = AnthropicModel(self.client, self.model_id)
+        elif "deepseek" in self.model_id:
+            self.model = DeepSeekModel(self.client, self.model_id)
+        else:
+            self.model = GeneralModel(self.client, self.model_id)
     
     async def generate_text(self, 
-                         prompt: str, 
-                         temperature: float = 0.7,
-                         max_tokens: int = 1000) -> str:
+                          prompt: str, 
+                          temperature: float = 0.7,
+                          max_tokens: int = 1000) -> str:
         """Generate text from the model (non-streaming)."""
-        # Use different request format based on model
-        if "anthropic" in self.model_id:
-            request_body = {
-                "anthropic_version": "bedrock-2023-05-31",
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-                "messages": [
-                    {"role": "user", "content": prompt}
-                ]
-            }
-        else:  # Default format for other models like DeepSeek
-            request_body = {
-                "prompt": prompt,
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-            }
-        
-        loop = asyncio.get_event_loop()
-        response = await loop.run_in_executor(
-            None,
-            lambda: self.client.invoke_model(
-                modelId=self.model_id,
-                body=json.dumps(request_body)
-            )
-        )
-        
-        response_body = json.loads(response['body'].read())
-        
-        # Extract text based on model response format
-        if "anthropic" in self.model_id:
-            return response_body.get('content', [{}])[0].get('text', '')
-        else:
-            return response_body.get('generation', '')
-        
-        
-    # def get_request_body(self, response: Dict[str, Any]) -> str:
+        return await self.model.generate_text(prompt, temperature, max_tokens)
     
     async def generate_text_stream(self, 
-                                prompt: str, 
-                                temperature: float = 0.7,
-                                max_tokens: int = 1000) -> AsyncGenerator[str, None]:
+                                 prompt: str, 
+                                 temperature: float = 0.7,
+                                 max_tokens: int = 1000) -> AsyncGenerator[str, None]:
         """Generate text from the model with streaming."""
-        # Use different request format based on model
-        if "anthropic" in self.model_id:
-            request_body = {
-                "anthropic_version": "bedrock-2023-05-31",
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-                "messages": [
-                    {"role": "user", "content": prompt}
-                ]
-            }
-        else:  # Default format for other models like DeepSeek
-            request_body = {
-                "prompt": prompt,
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-            }
         
-        loop = asyncio.get_event_loop()
-        response = await loop.run_in_executor(
-            None,
-            lambda: self.client.invoke_model_with_response_stream(
-                modelId=self.model_id,
-                body=json.dumps(request_body)
-            )
-        )
+        async for token in self.model.generate_text_stream(prompt, temperature, max_tokens):
+            yield token
         
-        stream = response.get('body', None)
-        if not stream:
-            yield ""
-            return
-        
-        for event in stream:
-            if 'chunk' in event:
-                chunk_bytes = event['chunk']['bytes']
-                chunk_data = json.loads(chunk_bytes)
+        # else :
+        #     async for token in self.model.generate_text_stream_reasoning(prompt, temperature, max_tokens):
+        #         yield token
                 
-                # Extract text based on model response format
-                if "anthropic" in self.model_id:
-                    content_block = chunk_data.get('content', [{}])[0]
-                    if content_block.get('type') == 'text':
-                        yield content_block.get('text', '')
-                        
-                else:
-                    choices = chunk_data.get('choices', [])
-                    if choices:
-                        yield choices[0].get('text', '')
-                    else:
-                        yield ""
-    
-    async def generate_structured_output(self, 
-                                      prompt: str, 
-                                      output_schema: Dict[str, Any],
-                                      temperature: float = 0.3,
-                                      max_tokens: int = 1000) -> Dict[str, Any]:
-        """Generate structured output according to a schema."""
-        
-        # Convert schema to a prompt format the model can understand
-        schema_prompt = json.dumps(output_schema, indent=2)
-        
-        structured_prompt = f"""
-        You are a helpful assistant that generates structured data.
-        Please respond with JSON that follows this schema:
-        
-        {schema_prompt}
-        
-        Human request: {prompt}
-        
-        Your JSON response:
-        """
-        
-        # Use a lower temperature for structured outputs for consistency
-        response = await self.generate_text(
-            prompt=structured_prompt,
-            temperature=temperature,
-            max_tokens=max_tokens
-        )
-        
-        try:
-            # Extract JSON from response
-            json_str = response.strip()
-            
-            # Handle markdown code blocks if present
-            if json_str.startswith("```json"):
-                json_str = json_str[7:]
-                if json_str.endswith("```"):
-                    json_str = json_str[:-3]
-            elif json_str.startswith("```"):
-                json_str = json_str[3:]
-                if json_str.endswith("```"):
-                    json_str = json_str[:-3]
                     
-            json_str = json_str.strip()
-            
-            return json.loads(json_str)
-        except json.JSONDecodeError as e:
-            # Fallback handling for malformed JSON
-            return {
-                "error": f"Failed to parse structured output from model: {str(e)}",
-                "raw_response": response
-            }
+    async def generate_structured_output(self, 
+                                       prompt: str, 
+                                       output_schema: Dict[str, Any],
+                                       temperature: float = 0.3,
+                                       max_tokens: int = 1000) -> Dict[str, Any]:
+        """Generate structured output according to a schema."""
+        return await self.model.generate_structured_output(prompt, output_schema, temperature, max_tokens)
