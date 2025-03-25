@@ -12,7 +12,7 @@ const nodeData = {
       {
         id: 'inputs-data',
         name: 'Inputs and Data',
-        nodes: ['chat-input', 'context-history', 'datablocks', 'sql-database', 'rest-api']
+        nodes: ['chat-input', 'context-history', 'datablocks', 'sql-database', 'rest-api', 'meta-data']
       },
       {
         id: 'onchain',
@@ -97,6 +97,13 @@ const nodeData = {
           color: 'blue.300',
           category: 'inputs-data',
       },
+      'meta-data': {
+        name: 'Meta Data',
+        description: 'Process metadata from external sources',
+        icon: 'md-info',
+        color: 'blue.300',
+        category: 'inputs-data',
+    },
       
       // Onchain
       'blockchain-read': {

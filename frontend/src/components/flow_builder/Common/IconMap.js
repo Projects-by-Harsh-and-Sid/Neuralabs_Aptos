@@ -21,6 +21,7 @@ import {
     Badge,
     useColorModeValue,
     Center,
+    
 } from '@chakra-ui/react';
 
 import { 
@@ -52,7 +53,12 @@ import {
     FiCode,
     FiChevronRight,
     FiChevronDown
+    
 } from 'react-icons/fi';
+
+
+import {
+    MdInfo} from 'react-icons/md';
 
 // Map icon strings to React icons
 const ICON_MAP = {
@@ -77,6 +83,7 @@ const ICON_MAP = {
     'cpu': FiCpu,
     'layout': FiLayout,
     'code': FiCode,
+    'md-info': MdInfo,
 };
 
 export default ICON_MAP;
