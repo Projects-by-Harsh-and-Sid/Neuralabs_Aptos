@@ -17,7 +17,7 @@ import { FiPlus, FiInfo } from 'react-icons/fi';
 
 // Descriptions for all possible flow detail elements
 const descriptions = {
-  default: "Default text. Hover on specific detail to know more about it.",
+  default: "Hover on specific detail to know more about it.",
   flowName: "The name of the flow. This is used to identify the flow in the Neuralabs ecosystem.",
   generalWorkflow: "This section provides a high-level overview of what the flow does and how it's categorized.",
   description: "A brief description of what the flow does, its purpose, and its capabilities.",

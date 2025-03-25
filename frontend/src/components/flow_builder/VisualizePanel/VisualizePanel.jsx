@@ -8,12 +8,6 @@ import {
   Text,
   Tooltip,
   useColorModeValue,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
 } from "@chakra-ui/react";
 import {
   FiType,
@@ -22,14 +16,10 @@ import {
   FiZoomIn,
   FiZoomOut,
   FiDownload,
-  FiImage,
-  FiFileText,
-  FiUpload
+  FiUpload,
 } from "react-icons/fi";
-import {
-  FaAngleDoubleLeft,
-  FaAngleDoubleRight
-} from 'react-icons/fa';
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import ExportModal from "./ExportModal"; // Import the new modal
 
 const VisualizePanel = ({
   hideTextLabels,
@@ -102,11 +92,11 @@ const VisualizePanel = ({
               >
                 {sidebarOpen ? (
                   <Flex alignItems="center" justifyContent="center">
-                    <Box as={FaAngleDoubleLeft} size="24px" ml="-7px"/>
+                    <Box as={FaAngleDoubleLeft} size="24px" ml="-7px" />
                   </Flex>
                 ) : (
                   <Flex alignItems="center" justifyContent="center">
-                    <Box as={FaAngleDoubleRight} size="24px" ml="-7px"/>
+                    <Box as={FaAngleDoubleRight} size="24px" ml="-7px" />
                   </Flex>
                 )}
               </Button>
@@ -148,6 +138,7 @@ const VisualizePanel = ({
               </Button>
             </Tooltip>
           </Box>
+
           {/* Add Import Button */}
           <Box w="100%">
             <Tooltip label="Import Flow" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
@@ -238,49 +229,13 @@ const VisualizePanel = ({
         </VStack>
       </VStack>
 
-      {/* Export Modal */}
-      <Modal 
-        isOpen={isExportModalOpen} 
+      {/* Updated Export Modal */}
+      <ExportModal
+        isOpen={isExportModalOpen}
         onClose={() => setIsExportModalOpen(false)}
-        isCentered
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Export Flow</ModalHeader>
-          <ModalBody>
-            <VStack spacing={4}>
-              <Button
-                leftIcon={<FiImage />}
-                width="100%"
-                onClick={() => {
-                  onExportFlow();
-                  setIsExportModalOpen(false);
-                }}
-              >
-                Export as PNG
-              </Button>
-              <Button
-                leftIcon={<FiFileText />}
-                width="100%"
-                onClick={() => {
-                  onExportFlowJSON();
-                  setIsExportModalOpen(false);
-                }}
-              >
-                Export as JSON
-              </Button>
-            </VStack>
-          </ModalBody>
-          <ModalFooter>
-            <Button 
-              variant="ghost" 
-              onClick={() => setIsExportModalOpen(false)}
-            >
-              Cancel
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+        onExportFlow={onExportFlow}
+        onExportFlowJSON={onExportFlowJSON}
+      />
     </Box>
   );
 };

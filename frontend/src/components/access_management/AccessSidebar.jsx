@@ -18,6 +18,7 @@ import { FiSearch, FiPlus, FiHome, FiList, FiChevronRight, FiChevronDown } from 
 import { accessManagementApi } from '../../utils/access-api'; // Updated import path
 import SidebarItem from './SidebarItem';
 
+
 const AccessSidebar = ({ selectedFlow, onSelectFlow, onViewChange, loading = false }) => {
   const [accessLevels, setAccessLevels] = useState([]);
   const [flows, setFlows] = useState([]);
@@ -114,7 +115,8 @@ const AccessSidebar = ({ selectedFlow, onSelectFlow, onViewChange, loading = fal
 
   return (
     <Box 
-      w="280px" 
+      // w="280px"
+      minWidth={"280px"} 
       h="100%" 
       bg={bgColor} 
       borderRight="1px" 
