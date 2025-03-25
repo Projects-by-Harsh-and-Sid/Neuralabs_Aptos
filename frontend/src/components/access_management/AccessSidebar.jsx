@@ -126,18 +126,23 @@ const AccessSidebar = ({ selectedFlow, onSelectFlow, onViewChange, loading = fal
       {/* Header */}
       <Box p={4} borderBottom="1px" borderColor={borderColor}>
         <Text fontWeight="bold" fontSize="xl">My Flows</Text>
-        <InputGroup>
-          <InputLeftElement pointerEvents="none">
-            <Icon as={FiSearch} color="gray.500" />
-          </InputLeftElement>
-          <Input 
-            placeholder="Search..." 
-            size="sm"
-            value={searchQuery}
-            onChange={handleSearchChange}
-            borderRadius="md"
-          />
-        </InputGroup>
+        <InputGroup size="sm" mt={3}>
+        <InputLeftElement pointerEvents="none" height="100%" pl={1}>
+          <Icon as={FiSearch} color="gray.500" fontSize="14px" />
+        </InputLeftElement>
+        <Input 
+          placeholder="Search..." 
+          value={searchQuery}
+          onChange={handleSearchChange}
+          borderRadius="md"
+          bg={useColorModeValue("white", "#1f1f1f")}
+          _placeholder={{ color: "gray.500", fontSize: "13px" }}
+          _focus={{ 
+            borderColor: "blue.400", 
+            boxShadow: "0 0 0 1px var(--chakra-colors-blue-400)" 
+          }}
+        />
+      </InputGroup>
       </Box>
       
       {/* Navigation Items - wrap in a scrollable container */}
