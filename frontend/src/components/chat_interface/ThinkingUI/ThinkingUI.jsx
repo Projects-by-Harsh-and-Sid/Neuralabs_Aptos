@@ -1,26 +1,23 @@
 // src/components/chat_interface/ThinkingUI/ThinkingUI.jsx
-import React, { useEffect, useState } from 'react';
-import { 
-  Box, 
-  Flex, 
-  VStack, 
-  Text, 
-  List, 
-  ListItem, 
+import React, { useEffect, useState, useRef } from "react";
+import {
+  Box,
+  Flex,
+  VStack,
+  Text,
+  List,
+  ListItem,
   useColorModeValue,
-  Spinner
-} from '@chakra-ui/react';
-import { 
-  SearchIcon 
-} from '@chakra-ui/icons';
-import { 
-  FiCheck, 
-  FiList 
-} from 'react-icons/fi';
-import thinkresponse from '../../../utils/thinkresponse.json';
+  Spinner,
+} from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
+import { FiCheck, FiList } from "react-icons/fi";
+import { motion } from "framer-motion";
+import thinkresponse from "../../../utils/thinkresponse.json";
 
 const ThinkingUI = ({ thinkingState, query = "", shouldPersist = true }) => {
-  const { isThinking, steps, currentStep, searchResults, timeElapsed } = thinkingState;
+  const { isThinking, steps, currentStep, searchResults, timeElapsed } =
+    thinkingState;
   const [responseData, setResponseData] = useState(null);
 
   // Define color variables
@@ -33,60 +30,125 @@ const ThinkingUI = ({ thinkingState, query = "", shouldPersist = true }) => {
   const spinnerBgColor = useColorModeValue("gray.200", "gray.700");
   const spinnerColor = useColorModeValue("gray.500", "gray.300");
   const linkColor = useColorModeValue("blue.500", "blue.300");
+  const scrollbarColor = useColorModeValue('rgba(0,0,0,0.05)', 'rgba(255,255,255,0.05)');
+  const scrollbarTrackColor = useColorModeValue('rgba(0,0,0,0.2)', 'rgba(255,255,255,0.2)');
 
   const [wasThinking, setWasThinking] = useState(false);
+  const scrollableRef = useRef(null);
 
+  // Typing effect states
+  const [previousStep, setPreviousStep] = useState(null);
+  const [typedText, setTypedText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const textToType = useRef("");
+  const typingSpeed = 30; // milliseconds per character
+
+  // Track if we were thinking
   useEffect(() => {
     if (isThinking) {
       setWasThinking(true);
     }
   }, [isThinking]);
 
+  // Handle step transitions and set up text for typing effect
+  useEffect(() => {
+    if (currentStep && currentStep !== previousStep) {
+      // Store previous step
+      setPreviousStep(currentStep);
+
+      // Set text to type based on current step
+      if (currentStep.name === "Clarifying the request") {
+        textToType.current = `• Analyzing your query: "${query}"\n• Identifying key information needed to provide an accurate answer`;
+      } else if (currentStep.name === "Searching") {
+        textToType.current = `Searching for information related to: "${query}"`;
+      } else if (currentStep.name === "Analyzing results") {
+        textToType.current = `Analyzing information to provide you with an accurate response...`;
+      }
+
+      // Reset typed text and start typing
+      setTypedText("");
+      setIsTyping(true);
+    }
+  }, [currentStep, previousStep, query]);
+
+
+  useEffect(() => {
+    if (scrollableRef.current && isTyping) {
+      const scrollElement = scrollableRef.current;
+      scrollElement.scrollTop = scrollElement.scrollHeight;
+    }
+  }, [typedText, isTyping]);
+
+  // Typing animation effect
+  useEffect(() => {
+    if (!isTyping) return;
+
+    let i = 0;
+    const text = textToType.current;
+    const typingInterval = setInterval(() => {
+      if (i < text.length) {
+        setTypedText(text.substring(0, i + 1));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+        setIsTyping(false);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(typingInterval);
+  }, [isTyping]);
+
   // Process the JSON data to find matching response
   useEffect(() => {
-    console.log("ThinkingUI - Processing JSON data for query:", query);
     if (!query) return;
-    
+
     // Look for a matching response from the thinkresponse.json
     const lowerQuery = query.toLowerCase();
     let matchedResponse = null;
-    console.log("lowerQuery:", lowerQuery);
+
     // First try to find keyword matches
     for (const response of thinkresponse.responses) {
-      if (response.keywords.some(keyword => lowerQuery.includes(keyword.toLowerCase()))) {
+      if (
+        response.keywords.some((keyword) =>
+          lowerQuery.includes(keyword.toLowerCase())
+        )
+      ) {
         matchedResponse = response;
         break;
       }
     }
-    
+
     // If no match found, use the default response (the one with empty keywords array)
     if (!matchedResponse) {
-      matchedResponse = thinkresponse.responses.find(r => r.keywords.length === 0) || {
-        response: "I'm thinking about how to respond to your query."
+      matchedResponse = thinkresponse.responses.find(
+        (r) => r.keywords.length === 0
+      ) || {
+        response: "I'm thinking about how to respond to your query.",
       };
     }
-    
+
     // Replace placeholders in the response text
     let responseText = matchedResponse.response;
     responseText = responseText.replace("{{query}}", query);
     responseText = responseText.replace("{{modelId}}", "Claude 3.7 Sonnet");
-    
+
     setResponseData({
       ...matchedResponse,
-      response: responseText
+      response: responseText,
     });
   }, [query]);
-  
+
+  // Don't render anything if there's nothing to show
   if (!isThinking && !wasThinking) return null;
 
   // Optional additional check for shouldPersist prop
   if (!isThinking && !shouldPersist) return null;
-  
+
   return (
-    <Box 
-      borderRadius="lg" 
-      overflow="hidden" 
-      boxShadow="md" 
+    <Box
+      borderRadius="lg"
+      overflow="hidden"
+      boxShadow="md"
       border="1px solid"
       borderColor={borderColor}
       bg={bgColor}
@@ -96,132 +158,237 @@ const ThinkingUI = ({ thinkingState, query = "", shouldPersist = true }) => {
     >
       <Flex>
         {/* Left column with step indicators */}
-        <Box 
-          w="250px" 
-          p={4} 
-          borderRight="1px solid" 
-          borderColor={borderColor}
-        >
+        <Box w="250px" p={4} borderRight="1px solid" borderColor={borderColor}>
           <Flex align="center" mb={4}>
             <SearchIcon mr={2} />
             <Text fontWeight="medium" color={textColor}>
-              {steps.length > 0 && steps[steps.length-1].completed ? 'Completed' : 'Thinking'}
+              {steps.length > 0 && steps[steps.length - 1].completed
+                ? "Completed"
+                : "Thinking"}
             </Text>
             <Text fontSize="sm" color={secondaryColor} ml={2}>
               {timeElapsed}s
             </Text>
           </Flex>
-          
+
           <List spacing={3}>
-            {steps.map((step, index) => (
-              <ListItem key={index} display="flex" alignItems="center">
-                <Box 
-                  borderRadius="full" 
-                  width="24px"
-                  height="24px"
-                  display="flex"
-                  bg={step.completed ? checkmarkBgColor : spinnerBgColor}
-                  p={1}
-                  mr={3}
-                  alignItems="center"
-                  justifyContent="center"
+            {steps.map((step, index) => {
+              // Only show a step if all previous steps are completed
+              // OR if this is the current active step
+              const allPreviousCompleted = steps
+                .slice(0, index)
+                .every((prevStep) => prevStep.completed);
+
+              const shouldShow =
+                allPreviousCompleted ||
+                (currentStep && currentStep.name === step.name);
+
+              if (!shouldShow) return null;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {step.completed ? (
-                    <FiCheck color="white" size={14} />
-                  ) : (
-                    <Spinner size="xs" color={spinnerColor} />
-                  )}
-                </Box>
-                <Text color={textColor}>{step.name}</Text>
-              </ListItem>
-            ))}
+                  <ListItem display="flex" alignItems="center">
+                    <Box
+                      borderRadius="full"
+                      width="24px"
+                      height="24px"
+                      display="flex"
+                      bg={step.completed ? checkmarkBgColor : spinnerBgColor}
+                      p={1}
+                      mr={3}
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      {step.completed ? (
+                        <FiCheck color="white" size={14} />
+                      ) : (
+                        <Spinner size="xs" color={spinnerColor} />
+                      )}
+                    </Box>
+                    <Text color={textColor}>{step.name}</Text>
+                  </ListItem>
+                </motion.div>
+              );
+            })}
           </List>
         </Box>
-        
-        {/* Right column with thinking details - Now using data from JSON */}
-        <Box flex="1" p={4} color={textColor}>
-          {/* <Text fontSize="lg" fontWeight="medium" mb={4}>
-            {currentStep?.name || "Thinking"}
-          </Text> */}
-          <Text fontSize="lg" fontWeight="medium" mb={4}>
-            {(!isThinking && wasThinking) ? "Analysis Complete" : (currentStep?.name || "Thinking")}
-          </Text>
-          {/* Show step-specific content based on current step */}
 
-          {(!isThinking && wasThinking) ? (
-            <VStack align="start" spacing={4}>
-              <Text>Analysis completed for: "{query}"</Text>
-              {responseData && (
-                <Box 
-                  bg={sourceBgColor} 
-                  p={3} 
-                  borderRadius="md" 
-                  w="100%"
-                >
-                  <Text fontSize="sm">{responseData.response}</Text>
-                </Box>
-              )}
-            </VStack>
+        {/* Right column with thinking details */}
+        <Box 
+          flex="1" 
+          p={4} 
+          color={textColor}
+          position="relative"
+          display="flex"
+          flexDirection="column"
+        >
+          <Text fontSize="lg" fontWeight="medium" mb={4}>
+            {!isThinking && wasThinking
+              ? "Analysis Complete"
+              : currentStep?.name || "Thinking"}
+          </Text>
+
+          <Box
+    overflow="auto"
+    maxHeight="400px" 
+    position="relative"
+    css={{
+      '&::-webkit-scrollbar': {
+        width: '8px',
+      },
+      '&::-webkit-scrollbar-track': {
+        width: '10px',
+        background: scrollbarColor,
+      },
+      '&::-webkit-scrollbar-thumb': {
+        background: scrollbarTrackColor,
+        borderRadius: '24px',
+      },
+    }}
+    ref={scrollableRef}  // Add this reference
+  >
+
+          {/* Show completed state or current thinking state */}
+          {!isThinking && wasThinking ? (
+      <VStack align="start" spacing={4} w="100%">
+      <Text>Analysis completed for: "{query}"</Text>
+      {responseData && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          style={{ width: "100%" }}
+        >
+          <Box bg={sourceBgColor} p={3} borderRadius="md" w="100%">
+            <Text fontSize="sm">{responseData.response}</Text>
+          </Box>
+        </motion.div>
+      )}
+    </VStack>
           ) : (
             <>
-          {currentStep?.name === "Clarifying the request" && (
-            <VStack align="start" spacing={4}>
-              <Box>
-                <Text fontSize="md" mb={2}>• Analyzing your query: "{query}"</Text>
-                <Text fontSize="md">• Identifying key information needed to provide an accurate answer</Text>
-              </Box>
-            </VStack>
-          )}
-          
-          {currentStep?.name === "Searching" && (
-            <VStack align="start" spacing={3}>
-              <Flex align="center">
-                <SearchIcon mr={2} />
-                <Text fontWeight="medium">Searching for information related to: "{query}"</Text>
-              </Flex>
-              <Text>{searchResults?.length || 0} results found</Text>
-              
-              {searchResults && searchResults.map((result, idx) => (
-                <Box key={idx} w="100%" py={2}>
-                  <Flex align="center">
-                    <Box as="span" mr={2} fontSize="sm" p={1} borderRadius="md" bg={sourceBgColor}>
-                      {result.icon}
-                    </Box>
-                    <Text fontWeight="medium">{result.title}</Text>
-                  </Flex>
-                  <Text fontSize="sm" color={secondaryColor} ml={8}>{result.url}</Text>
-                </Box>
-              ))}
-              
-              {searchResults && searchResults.length > 5 && (
-                <Text color={linkColor} cursor="pointer">
-                  See more ({searchResults.length - 5})
-                </Text>
+              {/* Clarifying step */}
+              {currentStep?.name === "Clarifying the request" && (
+                <VStack align="start" spacing={4}>
+                  <Box>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Text fontSize="md" whiteSpace="pre-line">
+                        {typedText}
+                      </Text>
+                    </motion.div>
+                  </Box>
+                </VStack>
               )}
-            </VStack>
-          )}
-          
-          {currentStep?.name === "Analyzing results" && (
-            <VStack align="start" spacing={4}>
-              <Text>Analyzing information to provide you with an accurate response...</Text>
-              {responseData && (
-                <Box 
-                  bg={sourceBgColor} 
-                  p={3} 
-                  borderRadius="md" 
-                  w="100%"
-                >
-                  <Text fontSize="sm">{responseData.response}</Text>
-                </Box>
-              )}
-            </VStack>
-          )}
-          </>
 
+              {/* Searching step */}
+              {currentStep?.name === "Searching" && (
+                <VStack align="start" spacing={3}>
+                  <Flex align="center">
+                    <SearchIcon mr={2} />
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Text fontWeight="medium">{typedText}</Text>
+                    </motion.div>
+                  </Flex>
+
+                  {!isTyping && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                      <Text>{searchResults?.length || 0} results found</Text>
+                    </motion.div>
+                  )}
+
+                  {!isTyping &&
+                    searchResults &&
+                    searchResults.map((result, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.4 + idx * 0.1 }}
+                        style={{ width: "100%" }}
+                      >
+                        <Box w="100%" py={2}>
+                          <Flex align="center">
+                            <Box
+                              as="span"
+                              mr={2}
+                              fontSize="sm"
+                              p={1}
+                              borderRadius="md"
+                              bg={sourceBgColor}
+                            >
+                              {result.icon}
+                            </Box>
+                            <Text fontWeight="medium">{result.title}</Text>
+                          </Flex>
+                          <Text fontSize="sm" color={secondaryColor} ml={8}>
+                            {result.url}
+                          </Text>
+                        </Box>
+                      </motion.div>
+                    ))}
+
+                  {!isTyping && searchResults && searchResults.length > 5 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
+                    >
+                      <Text color={linkColor} cursor="pointer">
+                        See more ({searchResults.length - 5})
+                      </Text>
+                    </motion.div>
+                  )}
+                </VStack>
+              )}
+
+              {/* Analyzing results step */}
+              {currentStep?.name === "Analyzing results" && (
+                <VStack align="start" spacing={4}>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Text>{typedText}</Text>
+                  </motion.div>
+
+                  {!isTyping && responseData && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
+                      style={{ width: "100%" }}
+                    >
+                      <Box bg={sourceBgColor} p={3} borderRadius="md" w="100%">
+                        <Text fontSize="sm">{responseData.response}</Text>
+                      </Box>
+                    </motion.div>
+                  )}
+                </VStack>
+              )}
+            </>
           )}
+           </Box>
         </Box>
       </Flex>
-    </Box> 
+    </Box>
   );
 };
 
