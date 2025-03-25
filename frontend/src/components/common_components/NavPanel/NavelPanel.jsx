@@ -162,7 +162,7 @@ const NavPanel = ({
           h="100%" 
           spacing={0}
         >
-          <Box as="li" position="relative" w="100%" display="flex" justifyContent="center" py={3} marginBottom={"10px"}>
+          <Box as="li" position="relative" w="100%" display="flex" justifyContent="center" py={3} marginBottom={"15px"}>
             <Flex 
               w="32px" 
               h="32px" 
