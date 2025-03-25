@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef ,useCallback} from 'react';
 import { Flex, useColorMode, useColorModeValue, useToast, Box } from '@chakra-ui/react';
 import { FiActivity, FiDatabase, FiSliders, FiExternalLink, FiRepeat, FiGitBranch } from 'react-icons/fi';
 
@@ -15,6 +15,8 @@ import MarketplaceDetailPanel from '../marketplace/MarketplaceContent/Marketplac
 import { beautifyFlow } from '../../utils/flowBeautifier';
 import * as d3 from 'd3';
 import { exportFlowAsPNG } from '../../utils/flowExport';
+import {exportFlowAsJSON} from '../../utils/flowExportJson';
+import {importFlowFromJSON} from '../../utils/flowImportJson';
 import { nodeApi } from '../../utils/api';
 
 
@@ -751,6 +753,58 @@ if (nodeType === 'custom-script') {
       });
   };
 
+  const exportFlowJSON = () => {
+    exportFlowAsJSON(nodes, edges)
+      .then(({ data, url, filename }) => {
+        // Create download link
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = url;
+        link.click();
+        
+        toast({
+          title: "Export Successful",
+          description: "Flow diagram has been exported as JSON.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch(error => {
+        toast({
+          title: "Export Failed",
+          description: error.message,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  }
+
+  const importImportFlow = useCallback(() => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+
+    input.onchange = async (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        try {
+          const text = await file.text();
+          const jsonData = JSON.parse(text);
+          await importFlowFromJSON(jsonData, setNodes, setEdges);
+        } catch (error) {
+          console.error("Import failed:", error);
+          alert("Failed to import flow: " + error.message);
+        }
+      }
+    };
+
+    input.click();
+  }, []);
+
+  
+
   
   useEffect(() => {
     updateAvailableLayers();
@@ -792,6 +846,8 @@ if (nodeType === 'custom-script') {
         onToggleOrientation={() => {}}
         onScreenshot={() => {}}
         onExportFlow={exportFlow}
+        onExportFlowJSON={exportFlowJSON}
+        onImportFlow={importImportFlow}
         toggleSidebar={toggleSidebar}
         sidebarOpen={sidebarOpen}
       />
@@ -820,6 +876,7 @@ if (nodeType === 'custom-script') {
           hideTextLabels={hideTextLabels}
           viewOnlyMode={viewOnlyMode}
           nodeTypes={nodeTypes} // Pass the nodeTypes prop
+          onImportFlow={importImportFlow}
         />
       </Flex>
       
