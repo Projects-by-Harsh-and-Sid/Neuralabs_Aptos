@@ -1,383 +1,275 @@
-// // src/components/access_management/AccessSidebar.jsx - Fixed version
-// import React, { useState, useEffect } from 'react';
-// import { 
-//   Box, 
-//   VStack, 
-//   HStack, 
-//   Text, 
-//   Icon, 
-//   useColorModeValue, 
-//   List, 
-//   ListItem,
-//   Flex,
-// } from '@chakra-ui/react';
-// import { 
-//   FiGrid, 
-//   FiShield, 
-//   FiDatabase, 
-//   FiChevronRight,
-//   FiChevronDown,
-//   FiClock,
-//   FiX
-// } from 'react-icons/fi';
-
-// const AccessSidebar = ({ accessLevels, selectedAccessLevel, onSelectAccessLevel, flowsData }) => {
-//   const bgColor = useColorModeValue('sidepanel.body.light', 'sidepanel.body.dark');
-//   const borderColor = useColorModeValue('gray.200', 'gray.700');
-//   const hoverBgColor = useColorModeValue('gray.100', 'gray.600');
-//   const selectedBgColor = useColorModeValue('blue.50', 'blue.900');
-//   const selectedTextColor = useColorModeValue('blue.700', 'blue.300');
-//   const textColor = useColorModeValue('gray.800', 'gray.200');
-//   const iconColor = useColorModeValue('gray.600', 'gray.300');
-  
-//   // Get the appropriate icon for each access level
-//   const getAccessLevelIcon = (levelId) => {
-//     if (levelId === 'all') return FiGrid;
-//     if (levelId === 0) return FiClock;  // Flows under development
-//     return FiShield; // Default icon for all access levels
-//   };
-  
-//   // State to track expanded access levels (to show the flows)
-//   const [expandedLevels, setExpandedLevels] = useState({});
-  
-//   // Toggle expanded state for an access level
-//   const toggleExpandLevel = (levelId) => {
-//     setExpandedLevels(prev => ({
-//       ...prev,
-//       [levelId]: !prev[levelId]
-//     }));
-//   };
-  
-//   // Expand levels that have flows by default
-//   useEffect(() => {
-//     if (accessLevels && accessLevels.length > 0) {
-//       const initialExpandedState = {};
-//       accessLevels.forEach(level => {
-//         if (level.flows && level.flows.length > 0) {
-//           initialExpandedState[level.id] = true;
-//         }
-//       });
-//       setExpandedLevels(initialExpandedState);
-//     }
-//   }, [accessLevels]);
-  
-//   // Get item background color based on selection state
-//   const getItemBgColor = (levelId) => {
-//     if (selectedAccessLevel === levelId) {
-//       return selectedBgColor;
-//     }
-//     return 'transparent';
-//   };
-  
-//   // Get item text color based on selection state
-//   const getItemTextColor = (levelId) => {
-//     if (selectedAccessLevel === levelId) {
-//       return selectedTextColor;
-//     }
-//     return textColor;
-//   };
-
-//   // Find flow details by ID
-//   const getFlowDetails = (flowId) => {
-//     if (!flowsData || !Array.isArray(flowsData)) return null;
-//     return flowsData.find(flow => flow.id === flowId) || null;
-//   };
-
-//   return (
-//     <Box
-//       w="320px"
-//       h="100%"
-//       bg={bgColor}
-//       borderRight="1px solid"
-//       borderColor={borderColor}
-//       overflow="auto"
-//     >
-//       <Box p={4} borderBottom="1px solid" borderColor={borderColor}>
-//         <Text fontSize="xl" fontWeight="bold">Flow Access</Text>
-//       </Box>
-      
-//       <List spacing={0}>
-//         {/* All Flows */}
-//         <ListItem
-//           px={4}
-//           py={3}
-//           cursor="pointer"
-//           bg={getItemBgColor('all')}
-//           color={getItemTextColor('all')}
-//           _hover={{ bg: hoverBgColor }}
-//           onClick={() => onSelectAccessLevel('level', 'all')}
-//         >
-//           <HStack spacing={3}>
-//             <Icon as={FiGrid} boxSize={5} color={iconColor} />
-//             <Text fontWeight="medium">All</Text>
-//           </HStack>
-//         </ListItem>
-        
-//         {/* Access Levels */}
-//         {accessLevels && accessLevels.map(level => (
-//           <React.Fragment key={level.id}>
-//             <ListItem
-//               px={4}
-//               py={3}
-//               cursor="pointer"
-//               bg={getItemBgColor(level.id)}
-//               color={getItemTextColor(level.id)}
-//               _hover={{ bg: hoverBgColor }}
-//               onClick={() => {
-//                 onSelectAccessLevel('level', level.id);
-//                 toggleExpandLevel(level.id);
-//               }}
-//             >
-//               <HStack spacing={3}>
-//                 <Icon as={getAccessLevelIcon(level.id)} boxSize={5} color={iconColor} />
-//                 <Text fontWeight="medium">{level.name}</Text>
-//                 {level.flows && level.flows.length > 0 && (
-//                   <Box ml="auto">
-//                     <Icon
-//                       as={expandedLevels[level.id] ? FiChevronDown : FiChevronRight}
-//                       boxSize={4}
-//                       color={iconColor}
-//                     />
-//                   </Box>
-//                 )}
-//               </HStack>
-//             </ListItem>
-            
-//             {/* Show flows if this level is expanded */}
-//             {expandedLevels[level.id] && level.flows && level.flows.length > 0 && (
-//               <Box pl={8} w="100%">
-//                 <List spacing={0}>
-//                   {level.flows.map(flowId => {
-//                     const flowDetail = getFlowDetails(flowId);
-//                     return (
-//                       <ListItem 
-//                         key={flowId} 
-//                         py={2} 
-//                         px={3}
-//                         _hover={{ bg: hoverBgColor }}
-//                         cursor="pointer"
-//                         transition="all 0.2s"
-//                         borderRadius="md"
-//                         mx={2}
-//                         onClick={() => onSelectAccessLevel('flow', flowId)}
-//                       >
-//                         <Flex align="center">
-//                           <Text 
-//                             fontSize="md" 
-//                             fontWeight="bold" 
-//                             color={iconColor} 
-//                             mr={2}
-//                           >
-//                             {flowDetail ? flowDetail.icon : 'D'}
-//                           </Text>
-//                           <Text fontSize="sm" color={textColor}>
-//                             {flowDetail ? flowDetail.name : flowId}
-//                           </Text>
-//                         </Flex>
-//                       </ListItem>
-//                     );
-//                   })}
-//                 </List>
-//               </Box>
-//             )}
-//           </React.Fragment>
-//         ))}
-//       </List>
-//     </Box>
-//   );
-// };
-
-// export default AccessSidebar;
-
-// src/components/access_management/AccessSidebar.jsx - Updated version
 import React, { useState, useEffect } from 'react';
 import { 
   Box, 
   VStack, 
-  HStack, 
   Text, 
-  Icon, 
-  useColorModeValue, 
-  List, 
-  ListItem,
+  Input, 
+  InputGroup, 
+  InputLeftElement,
+  Divider,
   Flex,
+  Button,
+  useColorModeValue,
+  Icon,
+  Spinner,
+  Collapse
 } from '@chakra-ui/react';
-import { 
-  FiGrid, 
-  FiChevronRight,
-  FiChevronDown,
-  FiClock,
-  FiX
-} from 'react-icons/fi';
+import { FiSearch, FiPlus, FiHome, FiList, FiChevronRight, FiChevronDown } from 'react-icons/fi';
+import { accessManagementApi } from '../../utils/access-api'; // Updated import path
+import SidebarItem from './SidebarItem';
 
-const AccessSidebar = ({ accessLevels, selectedAccessLevel, onSelectAccessLevel, flowsData }) => {
-  const bgColor = useColorModeValue('sidepanel.body.light', 'sidepanel.body.dark');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const hoverBgColor = useColorModeValue('gray.100', 'gray.600');
-  const selectedBgColor = useColorModeValue('blue.50', 'blue.900');
-  const selectedTextColor = useColorModeValue('blue.700', 'blue.300');
-  const textColor = useColorModeValue('gray.800', 'gray.200');
-  const iconColor = useColorModeValue('gray.600', 'gray.300');
-  
-  // Get the appropriate icon for each access level
-  const getAccessLevelIcon = (levelId) => {
-    if (levelId === 'all') return FiGrid;
-    if (levelId === 0) return FiClock;  // Flows under development
-    return null; // No icon for regular access levels, we'll use chevrons instead
-  };
-  
-  // State to track expanded access levels (to show the flows)
+const AccessSidebar = ({ selectedFlow, onSelectFlow, onViewChange, loading = false }) => {
+  const [accessLevels, setAccessLevels] = useState([]);
+  const [flows, setFlows] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [expandedSections, setExpandedSections] = useState({
+    myFlows: true,
+    otherFlows: true,
+    projects: true
+  });
   const [expandedLevels, setExpandedLevels] = useState({});
+  const [view, setView] = useState('home'); // 'home', 'all', 'myFlows', 'otherFlows', etc.
+  const [isLoading, setIsLoading] = useState(false);
+
+  const bgColor = useColorModeValue('white', '#18191b');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const hoverBgColor = useColorModeValue('gray.100', 'gray.700');
+
+  // Fetch access levels and flows
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        // Fetch access levels
+        const levelsResponse = await accessManagementApi.getAccessLevels();
+        setAccessLevels(levelsResponse.data.levels);
+        
+        // Initialize expanded state for levels
+        const initialExpandedLevels = {};
+        levelsResponse.data.levels.forEach(level => {
+          initialExpandedLevels[level.id] = false;
+        });
+        setExpandedLevels(initialExpandedLevels);
+        
+        // Fetch all flows
+        const flowsResponse = await accessManagementApi.getAllFlows();
+        setFlows(flowsResponse.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchData();
+  }, []);
+
+  // Filter flows by search query
+  const filteredFlows = flows.filter(flow => 
+    flow.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    flow.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Group flows by their access level
+  const flowsByAccessLevel = accessLevels.reduce((acc, level) => {
+    acc[level.id] = filteredFlows.filter(flow => flow.accessLevel === level.id);
+    return acc;
+  }, {});
   
-  // Toggle expanded state for an access level
-  const toggleExpandLevel = (levelId) => {
+  // Toggle section expansion
+  const toggleSection = (section) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
+  // Toggle level expansion
+  const toggleLevel = (levelId) => {
     setExpandedLevels(prev => ({
       ...prev,
       [levelId]: !prev[levelId]
     }));
   };
-  
-  // Expand levels that have flows by default
-  useEffect(() => {
-    if (accessLevels && accessLevels.length > 0) {
-      const initialExpandedState = {};
-      accessLevels.forEach(level => {
-        if (level.flows && level.flows.length > 0) {
-          initialExpandedState[level.id] = true;
-        }
-      });
-      setExpandedLevels(initialExpandedState);
-    }
-  }, [accessLevels]);
-  
-  // Get item background color based on selection state
-  const getItemBgColor = (levelId) => {
-    if (selectedAccessLevel === levelId) {
-      return selectedBgColor;
-    }
-    return 'transparent';
-  };
-  
-  // Get item text color based on selection state
-  const getItemTextColor = (levelId) => {
-    if (selectedAccessLevel === levelId) {
-      return selectedTextColor;
-    }
-    return textColor;
-  };
 
-  // Find flow details by ID
-  const getFlowDetails = (flowId) => {
-    if (!flowsData || !Array.isArray(flowsData)) return null;
-    return flowsData.find(flow => flow.id === flowId) || null;
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+  
+  // Handle view change
+  // Handle view change
+  const handleViewChange = (newView) => {
+    if (onViewChange) {
+      onViewChange(newView);
+    }
+  };
+  
+  // Handle flow selection
+  const handleSelectFlow = (flow) => {
+    if (onSelectFlow) {
+      onSelectFlow(flow);
+    }
   };
 
   return (
-    <Box
-      w="320px"
-      h="100%"
-      bg={bgColor}
-      borderRight="1px solid"
+    <Box 
+      w="280px" 
+      h="100%" 
+      bg={bgColor} 
+      borderRight="1px" 
       borderColor={borderColor}
-      overflow="auto"
+      position="relative"
+      display="flex"
+      flexDirection="column"
     >
-      <Box p={4} borderBottom="1px solid" borderColor={borderColor}>
-        <Text fontSize="xl" fontWeight="bold">Flow Access</Text>
+      {/* Header */}
+      <Box p={4} borderBottom="1px" borderColor={borderColor}>
+        <Text fontWeight="bold" fontSize="xl">My Flows</Text>
+        <InputGroup>
+          <InputLeftElement pointerEvents="none">
+            <Icon as={FiSearch} color="gray.500" />
+          </InputLeftElement>
+          <Input 
+            placeholder="Search..." 
+            size="sm"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            borderRadius="md"
+          />
+        </InputGroup>
       </Box>
       
-      <List spacing={0}>
-        {/* All Flows */}
-        <ListItem
-          px={4}
-          py={3}
-          cursor="pointer"
-          bg={getItemBgColor('all')}
-          color={getItemTextColor('all')}
-          _hover={{ bg: hoverBgColor }}
-          onClick={() => onSelectAccessLevel('level', 'all')}
-        >
-          <HStack spacing={3}>
-            <Icon as={FiGrid} boxSize={5} color={iconColor} />
-            <Text fontWeight="medium">All</Text>
-          </HStack>
-        </ListItem>
-        
-        {/* Access Levels */}
-        {accessLevels && accessLevels.map(level => (
-          <React.Fragment key={level.id}>
-            <ListItem
-              px={4}
-              py={3}
-              cursor="pointer"
-              bg={getItemBgColor(level.id)}
-              color={getItemTextColor(level.id)}
-              _hover={{ bg: hoverBgColor }}
-              onClick={() => {
-                onSelectAccessLevel('level', level.id);
-                toggleExpandLevel(level.id);
-              }}
-            >
-              <HStack spacing={3}>
-                {/* Replace shield icon with chevron */}
-                <Icon 
-                  as={level.flows && level.flows.length > 0 
-                    ? (expandedLevels[level.id] ? FiChevronDown : FiChevronRight)
-                    : getAccessLevelIcon(level.id)} 
-                  boxSize={5} 
-                  color={iconColor} 
+      {/* Navigation Items - wrap in a scrollable container */}
+      <Box flex="1" overflow="auto">
+        <VStack align="stretch" spacing={0}>
+          {/* Home */}
+          <SidebarItem 
+            label="Home" 
+            isActive={view === 'home'} 
+            onClick={() => handleViewChange('home')}
+            icon={FiHome}
+          />
+          
+          {/* All Flows */}
+          <SidebarItem 
+            label="All Flows" 
+            isActive={view === 'all'} 
+            onClick={() => handleViewChange('all')}
+            icon={FiList}
+          />
+          
+          {/* My Flows Section */}
+          <SidebarItem 
+            label="My Flows" 
+            isSection 
+            isExpanded={expandedSections.myFlows}
+            onClick={() => toggleSection('myFlows')}
+          />
+          
+          {expandedSections.myFlows && (
+            <>
+              <SidebarItem 
+                label="Made by me/company" 
+                indentLevel={1}
+                isActive={view === 'myFlows-made'}
+                onClick={() => handleViewChange('myFlows-made')}
+              />
+              <SidebarItem 
+                label="Under Development (Developer)" 
+                indentLevel={1}
+                isActive={view === 'myFlows-dev'}
+                onClick={() => handleViewChange('myFlows-dev')}
+              />
+            </>
+          )}
+          
+          {/* Other Flows Section */}
+          <SidebarItem 
+            label="Other Flows" 
+            isSection 
+            isExpanded={expandedSections.otherFlows}
+            onClick={() => toggleSection('otherFlows')}
+          />
+          
+          {expandedSections.otherFlows && accessLevels.map((level) => (
+            <React.Fragment key={level.id}>
+              <SidebarItem 
+                label={level.name}
+                indentLevel={1}
+                isActive={view === `level-${level.id}` && !expandedLevels[level.id]}
+                isExpanded={expandedLevels[level.id]}
+                hasChildren={true}  // This tells the component to show the expansion arrow
+                onClick={() => {
+                  toggleLevel(level.id);
+                  handleViewChange(`level-${level.id}`);
+                }}
+              />
+              
+              {expandedLevels[level.id] && flowsByAccessLevel[level.id]?.map(flow => (
+                <SidebarItem 
+                  key={flow.id}
+                  label={flow.name}
+                  indentLevel={2}
+                  isActive={selectedFlow?.id === flow.id}
+                  onClick={() => handleSelectFlow(flow)}
+                  icon={flow.icon}
                 />
-                <Text fontWeight="medium">{level.name}</Text>
-                
-                {/* Remove the right-side chevron since we've moved it to the left */}
-                {/* We'll only show a right-side indicator for special cases if needed */}
-                {/* {level.id === 0 && (
-                  <Box ml="auto">
-                    <Text fontSize="xs" color="gray.500">In development</Text>
-                  </Box>
-                )} */}
-              </HStack>
-            </ListItem>
-            
-            {/* Show flows if this level is expanded */}
-            {expandedLevels[level.id] && level.flows && level.flows.length > 0 && (
-              <Box pl={8} w="100%">
-                <List spacing={0}>
-                  {level.flows.map(flowId => {
-                    const flowDetail = getFlowDetails(flowId);
-                    return (
-                      <ListItem 
-                        key={flowId} 
-                        py={2} 
-                        px={3}
-                        _hover={{ bg: hoverBgColor }}
-                        cursor="pointer"
-                        transition="all 0.2s"
-                        borderRadius="md"
-                        mx={2}
-                        onClick={() => onSelectAccessLevel('flow', flowId)}
-                      >
-                        <Flex align="center">
-                          <Text 
-                            fontSize="md" 
-                            fontWeight="bold" 
-                            color={iconColor} 
-                            mr={2}
-                          >
-                            {flowDetail ? flowDetail.icon : 'D'}
-                          </Text>
-                          <Text fontSize="sm" color={textColor}>
-                            {flowDetail ? flowDetail.name : flowId}
-                          </Text>
-                        </Flex>
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              </Box>
-            )}
-          </React.Fragment>
-        ))}
-      </List>
+              ))}
+            </React.Fragment>
+          ))}
+                    
+          {/* Projects Section */}
+          <SidebarItem 
+            label="Projects" 
+            isSection 
+            isExpanded={expandedSections.projects}
+            onClick={() => toggleSection('projects')}
+          />
+          
+          {expandedSections.projects && (
+            <>
+              <SidebarItem 
+                label="Project 1" 
+                indentLevel={1}
+                isActive={view === 'project-1'}
+                onClick={() => handleViewChange('project-1')}
+              />
+              <SidebarItem 
+                label="Project 2" 
+                indentLevel={1}
+                isActive={view === 'project-2'}
+                onClick={() => handleViewChange('project-2')}
+              />
+            </>
+          )}
+        </VStack>
+        
+        {/* Loading indicator */}
+        {(isLoading || loading) && (
+          <Flex justify="center" my={4}>
+            <Spinner size="sm" color="blue.500" />
+          </Flex>
+        )}
+      </Box>
+      
+      {/* Create Flow Button - fixed at bottom */}
+      <Box 
+        p={4} 
+        borderTop="1px" 
+        borderColor={borderColor} 
+        bg={bgColor}
+      >
+        <Button 
+          leftIcon={<FiPlus />} 
+          colorScheme="blue" 
+          size="sm" 
+          w="100%"
+          onClick={() => console.log('Create new project')}
+        >
+          Create new project
+        </Button>
+      </Box>
     </Box>
   );
 };
