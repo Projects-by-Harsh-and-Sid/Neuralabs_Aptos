@@ -1,0 +1,16 @@
+{
+  "steps": {
+    "Thinking": {
+      "text": "• Analyzing your query: \"{{query}}\"\n• Breaking down the core components of your request\n• Identifying key information needed to provide an accurate answer\n• Determining relevant context and potential ambiguities\n• Preparing to search for the most up-to-date information\n• Establishing parameters for comprehensive analysis\n• Identifying potential knowledge domains relevant to your query\n• Considering multiple interpretations to ensure accuracy\n• Planning approach for information synthesis and response generation"
+    },
+    "Clarifying the request": {
+      "text": "• Analyzing your query: \"{{query}}\"\n• Breaking down the core components of your request\n• Identifying key information needed to provide an accurate answer\n• Determining relevant context and potential ambiguities\n• Preparing to search for the most up-to-date information\n• Establishing parameters for comprehensive analysis\n• Identifying potential knowledge domains relevant to your query\n• Considering multiple interpretations to ensure accuracy\n• Planning approach for information synthesis and response generation"
+    },
+    "Searching": {
+      "text": "Searching for information related to: \"{{query}}\"\n• Accessing specialized knowledge databases\n• Retrieving recent developments and publications\n• Cross-referencing multiple authoritative sources\n• Evaluating source credibility and information relevance\n• Identifying consensus views and notable exceptions\n• Collecting technical specifications and supporting data\n• Gathering contextual information to enhance understanding\n• Prioritizing sources based on recency and authority"
+    },
+    "Analyzing results": {
+      "text": "Analyzing gathered information to provide a comprehensive response...\n• Synthesizing data from multiple sources\n• Resolving potential contradictions between sources\n• Organizing information in a logical structure\n• Prioritizing the most relevant facts for your query\n• Identifying key insights and practical applications\n• Formulating explanations at appropriate technical depth\n• Preparing examples to illustrate complex concepts\n• Generating analogies to enhance understanding\n• Checking for completeness and accuracy\n• Finalizing response with the most valuable information"
+    }
+  }
+}
