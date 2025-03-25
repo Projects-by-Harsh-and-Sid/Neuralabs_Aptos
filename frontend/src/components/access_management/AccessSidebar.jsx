@@ -175,13 +175,13 @@ const AccessSidebar = ({ selectedFlow, onSelectFlow, onViewChange, loading = fal
           {expandedSections.myFlows && (
             <>
               <SidebarItem 
-                label="Made by me/company" 
+                label="Made by me" 
                 indentLevel={1}
                 isActive={view === 'myFlows-made'}
                 onClick={() => handleViewChange('myFlows-made')}
               />
               <SidebarItem 
-                label="Under Development (Developer)" 
+                label="Under Development" 
                 indentLevel={1}
                 isActive={view === 'myFlows-dev'}
                 onClick={() => handleViewChange('myFlows-dev')}
@@ -198,32 +198,16 @@ const AccessSidebar = ({ selectedFlow, onSelectFlow, onViewChange, loading = fal
           />
           
           {expandedSections.otherFlows && accessLevels.map((level) => (
-            <React.Fragment key={level.id}>
-              <SidebarItem 
-                label={level.name}
-                indentLevel={1}
-                isActive={view === `level-${level.id}` && !expandedLevels[level.id]}
-                isExpanded={expandedLevels[level.id]}
-                hasChildren={true}  // This tells the component to show the expansion arrow
-                onClick={() => {
-                  toggleLevel(level.id);
-                  handleViewChange(`level-${level.id}`);
-                }}
-              />
-              
-              {expandedLevels[level.id] && flowsByAccessLevel[level.id]?.map(flow => (
-                <SidebarItem 
-                  key={flow.id}
-                  label={flow.name}
-                  indentLevel={2}
-                  isActive={selectedFlow?.id === flow.id}
-                  onClick={() => handleSelectFlow(flow)}
-                  icon={flow.icon}
-                />
-              ))}
-            </React.Fragment>
-          ))}
-                    
+          <SidebarItem 
+            key={level.id}
+            label={level.name}
+            indentLevel={1}
+            isActive={view === `level-${level.id}`}
+            onClick={() => handleViewChange(`level-${level.id}`)}
+            // Count badge showing number of flows at this level
+          
+          />
+        ))}
           {/* Projects Section */}
           <SidebarItem 
             label="Projects" 
@@ -261,7 +245,6 @@ const AccessSidebar = ({ selectedFlow, onSelectFlow, onViewChange, loading = fal
       {/* Create Flow Button - fixed at bottom */}
       <Box 
         p={4} 
-        borderTop="1px" 
         borderColor={borderColor} 
         bg={bgColor}
       >

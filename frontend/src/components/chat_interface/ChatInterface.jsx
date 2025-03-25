@@ -469,7 +469,7 @@ const handleSendMessage = () => {
               />
 
             <Menu placement={isLanding ? "bottom" : "top"} gutter={4}>
-                <MenuButton
+                {/* <MenuButton
                   as={Button}
                   rightIcon={<FiChevronDown />}
                   size="sm"
@@ -487,7 +487,7 @@ const handleSendMessage = () => {
                       ? "DeepSearch"
                       : "Think"}
                   </Flex>
-                </MenuButton>
+                </MenuButton> */}
                 <MenuList
                   bg={bgSecondary}
                   borderColor={borderColor}

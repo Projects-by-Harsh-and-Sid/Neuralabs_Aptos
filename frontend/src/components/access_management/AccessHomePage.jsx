@@ -47,12 +47,15 @@ import templateImage1 from "../../assets/template.png";
 
 const TemplateCard = ({ title, hasButton = false, onClick, imageUrl }) => {
 
+
+      
+
     const bgColor = useColorModeValue("white", "gray.800");
     const hoverBgColor = useColorModeValue("gray.50", "gray.700");
     const textColor = useColorModeValue("gray.800", "white");
     const borderColor = useColorModeValue("gray.200", "gray.700");
     const hoverBorderColor = useColorModeValue("blue.400", "blue.400");
-    const overlayBgColor = useColorModeValue("rgba(255,255,255,0.8)", "rgba(0,0,0,0.6)");
+    const overlayBgColor = useColorModeValue("rgba(255,255,255,0.8)", "rgba(7, 3, 3, 0.6)");
     const overlayTextColor = useColorModeValue("gray.800", "white");
 
   return (
@@ -96,15 +99,39 @@ const TemplateCard = ({ title, hasButton = false, onClick, imageUrl }) => {
         <>
           {/* Image background filling the entire card */}
           <Box
-            position="absolute"
-            top="0"
-            left="0"
-            w="100%"
-            h="100%"
-            bgImage={`url(${imageUrl})`}
-            bgSize="cover" // This makes the image cover the entire box
-            bgPosition="center"
-          />
+              position="absolute"
+              top="0"
+              left="0"
+              w="100%"
+              h="100%"
+              bgImage={`url(${imageUrl})`}
+              bgSize="cover"
+              bgPosition="center"
+              _before={{
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                bgGradient: "linear(to-r, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+                backdropFilter: "blur(1.5px)",
+                WebkitBackdropFilter: "blur(1.5px)",
+                mixBlendMode: "overlay",
+              }}
+              _after={{
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                background: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==')",
+                opacity: 0.2,
+                mixBlendMode: "multiply",
+                pointerEvents: "none"
+              }}
+            />
 
           {/* Text overlay at the bottom */}
           <Box
@@ -112,7 +139,7 @@ const TemplateCard = ({ title, hasButton = false, onClick, imageUrl }) => {
             bottom="0"
             left="0"
             right="0"
-            bg="rgba(0,0,0,0.6)"
+            bg="rgba(0,0,0,0.7)"
             p={4} // Increased padding
           >
             <Text
@@ -400,13 +427,13 @@ const AccessHomePage = ({ onSelectFlow }) => {
     />,
     <TemplateCard
       key={1}
-      title="Data Cleaning Flow"
+      title="Read Aptos Balance"
       imageUrl={templateImage1}
       onClick={() => console.log("Selected template 1")}
     />,
     <TemplateCard
       key={2}
-      title="Machine Learning"
+      title="X-Twitter Post API "
       imageUrl={templateImage1}
       onClick={() => console.log("Selected template 2")}
     />,
@@ -449,7 +476,7 @@ const AccessHomePage = ({ onSelectFlow }) => {
       {/* Project title */}
       <Center pt={8} pb={6} marginTop={"30px"}>
         <Heading size="lg" color={textColor}>
-          Create a New project
+          Welcome to Neuralabs
         </Heading>
       </Center>
 
@@ -482,17 +509,19 @@ const AccessHomePage = ({ onSelectFlow }) => {
         </Box>
          */}
 
-      <Box px={9} mb={10}>
+      <Box px={6} mb={10}>
         {" "}
         {/* Increased horizontal padding from 6 to 8 */}
         <Text color={textColor} mb={5} fontSize="xl" fontWeight="medium">
-          Create new or choose a template
+          Create new
         </Text>
         <SimpleGrid
           columns={{ base: 2, md: 3, lg: 6 }}
           spacing={9} // Increased spacing from 4 to 6
-          maxW="1300px" // Added explicit max width
-          mx="auto" // Center the grid
+          // maxW="1300px" // Added explicit max width
+          // mx="auto" // Center the grid
+          
+          //justifyContent="center" // Center the grid items
         >
           {templateCards}
         </SimpleGrid>
@@ -506,7 +535,7 @@ const AccessHomePage = ({ onSelectFlow }) => {
         </Flex>
 
         <Flex justify="space-between" mb={4}>
-          <HStack spacing={3} mb={4} overflowX="auto" pb={2}>
+          <HStack spacing={3} overflowX="auto" pb={2}>
             <QuickAccessTab
               label="Recently opened"
               isActive={activeTab === "recent"}
@@ -533,25 +562,35 @@ const AccessHomePage = ({ onSelectFlow }) => {
             />
           </HStack>
           <ButtonGroup size="sm" isAttached variant="outline">
-          <Button
+            <Button
                 leftIcon={<FiUpload />}
                 size="sm"
                 colorScheme="gray"
-                variant="outline"
+                variant="ghost" 
                 onClick={() => console.log("Upload clicked")}
                 mr={2}
                 >
                 Upload
                 </Button>
+            <Box 
+                height="24px" 
+                width="1px" 
+                bg={useColorModeValue("gray.300", "gray.600")} 
+                mx={1}
+                my={1} 
+            />
+            
             <IconButton
               aria-label="List view"
               icon={<FiList />}
+              variant="ghost" 
               colorScheme={viewMode === "list" ? "blue" : "gray"}
               onClick={() => setViewMode("list")}
             />
             <IconButton
               aria-label="Grid view"
               icon={<FiGrid />}
+              variant="ghost" 
               colorScheme={viewMode === "grid" ? "blue" : "gray"}
               onClick={() => setViewMode("grid")}
             />
@@ -569,12 +608,11 @@ const AccessHomePage = ({ onSelectFlow }) => {
         overflow="hidden"
       >
         <Table variant="simple" size="sm">
-          <Thead bg="#1f1f1f">
+          {/* <Thead bg="#1f1f1f">
             <Tr h="10px">
               {" "}
-              {/* Added explicit height */}
+      
               <Th color={mutedTextColor} width="60px" py={2} fontSize="sm">
-                {/* Empty column for avatar */}
               </Th>
               <Th color={mutedTextColor} py={2} fontSize="sm">
                 Name
@@ -586,7 +624,7 @@ const AccessHomePage = ({ onSelectFlow }) => {
                 Access level
               </Th>
             </Tr>
-          </Thead>
+          </Thead> */}
           <Tbody>
             {paginatedFlows.map((flow) => (
               <Tr
@@ -594,7 +632,7 @@ const AccessHomePage = ({ onSelectFlow }) => {
                 _hover={{ bg: "gray.800", cursor: "pointer" }}
                 onClick={() => onSelectFlow && onSelectFlow(flow)}
               >
-                <Td>
+                <Td width={"10px"}>
                 <Box
                     p={2}
                     borderRadius="md"
@@ -603,10 +641,13 @@ const AccessHomePage = ({ onSelectFlow }) => {
                     display="inline-flex"
                     alignItems="center"
                     justifyContent="center"
+                    maxWidth={"30px"}
                 >
                     <Icon 
                     as={getFlowIcon(flow.accessLevel)} 
                     boxSize={4} 
+                    maxWidth={"30px"}
+
                     />
                 </Box>
                 </Td>

@@ -37,7 +37,7 @@ export const accessManagementApi = {
   getAllFlows: () => simulateApiCall([
     {
       id: 'item-1',
-      name: 'Data Cleaner Pro',
+      name: 'Read Aptos Balance',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
       accessLevel: 6,
