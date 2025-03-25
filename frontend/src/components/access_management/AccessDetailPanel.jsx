@@ -1,5 +1,5 @@
 // src/components/access_management/AccessDetailPanel.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Box, 
   Flex, 
@@ -14,163 +14,72 @@ import {
   useColorModeValue 
 } from '@chakra-ui/react';
 import { FiX, FiPlus } from 'react-icons/fi';
+import FlowActionPanel from './FlowActionPanel';
+import FlowDetailComponent from './FlowDetailComponent';
+import FlowDescriptionComponent from './FlowDescriptionComponent';
 
 const AccessDetailPanel = ({ flowDetails, onClose }) => {
+  const [flowPanelOpen, setFlowPanelOpen] = useState(true);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  
   const bgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const textColor = useColorModeValue('gray.800', 'white');
-  const mutedTextColor = useColorModeValue('gray.600', 'gray.400');
-  const hoverBgColor = useColorModeValue('gray.50', 'gray.700');
-  const levelColor = useColorModeValue('pink.500', 'pink.300');
   
   if (!flowDetails) {
     return null;
   }
+
+  const toggleFlowPanel = () => {
+    setFlowPanelOpen(!flowPanelOpen);
+  };
+  
+  const handleHoverItem = (itemKey) => {
+    setHoveredItem(itemKey);
+  };
+  
+  const handleLeaveItem = () => {
+    setHoveredItem(null);
+  };
   
   return (
-    <Box
-      w="100%"
-      h="100%"
-      bg={bgColor}
-      overflow="auto"
-      position="relative"
-    >
-      <Flex 
-        justify="space-between" 
-        align="center" 
-        p={4} 
-        borderBottom="1px solid" 
-        borderColor={borderColor}
-      >
-        <HStack>
-          <Box
-            bg="black"
-            color="white"
-            w="40px"
-            h="40px"
-            borderRadius="md"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            fontSize="xl"
-            fontWeight="bold"
-            mr={3}
-          >
-            A
-          </Box>
-          <Heading as="h2" size="lg" color={textColor}>
-            {flowDetails.name}
-          </Heading>
-        </HStack>
-        
-        <IconButton
-          icon={<FiX />}
-          variant="ghost"
-          onClick={onClose}
-          aria-label="Close panel"
-        />
-      </Flex>
+    <Flex w="calc(100% - 280px)" h="100%" overflow="hidden">
+      {/* Flow Action Panel */}
+      <FlowActionPanel 
+        toggleSidebar={toggleFlowPanel}
+        sidebarOpen={flowPanelOpen}
+      />
       
-      <Box p={4}>
-        <VStack align="start" spacing={4} mb={6}>
-          <Flex width="100%" justify="space-between">
-            <Text color={mutedTextColor}>By {flowDetails.author || flowDetails.owner}</Text>
-            <HStack>
-              <Text color="yellow.400">★</Text>
-              <Text fontWeight="bold">{flowDetails.rating}</Text>
-              <Text color={mutedTextColor}>|</Text>
-              <Text>{flowDetails.downloads || flowDetails.usersWithAccess} downloads</Text>
-            </HStack>
-          </Flex>
-          
-          <HStack spacing={2}>
-            {flowDetails.tags && flowDetails.tags.map((tag, index) => (
-              <Badge key={index} colorScheme="blue" px={2} py={1} borderRadius="full">
-                {tag}
-              </Badge>
-            ))}
-          </HStack>
-        </VStack>
+      {/* Flow Detail Component and Description Component */}
+      <Flex flex="1" direction="column" overflow="hidden">
+        {/* Header with close button */}
         
-        <VStack align="start" spacing={4} mb={6}>
-          <Heading as="h3" size="md" color={textColor}>
-            About
-          </Heading>
-          
-          <Text color={mutedTextColor}>
-            {flowDetails.longDescription || flowDetails.description}
-          </Text>
-        </VStack>
-
-        <VStack align="start" spacing={4} mb={6}>
-          <HStack spacing={6} width="100%">
-            <Box>
-              <Text color={mutedTextColor} fontSize="sm">Creation Date</Text>
-              <Text fontWeight="medium">{flowDetails.creationDate || "2025-02-10"}</Text>
-            </Box>
-            <Box>
-              <Text color={mutedTextColor} fontSize="sm">Owner</Text>
-              <Text fontWeight="medium">{flowDetails.owner || "John Doe"}</Text>
-            </Box>
-          </HStack>
-          
-          <HStack spacing={6} width="100%">
-            <Box>
-              <Text color={mutedTextColor} fontSize="sm">Co-Owner</Text>
-              <Text fontWeight="medium">{flowDetails.coOwner}</Text>
-            </Box>
-            <Box>
-              <Text color={mutedTextColor} fontSize="sm">Access Level</Text>
-              <Text fontWeight="medium">{flowDetails.accessLevel}</Text>
-            </Box>
-          </HStack>
-          
-          <HStack spacing={6} width="100%">
-            <Box>
-              <Text color={mutedTextColor} fontSize="sm">Number of Users</Text>
-              <Text fontWeight="medium">{flowDetails.usersWithAccess}</Text>
-            </Box>
-          </HStack>
-        </VStack>
-        
-        <Divider my={6} />
-        
-        <Flex justify="space-between" mb={4}>
-          <Heading as="h3" size="md" color={textColor}>
-            Address
-          </Heading>
-          
-          <Heading as="h3" size="md" color={textColor}>
-            Access Level
-          </Heading>
-        </Flex>
-        
-        {flowDetails.addresses && flowDetails.addresses.map((item, index) => (
-          <Flex 
-            key={index}
-            justify="space-between" 
-            align="center" 
-            p={3}
-            borderRadius="md"
-            bg={hoverBgColor}
-            mb={2}
+        {/* Two-column layout for details and description */}
+        <Flex flex="1" overflow="auto">
+          {/* Flow Detail Component */}
+          <Box 
+            w="80%" 
+            p={6} 
+            borderRight="1px solid" 
+            borderColor={borderColor}
+            overflow="auto"
           >
-            <Text fontFamily="mono">{item.address}</Text>
-            <Badge color={levelColor} fontSize="md">Level {item.level}</Badge>
-          </Flex>
-        ))}
-        
-        <Button 
-          leftIcon={<FiPlus />} 
-          colorScheme="blue" 
-          variant="outline" 
-          w="100%" 
-          mt={4}
-        >
-          Add New Address
-        </Button>
-      </Box>
-    </Box>
+            <FlowDetailComponent 
+              flowDetails={flowDetails} 
+              onHoverItem={handleHoverItem}
+              onLeaveItem={handleLeaveItem}
+            />
+          </Box>
+          
+          {/* Flow Description Component */}
+          <Box w="20%" p={6} overflow="auto">
+            <FlowDescriptionComponent 
+              flowDetails={flowDetails} 
+              currentHoveredItem={hoveredItem}
+            />
+          </Box>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 

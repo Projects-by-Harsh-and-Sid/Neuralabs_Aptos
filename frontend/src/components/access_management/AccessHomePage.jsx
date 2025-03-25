@@ -319,7 +319,7 @@ const AccessHomePage = ({ onSelectFlow }) => {
   const [activeTab, setActiveTab] = useState("recent");
   const [viewMode, setViewMode] = useState("list"); // 'list' or 'grid'
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7; // Show 10 rows at a time
+  const itemsPerPage = 5; // Show 10 rows at a time
 
   const bgColor = useColorModeValue("white", "gray.900");
   const cardBgColor = useColorModeValue("gray.50", "gray.800");

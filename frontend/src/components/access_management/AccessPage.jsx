@@ -1,12 +1,11 @@
-// src/components/access_management/AccessPage.jsx - Fixed version
+// src/components/access_management/AccessPage.jsx
 import React, { useState, useEffect } from 'react';
 import { Flex, useToast } from '@chakra-ui/react';
 import AccessSidebar from './AccessSidebar';
 import AccessMainContent from './AccessMainContent';
 import AccessDetailPanel from './AccessDetailPanel';
 import { accessManagementApi } from '../../utils/access-api';
-import AccessHomePage from './AccessHomePage'; // [ADDED] Import the new component
-
+import AccessHomePage from './AccessHomePage';
 
 const AccessPage = () => {
   const [accessLevels, setAccessLevels] = useState([]);
@@ -71,23 +70,25 @@ const AccessPage = () => {
     }
   };
 
-    // [ADDED] Handle view change from sidebar
-    const handleViewChange = (newView) => {
-      setView(newView);
-      if (newView !== 'home') {
-        setSelectedAccessLevel(newView.startsWith('level-') ? parseInt(newView.split('-')[1]) : 'all');
-      }
-      setDetailPanelOpen(false);
-      setSelectedFlow(null);
-    };
-
+  // Handle view change from sidebar
+  const handleViewChange = (newView) => {
+    setView(newView);
+    if (newView !== 'home') {
+      setSelectedAccessLevel(newView.startsWith('level-') ? parseInt(newView.split('-')[1]) : 'all');
+    }
+    setDetailPanelOpen(false);
+    setSelectedFlow(null);
+  };
     
-  // Handle selection of a flow in the main content
+  // Handle selection of a flow in the main content or home page
   const handleFlowSelect = async (flowId) => {
     try {
-      const response = await accessManagementApi.getFlowAccess(flowId);
+      // If we receive a flow object instead of just an ID (from AccessHomePage)
+      const id = typeof flowId === 'object' ? flowId.id : flowId;
+      
+      const response = await accessManagementApi.getFlowAccess(id);
       setFlowAccessDetails(response.data);
-      setSelectedFlow(flowId);
+      setSelectedFlow(id);
       setDetailPanelOpen(true);
     } catch (err) {
       console.error('Error fetching flow access details:', err);
@@ -130,8 +131,8 @@ const AccessPage = () => {
         selectedAccessLevel={selectedAccessLevel}
         onSelectAccessLevel={handleAccessLevelSelect}
         flowsData={flowsData}
-        onViewChange={handleViewChange} // [ADDED] Pass the view change handler
-        currentView={view} // [ADDED] Pass the current view
+        onViewChange={handleViewChange}
+        currentView={view}
       />
       
       {detailPanelOpen ? (

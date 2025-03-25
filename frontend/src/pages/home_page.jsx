@@ -54,16 +54,19 @@ const HomePage = () => {
         pointerEvents="none"
       />
 
+      {/* Apply 90% scaling to the entire content */}
       <VStack 
-        spacing={8} 
-        maxW="1000px"
+        spacing={7} // Reduced from 8
+        maxW="900px" // Reduced from 1000px
         textAlign="center"
-        p={10}
+        p={9} // Reduced from 10
         borderRadius="xl"
         boxShadow="xl"
+        transform="scale(0.9)"
+        transformOrigin="center"
       >
         <Heading as="h1" size="2xl" color={textColor}>Welcome to Neuralabs</Heading>
-        <Text fontSize="xl" color={textColor}>
+        <Text fontSize="lg" color={textColor}> {/* Reduced from xl */}
           Build and manage your workflows, explore marketplace resources, and collaborate with your team through our integrated platform.
         </Text>
         
@@ -90,34 +93,17 @@ const HomePage = () => {
         <Box 
           position="relative" 
           width="100%" 
-          mt={4}
+          mt={3.6} // Reduced from 4
         >
-          {/* Glow effect container behind the image */}
-          {/* <Box
+          <Box
             position="absolute"
-            top="-10px" // Extend slightly above the image
-            bottom="-10px" // Extend slightly below the image
-            left="10"
-            right="10"
-            background="rgba(255, 255, 255, 0.1)" // Subtle white base for glow
-            boxShadow="0 0 40px 20px rgba(255, 255, 255, 0.3)" // Glow effect with spread
-            filter="blur(10px)" // Soften the glow
-            zIndex="1" // Behind the image
-            pointerEvents="none"
-          /> */}
-
-            <Box
-            position="absolute"
-            top="-10px" // Extend slightly above the image
-            bottom="-10px" // Extend slightly below the image
-            left="10"
-            right="10"
-            // background="radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 80%)" // Radial glow that fades out
-            // boxShadow="0 0 30px 10px rgba(255, 255, 255, 0.2)" // Reduced glow effect for subtlety
-            boxShadow="0 0 400px 3px rgba(255, 255, 255, 0.3)" // Reduced glow effect for subtlety
-
-            filter="blur(15px)" // Slightly increased blur for softer edges
-            zIndex="1" // Behind the image
+            top="-9px" // Reduced from -10px
+            bottom="-9px" // Reduced from -10px
+            left="9" // Reduced from 10
+            right="9" // Reduced from 10
+            boxShadow="0 0 360px 2.7px rgba(255, 255, 255, 0.3)" // Reduced from 400px 3px
+            filter="blur(13.5px)" // Reduced from 15px
+            zIndex="1"
             pointerEvents="none"
           />
 
@@ -127,7 +113,7 @@ const HomePage = () => {
             borderRadius="md" 
             overflow="hidden"
             boxShadow="lg"
-            zIndex="2" // Above the glow
+            zIndex="2"
           >
             <Image 
               src={homepageCode} 
@@ -144,7 +130,7 @@ const HomePage = () => {
               left="0"
               right="0"
               bottom="0"
-              boxShadow="inset 0 0 50px 10px rgba(0,0,0,0.6)"
+              boxShadow="inset 0 0 45px 9px rgba(0,0,0,0.6)" // Reduced from 50px 10px
               zIndex="3"
               pointerEvents="none"
             />
