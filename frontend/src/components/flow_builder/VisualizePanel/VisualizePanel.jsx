@@ -1,45 +1,35 @@
 // src/components/flow_builder/VisualizePanel/VisualizePanel.jsx
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
-  Heading,
   Button,
   VStack,
   Text,
-  Switch,
-  FormControl,
-  FormLabel,
-  Divider,
-  IconButton,
   Tooltip,
   useColorModeValue,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from "@chakra-ui/react";
 import {
-  FiBarChart2,
   FiType,
   FiEye,
-  FiGrid,
-  FiPackage,
   FiMaximize2,
   FiZoomIn,
   FiZoomOut,
-  FiCamera,
-  FiRotateCcw,
-  FiChevronLeft,
-  FiChevronRight,
   FiDownload,
+  FiImage,
+  FiFileText,
+  FiUpload
 } from "react-icons/fi";
-
 import {
-  FaReact,
   FaAngleDoubleLeft,
   FaAngleDoubleRight
 } from 'react-icons/fa';
-
-// import lefticon from "../../../assets/icons/left-icon.svg";
-// import righticon from "../../../assets/icons/right-icon.svg";
-// import hidetext from "../../../assets/icons/hide-text.svg";
 
 const VisualizePanel = ({
   hideTextLabels,
@@ -53,29 +43,21 @@ const VisualizePanel = ({
   onToggleOrientation,
   onScreenshot,
   onExportFlow,
+  onExportFlowJSON,
+  onImportFlow,
   toggleSidebar,
   sidebarOpen,
 }) => {
-  const bgColor = useColorModeValue(
-    "vizpanel.body.light",
-    "vizpanel.body.dark"
-  );
-  const borderColor = useColorModeValue(
-    "vizpanel.border.light",
-    "vizpanel.border.dark"
-  );
-  const iconColor = useColorModeValue(
-    "vizpanel.icon.light",
-    "vizpanel.icon.dark"
-  );
-  const hoverBgColor = useColorModeValue(
-    "vizpanel.hover.light",
-    "vizpanel.hover.dark"
-  );
+  const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+
+  const bgColor = useColorModeValue("vizpanel.body.light", "vizpanel.body.dark");
+  const borderColor = useColorModeValue("vizpanel.border.light", "vizpanel.border.dark");
+  const iconColor = useColorModeValue("vizpanel.icon.light", "vizpanel.icon.dark");
+  const hoverBgColor = useColorModeValue("vizpanel.hover.light", "vizpanel.hover.dark");
   const activeBgColor = useColorModeValue("gray.200", "gray.600");
   const activeColor = useColorModeValue("blue.600", "blue.300");
   const textColor = useColorModeValue("gray.700", "gray.300");
-  // Style for buttons similar to NavPanel
+
   const getButtonStyle = (isActive = false) => ({
     w: "100%",
     h: "56px",
@@ -83,10 +65,12 @@ const VisualizePanel = ({
     borderRadius: 0,
     bg: isActive ? hoverBgColor : "transparent",
     color: isActive ? activeColor : iconColor,
-    _hover: {
-      bg: hoverBgColor,
-    },
+    _hover: { bg: hoverBgColor },
   });
+
+  const handleExportClick = () => {
+    setIsExportModalOpen(true);
+  };
 
   return (
     <Box
@@ -114,10 +98,7 @@ const VisualizePanel = ({
               <Button
                 {...getButtonStyle()}
                 onClick={toggleSidebar}
-                aria-label={
-                  sidebarOpen ? "Close Blocks Panel" : "Open Blocks Panel"
-                }
-                justifyContent="center"
+                aria-label={sidebarOpen ? "Close Blocks Panel" : "Open Blocks Panel"}
               >
                 {sidebarOpen ? (
                   <Flex alignItems="center" justifyContent="center">
@@ -167,6 +148,14 @@ const VisualizePanel = ({
               </Button>
             </Tooltip>
           </Box>
+          {/* Add Import Button */}
+          <Box w="100%">
+            <Tooltip label="Import Flow" placement="right" bg={useColorModeValue("gray.900", "gray.900")} hasArrow>
+              <Button {...getButtonStyle()} onClick={onImportFlow} aria-label="Import Flow">
+                <FiUpload size={24} />
+              </Button>
+            </Tooltip>
+          </Box>
 
           {/* Export Button */}
           <Box w="100%">
@@ -178,7 +167,7 @@ const VisualizePanel = ({
             >
               <Button
                 {...getButtonStyle()}
-                onClick={onExportFlow}
+                onClick={handleExportClick}
                 aria-label="Export Flow"
               >
                 <FiDownload size={24} />
@@ -187,7 +176,7 @@ const VisualizePanel = ({
           </Box>
         </VStack>
 
-        {/* Bottom Controls Group - will float to the bottom */}
+        {/* Bottom Controls Group */}
         <VStack spacing={0} align="center" w="100%" mb={2}>
           {/* Zoom Controls */}
           <Box w="100%" textAlign="center">
@@ -208,9 +197,7 @@ const VisualizePanel = ({
                 onClick={onZoomIn}
                 aria-label="Zoom In"
               >
-                <Box fontSize="35px" fontWeight="bold">
-                  +
-                </Box>
+                <Box fontSize="35px" fontWeight="bold">+</Box>
               </Button>
             </Tooltip>
           </Box>
@@ -227,9 +214,7 @@ const VisualizePanel = ({
                 onClick={onZoomOut}
                 aria-label="Zoom Out"
               >
-                <Box fontSize="35px" fontWeight="bold">
-                  −
-                </Box>
+                <Box fontSize="35px" fontWeight="bold">−</Box>
               </Button>
             </Tooltip>
           </Box>
@@ -252,10 +237,52 @@ const VisualizePanel = ({
           </Box>
         </VStack>
       </VStack>
+
+      {/* Export Modal */}
+      <Modal 
+        isOpen={isExportModalOpen} 
+        onClose={() => setIsExportModalOpen(false)}
+        isCentered
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Export Flow</ModalHeader>
+          <ModalBody>
+            <VStack spacing={4}>
+              <Button
+                leftIcon={<FiImage />}
+                width="100%"
+                onClick={() => {
+                  onExportFlow();
+                  setIsExportModalOpen(false);
+                }}
+              >
+                Export as PNG
+              </Button>
+              <Button
+                leftIcon={<FiFileText />}
+                width="100%"
+                onClick={() => {
+                  onExportFlowJSON();
+                  setIsExportModalOpen(false);
+                }}
+              >
+                Export as JSON
+              </Button>
+            </VStack>
+          </ModalBody>
+          <ModalFooter>
+            <Button 
+              variant="ghost" 
+              onClick={() => setIsExportModalOpen(false)}
+            >
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
 
 export default VisualizePanel;
-
-

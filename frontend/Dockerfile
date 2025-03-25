@@ -9,7 +9,7 @@ COPY package*.json ./
 
 
 
-RUN npm install
+RUN npm install --force
 
 # Copy only necessary source files
 COPY public/ ./public

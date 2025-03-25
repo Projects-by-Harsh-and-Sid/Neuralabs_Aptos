@@ -10,6 +10,15 @@ const simulateApiCall = (response, delay = 600) => {
   });
 };
 
+// Current date for generating creation dates
+const currentDate = new Date();
+const getRandomCreationDate = (index) => {
+  const daysAgo = 2 + (index * 7) % 60;  // Create a range of dates
+  const date = new Date(currentDate);
+  date.setDate(currentDate.getDate() - daysAgo);
+  return date.toISOString().split('T')[0]; // YYYY-MM-DD format
+};
+
 // Access Management API
 export const accessManagementApi = {
   // Get all access levels
@@ -20,8 +29,7 @@ export const accessManagementApi = {
       { id: 4, name: "Access Level 4", flows: ["item-7"] },
       { id: 3, name: "Access Level 3", flows: ["item-8"] },
       { id: 2, name: "Access Level 2", flows: ["item-9"] },
-      { id: 1, name: "Access Level 1", flows: [] },
-      { id: 0, name: "Flows Under Development", flows: [] }
+      { id: 1, name: "Access Level 1", flows: ["item-10"]}
     ]
   }),
   
@@ -29,66 +37,103 @@ export const accessManagementApi = {
   getAllFlows: () => simulateApiCall([
     {
       id: 'item-1',
-      name: 'Data Cleaner Pro',
+      name: 'Read Aptos Balance',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
-      accessLevel: 6
+      accessLevel: 6,
+      creationDate: getRandomCreationDate(0),
+      owner: "John Doe",
+      coOwner: "Jane Smith"
     },
     {
       id: 'item-2',
       name: 'Data Cleaner Pro',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
-      accessLevel: 6
+      accessLevel: 6,
+      creationDate: getRandomCreationDate(1),
+      owner: "John Doe",
+      coOwner: "Jane Smith"
     },
     {
       id: 'item-3',
       name: 'Data Cleaner Pro',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
-      accessLevel: 6
+      accessLevel: 6,
+      creationDate: getRandomCreationDate(2),
+      owner: "John Doe",
+      coOwner: "Jane Smith"
     },
     {
       id: 'item-4',
       name: 'Data Cleaner Pro',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
-      accessLevel: 6
+      accessLevel: 6,
+      creationDate: getRandomCreationDate(3),
+      owner: "John Doe",
+      coOwner: "Jane Smith"
     },
     {
       id: 'item-5',
       name: 'Gaussian Integral',
       description: 'Advanced mathematical analysis tool for complex calculations.',
       icon: 'G',
-      accessLevel: 5
+      accessLevel: 5,
+      creationDate: getRandomCreationDate(4),
+      owner: "Jane Smith",
+      coOwner: "John Doe"
     },
     {
       id: 'item-6',
       name: 'SQL Connector',
       description: 'Connect to and query SQL databases directly.',
       icon: 'S',
-      accessLevel: 5
+      accessLevel: 5,
+      creationDate: getRandomCreationDate(5),
+      owner: "Jane Smith",
+      coOwner: null
     },
     {
       id: 'item-7',
       name: 'Neural Network',
       description: 'Build and train neural networks with a simple interface.',
       icon: 'N',
-      accessLevel: 4
+      accessLevel: 4,
+      creationDate: getRandomCreationDate(6),
+      owner: "John Doe",
+      coOwner: null
     },
     {
       id: 'item-8',
       name: 'Feature Extractor',
       description: 'Extract features from text, images, and more.',
       icon: 'F',
-      accessLevel: 3
+      accessLevel: 3,
+      creationDate: getRandomCreationDate(7),
+      owner: "John Doe",
+      coOwner: "Jane Smith"
     },
     {
       id: 'item-9',
       name: 'Data Visualizer',
       description: 'Create beautiful visualizations of your data.',
       icon: 'D',
-      accessLevel: 2
+      accessLevel: 2,
+      creationDate: getRandomCreationDate(8),
+      owner: "Jane Smith",
+      coOwner: null
+    },
+    {
+      id: 'item-10',
+      name: 'Basic Calculator',
+      description: 'Simple calculator for basic operations.',
+      icon: 'C',
+      accessLevel: 1,
+      creationDate: getRandomCreationDate(9),
+      owner: "John Doe",
+      coOwner: null
     }
   ]),
   

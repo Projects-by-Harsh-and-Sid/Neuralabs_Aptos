@@ -5,6 +5,8 @@ import AccessSidebar from './AccessSidebar';
 import AccessMainContent from './AccessMainContent';
 import AccessDetailPanel from './AccessDetailPanel';
 import { accessManagementApi } from '../../utils/access-api';
+import AccessHomePage from './AccessHomePage'; // [ADDED] Import the new component
+
 
 const AccessPage = () => {
   const [accessLevels, setAccessLevels] = useState([]);
@@ -13,7 +15,7 @@ const AccessPage = () => {
   const [flowsData, setFlowsData] = useState([]);
   const [detailPanelOpen, setDetailPanelOpen] = useState(false);
   const [flowAccessDetails, setFlowAccessDetails] = useState(null);
-  
+  const [view, setView] = useState('home'); // Default to home view
   const toast = useToast();
 
   // Fetch access levels data
@@ -69,6 +71,17 @@ const AccessPage = () => {
     }
   };
 
+    // [ADDED] Handle view change from sidebar
+    const handleViewChange = (newView) => {
+      setView(newView);
+      if (newView !== 'home') {
+        setSelectedAccessLevel(newView.startsWith('level-') ? parseInt(newView.split('-')[1]) : 'all');
+      }
+      setDetailPanelOpen(false);
+      setSelectedFlow(null);
+    };
+
+    
   // Handle selection of a flow in the main content
   const handleFlowSelect = async (flowId) => {
     try {
@@ -117,20 +130,24 @@ const AccessPage = () => {
         selectedAccessLevel={selectedAccessLevel}
         onSelectAccessLevel={handleAccessLevelSelect}
         flowsData={flowsData}
+        onViewChange={handleViewChange} // [ADDED] Pass the view change handler
+        currentView={view} // [ADDED] Pass the current view
       />
       
-      {!detailPanelOpen ? (
+      {detailPanelOpen ? (
+        <AccessDetailPanel 
+          flowDetails={flowAccessDetails}
+          onClose={handleCloseDetailPanel}
+        />
+      ) : view === 'home' ? (
+        <AccessHomePage onSelectFlow={handleFlowSelect} />
+      ) : (
         <AccessMainContent 
           flows={getFilteredFlows()}
           selectedAccessLevel={selectedAccessLevel}
           onSelectFlow={handleFlowSelect}
           selectedFlow={selectedFlow}
           accessLevels={accessLevels}
-        />
-      ) : (
-        <AccessDetailPanel 
-          flowDetails={flowAccessDetails}
-          onClose={handleCloseDetailPanel}
         />
       )}
     </Flex>

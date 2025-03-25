@@ -1,0 +1,84 @@
+{
+  "sidebarOptions": [
+    {
+      "originalName": "Home (overview and preview)",
+      "newName": "Home",
+      "icon": "FiHome"
+    },
+    {
+      "originalName": "Chat -- redirect",
+      "newName": "Chat",
+      "icon": "FiMessageSquare"
+    },
+    {
+      "originalName": "Access -- view",
+      "newName": "Access",
+      "icon": "FiKey"
+    },
+    {
+      "originalName": "Edit Flow -- redirect",
+      "newName": "Edit Flow",
+      "icon": "FiEdit"
+    },
+    {
+      "originalName": "Edit Descriptions and Metadata (tags and stuff)",
+      "newName": "Metadata",
+      "icon": "FiTag"
+    },
+    {
+      "originalName": "Version -- pipy package history",
+      "newName": "Versions",
+      "icon": "FiClock"
+    },
+    {
+      "originalName": "Publish -- popup kedro",
+      "newName": "Publish",
+      "icon": "FiUpload"
+    },
+    {
+      "originalName": "Settings -- popup kedro (License, Socials and Stuff, delete, Archive )",
+      "newName": "Settings",
+      "icon": "FiSettings"
+    },
+    {
+      "originalName": "view flow - canvas component with flow data view (optional)",
+      "newName": "Flow View",
+      "icon": "FiLayout"
+    },
+    {
+      "originalName": "view on chain -- redirect",
+      "newName": "Blockchain",
+      "icon": "FiLink"
+    },
+    {
+      "originalName": "Usage Analytics",
+      "newName": "Analytics",
+      "icon": "FiBarChart2"
+    },
+    {
+      "originalName": "Download Flow locally json",
+      "newName": "Download",
+      "icon": "FiDownload"
+    },
+    {
+      "originalName": "Cost analysis",
+      "newName": "Cost",
+      "icon": "FiDollarSign"
+    },
+    {
+      "originalName": "Monetization",
+      "newName": "Monetization",
+      "icon": "FiCreditCard"
+    },
+    {
+      "originalName": "Dependent Flows",
+      "newName": "Dependencies",
+      "icon": "FiGitBranch"
+    },
+    {
+      "originalName": "Collaborators",
+      "newName": "Collaborators",
+      "icon": "FiUsers"
+    }
+  ]
+}

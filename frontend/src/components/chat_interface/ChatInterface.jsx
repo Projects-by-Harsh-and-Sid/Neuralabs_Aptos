@@ -38,7 +38,7 @@ import colors from "../../color";
 import { useColorModeValue } from "@chakra-ui/react";
 // Sample AI models/agents
 const AI_MODELS = [
-  { id: "grok-3", name: "Grok 3" },
+  { id: "portfolio", name: "Portfolio Manager" },
   { id: "grok-2", name: "Grok 2" },
   { id: "creative", name: "Creative Writer" },
   { id: "coder", name: "Code Assistant" },
@@ -132,6 +132,7 @@ const ChatInterface = ({
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const [aiagentSelected, setaiagentSelected] = useState(false);
+  const [lastQueryText, setLastQueryText] = useState(""); // State to store the last query
 
 
   // Get color variables
@@ -192,12 +193,16 @@ const ChatInterface = ({
 
 const handleSendMessage = () => {
     if (input.trim() === "") return;
+
+    
   
     // Check if this message has an @mention
     const hasAtMention = input.includes("@");
     let modelId = selectedModel.id;
     let cleanMessage = input;
     let useThinkMode = toolSelectionMode === "think";
+
+ 
   
     // If the message has @mention, extract the model name and remove it from message
     if (hasAtMention) {
@@ -243,6 +248,8 @@ const handleSendMessage = () => {
     console.log("Clean message:", cleanMessage);
     console.log("Selected model:", modelId);
     console.log("Using Think mode:", useThinkMode);
+
+    setLastQueryText(cleanMessage.trim());
     
     // Send the clean message with the appropriate model and think mode flag
     onSendMessage(cleanMessage.trim(), modelId, useThinkMode);
@@ -302,19 +309,43 @@ const handleSendMessage = () => {
           </Text>
         </Flex>
       ) : (
-        <Box flex="1" overflowY="auto" px={6} py={10}>
-          {messages.map((message) => (
-            <Message key={message.id} message={message} />
-          ))}
+<Box flex="1" overflowY="auto" px={6} py={10}>
+  {/* Render messages with ThinkingUI positioned after the last user message */}
+  {messages.map((message, index) => {
+    // First render the current message
+    const messageElement = (
+      <Message key={message.id} message={message} />
+    );
+    
+    // Check if this is a user message and if it's the last message or followed by a non-user message
+    const isLastUserMessage = 
+      message.role === "user" && 
+      (index === messages.length - 1 || messages[index + 1].role !== "user");
+    
+    // If it's the last user message and thinking is happening or was happening, 
+    // return both the message and ThinkingUI
+    if (isLastUserMessage) {
+      return (
+        <React.Fragment key={`fragment-${message.id}`}>
+          {messageElement}
+          <ThinkingUI 
+            thinkingState={thinkingState} 
+            query={lastQueryText} 
+            shouldPersist={true} 
+          />
+        </React.Fragment>
+      );
+    }
+    
+    // Otherwise just return the message
+    return messageElement;
+  })}
 
-          {/* Use the imported ThinkingUI component */}
-          {thinkingState.isThinking && (
-            <ThinkingUI thinkingState={thinkingState} />
-          )}
-
-          <div ref={messagesEndRef} />
-        </Box>
-      )}
+  <div ref={messagesEndRef} />
+</Box>
+      )
+      
+      }
 
       {/* Tools section */}
       {/* {isLanding && (
@@ -355,7 +386,7 @@ const handleSendMessage = () => {
         >
           <Textarea
             placeholder={
-              isLanding ? "What do you want to know?" : "How can Grok help?"
+              isLanding ? "What do you want to know?" : "How can Neura help?"
             }
             value={input}
             onChange={handleInputChange}
@@ -438,7 +469,7 @@ const handleSendMessage = () => {
               />
 
             <Menu placement={isLanding ? "bottom" : "top"} gutter={4}>
-                <MenuButton
+                {/* <MenuButton
                   as={Button}
                   rightIcon={<FiChevronDown />}
                   size="sm"
@@ -456,7 +487,7 @@ const handleSendMessage = () => {
                       ? "DeepSearch"
                       : "Think"}
                   </Flex>
-                </MenuButton>
+                </MenuButton> */}
                 <MenuList
                   bg={bgSecondary}
                   borderColor={borderColor}

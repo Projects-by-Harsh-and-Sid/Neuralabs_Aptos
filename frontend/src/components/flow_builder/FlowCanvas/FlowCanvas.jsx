@@ -58,7 +58,8 @@ const FlowCanvas = ({
   detailsPanelWidth = 300,
   hideTextLabels,
   viewOnlyMode = false,
-  nodeTypes = {}
+  nodeTypes = {},
+  onImportFlow
 }) => {
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
@@ -78,7 +79,11 @@ const FlowCanvas = ({
   const edgeHighlightColor = useColorModeValue('blue.500', 'blue.300');
   
 
-
+  // useEffect(() => {
+  //   if (onImportFlow && typeof onImportFlow === 'function') {
+  //     onImportFlow();
+  //   }
+  // }, [onImportFlow]);
 
   useEffect(() => {
     // Use external ref if provided, otherwise use internal ref
