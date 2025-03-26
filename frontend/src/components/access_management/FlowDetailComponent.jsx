@@ -20,33 +20,33 @@ const FlowDetailComponent = ({ flowDetails, onHoverItem, onLeaveItem }) => {
   const tagBgColor = useColorModeValue("gray.600", "gray.600");
 
   const defaultFlowData = {
-    name: "Image Classification Workflow",
-    description: "Classifies images into 10 categories using deep learning",
-    tags: ["AI", "Computer Vision", "Deep Learning"],
-    creationDate: "2025-02-10",
-    owner: "John Doe (0xABC123...)",
-    lastEdited: "2025-03-24 (1 day ago)",
+    name: "Portfolio Manager",
+    description: "An AI Blockchain driven portfolio management system that optimizes asset allocation and risk management in Aptos.",
+    tags: ["AI", "Blockchain", "Deep Learning"],
+    creationDate: "8 day ago (March-16-2025 07:15:39 UTC)",
+    owner: "0x22b7e94bb08eb07d59d1a56345e572a5b4409563bc0c0c8fd3eec0ec0bea8d46",
+    lastEdited: "1 day ago (March-23-2025 06:47:59 UTC)",
     license: "MIT",
     fork: "Original",
-    socials: "Twitter: @john_doe | GitHub: johndoe",
+    socials: "X: @harshp_16 | GitHub: harshpoddar03",
     actions: "Edit | Chat | Visualize | Duplicate",
     deploymentStatus: "Active",
-    md5: "479d52457ff6ed1fbb885da368cf2e91",
-    version: "v1.2",
-    publishedDate: "2025-03-25 (0 days ago)",
-    publishHash: "0x1234...abcd",
-    chain: "APT APTOS",
-    chainId: "1",
+    md5: "e67044f2cc088c8f5c359faf3c21e7e1",
+    version: "v0.2",
+    publishedDate: "1 day ago (March-23-2025 04:24:29 UTC)",
+    publishHash: "0x20dd388a619f40aaabc36da3314278d0ad763ceb814d838e9853cbe944159af3",
+    chain: "APTOS Testnet",
+    chainId: "0x1",
     chainStatus: "Active",
-    chainExplorer: "etherscan.io",
+    chainExplorer: "explorer.aptoslabs.com/?network=testnet",
     contractName: "NeuraSynthesis",
     contractVersion: "v0.01",
-    contractId: "0x9876...xyz",
+    contractId: "0x48b3475fd2c5d2ae55b80154ea006e6ed6ffb78c8e7dbfd14288168d7da3f7e6",
     nftId: "NFT-001",
-    nftMintHash: "0x5678...def",
+    nftMintHash: "0x20dd388a619f40aaabc36da3314278d0ad763ceb814d838e9853cbe944159af3",
     myAccess: "Level 6",
-    noOfAccess: "25",
-    monetization: "Subscription ($10/month) | One-time sale ($100)",
+    noOfAccess: "2",
+    monetization: "None",
   };
 
   const data = defaultFlowData;
@@ -84,7 +84,7 @@ const FlowDetailComponent = ({ flowDetails, onHoverItem, onLeaveItem }) => {
         onMouseEnter={() => handleHover("generalWorkflow")}
         onMouseLeave={handleLeave}
       >
-        General Workflow Summary
+    Workflow Summary
       </Heading>
 
       <VStack align="start" spacing={3} mb={4}>

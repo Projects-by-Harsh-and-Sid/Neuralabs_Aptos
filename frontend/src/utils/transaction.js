@@ -12,7 +12,7 @@ export const executeContractFunction = async (
     args,
     options = { maxGasAmount: "2000", gasUnitPrice: "100" }
   ) => {
-    if (!connected || wallet?.name !== "Pontem") {
+    if (!connected) {
       throw new Error("Wallet not connected or not Pontem");
     }
   
@@ -20,13 +20,15 @@ export const executeContractFunction = async (
       throw new Error("Account address not found");
     }
   
-    try {
+    // try {
       const payload = {
         type: "entry_function_payload",
         function: `${contractAddress}::${moduleName}::${functionName}`,
-        type_arguments: typeArguments || [],
-        arguments: args || [],
+        typeArguments: typeArguments || [],
+        functionArguments: args || [],
       };
+
+      console.log("Payload:", payload); // Log the payload for debugging
   
       const transaction = {
         sender: account.address,
@@ -34,16 +36,20 @@ export const executeContractFunction = async (
         options,
       };
   
+      console.log("Transaction:", transaction); // Log the transaction for debugging
+
       const response = await signAndSubmitTransaction(transaction);
+
+    console.log("Transaction response:", response); // Log the response for debugging
   
       if (response.hash) {
         console.log("Transaction hash:", response.hash);
         return response.hash; // Return hash for further use if needed
       }
-    } catch (error) {
-      console.error("Transaction failed:", error);
-      throw error; // Re-throw for caller to handle if needed
-    }
+    // } catch (error) {
+    //   console.error("Transaction failed:", error);
+    //   throw error; // Re-throw for caller to handle if needed
+    // }
   };
   
   // Wrapper to use with React components

@@ -95,10 +95,14 @@ const FlowActionPanel = ({ toggleSidebar, sidebarOpen }) => {
   const handlePublish = async ({ versionName, versionNumber, allPreviews }) => {
     try {
       // Replace with your contract details
-      const contractAddress = "0x123..."; // Your contract address
-      const moduleName = "SimpleModule"; // Your module name
-      const functionName = "set_value"; // Your function name
-      const value = parseInt(contractValue);
+      const contractAddress = "0x48b3475fd2c5d2ae55b80154ea006e6ed6ffb78c8e7dbfd14288168d7da3f7e6"; // Your contract address
+      const moduleName = "NFT"; // Your module name
+      const functionName = "create_nft"; // Your function name
+      const address = account.address; // The address of the account
+      console.log("Account Address:", address); // Log the account address
+      const name = "My NFT 2";
+      const levelofOwnership = 6;
+    
 
       if (!connected || !account) {
         toast({
@@ -122,9 +126,17 @@ const FlowActionPanel = ({ toggleSidebar, sidebarOpen }) => {
         moduleName,
         functionName,
         [], // type_arguments
-        [value], // arguments
-        { maxGasAmount: "2000", gasUnitPrice: "100" } // options
+        [name, levelofOwnership], // args
+        // { maxGasAmount: "2000", gasUnitPrice: "100" } // options
       );
+    // await executeContract(
+    //     contractAddress,
+    //     moduleName,
+    //     "initialize",
+    //     [], // type_arguments
+    //     [], // args
+    //     // { maxGasAmount: "2000", gasUnitPrice: "100" } // options
+    //   );
 
       toast({
         title: "Contract Executed",

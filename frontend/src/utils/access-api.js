@@ -47,7 +47,7 @@ export const accessManagementApi = {
     },
     {
       id: 'item-2',
-      name: 'Data Cleaner Pro',
+      name: 'X-Twitter Post API',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
       accessLevel: 6,
@@ -57,7 +57,7 @@ export const accessManagementApi = {
     },
     {
       id: 'item-3',
-      name: 'Data Cleaner Pro',
+      name: 'Image Classifier',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
       accessLevel: 6,
@@ -67,7 +67,7 @@ export const accessManagementApi = {
     },
     {
       id: 'item-4',
-      name: 'Data Cleaner Pro',
+      name: 'Text Summarizer',
       description: 'Data cleaner Pro is the only one stop solution for all your data cleaning needs.',
       icon: 'A',
       accessLevel: 6,
