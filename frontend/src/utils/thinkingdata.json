@@ -1,19 +1,35 @@
 {
-  "steps": [
+ "steps": [
     {
-      "name": "Thinking",
+      "name": "Workflow Initialization",
       "completed": false
     },
     {
-      "name": "Clarifying the request",
+      "name": "User Query & Context Collection",
       "completed": false
     },
     {
-      "name": "Searching",
+      "name": "Authentication & Security",
       "completed": false
     },
     {
-      "name": "Analyzing results",
+      "name": "Request Classification",
+      "completed": false
+    },
+    {
+      "name": "Analysis Path Execution",
+      "completed": false
+    },
+    {
+      "name": "Data Retrieval & Processing",
+      "completed": false
+    },
+    {
+      "name": "Portfolio Analysis & Recommendations",
+      "completed": false
+    },
+    {
+      "name": "Response Generation",
       "completed": false
     }
   ],

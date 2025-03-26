@@ -29,7 +29,7 @@ const ThinkingUI = ({ thinkingState, query = "", shouldPersist = true }) => {
   const [typedText, setTypedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const textToType = useRef("");
-  const typingSpeed = 30; // milliseconds per character
+  const typingSpeed = 150; // milliseconds per character
 
   // Color variables
   const borderColor = useColorModeValue("gray.200", "gray.700");
